@@ -85,9 +85,9 @@
   "voiceNote": "Computerstimme – Leonis Aufnahme folgt.",
   "audioMissing": "Für diesen Text gibt es noch keine Aufnahme.",
   "chooseSet": "Welches Set?",
-  "listenWord": "Wort anhören",
+  
   "listenSentence": "Satz anhören",
-  "crosswordListenHint": "Hör dir das Wort an und schreib es ohne Artikel ins Rätsel.",
+  "crosswordListenHint": "Hör dir den Satz an. Bei der Pause fehlt ein Wort – schreib es so ins Rätsel, wie es in den Satz passt.",
   "hangmanAll": "Alle",
   "hangmanCategory": "Kategorie: {name}",
   "@hangmanCategory": { "placeholders": { "name": { "type": "String" } } },

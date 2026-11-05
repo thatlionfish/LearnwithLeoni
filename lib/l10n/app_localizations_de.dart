@@ -290,14 +290,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get chooseSet => 'Welches Set?';
 
   @override
-  String get listenWord => 'Wort anhören';
-
-  @override
   String get listenSentence => 'Satz anhören';
 
   @override
   String get crosswordListenHint =>
-      'Hör dir das Wort an und schreib es ohne Artikel ins Rätsel.';
+      'Hör dir den Satz an. Bei der Pause fehlt ein Wort – schreib es so ins Rätsel, wie es in den Satz passt.';
 
   @override
   String get hangmanAll => 'Alle';

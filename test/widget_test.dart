@@ -253,10 +253,12 @@ void main() {
     tester,
   ) async {
     await pumpApp(tester, '/s/hoer1/ueben/kreuzwort?set=arzt');
-    expect(find.text('Listen to the word'), findsOneWidget);
+    expect(find.text('Listen to the word'), findsNothing);
+    expect(find.text('Listen to the sentence'), findsOneWidget);
+    expect(find.textContaining('___'), findsNothing); // Satz nur zum Hören
     expect(find.text('appointment'), findsNothing);
     expect(find.text('fever'), findsNothing);
-    await tester.tap(find.text('Listen to the word'));
+    await tester.tap(find.text('Listen to the sentence'));
     await tester.pump();
   });
 

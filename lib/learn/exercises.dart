@@ -95,6 +95,24 @@ List<QuizItem> choiceItems(
   ];
 }
 
+/// Beispielsatz mit Lücke (`___`) an der Stelle des Kartenworts – auch
+/// gebeugt, z. B. „leuchtende“ bei „leuchtend“. `null`, wenn das Wort im Satz
+/// nicht vorkommt. [found] ist die Form, die im Satz steht.
+({String sentence, String found})? gapInExample(VocabCard c) {
+  final ex = c.example;
+  if (ex == null) return null;
+  final word = stripArticle(c.term);
+  final m = RegExp(
+    '(?<![A-Za-zÄÖÜäöüß])${RegExp.escape(word)}[A-Za-zÄÖÜäöüß]*',
+    caseSensitive: false,
+  ).firstMatch(ex);
+  if (m == null) return null;
+  return (
+    sentence: ex.replaceRange(m.start, m.end, '___'),
+    found: ex.substring(m.start, m.end),
+  );
+}
+
 /// Lückentext: Leonis Lückensätze plus automatisch aus den Beispielsätzen.
 List<QuizItem> clozeItems(VocabSet set, {Random? random, int max = 10}) {
   final rnd = random ?? Random();
@@ -110,16 +128,10 @@ List<QuizItem> clozeItems(VocabSet set, {Random? random, int max = 10}) {
   ];
   final words = [for (final c in set.cards) stripArticle(c.term)];
   for (final c in set.cards) {
-    final ex = c.example;
-    if (ex == null) continue;
+    final gap = gapInExample(c);
+    if (gap == null) continue;
     final word = stripArticle(c.term);
-    // Das Wort (auch gebeugt am Wortanfang) im Satz finden.
-    final m = RegExp(
-      '\\b${RegExp.escape(word)}\\w*',
-      caseSensitive: false,
-    ).firstMatch(ex);
-    if (m == null) continue;
-    final found = ex.substring(m.start, m.end);
+    final found = gap.found;
     final distractors = [
       for (final w in words)
         if (w.toLowerCase() != word.toLowerCase()) w,
@@ -127,7 +139,7 @@ List<QuizItem> clozeItems(VocabSet set, {Random? random, int max = 10}) {
     items.add(
       QuizItem(
         id: 'auto-${c.id}',
-        sentence: ex.replaceRange(m.start, m.end, '___'),
+        sentence: gap.sentence,
         options: [found, ...distractors.take(2)]..shuffle(rnd),
         accepted: [found],
         translation: c.exampleTranslation,

@@ -8,6 +8,7 @@ import '../audio/speaker.dart';
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
 import '../learn/crossword.dart';
+import '../learn/exercises.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
@@ -72,7 +73,11 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
     final entries = [
       for (final s in widget.sets)
         for (final c in s.cards)
-          (answer: toGridWord(c.term), clue: c.translation, payload: c),
+          if (!widget.audioClues)
+            (answer: toGridWord(c.term), clue: c.translation, payload: c)
+          // Hör-Modus: nur Wörter mit Lückensatz; gesucht ist die Form im Satz.
+          else if (gapInExample(c) case final gap?)
+            (answer: toGridWord(gap.found), clue: gap.sentence, payload: c),
     ];
     _cw = buildCrossword(entries, maxWords: 10, random: widget.random);
     _solution = _cw.solution;
@@ -92,16 +97,10 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
     super.dispose();
   }
 
-  /// Hör-Modus: das Wort (mit Artikel) vorlesen.
-  void _speak(PlacedWord? w, {bool sentence = false}) {
-    final card = w?.payload;
-    if (!widget.audioClues || card is! VocabCard) return;
-    final text = sentence ? (card.example ?? card.term) : card.term;
-    Speaker.play(
-      url: sentence ? null : audioUrl(widget.code, card.audio),
-      text: text,
-      rate: 0.9,
-    );
+  /// Hör-Modus: den Satz vorlesen – an der Lücke kommt eine Pause.
+  void _speak(PlacedWord? w) {
+    if (!widget.audioClues || w == null) return;
+    Speaker.play(text: w.clue, rate: 0.9);
   }
 
   void _select(int r, int c) {
@@ -302,12 +301,13 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
                     const SizedBox(width: 12),
                     Expanded(
                       child: widget.audioClues
-                          ? _AudioClue(
-                              onWord: () => _speak(word),
-                              onSentence:
-                                  (word.payload as VocabCard?)?.example == null
-                                  ? null
-                                  : () => _speak(word, sentence: true),
+                          ? Align(
+                              alignment: Alignment.centerLeft,
+                              child: FilledButton.icon(
+                                onPressed: () => _speak(word),
+                                icon: const Icon(Icons.volume_up_rounded),
+                                label: Text(t.listenSentence),
+                              ),
                             )
                           : Text(word.clue, style: serif(19, weight: 440)),
                     ),
@@ -500,37 +500,6 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-/// Hör-Hinweis: Wort anhören, optional den Beispielsatz.
-class _AudioClue extends StatelessWidget {
-  const _AudioClue({required this.onWord, this.onSentence});
-
-  final VoidCallback onWord;
-  final VoidCallback? onSentence;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppLocalizations.of(context);
-    return Wrap(
-      spacing: 8,
-      runSpacing: 6,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: [
-        FilledButton.icon(
-          onPressed: onWord,
-          icon: const Icon(Icons.volume_up_rounded),
-          label: Text(t.listenWord),
-        ),
-        if (onSentence != null)
-          TextButton.icon(
-            onPressed: onSentence,
-            icon: const Icon(Icons.record_voice_over_outlined),
-            label: Text(t.listenSentence),
-          ),
-      ],
     );
   }
 }

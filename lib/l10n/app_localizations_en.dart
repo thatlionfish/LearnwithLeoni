@@ -290,14 +290,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chooseSet => 'Which set?';
 
   @override
-  String get listenWord => 'Listen to the word';
-
-  @override
   String get listenSentence => 'Listen to the sentence';
 
   @override
   String get crosswordListenHint =>
-      'Listen to the word and write it in the puzzle without the article.';
+      'Listen to the sentence. A word is missing at the pause – write it in the puzzle the way it fits the sentence.';
 
   @override
   String get hangmanAll => 'All';

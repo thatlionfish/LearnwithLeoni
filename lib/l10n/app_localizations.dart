@@ -560,12 +560,6 @@ abstract class AppLocalizations {
   /// **'Welches Set?'**
   String get chooseSet;
 
-  /// No description provided for @listenWord.
-  ///
-  /// In de, this message translates to:
-  /// **'Wort anhören'**
-  String get listenWord;
-
   /// No description provided for @listenSentence.
   ///
   /// In de, this message translates to:
@@ -575,7 +569,7 @@ abstract class AppLocalizations {
   /// No description provided for @crosswordListenHint.
   ///
   /// In de, this message translates to:
-  /// **'Hör dir das Wort an und schreib es ohne Artikel ins Rätsel.'**
+  /// **'Hör dir den Satz an. Bei der Pause fehlt ein Wort – schreib es so ins Rätsel, wie es in den Satz passt.'**
   String get crosswordListenHint;
 
   /// No description provided for @hangmanAll.

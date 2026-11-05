@@ -116,6 +116,30 @@ void main() {
     }
   });
 
+  test('Lücke im Beispielsatz – auch bei gebeugten Formen', () {
+    const c = VocabCard(
+      id: 'l',
+      term: 'leuchtend',
+      translation: 'bright',
+      example: 'Die Expressionisten liebten leuchtende Farben.',
+    );
+    final gap = gapInExample(c)!;
+    expect(gap.sentence, 'Die Expressionisten liebten ___ Farben.');
+    expect(gap.found, 'leuchtende');
+    expect(toGridWord(gap.found), 'LEUCHTENDE');
+    expect(
+      gapInExample(
+        const VocabCard(
+          id: 'x',
+          term: 'das Rad',
+          translation: 'x',
+          example: 'Die Fahrräder.',
+        ),
+      ),
+      isNull, // nur am Wortanfang, nicht mitten im Wort
+    );
+  });
+
   test('Lückentext aus Beispielsätzen', () {
     final items = clozeItems(set, random: Random(3));
     expect(items.single.sentence, 'Ich habe morgen einen ___.');

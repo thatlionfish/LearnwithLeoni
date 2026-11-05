@@ -77,9 +77,9 @@
   "voiceNote": "Computer voice – Leoni's recording is coming.",
   "audioMissing": "There's no recording for this text yet.",
   "chooseSet": "Which set?",
-  "listenWord": "Listen to the word",
+  
   "listenSentence": "Listen to the sentence",
-  "crosswordListenHint": "Listen to the word and write it in the puzzle without the article.",
+  "crosswordListenHint": "Listen to the sentence. A word is missing at the pause – write it in the puzzle the way it fits the sentence.",
   "hangmanAll": "All",
   "hangmanCategory": "Category: {name}",
   "hangmanHint": "Hint (costs 1 life)",
