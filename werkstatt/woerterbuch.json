@@ -1,0 +1,6 @@
+{
+  "hinweis": "Leonis Bündnerdütsch-Schreibweisen (nach Gehör). Claude verwendet immer zuerst diese Formen. Neue Wörter nur als Vorschlag mit \"verified\": false in die Sets schreiben.",
+  "eintraege": [
+    { "de": "BEISPIEL – bitte ersetzen", "gsw": ["…"], "notiz": "Mehrere gültige Schreibweisen als Liste, die erste ist die bevorzugte." }
+  ]
+}

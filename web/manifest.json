@@ -1,0 +1,17 @@
+{
+    "name": "LearnwithLeoni",
+    "short_name": "LearnwithLeoni",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#F1EEE6",
+    "theme_color": "#F1EEE6",
+    "description": "Deutsch und Bündnerdütsch lernen mit Leoni",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        { "src": "icons/Icon-192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "icons/Icon-512.png", "sizes": "512x512", "type": "image/png" },
+        { "src": "icons/Icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+        { "src": "icons/Icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    ]
+}

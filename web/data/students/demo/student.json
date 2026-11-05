@@ -1,0 +1,7 @@
+{
+  "name": "Anna",
+  "explainLanguage": "en",
+  "level": "A2",
+  "targets": ["de", "gsw"],
+  "sets": ["beim-arzt", "im-dorfladen"]
+}

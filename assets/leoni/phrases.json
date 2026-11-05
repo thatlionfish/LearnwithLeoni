@@ -1,0 +1,37 @@
+{
+  "greeting": [
+    { "text": "Schön, dass du da bist!", "en": "Great to see you!" },
+    { "text": "Bereit für ein paar Wörter?", "en": "Ready for a few words?" },
+    { "text": "Heute lernen wir gemeinsam weiter.", "en": "Let's keep learning together today." },
+    { "text": "Ein bisschen jeden Tag – das wirkt Wunder.", "en": "A little every day works wonders." },
+    { "text": "Ich freue mich, dass du übst!", "en": "I'm so happy you're practising!" }
+  ],
+  "streak": [
+    { "text": "Super gemacht!", "en": "Great job!" },
+    { "text": "Du bist richtig gut in Fahrt!", "en": "You're on a roll!" },
+    { "text": "Wow, das sitzt!", "en": "Wow, you've really got it!" },
+    { "text": "Genau so!", "en": "Exactly like that!" },
+    { "text": "Ich bin stolz auf dich!", "en": "I'm proud of you!" }
+  ],
+  "encourage": [
+    { "text": "Kein Problem – Fehler gehören dazu.", "en": "No problem – mistakes are part of learning." },
+    { "text": "Fast! Beim nächsten Mal klappt's.", "en": "Almost! You'll get it next time." },
+    { "text": "Dranbleiben, du schaffst das!", "en": "Keep going, you can do it!" },
+    { "text": "Jeder Versuch bringt dich weiter.", "en": "Every try moves you forward." },
+    { "text": "Schwierige Wörter kommen öfter – so lernst du sie.", "en": "Tricky words come back more often – that's how you learn them." }
+  ],
+  "done": [
+    { "text": "Geschafft! Toll gemacht.", "en": "Done! Well done." },
+    { "text": "Das war eine schöne Runde!", "en": "That was a lovely round!" },
+    { "text": "Dein Gehirn sagt danke.", "en": "Your brain says thank you." },
+    { "text": "Wunderbar – bis morgen!", "en": "Wonderful – see you tomorrow!" }
+  ],
+  "dayStreak": [
+    { "text": "Du übst jeden Tag – das ist super!", "en": "You practise every day – that's amazing!" },
+    { "text": "Deine Lernserie wächst!", "en": "Your learning streak is growing!" },
+    { "text": "So viel Ausdauer, ich freue mich!", "en": "So much dedication, I love it!" }
+  ],
+  "hint": [
+    { "text": "Hmm, lass uns kurz nachdenken …", "en": "Hmm, let's think for a moment …" }
+  ]
+}
