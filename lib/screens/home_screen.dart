@@ -6,7 +6,7 @@ import '../data/models.dart';
 import '../l10n/app_localizations.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
-import '../ui/theme.dart';
+import '../widgets/app_logo.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/settings_sheet.dart';
@@ -60,7 +60,7 @@ class _HomeViewState extends State<_HomeView> {
     final streak = data.days.streak();
 
     return PageFrame(
-      title: Text(t.appTitle, style: serif(20, weight: 440)),
+      title: const AppLogo(),
       actions: [
         IconButton(
           tooltip: t.settings,

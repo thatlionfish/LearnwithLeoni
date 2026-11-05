@@ -32,6 +32,7 @@ flutter:
   assets:
     - assets/leoni/
     - assets/kuma/
+    - assets/logo/logo.svg
 
   fonts:
     # Beide Schriften: SIL Open Font License, siehe assets/fonts/*-OFL.txt

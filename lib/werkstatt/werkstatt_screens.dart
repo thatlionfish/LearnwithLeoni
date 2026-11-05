@@ -12,6 +12,7 @@ import '../data/repository.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
+import '../widgets/app_logo.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
 import 'werkstatt_store.dart';
@@ -62,7 +63,14 @@ class _WerkstattHomeState extends State<WerkstattHome> {
     final text = Theme.of(context).textTheme;
     return PageFrame(
       seed: 4,
-      title: Text('Werkstatt', style: serif(22, weight: 440)),
+      title: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const AppLogo(showName: false),
+          const SizedBox(width: 10),
+          Text('Werkstatt', style: serif(22, weight: 440)),
+        ],
+      ),
       actions: [
         IconButton(
           tooltip: 'Neu laden',
