@@ -92,14 +92,27 @@ class _SetViewState extends State<_SetView> {
           spacing: 10,
           runSpacing: 10,
           children: [
-            for (final (i, type) in availableExercises(set).indexed)
+            for (final (i, (type, label, query)) in [
+              for (final type in availableExercises(set))
+                if (type == ExerciseType.listening)
+                  for (final l in set.listening)
+                    (
+                      type,
+                      set.listening.length > 1
+                          ? l.title
+                          : exerciseLabel(t, type),
+                      '&text=${l.id}',
+                    )
+                else
+                  (type, exerciseLabel(t, type), ''),
+            ].indexed)
               SizedBox(
                 width: 176,
                 child: OrganicCard(
                   seed: 80 + i,
                   onTap: () async {
                     await context.push(
-                      '/s/${widget.code}/ueben/${type.slug}?set=${set.id}',
+                      '/s/${widget.code}/ueben/${type.slug}?set=${set.id}$query',
                     );
                     if (mounted) setState(() {});
                   },
@@ -111,12 +124,7 @@ class _SetViewState extends State<_SetView> {
                     children: [
                       Icon(exerciseIcon(type), size: 22),
                       const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          exerciseLabel(t, type),
-                          style: text.titleSmall,
-                        ),
-                      ),
+                      Expanded(child: Text(label, style: text.titleSmall)),
                     ],
                   ),
                 ),

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../audio/speaker.dart';
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
 import '../learn/crossword.dart';
@@ -14,14 +15,19 @@ import '../widgets/exercise_kit.dart';
 import '../widgets/page_frame.dart';
 
 /// Kreuzworträtsel aus den Wörtern eines oder mehrerer Sets.
-/// Hinweis = Übersetzung in der Erklärsprache.
+/// Hinweis = Übersetzung in der Erklärsprache – oder im Hör-Modus das
+/// gesprochene deutsche Wort (für Schüler, die Zuhören üben sollen).
 class CrosswordScreen extends StatefulWidget {
   const CrosswordScreen({
     super.key,
     required this.code,
     required this.sets,
     this.random,
+    this.audioClues = false,
   });
+
+  /// Hör-Modus: Hinweise werden vorgelesen statt angezeigt.
+  final bool audioClues;
 
   final String code;
   final List<VocabSet> sets;
@@ -86,9 +92,22 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
     super.dispose();
   }
 
+  /// Hör-Modus: das Wort (mit Artikel) vorlesen.
+  void _speak(PlacedWord? w, {bool sentence = false}) {
+    final card = w?.payload;
+    if (!widget.audioClues || card is! VocabCard) return;
+    final text = sentence ? (card.example ?? card.term) : card.term;
+    Speaker.play(
+      url: sentence ? null : audioUrl(widget.code, card.audio),
+      text: text,
+      rate: 0.9,
+    );
+  }
+
   void _select(int r, int c) {
     if (_solution[r][c] == null) return;
     final words = _cw.wordsAt(r, c);
+    final before = _word;
     setState(() {
       // Zweimal auf dieselbe Zelle: Richtung wechseln.
       if (_cell == (r, c) && words.length > 1) {
@@ -98,6 +117,7 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
       }
       _cell = (r, c);
     });
+    if (_word != before) _speak(_word);
     _requestInput();
   }
 
@@ -106,6 +126,7 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
       _word = w;
       _cell = (w.row, w.col);
     });
+    _speak(w);
     _requestInput();
   }
 
@@ -280,12 +301,24 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: Text(word.clue, style: serif(19, weight: 440)),
+                      child: widget.audioClues
+                          ? _AudioClue(
+                              onWord: () => _speak(word),
+                              onSentence:
+                                  (word.payload as VocabCard?)?.example == null
+                                  ? null
+                                  : () => _speak(word, sentence: true),
+                            )
+                          : Text(word.clue, style: serif(19, weight: 440)),
                     ),
                     Text('${word.length}', style: text.labelMedium),
                   ],
                 ),
               ),
+            if (widget.audioClues) ...[
+              const SizedBox(height: 8),
+              Text(t.crosswordListenHint, style: text.bodySmall),
+            ],
             const SizedBox(height: 16),
             LayoutBuilder(
               builder: (context, box) {
@@ -344,10 +377,30 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
                           child: Text('${w.number}', style: text.labelMedium),
                         ),
                         Expanded(
-                          child: Text(
-                            w.clue,
-                            style: sans(15, weight: w == word ? 650 : 420),
-                          ),
+                          child: widget.audioClues
+                              ? Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.volume_up_rounded,
+                                      size: 18,
+                                    ),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      '${w.length}',
+                                      style: sans(
+                                        15,
+                                        weight: w == word ? 650 : 420,
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              : Text(
+                                  w.clue,
+                                  style: sans(
+                                    15,
+                                    weight: w == word ? 650 : 420,
+                                  ),
+                                ),
                         ),
                       ],
                     ),
@@ -447,6 +500,37 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Hör-Hinweis: Wort anhören, optional den Beispielsatz.
+class _AudioClue extends StatelessWidget {
+  const _AudioClue({required this.onWord, this.onSentence});
+
+  final VoidCallback onWord;
+  final VoidCallback? onSentence;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
+    return Wrap(
+      spacing: 8,
+      runSpacing: 6,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        FilledButton.icon(
+          onPressed: onWord,
+          icon: const Icon(Icons.volume_up_rounded),
+          label: Text(t.listenWord),
+        ),
+        if (onSentence != null)
+          TextButton.icon(
+            onPressed: onSentence,
+            icon: const Icon(Icons.record_voice_over_outlined),
+            label: Text(t.listenSentence),
+          ),
+      ],
     );
   }
 }

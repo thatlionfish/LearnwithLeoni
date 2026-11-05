@@ -21,7 +21,11 @@ class ExerciseScreen extends StatelessWidget {
     required this.code,
     required this.typeSlug,
     this.setId,
+    this.textId,
   });
+
+  /// Hörverstehen: welcher Hörtext (sonst der erste).
+  final String? textId;
 
   final String code;
   final String typeSlug;
@@ -44,12 +48,20 @@ class ExerciseScreen extends StatelessWidget {
       }
       // Kreuzworträtsel geht auch über alle Sets (Spiele-Kachel auf der Startseite).
       if (type == ExerciseType.crossword) {
-        return CrosswordScreen(code: code, sets: set == null ? sets : [set]);
+        return CrosswordScreen(
+          code: code,
+          sets: set == null ? sets : [set],
+          audioClues: data.content.student.crosswordAudio,
+        );
       }
       final s = set ?? sets.first;
       return switch (type) {
         ExerciseType.match => MatchScreen(code: code, set: s),
-        ExerciseType.listening => _ListeningScreen(code: code, set: s),
+        ExerciseType.listening => _ListeningScreen(
+          code: code,
+          set: s,
+          textId: textId,
+        ),
         _ => QuizScreen(code: code, set: s, type: type, others: sets),
       };
     },
@@ -348,7 +360,9 @@ class _Sentence extends StatelessWidget {
 
 /// Hörtext oben, Fragen darunter.
 class _ListeningScreen extends StatefulWidget {
-  const _ListeningScreen({required this.code, required this.set});
+  const _ListeningScreen({required this.code, required this.set, this.textId});
+
+  final String? textId;
 
   final String code;
   final VocabSet set;
@@ -364,7 +378,10 @@ class _ListeningScreenState extends State<_ListeningScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context);
     final text = Theme.of(context).textTheme;
-    final listening = widget.set.listening.first;
+    final listening = widget.set.listening.firstWhere(
+      (l) => l.id == widget.textId,
+      orElse: () => widget.set.listening.first,
+    );
     final header = OrganicCard(
       seed: 77,
       color: LeoColors.vanillaIce,

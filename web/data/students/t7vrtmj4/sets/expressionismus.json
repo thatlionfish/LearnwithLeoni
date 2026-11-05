@@ -1,0 +1,57 @@
+{
+  "id": "expressionismus",
+  "title": "Deutscher Expressionismus",
+  "titleTranslation": "German Expressionism",
+  "variety": "de",
+  "status": "published",
+  "cards": [
+    { "id": "expressionismus", "term": "der Expressionismus", "translation": "Expressionism", "example": "Der Expressionismus entstand Anfang des 20. Jahrhunderts in Deutschland.", "exampleTranslation": "Expressionism emerged in Germany at the beginning of the 20th century." },
+    { "id": "kuenstlergruppe", "term": "die Künstlergruppe", "plural": "die Künstlergruppen", "translation": "group of artists", "example": "Die Künstlergruppe „Die Brücke“ entstand 1905 in Dresden.", "exampleTranslation": "The artists' group 'Die Brücke' was formed in Dresden in 1905." },
+    { "id": "gruenden", "term": "gründen", "translation": "to found", "example": "Kandinsky und Marc wollten eine neue Gruppe gründen.", "exampleTranslation": "Kandinsky and Marc wanted to found a new group." },
+    { "id": "maler", "term": "der Maler", "plural": "die Maler", "translation": "painter", "example": "Ernst Ludwig Kirchner war ein expressionistischer Maler.", "exampleTranslation": "Ernst Ludwig Kirchner was an expressionist painter." },
+    { "id": "gemaelde", "term": "das Gemälde", "plural": "die Gemälde", "translation": "painting", "example": "Das Gemälde zeigt ein blaues Pferd.", "exampleTranslation": "The painting shows a blue horse." },
+    { "id": "leinwand", "term": "die Leinwand", "plural": "die Leinwände", "translation": "canvas", "example": "Er bringt die Farbe direkt auf die Leinwand.", "exampleTranslation": "He puts the paint directly onto the canvas." },
+    { "id": "pinselstrich", "term": "der Pinselstrich", "plural": "die Pinselstriche", "translation": "brushstroke", "example": "Auf diesem Bild sieht man jeden Pinselstrich.", "exampleTranslation": "In this picture you can see every brushstroke." },
+    { "id": "leuchtend", "term": "leuchtend", "translation": "bright, glowing", "example": "Die Expressionisten liebten leuchtende Farben.", "exampleTranslation": "The Expressionists loved bright colours." },
+    { "id": "verzerrt", "term": "verzerrt", "translation": "distorted", "example": "Die Gesichter auf dem Bild sind verzerrt.", "exampleTranslation": "The faces in the picture are distorted." },
+    { "id": "ausdruecken", "term": "ausdrücken", "translation": "to express", "example": "Die Künstler wollten ihre Gefühle ausdrücken.", "exampleTranslation": "The artists wanted to express their feelings." },
+    { "id": "gefuehl", "term": "das Gefühl", "plural": "die Gefühle", "translation": "feeling, emotion", "example": "Für die Expressionisten war das Gefühl wichtiger als die Wirklichkeit.", "exampleTranslation": "For the Expressionists, feeling was more important than reality." },
+    { "id": "holzschnitt", "term": "der Holzschnitt", "plural": "die Holzschnitte", "translation": "woodcut", "example": "Die Brücke-Künstler machten viele Holzschnitte.", "exampleTranslation": "The Brücke artists made many woodcuts." },
+    { "id": "selbstportraet", "term": "das Selbstporträt", "plural": "die Selbstporträts", "translation": "self-portrait", "example": "Kirchner malte im Laufe seines Lebens viele Selbstporträts.", "exampleTranslation": "Kirchner painted many self-portraits during his life." },
+    { "id": "grossstadt", "term": "die Großstadt", "plural": "die Großstädte", "translation": "big city", "example": "In Berlin malte Kirchner das hektische Leben der Großstadt.", "exampleTranslation": "In Berlin, Kirchner painted the hectic life of the big city." },
+    { "id": "ausstellung", "term": "die Ausstellung", "plural": "die Ausstellungen", "translation": "exhibition", "example": "Im Museum gibt es eine neue Ausstellung über den „Blauen Reiter“.", "exampleTranslation": "There is a new exhibition about 'Der Blaue Reiter' at the museum." }
+  ],
+  "cloze": [
+    { "id": "k1", "text": "Franz Marc malte oft Pferde, und zwar in ___.", "answers": ["Blau", "blau"], "options": ["Blau", "Grau", "Schwarz"], "translation": "Franz Marc often painted horses – in blue." },
+    { "id": "k2", "text": "„Der Blaue Reiter“ war eine Künstlergruppe in ___.", "answers": ["München"], "options": ["München", "Dresden", "Hamburg"], "translation": "'Der Blaue Reiter' was an artists' group in Munich." },
+    { "id": "k3", "text": "Die Expressionisten wollten nicht die Wirklichkeit zeigen, sondern ihre ___.", "answers": ["Gefühle"], "options": ["Gefühle", "Häuser", "Rechnungen"], "translation": "The Expressionists didn't want to show reality, but their feelings." },
+    { "id": "k4", "text": "Wir gehen am Samstag in eine ___ im Kunstmuseum.", "answers": ["Ausstellung"], "translation": "On Saturday we're going to an exhibition at the art museum." },
+    { "id": "k5", "text": "Kirchner lebte ab 1917 in den Bergen bei ___.", "answers": ["Davos"], "options": ["Davos", "Zermatt", "Luzern"], "translation": "From 1917, Kirchner lived in the mountains near Davos." }
+  ],
+  "listening": [
+    {
+      "id": "h1",
+      "title": "Eine Führung zum „Blauen Reiter“",
+      "titleTranslation": "A guided tour about 'Der Blaue Reiter'",
+      "text": "Führerin: Herzlich willkommen im Museum! Heute sprechen wir über den „Blauen Reiter“.\nFührerin: Diese Künstlergruppe entstand 1911 in München. Die wichtigsten Maler waren Wassily Kandinsky und Franz Marc.\nFührerin: Franz Marc liebte Tiere. Er malte oft Pferde – und zwar in Blau! Für ihn war Blau eine geistige Farbe.\nFührerin: Kandinsky ging noch weiter. Er malte bald keine Gegenstände mehr, sondern nur noch Farben und Formen.\nFührerin: Gleich sehen wir ein berühmtes Bild mit einem blauen Pferd. Bitte folgen Sie mir in den nächsten Saal.",
+      "questions": [
+        { "q": "Wo entstand der „Blaue Reiter“?", "options": ["In Dresden", "In München", "In Berlin"], "answer": 1, "translation": "Where was 'Der Blaue Reiter' formed?" },
+        { "q": "Was malte Franz Marc oft?", "options": ["Großstädte", "Selbstporträts", "Pferde"], "answer": 2, "translation": "What did Franz Marc often paint?" },
+        { "q": "Was bedeutete die Farbe Blau für Marc?", "options": ["Sie war eine geistige Farbe.", "Sie war eine traurige Farbe.", "Sie war die Farbe der Stadt."], "answer": 0, "translation": "What did the colour blue mean to Marc?" },
+        { "q": "Was malte Kandinsky später?", "options": ["Nur noch Tiere", "Nur noch Farben und Formen", "Nur noch Porträts"], "answer": 1, "translation": "What did Kandinsky paint later on?" }
+      ]
+    },
+    {
+      "id": "h2",
+      "title": "Kirchner in Davos",
+      "titleTranslation": "Kirchner in Davos",
+      "text": "Irene: Wusstest du, dass Ernst Ludwig Kirchner in der Schweiz gelebt hat?\nLeoni: Ja, in Davos! Er kam 1917 krank aus Berlin in die Berge.\nIrene: Und hat er dort weiter gemalt?\nLeoni: Ja, aber anders. In Berlin malte er die hektische Großstadt, in Davos die Berge und die Bauern.\nIrene: Kann man seine Bilder heute noch sehen?\nLeoni: Klar, im Kirchner Museum in Davos. Vielleicht fahren wir einmal zusammen hin!",
+      "questions": [
+        { "q": "Wo hat Kirchner später gelebt?", "options": ["In München", "In Davos", "In Wien"], "answer": 1, "translation": "Where did Kirchner live later on?" },
+        { "q": "Warum kam Kirchner in die Berge?", "options": ["Er wollte Ski fahren.", "Er hatte dort Familie.", "Er war krank."], "answer": 2, "translation": "Why did Kirchner come to the mountains?" },
+        { "q": "Was malte Kirchner in Berlin?", "options": ["Die Großstadt", "Die Berge", "Pferde"], "answer": 0, "translation": "What did Kirchner paint in Berlin?" },
+        { "q": "Wo kann man seine Bilder heute sehen?", "options": ["Nur in Berlin", "Nirgends mehr", "Im Kirchner Museum in Davos"], "answer": 2, "translation": "Where can you see his paintings today?" }
+      ]
+    }
+  ]
+}

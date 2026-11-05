@@ -18,6 +18,7 @@ class Student {
     required this.level,
     required this.targets,
     required this.setIds,
+    this.crosswordAudio = false,
   });
 
   factory Student.fromJson(String code, Map<String, dynamic> j) => Student(
@@ -29,6 +30,7 @@ class Student {
       for (final t in (j['targets'] as List?) ?? const ['de']) Variety.parse(t),
     ],
     setIds: [for (final s in (j['sets'] as List?) ?? const []) s as String],
+    crosswordAudio: j['crossword'] == 'audio',
   );
 
   final String code;
@@ -39,6 +41,10 @@ class Student {
   final String level;
   final List<Variety> targets;
   final List<String> setIds;
+
+  /// Kreuzworträtsel mit gesprochenen statt geschriebenen Hinweisen
+  /// ("crossword": "audio" in student.json).
+  final bool crosswordAudio;
 }
 
 /// Ein Vokabelset, wie es in `data/students/<code>/sets/<id>.json` steht.

@@ -97,6 +97,7 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
             code: state.pathParameters['code']!,
             typeSlug: state.pathParameters['type']!,
             setId: state.uri.queryParameters['set'],
+            textId: state.uri.queryParameters['text'],
           ),
         ),
         GoRoute(

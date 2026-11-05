@@ -55,7 +55,30 @@ const fHints = [
   },
 ];
 
+const arztSet = {
+  'id': 'arzt',
+  'title': 'Beim Arzt',
+  'titleTranslation': "At the doctor's",
+  'status': 'published',
+  'cards': [
+    {
+      'id': 'termin',
+      'term': 'der Termin',
+      'translation': 'appointment',
+      'example': 'Ich habe morgen einen Termin.',
+    },
+    {'id': 'fieber', 'term': 'das Fieber', 'translation': 'fever'},
+  ],
+};
+
 FakeSource demoSource() => FakeSource({
+  'students/hoer1/student.json': {
+    'name': 'Irene',
+    'explainLanguage': 'en',
+    'crossword': 'audio',
+    'sets': ['arzt'],
+  },
+  'students/hoer1/sets/arzt.json': arztSet,
   'abc/hints.json': {'hints': fHints},
   'students/anna1/student.json': {
     'name': 'Anna',
@@ -224,6 +247,17 @@ void main() {
     await tester.pump(const Duration(seconds: 61));
     await tester.pump(const Duration(milliseconds: 200));
     expect(find.text("That's the end of the show!"), findsOneWidget);
+  });
+
+  testWidgets('Hör-Kreuzworträtsel zeigt keine geschriebenen Hinweise', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/hoer1/ueben/kreuzwort?set=arzt');
+    expect(find.text('Listen to the word'), findsOneWidget);
+    expect(find.text('appointment'), findsNothing);
+    expect(find.text('fever'), findsNothing);
+    await tester.tap(find.text('Listen to the word'));
+    await tester.pump();
   });
 
   testWidgets('Unbekannter Code zeigt freundliche Meldung', (tester) async {
