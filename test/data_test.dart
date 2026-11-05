@@ -51,6 +51,15 @@ void main() {
         );
         for (final c in set.cards) {
           expect(c.term.trim(), isNotEmpty);
+          // Kumachans Umschreibung darf das Wort nicht verraten.
+          final word = c.term.replaceFirst(RegExp(r'^(der|die|das) '), '');
+          if (c.hint != null) {
+            expect(
+              c.hint!.toLowerCase().contains(word.toLowerCase()),
+              isFalse,
+              reason: 'Tipp verrät „$word“',
+            );
+          }
           expect(c.translation.trim(), isNotEmpty);
           if (c.audio != null) {
             expect(

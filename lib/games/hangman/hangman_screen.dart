@@ -8,7 +8,9 @@ import '../../audio/speaker.dart';
 import '../../data/models.dart';
 import '../../l10n/app_localizations.dart';
 import '../../learn/answer_check.dart';
+import '../../learn/hints.dart';
 import '../../widgets/exercise_kit.dart';
+import '../../widgets/kuma_helper.dart';
 import 'game.dart';
 import 'hangman_scene.dart';
 import 'palette.dart';
@@ -213,92 +215,103 @@ class _HangmanScreenState extends State<HangmanScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context);
-    return Theme(
-      data: buildBeigeTheme(),
-      child: Builder(
-        builder: (context) => DecoratedBox(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Palette.paper, Palette.paperDeep],
+    final card = _entry.card;
+    return KumaHelper(
+      itemKey: _entry,
+      hints: () => [
+        ...wordHints(description: card?.hint, term: card?.term, answer: ''),
+        'Fang mit häufigen Buchstaben an: E, N, R, S, I.',
+      ],
+      child: Theme(
+        data: buildBeigeTheme(),
+        child: Builder(
+          builder: (context) => DecoratedBox(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Palette.paper, Palette.paperDeep],
+              ),
             ),
-          ),
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              title: Text(t.gameHangman),
-              actions: [
-                _Stat(Icons.emoji_events_outlined, _wins, t.statWins),
-                _Stat(
-                  Icons.sentiment_dissatisfied_outlined,
-                  _losses,
-                  t.statLosses,
-                ),
-                _Stat(
-                  Icons.local_fire_department_outlined,
-                  _streak,
-                  t.statStreak(_bestStreak),
-                ),
-                const SizedBox(width: 8),
-              ],
-            ),
-            body: Focus(
-              focusNode: _focusNode,
-              autofocus: true,
-              onKeyEvent: _onKey,
-              child: SafeArea(
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    final scene = HangmanScene(
-                      game: _game,
-                      ambientAnimations: widget.ambientAnimations,
-                    );
-                    final controls = _buildControls(context, t);
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              appBar: AppBar(
+                title: Text(t.gameHangman),
+                actions: [
+                  _Stat(Icons.emoji_events_outlined, _wins, t.statWins),
+                  _Stat(
+                    Icons.sentiment_dissatisfied_outlined,
+                    _losses,
+                    t.statLosses,
+                  ),
+                  _Stat(
+                    Icons.local_fire_department_outlined,
+                    _streak,
+                    t.statStreak(_bestStreak),
+                  ),
+                  const SizedBox(width: 8),
+                ],
+              ),
+              body: Focus(
+                focusNode: _focusNode,
+                autofocus: true,
+                onKeyEvent: _onKey,
+                child: SafeArea(
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final scene = HangmanScene(
+                        game: _game,
+                        ambientAnimations: widget.ambientAnimations,
+                      );
+                      final controls = _buildControls(context, t);
 
-                    if (constraints.maxWidth >= 820) {
-                      return Center(
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 1200),
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(32, 8, 32, 32),
-                            child: Row(
-                              children: [
-                                Expanded(flex: 4, child: Center(child: scene)),
-                                const SizedBox(width: 48),
-                                Expanded(
-                                  flex: 6,
-                                  child: Center(
-                                    child: SingleChildScrollView(
-                                      child: controls,
+                      if (constraints.maxWidth >= 820) {
+                        return Center(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 1200),
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(32, 8, 32, 32),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 4,
+                                    child: Center(child: scene),
+                                  ),
+                                  const SizedBox(width: 48),
+                                  Expanded(
+                                    flex: 6,
+                                    child: Center(
+                                      child: SingleChildScrollView(
+                                        child: controls,
+                                      ),
                                     ),
                                   ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+                      return SingleChildScrollView(
+                        padding: const EdgeInsets.all(16),
+                        child: Center(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 600),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 260,
+                                  child: Center(child: scene),
                                 ),
+                                const SizedBox(height: 20),
+                                controls,
                               ],
                             ),
                           ),
                         ),
                       );
-                    }
-                    return SingleChildScrollView(
-                      padding: const EdgeInsets.all(16),
-                      child: Center(
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 600),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 260,
-                                child: Center(child: scene),
-                              ),
-                              const SizedBox(height: 20),
-                              controls,
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+                    },
+                  ),
                 ),
               ),
             ),
@@ -378,6 +391,8 @@ class _HangmanScreenState extends State<HangmanScreen> {
                   onLetter: _guess,
                 ),
         ),
+        // Platz für Kumachan unten rechts.
+        const SizedBox(height: 130),
       ],
     );
   }

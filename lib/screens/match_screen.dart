@@ -8,7 +8,9 @@ import '../learn/exercises.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
+import '../learn/hints.dart';
 import '../widgets/exercise_kit.dart';
+import '../widgets/kuma_helper.dart';
 import '../widgets/page_frame.dart';
 
 /// Zuordnen: links deutsche Wörter, rechts Übersetzungen (gemischt).
@@ -104,61 +106,77 @@ class _MatchScreenState extends State<MatchScreen> {
     }
     final text = Theme.of(context).textTheme;
     final left = _rounds[_round];
-    return LeoniToastHost(
-      key: _toastKey,
-      child: PageFrame(
-        showBack: true,
-        seed: 23,
-        title: Text(
-          '${t.exMatch} · ${t.progressOf(_round + 1, _rounds.length)}',
-          style: text.labelLarge,
-        ),
-        children: [
-          Text(t.matchInstruction, style: text.bodyMedium),
-          const SizedBox(height: 16),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    for (final (i, c) in left.indexed) ...[
-                      _Tile(
-                        label: c.term,
-                        seed: 200 + i,
-                        done: _done.contains(c.id),
-                        selected: _selectedLeft == c.id,
-                        onTap: _done.contains(c.id) ? null : () => _tapLeft(c),
-                        serifFont: true,
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ],
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  children: [
-                    for (final (i, c) in _right.indexed) ...[
-                      _Tile(
-                        label: c.translation,
-                        seed: 300 + i,
-                        done: _done.contains(c.id),
-                        wrong: _wrongRight == c.id,
-                        onTap: _done.contains(c.id) || _selectedLeft == null
-                            ? null
-                            : () => _tapRight(c),
-                      ),
-                      const SizedBox(height: 10),
-                    ],
-                  ],
-                ),
-              ),
-            ],
+    VocabCard? selected;
+    for (final c in left) {
+      if (c.id == _selectedLeft) selected = c;
+    }
+    return KumaHelper(
+      itemKey: _selectedLeft,
+      hints: () => selected == null
+          ? const ['Tippe zuerst links ein deutsches Wort an.']
+          : wordHints(
+              description: selected.hint,
+              term: selected.term,
+              answer: '',
+            ),
+      child: LeoniToastHost(
+        key: _toastKey,
+        child: PageFrame(
+          showBack: true,
+          seed: 23,
+          title: Text(
+            '${t.exMatch} · ${t.progressOf(_round + 1, _rounds.length)}',
+            style: text.labelLarge,
           ),
-          const SizedBox(height: 120),
-        ],
+          children: [
+            Text(t.matchInstruction, style: text.bodyMedium),
+            const SizedBox(height: 16),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      for (final (i, c) in left.indexed) ...[
+                        _Tile(
+                          label: c.term,
+                          seed: 200 + i,
+                          done: _done.contains(c.id),
+                          selected: _selectedLeft == c.id,
+                          onTap: _done.contains(c.id)
+                              ? null
+                              : () => _tapLeft(c),
+                          serifFont: true,
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    children: [
+                      for (final (i, c) in _right.indexed) ...[
+                        _Tile(
+                          label: c.translation,
+                          seed: 300 + i,
+                          done: _done.contains(c.id),
+                          wrong: _wrongRight == c.id,
+                          onTap: _done.contains(c.id) || _selectedLeft == null
+                              ? null
+                              : () => _tapRight(c),
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 120),
+          ],
+        ),
       ),
     );
   }

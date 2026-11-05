@@ -79,6 +79,9 @@
   "chooseSet": "Which set?",
   
   "listenSentence": "Listen to the sentence",
+  "kumaTip": "Hint",
+  "kumaAsk": "Ask Kumachan for a hint",
+  "kumaNoMore": "That's all my hints – you can do it!",
   "crosswordListenHint": "Listen to the sentence. A word is missing at the pause – write it in the puzzle the way it fits the sentence.",
   "hangmanAll": "All",
   "hangmanCategory": "Category: {name}",

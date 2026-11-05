@@ -225,7 +225,7 @@ class LeoniToastHostState extends State<LeoniToastHost> {
         widget.child,
         Positioned(
           left: 12,
-          right: 12,
+          right: 110, // rechts sitzt Kumachan
           bottom: 12,
           child: SafeArea(
             child: Align(

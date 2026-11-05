@@ -87,6 +87,9 @@
   "chooseSet": "Welches Set?",
   
   "listenSentence": "Satz anhören",
+  "kumaTip": "Tipp",
+  "kumaAsk": "Kumachan um einen Tipp bitten",
+  "kumaNoMore": "Mehr Tipps habe ich nicht – du schaffst das!",
   "crosswordListenHint": "Hör dir den Satz an. Bei der Pause fehlt ein Wort – schreib es so ins Rätsel, wie es in den Satz passt.",
   "hangmanAll": "Alle",
   "hangmanCategory": "Kategorie: {name}",

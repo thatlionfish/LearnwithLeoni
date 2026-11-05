@@ -95,35 +95,43 @@ Future<void> play({
   }
 
   // Satz für Satz sprechen: Chromes Online-Stimmen brechen lange Texte sonst
-  // nach etwa 15 Sekunden ab. „___“ wird als kurze Pause gesprochen.
-  final segments = <(String, bool)>[]; // (Text, danach Pause?)
+  // nach etwa 15 Sekunden ab. An einer Lücke „___“ summt die Stimme
+  // „Hm hm hm“, damit klar ist: hier fehlt ein Wort.
+  final segments = <(String, Duration)>[]; // (Text, Pause danach)
+  const short = Duration(milliseconds: 120);
   final parts = text.split('___');
   for (var p = 0; p < parts.length; p++) {
     final sentences = [
       for (final s in parts[p].split(RegExp(r'(?<=[.!?…])\s+|\n+')))
         if (RegExp(r'[A-Za-zÄÖÜäöüß0-9]').hasMatch(s)) s.trim(),
     ];
+    final gapFollows = p < parts.length - 1;
     for (var i = 0; i < sentences.length; i++) {
       final last = i == sentences.length - 1;
-      segments.add((sentences[i], last && p < parts.length - 1));
+      segments.add((sentences[i], last && gapFollows ? _gap ~/ 3 : short));
     }
+    if (gapFollows) segments.add((_hum, _gap ~/ 3));
   }
   _speakFrom(segments, 0, utter, _generation);
 }
 
+/// Wird an einer Lücke gesprochen.
+const _hum = 'Hm hm hm';
+
 void _speakFrom(
-  List<(String, bool)> segments,
+  List<(String, Duration)> segments,
   int i,
   web.SpeechSynthesisUtterance Function(String) utter,
   int generation,
 ) {
   if (i >= segments.length || generation != _generation) return;
-  final (part, gapAfter) = segments[i];
+  final (part, pause) = segments[i];
   final u = utter(part);
+  if (part == _hum) u.pitch = 1.15; // leicht höher, wie ein fragendes Summen
   if (i < segments.length - 1) {
     u.onend = ((web.Event _) {
       _gapTimer = Timer(
-        gapAfter ? _gap : const Duration(milliseconds: 120),
+        pause,
         () => _speakFrom(segments, i + 1, utter, generation),
       );
     }).toJS;

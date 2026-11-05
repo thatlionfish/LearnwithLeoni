@@ -293,6 +293,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get listenSentence => 'Satz anhören';
 
   @override
+  String get kumaTip => 'Tipp';
+
+  @override
+  String get kumaAsk => 'Kumachan um einen Tipp bitten';
+
+  @override
+  String get kumaNoMore => 'Mehr Tipps habe ich nicht – du schaffst das!';
+
+  @override
   String get crosswordListenHint =>
       'Hör dir den Satz an. Bei der Pause fehlt ein Wort – schreib es so ins Rätsel, wie es in den Satz passt.';
 

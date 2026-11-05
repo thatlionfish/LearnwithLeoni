@@ -2,6 +2,7 @@ import 'dart:math';
 
 import '../data/models.dart';
 import 'answer_check.dart';
+import 'hints.dart';
 
 /// Übungsarten, wie sie in der Adresse stehen: `#/s/<code>/ueben/<typ>`.
 enum ExerciseType {
@@ -35,6 +36,7 @@ class QuizItem {
     this.options = const [],
     this.translation,
     this.explanation,
+    this.hints = const [],
   });
 
   final String id;
@@ -60,6 +62,9 @@ class QuizItem {
   /// Übersetzung des Satzes oder Wortes, nach dem Antworten gezeigt.
   final String? translation;
   final String? explanation;
+
+  /// Kumachans Tipps, vom leichtesten zum stärksten (nie die Lösung).
+  final List<String> hints;
 
   bool get isChoice => options.isNotEmpty;
 }
@@ -90,6 +95,7 @@ List<QuizItem> choiceItems(
           options: options,
           accepted: [c.translation],
           translation: c.example,
+          hints: [?c.hint],
         );
       }(),
   ];
@@ -124,6 +130,7 @@ List<QuizItem> clozeItems(VocabSet set, {Random? random, int max = 10}) {
         options: [...c.options]..shuffle(rnd),
         accepted: c.answers,
         translation: c.translation,
+        hints: wordHints(description: c.hint, answer: c.answers.first),
       ),
   ];
   final words = [for (final c in set.cards) stripArticle(c.term)];
@@ -143,6 +150,7 @@ List<QuizItem> clozeItems(VocabSet set, {Random? random, int max = 10}) {
         options: [found, ...distractors.take(2)]..shuffle(rnd),
         accepted: [found],
         translation: c.exampleTranslation,
+        hints: wordHints(description: c.hint, term: c.term, answer: found),
       ),
     );
   }
@@ -161,6 +169,7 @@ List<QuizItem> dictationItems(VocabSet set, {Random? random, int max = 6}) {
           speak: c.example,
           accepted: [c.example!],
           translation: c.exampleTranslation,
+          hints: sentenceHints(c.example!),
         ),
   ]..shuffle(rnd);
   return items.take(max).toList();
@@ -175,6 +184,10 @@ List<QuizItem> listeningItems(ListeningText text) => [
       options: q.options,
       accepted: [q.options[q.answer]],
       translation: q.translation,
+      hints: const [
+        'Hör dir den Text nochmal an – auch langsam.',
+        'Du kannst den Text einblenden und nachlesen.',
+      ],
     ),
 ];
 

@@ -8,6 +8,7 @@ import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
 import '../widgets/exercise_kit.dart';
+import '../widgets/kuma_helper.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/student_loader.dart';
 import 'crossword_screen.dart';
@@ -194,7 +195,11 @@ class _QuizScreenState extends State<QuizScreen> {
         onAgain: () => setState(_build),
       );
     }
-    return LeoniToastHost(key: _toastKey, child: _question(context, t));
+    return KumaHelper(
+      itemKey: _index,
+      hints: () => _item.hints,
+      child: LeoniToastHost(key: _toastKey, child: _question(context, t)),
+    );
   }
 
   Widget _question(BuildContext context, AppLocalizations t) {

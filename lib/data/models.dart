@@ -104,6 +104,7 @@ class ClozeItem {
     required this.answers,
     this.options = const [],
     this.translation,
+    this.hint,
   });
 
   factory ClozeItem.fromJson(Map<String, dynamic> j) => ClozeItem(
@@ -112,10 +113,14 @@ class ClozeItem {
     answers: [for (final a in j['answers'] as List) a as String],
     options: [for (final o in (j['options'] as List?) ?? const []) o as String],
     translation: j['translation'] as String?,
+    hint: j['hint'] as String?,
   );
 
   final String id;
   final String text;
+
+  /// Umschreibung des gesuchten Worts (Kumachans Tipp).
+  final String? hint;
 
   /// Alle gültigen Antworten; die erste ist die Musterlösung.
   final List<String> answers;
@@ -193,6 +198,7 @@ class VocabCard {
     this.exampleTranslation,
     this.audio,
     this.verified = true,
+    this.hint,
   });
 
   factory VocabCard.fromJson(Map<String, dynamic> j) => VocabCard(
@@ -205,6 +211,7 @@ class VocabCard {
     exampleTranslation: j['exampleTranslation'] as String?,
     audio: j['audio'] as String?,
     verified: (j['verified'] as bool?) ?? true,
+    hint: j['hint'] as String?,
   );
 
   final String id;
@@ -224,4 +231,7 @@ class VocabCard {
 
   /// `false` = Bündnerdütsch-Schreibweise von Leoni noch nicht bestätigt.
   final bool verified;
+
+  /// Umschreibung auf Deutsch – Kumachans erster Tipp, nie die Lösung.
+  final String? hint;
 }

@@ -9,6 +9,8 @@ import '../data/models.dart';
 import '../l10n/app_localizations.dart';
 import '../learn/crossword.dart';
 import '../learn/exercises.dart';
+import '../learn/hints.dart';
+import '../widgets/kuma_helper.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
@@ -280,136 +282,148 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
       focusNode: _keys,
       autofocus: !_touch,
       onKeyEvent: _onKey,
-      child: LeoniToastHost(
-        key: _toastKey,
-        child: PageFrame(
-          showBack: true,
-          seed: 29,
-          title: Text(t.exCrossword, style: text.labelLarge),
-          children: [
-            if (word != null)
-              OrganicCard(
-                seed: 41,
-                color: LeoColors.vanillaIce,
-                padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
-                child: Row(
-                  children: [
-                    Text(
-                      '${word.number} ${word.dir == Dir.across ? t.across : t.down}',
-                      style: text.labelMedium,
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: widget.audioClues
-                          ? Align(
-                              alignment: Alignment.centerLeft,
-                              child: FilledButton.icon(
-                                onPressed: () => _speak(word),
-                                icon: const Icon(Icons.volume_up_rounded),
-                                label: Text(t.listenSentence),
-                              ),
-                            )
-                          : Text(word.clue, style: serif(19, weight: 440)),
-                    ),
-                    Text('${word.length}', style: text.labelMedium),
-                  ],
-                ),
-              ),
-            if (widget.audioClues) ...[
-              const SizedBox(height: 8),
-              Text(t.crosswordListenHint, style: text.bodySmall),
-            ],
-            const SizedBox(height: 16),
-            LayoutBuilder(
-              builder: (context, box) {
-                final size = min(42.0, (box.maxWidth - 4) / max(1, _cw.cols));
-                return Center(child: _grid(size));
-              },
-            ),
-            // Unsichtbares Eingabefeld, öffnet die Handy-Tastatur.
-            SizedBox(
-              height: 1,
-              child: Opacity(
-                opacity: 0,
-                child: TextField(
-                  controller: _input,
-                  focusNode: _focus,
-                  autocorrect: false,
-                  enableSuggestions: false,
-                  textCapitalization: TextCapitalization.characters,
-                  onChanged: _onInput,
-                ),
-              ),
-            ),
-            const SizedBox(height: 14),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: [
-                FilledButton(onPressed: _check, child: Text(t.check)),
-                TextButton.icon(
-                  onPressed: _reveal,
-                  icon: const Icon(Icons.lightbulb_outline_rounded),
-                  label: Text(t.revealLetter),
-                ),
-              ],
-            ),
-            const SizedBox(height: 22),
-            for (final dir in Dir.values) ...[
-              Text(
-                dir == Dir.across ? t.across : t.down,
-                style: text.titleMedium,
-              ),
-              const SizedBox(height: 6),
-              for (final w in _cw.words.where((w) => w.dir == dir))
-                InkWell(
-                  onTap: () => _selectWord(w),
-                  borderRadius: organicRadius(w.number, base: 10),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 7,
-                      horizontal: 6,
-                    ),
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 28,
-                          child: Text('${w.number}', style: text.labelMedium),
-                        ),
-                        Expanded(
-                          child: widget.audioClues
-                              ? Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.volume_up_rounded,
-                                      size: 18,
-                                    ),
-                                    const SizedBox(width: 6),
-                                    Text(
-                                      '${w.length}',
-                                      style: sans(
-                                        15,
-                                        weight: w == word ? 650 : 420,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              : Text(
-                                  w.clue,
-                                  style: sans(
-                                    15,
-                                    weight: w == word ? 650 : 420,
-                                  ),
+      child: KumaHelper(
+        itemKey: word,
+        hints: () {
+          final card = word?.payload;
+          if (word == null) return const <String>[];
+          return wordHints(
+            description: card is VocabCard ? card.hint : null,
+            term: card is VocabCard ? card.term : null,
+            answer: word.answer[0] + word.answer.substring(1).toLowerCase(),
+          );
+        },
+        child: LeoniToastHost(
+          key: _toastKey,
+          child: PageFrame(
+            showBack: true,
+            seed: 29,
+            title: Text(t.exCrossword, style: text.labelLarge),
+            children: [
+              if (word != null)
+                OrganicCard(
+                  seed: 41,
+                  color: LeoColors.vanillaIce,
+                  padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
+                  child: Row(
+                    children: [
+                      Text(
+                        '${word.number} ${word.dir == Dir.across ? t.across : t.down}',
+                        style: text.labelMedium,
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: widget.audioClues
+                            ? Align(
+                                alignment: Alignment.centerLeft,
+                                child: FilledButton.icon(
+                                  onPressed: () => _speak(word),
+                                  icon: const Icon(Icons.volume_up_rounded),
+                                  label: Text(t.listenSentence),
                                 ),
-                        ),
-                      ],
-                    ),
+                              )
+                            : Text(word.clue, style: serif(19, weight: 440)),
+                      ),
+                      Text('${word.length}', style: text.labelMedium),
+                    ],
                   ),
                 ),
+              if (widget.audioClues) ...[
+                const SizedBox(height: 8),
+                Text(t.crosswordListenHint, style: text.bodySmall),
+              ],
+              const SizedBox(height: 16),
+              LayoutBuilder(
+                builder: (context, box) {
+                  final size = min(42.0, (box.maxWidth - 4) / max(1, _cw.cols));
+                  return Center(child: _grid(size));
+                },
+              ),
+              // Unsichtbares Eingabefeld, öffnet die Handy-Tastatur.
+              SizedBox(
+                height: 1,
+                child: Opacity(
+                  opacity: 0,
+                  child: TextField(
+                    controller: _input,
+                    focusNode: _focus,
+                    autocorrect: false,
+                    enableSuggestions: false,
+                    textCapitalization: TextCapitalization.characters,
+                    onChanged: _onInput,
+                  ),
+                ),
+              ),
               const SizedBox(height: 14),
+              Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                children: [
+                  FilledButton(onPressed: _check, child: Text(t.check)),
+                  TextButton.icon(
+                    onPressed: _reveal,
+                    icon: const Icon(Icons.lightbulb_outline_rounded),
+                    label: Text(t.revealLetter),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 22),
+              for (final dir in Dir.values) ...[
+                Text(
+                  dir == Dir.across ? t.across : t.down,
+                  style: text.titleMedium,
+                ),
+                const SizedBox(height: 6),
+                for (final w in _cw.words.where((w) => w.dir == dir))
+                  InkWell(
+                    onTap: () => _selectWord(w),
+                    borderRadius: organicRadius(w.number, base: 10),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 7,
+                        horizontal: 6,
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 28,
+                            child: Text('${w.number}', style: text.labelMedium),
+                          ),
+                          Expanded(
+                            child: widget.audioClues
+                                ? Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.volume_up_rounded,
+                                        size: 18,
+                                      ),
+                                      const SizedBox(width: 6),
+                                      Text(
+                                        '${w.length}',
+                                        style: sans(
+                                          15,
+                                          weight: w == word ? 650 : 420,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : Text(
+                                    w.clue,
+                                    style: sans(
+                                      15,
+                                      weight: w == word ? 650 : 420,
+                                    ),
+                                  ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                const SizedBox(height: 14),
+              ],
+              const SizedBox(height: 100),
             ],
-            const SizedBox(height: 100),
-          ],
+          ),
         ),
       ),
     );

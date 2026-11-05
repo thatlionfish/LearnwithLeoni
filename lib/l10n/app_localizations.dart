@@ -566,6 +566,24 @@ abstract class AppLocalizations {
   /// **'Satz anhören'**
   String get listenSentence;
 
+  /// No description provided for @kumaTip.
+  ///
+  /// In de, this message translates to:
+  /// **'Tipp'**
+  String get kumaTip;
+
+  /// No description provided for @kumaAsk.
+  ///
+  /// In de, this message translates to:
+  /// **'Kumachan um einen Tipp bitten'**
+  String get kumaAsk;
+
+  /// No description provided for @kumaNoMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr Tipps habe ich nicht – du schaffst das!'**
+  String get kumaNoMore;
+
   /// No description provided for @crosswordListenHint.
   ///
   /// In de, this message translates to:

@@ -14,6 +14,8 @@ import '../../ui/organic.dart';
 import '../../ui/theme.dart';
 import '../../widgets/leoni.dart';
 import '../../widgets/page_frame.dart';
+import '../../learn/hints.dart';
+import '../../widgets/kuma_helper.dart';
 import 'abc_game.dart';
 
 enum _Phase { setup, onAir, done }
@@ -159,23 +161,40 @@ class _AbcRadioScreenState extends State<AbcRadioScreen> {
     final t = AppLocalizations.of(context);
     return switch (_phase) {
       _Phase.done => _doneView(t),
-      _ => PageFrame(
-        showBack: true,
-        seed: 31,
-        title: Text(t.abcTitle, style: Theme.of(context).textTheme.labelLarge),
-        children: [
-          _Radio(
-            letter: _letter,
-            onAir: _phase == _Phase.onAir,
-            timeLeft: _left,
-            seconds: _seconds,
-            score: _round?.score,
-            goal: _round?.goal,
+      _ => KumaHelper(
+        itemKey: _round?.current,
+        hints: () {
+          final h = _round?.current;
+          if (h == null || _phase != _Phase.onAir) {
+            return const ['Drück auf „Auf Sendung!“ – dann helfe ich dir.'];
+          }
+          return wordHints(
+            description: h.card?.hint,
+            term: h.card?.term,
+            answer: h.answers.first,
+          );
+        },
+        child: PageFrame(
+          showBack: true,
+          seed: 31,
+          title: Text(
+            t.abcTitle,
+            style: Theme.of(context).textTheme.labelLarge,
           ),
-          const SizedBox(height: 18),
-          if (_phase == _Phase.onAir) _playView(t) else _setupView(t),
-          const SizedBox(height: 60),
-        ],
+          children: [
+            _Radio(
+              letter: _letter,
+              onAir: _phase == _Phase.onAir,
+              timeLeft: _left,
+              seconds: _seconds,
+              score: _round?.score,
+              goal: _round?.goal,
+            ),
+            const SizedBox(height: 18),
+            if (_phase == _Phase.onAir) _playView(t) else _setupView(t),
+            const SizedBox(height: 120),
+          ],
+        ),
       ),
     };
   }

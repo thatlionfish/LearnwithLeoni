@@ -262,6 +262,25 @@ void main() {
     await tester.pump();
   });
 
+  testWidgets('Kumachan gibt Tipp um Tipp, aber nie die Lösung', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/hoer1/ueben/kreuzwort?set=arzt');
+    await tester.tap(find.text('Hint'));
+    await tester.pump();
+    expect(find.textContaining('Ein Nomen mit'), findsOneWidget);
+    await tester.tap(find.text('Hint').last);
+    await tester.pump();
+    expect(
+      find.textContaining('Es beginnt mit „T“ und hat 6 Buchstaben'),
+      findsOneWidget,
+    );
+    await tester.tap(find.text('Hint').last);
+    await tester.pump();
+    expect(find.textContaining("That's all my hints"), findsOneWidget);
+    expect(find.text('Termin'), findsNothing); // keine Lösung
+  });
+
   testWidgets('Unbekannter Code zeigt freundliche Meldung', (tester) async {
     await pumpApp(tester, '/s/gibtsnicht');
     expect(find.text("This link doesn't work"), findsOneWidget);

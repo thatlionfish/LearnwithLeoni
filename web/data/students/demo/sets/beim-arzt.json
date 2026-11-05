@@ -1,147 +1,158 @@
 {
-    "id":  "beim-arzt",
-    "title":  "Beim Arzt",
-    "titleTranslation":  "At the doctor\u0027s",
-    "variety":  "de",
-    "status":  "published",
-    "cards":  [
-                  {
-                      "id":  "termin",
-                      "term":  "der Termin",
-                      "plural":  "die Termine",
-                      "translation":  "appointment",
-                      "example":  "Ich habe morgen um neun Uhr einen Termin.",
-                      "exampleTranslation":  "I have an appointment tomorrow at nine."
-                  },
-                  {
-                      "id":  "praxis",
-                      "term":  "die Praxis",
-                      "plural":  "die Praxen",
-                      "translation":  "doctor\u0027s office, practice",
-                      "example":  "Die Praxis ist im ersten Stock.",
-                      "exampleTranslation":  "The practice is on the first floor."
-                  },
-                  {
-                      "id":  "schmerzen",
-                      "term":  "die Schmerzen",
-                      "translation":  "pain (plural)",
-                      "example":  "Ich habe Schmerzen im Rücken.",
-                      "exampleTranslation":  "I have back pain."
-                  },
-                  {
-                      "id":  "fieber",
-                      "term":  "das Fieber",
-                      "translation":  "fever",
-                      "example":  "Das Kind hat seit gestern Fieber.",
-                      "exampleTranslation":  "The child has had a fever since yesterday."
-                  },
-                  {
-                      "id":  "rezept",
-                      "term":  "das Rezept",
-                      "plural":  "die Rezepte",
-                      "translation":  "prescription",
-                      "example":  "Die Ärztin gibt mir ein Rezept.",
-                      "exampleTranslation":  "The doctor gives me a prescription."
-                  },
-                  {
-                      "id":  "apotheke",
-                      "term":  "die Apotheke",
-                      "plural":  "die Apotheken",
-                      "translation":  "pharmacy",
-                      "example":  "Die Apotheke hat bis 18 Uhr offen.",
-                      "exampleTranslation":  "The pharmacy is open until 6 p.m."
-                  },
-                  {
-                      "id":  "krank",
-                      "term":  "krank",
-                      "translation":  "sick, ill",
-                      "example":  "Ich bin krank und bleibe zu Hause.",
-                      "exampleTranslation":  "I\u0027m sick and staying at home."
-                  },
-                  {
-                      "id":  "versicherungskarte",
-                      "term":  "die Versicherungskarte",
-                      "plural":  "die Versicherungskarten",
-                      "translation":  "health insurance card",
-                      "example":  "Haben Sie Ihre Versicherungskarte dabei?",
-                      "exampleTranslation":  "Do you have your insurance card with you?"
-                  }
-              ],
-    "cloze":  [
-                  {
-                      "id":  "k1",
-                      "text":  "Ich muss einen Termin beim Arzt ___.",
-                      "answers":  [
-                                      "machen",
-                                      "vereinbaren"
-                                  ],
-                      "options":  [
-                                      "machen",
-                                      "kochen",
-                                      "fahren"
-                                  ],
-                      "translation":  "I have to make an appointment with the doctor."
-                  },
-                  {
-                      "id":  "k2",
-                      "text":  "Mit dem Rezept gehe ich in die ___.",
-                      "answers":  [
-                                      "Apotheke"
-                                  ],
-                      "options":  [
-                                      "Apotheke",
-                                      "Kasse",
-                                      "Schule"
-                                  ],
-                      "translation":  "With the prescription I go to the pharmacy."
-                  },
-                  {
-                      "id":  "k3",
-                      "text":  "Seit gestern habe ich hohes ___.",
-                      "answers":  [
-                                      "Fieber"
-                                  ],
-                      "translation":  "Since yesterday I\u0027ve had a high fever."
-                  }
-              ],
-    "listening":  [
-                      {
-                          "id":  "h1",
-                          "title":  "Am Telefon mit der Praxis",
-                          "titleTranslation":  "On the phone with the doctor\u0027s office",
-                          "text":  "Praxis: Praxis Dr. Caduff, guten Tag.\nAnna: Guten Tag, hier ist Anna Keller. Ich bin krank und möchte einen Termin.\nPraxis: Was fehlt Ihnen denn?\nAnna: Ich habe Fieber und Halsschmerzen.\nPraxis: Können Sie morgen um zehn Uhr kommen?\nAnna: Ja, das passt gut. Vielen Dank!\nPraxis: Bitte bringen Sie Ihre Versicherungskarte mit.",
-                          "questions":  [
-                                            {
-                                                "q":  "Warum ruft Anna an?",
-                                                "options":  [
-                                                                "Sie ist krank.",
-                                                                "Sie hat Geburtstag.",
-                                                                "Sie sucht eine Wohnung."
-                                                            ],
-                                                "answer":  0,
-                                                "translation":  "Why is Anna calling?"
-                                            },
-                                            {
-                                                "q":  "Wann ist der Termin?",
-                                                "options":  [
-                                                                "Heute um zehn Uhr",
-                                                                "Morgen um zehn Uhr",
-                                                                "Morgen um neun Uhr"
-                                                            ],
-                                                "answer":  1,
-                                                "translation":  "When is the appointment?"
-                                            },
-                                            {
-                                                "q":  "Was soll Anna mitbringen?",
-                                                "options":  [
-                                                                "Ein Rezept",
-                                                                "Ihre Versicherungskarte",
-                                                                "Ein Foto"
-                                                            ],
-                                                "answer":  1,
-                                                "translation":  "What should Anna bring?"
-                                            }
-                                        ]
-                      }
-                  ]
+  "id": "beim-arzt",
+  "title": "Beim Arzt",
+  "titleTranslation": "At the doctor's",
+  "variety": "de",
+  "status": "published",
+  "cards": [
+    {
+      "id": "termin",
+      "term": "der Termin",
+      "plural": "die Termine",
+      "translation": "appointment",
+      "example": "Ich habe morgen um neun Uhr einen Termin.",
+      "exampleTranslation": "I have an appointment tomorrow at nine.",
+      "hint": "Eine feste Zeit, zu der man zum Arzt oder zu einem Treffen geht."
+    },
+    {
+      "id": "praxis",
+      "term": "die Praxis",
+      "plural": "die Praxen",
+      "translation": "doctor's office, practice",
+      "example": "Die Praxis ist im ersten Stock.",
+      "exampleTranslation": "The practice is on the first floor.",
+      "hint": "Hier arbeitet die Ärztin. Zuerst sitzt man im Wartezimmer."
+    },
+    {
+      "id": "schmerzen",
+      "term": "die Schmerzen",
+      "translation": "pain (plural)",
+      "example": "Ich habe Schmerzen im Rücken.",
+      "exampleTranslation": "I have back pain.",
+      "hint": "Es tut weh, zum Beispiel im Kopf oder im Rücken."
+    },
+    {
+      "id": "fieber",
+      "term": "das Fieber",
+      "translation": "fever",
+      "example": "Das Kind hat seit gestern Fieber.",
+      "exampleTranslation": "The child has had a fever since yesterday.",
+      "hint": "Die Körpertemperatur ist zu hoch, zum Beispiel 39 Grad."
+    },
+    {
+      "id": "rezept",
+      "term": "das Rezept",
+      "plural": "die Rezepte",
+      "translation": "prescription",
+      "example": "Die Ärztin gibt mir ein Rezept.",
+      "exampleTranslation": "The doctor gives me a prescription.",
+      "hint": "Ein Papier von der Ärztin. Damit bekommt man Medikamente."
+    },
+    {
+      "id": "apotheke",
+      "term": "die Apotheke",
+      "plural": "die Apotheken",
+      "translation": "pharmacy",
+      "example": "Die Apotheke hat bis 18 Uhr offen.",
+      "exampleTranslation": "The pharmacy is open until 6 p.m.",
+      "hint": "Ein Geschäft, in dem man Medikamente kauft."
+    },
+    {
+      "id": "krank",
+      "term": "krank",
+      "translation": "sick, ill",
+      "example": "Ich bin krank und bleibe zu Hause.",
+      "exampleTranslation": "I'm sick and staying at home.",
+      "hint": "Nicht gesund."
+    },
+    {
+      "id": "versicherungskarte",
+      "term": "die Versicherungskarte",
+      "plural": "die Versicherungskarten",
+      "translation": "health insurance card",
+      "example": "Haben Sie Ihre Versicherungskarte dabei?",
+      "exampleTranslation": "Do you have your insurance card with you?",
+      "hint": "Eine kleine Karte. Man zeigt sie beim Arzt, damit die Versicherung bezahlt."
+    }
+  ],
+  "cloze": [
+    {
+      "id": "k1",
+      "text": "Ich muss einen Termin beim Arzt ___.",
+      "answers": [
+        "machen",
+        "vereinbaren"
+      ],
+      "options": [
+        "machen",
+        "kochen",
+        "fahren"
+      ],
+      "translation": "I have to make an appointment with the doctor.",
+      "hint": "Ein sehr häufiges Verb: etwas tun."
+    },
+    {
+      "id": "k2",
+      "text": "Mit dem Rezept gehe ich in die ___.",
+      "answers": [
+        "Apotheke"
+      ],
+      "options": [
+        "Apotheke",
+        "Kasse",
+        "Schule"
+      ],
+      "translation": "With the prescription I go to the pharmacy.",
+      "hint": "Ein Geschäft, in dem man Medikamente kauft."
+    },
+    {
+      "id": "k3",
+      "text": "Seit gestern habe ich hohes ___.",
+      "answers": [
+        "Fieber"
+      ],
+      "translation": "Since yesterday I've had a high fever.",
+      "hint": "Die Körpertemperatur ist zu hoch."
+    }
+  ],
+  "listening": [
+    {
+      "id": "h1",
+      "title": "Am Telefon mit der Praxis",
+      "titleTranslation": "On the phone with the doctor's office",
+      "text": "Praxis: Praxis Dr. Caduff, guten Tag.\nAnna: Guten Tag, hier ist Anna Keller. Ich bin krank und möchte einen Termin.\nPraxis: Was fehlt Ihnen denn?\nAnna: Ich habe Fieber und Halsschmerzen.\nPraxis: Können Sie morgen um zehn Uhr kommen?\nAnna: Ja, das passt gut. Vielen Dank!\nPraxis: Bitte bringen Sie Ihre Versicherungskarte mit.",
+      "questions": [
+        {
+          "q": "Warum ruft Anna an?",
+          "options": [
+            "Sie ist krank.",
+            "Sie hat Geburtstag.",
+            "Sie sucht eine Wohnung."
+          ],
+          "answer": 0,
+          "translation": "Why is Anna calling?"
+        },
+        {
+          "q": "Wann ist der Termin?",
+          "options": [
+            "Heute um zehn Uhr",
+            "Morgen um zehn Uhr",
+            "Morgen um neun Uhr"
+          ],
+          "answer": 1,
+          "translation": "When is the appointment?"
+        },
+        {
+          "q": "Was soll Anna mitbringen?",
+          "options": [
+            "Ein Rezept",
+            "Ihre Versicherungskarte",
+            "Ein Foto"
+          ],
+          "answer": 1,
+          "translation": "What should Anna bring?"
+        }
+      ]
+    }
+  ]
 }

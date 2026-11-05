@@ -5,11 +5,56 @@
   "variety": "de",
   "status": "published",
   "cards": [
-    { "id": "brot", "term": "das Brot", "plural": "die Brote", "translation": "bread", "example": "Ich nehme ein Brot, bitte.", "exampleTranslation": "I'll take a loaf of bread, please." },
-    { "id": "kaese", "term": "der Käse", "translation": "cheese", "example": "Der Käse kommt aus dem Tal.", "exampleTranslation": "The cheese comes from the valley." },
-    { "id": "milch", "term": "die Milch", "translation": "milk", "example": "Haben Sie frische Milch?", "exampleTranslation": "Do you have fresh milk?" },
-    { "id": "kasse", "term": "die Kasse", "plural": "die Kassen", "translation": "checkout, till", "example": "Bitte bezahlen Sie an der Kasse.", "exampleTranslation": "Please pay at the checkout." },
-    { "id": "tuete", "term": "die Tüte", "plural": "die Tüten", "translation": "bag", "example": "Brauchen Sie eine Tüte?", "exampleTranslation": "Do you need a bag?" },
-    { "id": "kosten", "term": "kosten", "translation": "to cost", "example": "Was kostet das?", "exampleTranslation": "How much does that cost?" }
+    {
+      "id": "brot",
+      "term": "das Brot",
+      "plural": "die Brote",
+      "translation": "bread",
+      "example": "Ich nehme ein Brot, bitte.",
+      "exampleTranslation": "I'll take a loaf of bread, please.",
+      "hint": "Man backt es aus Mehl. Zum Frühstück isst man es oft mit Butter."
+    },
+    {
+      "id": "kaese",
+      "term": "der Käse",
+      "translation": "cheese",
+      "example": "Der Käse kommt aus dem Tal.",
+      "exampleTranslation": "The cheese comes from the valley.",
+      "hint": "Man macht ihn aus Milch. In der Schweiz gibt es sehr viele Sorten."
+    },
+    {
+      "id": "milch",
+      "term": "die Milch",
+      "translation": "milk",
+      "example": "Haben Sie frische Milch?",
+      "exampleTranslation": "Do you have fresh milk?",
+      "hint": "Ein weißes Getränk, zum Beispiel von der Kuh."
+    },
+    {
+      "id": "kasse",
+      "term": "die Kasse",
+      "plural": "die Kassen",
+      "translation": "checkout, till",
+      "example": "Bitte bezahlen Sie an der Kasse.",
+      "exampleTranslation": "Please pay at the checkout.",
+      "hint": "Hier bezahlt man im Laden."
+    },
+    {
+      "id": "tuete",
+      "term": "die Tüte",
+      "plural": "die Tüten",
+      "translation": "bag",
+      "example": "Brauchen Sie eine Tüte?",
+      "exampleTranslation": "Do you need a bag?",
+      "hint": "Darin trägt man die Einkäufe nach Hause."
+    },
+    {
+      "id": "kosten",
+      "term": "kosten",
+      "translation": "to cost",
+      "example": "Was kostet das?",
+      "exampleTranslation": "How much does that cost?",
+      "hint": "Diesen Preis muss man bezahlen."
+    }
   ]
 }
