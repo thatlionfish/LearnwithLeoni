@@ -302,6 +302,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get kumaTip => 'Hint';
 
   @override
+  String get kumaStrip => 'Stuck? Tap Kumachan for a hint.';
+
+  @override
   String get kumaAsk => 'Ask Kumachan for a hint';
 
   @override

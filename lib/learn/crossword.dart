@@ -131,10 +131,12 @@ class _Grid {
   final Map<(int, int), String> cells = {};
   final List<_Raw> placed = [];
 
-  int get minR => cells.keys.map((k) => k.$1).fold(1 << 30, min);
-  int get maxR => cells.keys.map((k) => k.$1).fold(-(1 << 30), max);
-  int get minC => cells.keys.map((k) => k.$2).fold(1 << 30, min);
-  int get maxC => cells.keys.map((k) => k.$2).fold(-(1 << 30), max);
+  // Grenzen werden beim Eintragen mitgeführt, statt jedes Mal alle Zellen
+  // zu durchsuchen (das machte das Rätsel auf Handys spürbar langsam).
+  int minR = 1 << 30;
+  int maxR = -(1 << 30);
+  int minC = 1 << 30;
+  int maxC = -(1 << 30);
   int get area => cells.isEmpty ? 0 : (maxR - minR + 1) * (maxC - minC + 1);
 
   void tryPlace(String word, String clue, Object? payload, Random rnd) {
@@ -143,7 +145,8 @@ class _Grid {
       _put(_Raw(word, clue, payload, 0, 0, Dir.across));
       return;
     }
-    final options = <(int, int, Dir, int)>[];
+    // (Zeile, Spalte, Richtung, Kreuzungen, Fläche danach)
+    final options = <(int, int, Dir, int, int)>[];
     for (final p in placed) {
       for (var i = 0; i < p.answer.length; i++) {
         for (var j = 0; j < word.length; j++) {
@@ -154,7 +157,9 @@ class _Grid {
               : (p.row + i, p.col);
           final (r, c) = dir == Dir.across ? (pr, pc - j) : (pr - j, pc);
           final crossings = _fits(word, r, c, dir);
-          if (crossings > 0) options.add((r, c, dir, crossings));
+          if (crossings > 0) {
+            options.add((r, c, dir, crossings, _areaWith(word, r, c, dir)));
+          }
         }
       }
     }
@@ -162,13 +167,7 @@ class _Grid {
     // Mehr Kreuzungen und kleineres Gitter bevorzugen.
     options.sort((a, b) {
       final byCross = b.$4.compareTo(a.$4);
-      if (byCross != 0) return byCross;
-      return _areaWith(
-        word,
-        a.$1,
-        a.$2,
-        a.$3,
-      ).compareTo(_areaWith(word, b.$1, b.$2, b.$3));
+      return byCross != 0 ? byCross : a.$5.compareTo(b.$5);
     });
     final pick = options[rnd.nextInt(min(2, options.length))];
     _put(_Raw(word, clue, payload, pick.$1, pick.$2, pick.$3));
@@ -212,6 +211,12 @@ class _Grid {
     for (var i = 0; i < raw.answer.length; i++) {
       cells[(raw.row + dr * i, raw.col + dc * i)] = raw.answer[i];
     }
+    final endR = raw.row + dr * (raw.answer.length - 1);
+    final endC = raw.col + dc * (raw.answer.length - 1);
+    minR = min(minR, raw.row);
+    minC = min(minC, raw.col);
+    maxR = max(maxR, endR);
+    maxC = max(maxC, endC);
     placed.add(raw);
   }
 

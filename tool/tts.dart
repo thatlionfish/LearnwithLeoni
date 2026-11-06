@@ -40,6 +40,10 @@ const maleVoices = [
   'de-DE-RalfNeural',
 ];
 
+/// Kumachan: Kinderstimme, deutlich höher – süss und ein bisschen quietschig.
+const kumaVoice = 'de-DE-GiselaNeural';
+const kumaPitch = '+22%';
+
 /// Etwas langsamer als normal – natürlich, aber gut verständlich.
 const rate = '-6%';
 const ttsDir = 'audio/tts';
@@ -153,7 +157,12 @@ Future<void> main(List<String> args) async {
 
         final hint = card['hint'] as String?;
         if (hint != null) {
-          final rel = await make('$id-tipp', _say(hint), v: voice);
+          // Kumachan liest seine Tipps selbst – mit süsser, quietschiger Stimme.
+          final rel = await make(
+            '$id-tipp',
+            '<prosody pitch="$kumaPitch" rate="+4%">${_say(hint)}</prosody>',
+            v: kumaVoice,
+          );
           if (rel != null && card['hintAudio'] != rel) {
             card['hintAudio'] = rel;
             changed = true;

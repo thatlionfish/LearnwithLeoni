@@ -89,5 +89,19 @@ void main() {
     '<rect width="512" height="512" fill="$coconut"/>\n'
     '<g transform="translate(46 46) scale(0.82)">\n${scene()}\n</g>\n</svg>\n',
   );
-  stdout.writeln('assets/logo/logo.svg, assets/logo/icon.svg');
+  // Browser-Tab: eng auf die beiden Gesichter zugeschnitten, mit Hintergrund,
+  // damit man sie auch in 16 × 16 Pixeln erkennt.
+  File('web/favicon.svg').writeAsStringSync(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="86 96 340 340" width="64" height="64">\n'
+    '<rect x="86" y="96" width="340" height="340" rx="70" fill="$vanilla"/>\n'
+    '<g stroke="$ink" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">\n'
+    '${leoniBust()}\n${kumaBust()}\n</g>\n'
+    '${heart(262, 120, 3.2)}\n</svg>\n',
+  );
+  // Startbildschirm im Browser, bevor die App geladen ist.
+  File('web/splash.svg')
+      .writeAsStringSync(File('assets/logo/logo.svg').readAsStringSync());
+  stdout.writeln(
+    'assets/logo/logo.svg, assets/logo/icon.svg, web/favicon.svg, web/splash.svg',
+  );
 }

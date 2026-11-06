@@ -13,6 +13,7 @@ Future<void> play({
   String? text,
   required String lang,
   required double rate,
+  double pitch = 1,
 }) async {
   final root = localRoot;
   // Keine Computerstimme unter Windows.

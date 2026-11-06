@@ -13,6 +13,7 @@ import 'screens/home_screen.dart';
 import 'screens/learn_screen.dart';
 import 'screens/message_screen.dart';
 import 'screens/set_screen.dart';
+import 'ui/proportional_scale.dart';
 import 'ui/theme.dart';
 import 'widgets/leoni.dart';
 import 'widgets/student_loader.dart';
@@ -199,6 +200,9 @@ class _LearnWithLeoniAppState extends State<LearnWithLeoniApp> {
             GlobalCupertinoLocalizations.delegate,
           ],
           routerConfig: _router,
+          // Auf grossen Bildschirmen alles gleichmässig grösser zeichnen,
+          // damit die App nicht als kleine Spalte in viel Leere steht.
+          builder: (context, child) => ProportionalScale(child: child!),
         ),
       ),
     );

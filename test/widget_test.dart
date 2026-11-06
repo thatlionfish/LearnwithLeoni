@@ -294,6 +294,8 @@ void main() {
     await tester.tap(find.text('Check'));
     await tester.pumpAndSettle();
     expect(find.text('Watch the capital and small letters:'), findsOneWidget);
+    await tester.ensureVisible(find.text('Next'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
     expect(find.text('0 of 1 correct'), findsOneWidget);

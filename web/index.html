@@ -15,16 +15,51 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="LearnwithLeoni">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="icons/Icon-192.png?v=3">
+  <!-- Logo im Browser-Tab (SVG, sonst PNG); ?v= erzwingt das neue Symbol -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=3">
 
   <title>LearnwithLeoni</title>
   <link rel="manifest" href="manifest.json">
   <style>
     html, body { margin: 0; background: #F1EEE6; }
+    /* Startbildschirm mit dem Logo, bis die App geladen ist */
+    #splash {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 18px;
+      background: #F1EEE6; z-index: 10;
+      transition: opacity 400ms ease;
+    }
+    #splash img {
+      width: min(46vw, 220px); height: auto;
+      animation: breathe 2.4s ease-in-out infinite;
+    }
+    #splash p {
+      margin: 0; color: #685A4E; letter-spacing: 0.02em;
+      font: 500 20px Georgia, "Times New Roman", serif;
+    }
+    #splash.gone { opacity: 0; pointer-events: none; }
+    @keyframes breathe { 50% { transform: scale(1.04); } }
+    @media (prefers-reduced-motion: reduce) { #splash img { animation: none; } }
   </style>
 </head>
 <body>
+  <div id="splash" aria-label="LearnwithLeoni wird geladen">
+    <img src="splash.svg?v=3" alt="">
+    <p>LearnwithLeoni</p>
+  </div>
+  <script>
+    // Startbildschirm ausblenden, sobald Flutter das erste Bild gezeichnet hat.
+    window.addEventListener('flutter-first-frame', function () {
+      var s = document.getElementById('splash');
+      if (!s) return;
+      setTimeout(function () {
+        s.classList.add('gone');
+        setTimeout(function () { s.remove(); }, 450);
+      }, 300);
+    });
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

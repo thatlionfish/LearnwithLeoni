@@ -74,6 +74,7 @@ Future<void> play({
   String? text,
   required String lang,
   required double rate,
+  double pitch = 1,
 }) async {
   stop();
   if (url != null) {
@@ -89,7 +90,8 @@ Future<void> play({
   web.SpeechSynthesisUtterance utter(String part) {
     final u = web.SpeechSynthesisUtterance(part)
       ..lang = voice?.lang ?? lang
-      ..rate = rate * 0.95;
+      ..rate = rate * 0.95
+      ..pitch = pitch;
     if (voice != null) u.voice = voice;
     return u;
   }

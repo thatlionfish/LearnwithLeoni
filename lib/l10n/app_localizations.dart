@@ -584,6 +584,12 @@ abstract class AppLocalizations {
   /// **'Tipp'**
   String get kumaTip;
 
+  /// No description provided for @kumaStrip.
+  ///
+  /// In de, this message translates to:
+  /// **'Hängst du fest? Tippe auf Kumachan.'**
+  String get kumaStrip;
+
   /// No description provided for @kumaAsk.
   ///
   /// In de, this message translates to:

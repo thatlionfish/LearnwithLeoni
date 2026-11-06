@@ -19,7 +19,8 @@ abstract final class Speaker {
     String? text,
     String lang = 'de-DE',
     double rate = 1,
-  }) => impl.play(url: url, text: text, lang: lang, rate: rate);
+    double pitch = 1,
+  }) => impl.play(url: url, text: text, lang: lang, rate: rate, pitch: pitch);
 
   /// Werkstatt: eine Datei direkt abspielen (frische Aufnahme anhören).
   static Future<void> playFile(String absolutePath) =>
