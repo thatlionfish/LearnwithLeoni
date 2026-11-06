@@ -12,7 +12,11 @@
       "translation": "appointment",
       "example": "Ich habe morgen um neun Uhr einen Termin.",
       "exampleTranslation": "I have an appointment tomorrow at nine.",
-      "hint": "Eine feste Zeit, zu der man zum Arzt oder zu einem Treffen geht."
+      "hint": "Eine feste Zeit, zu der man zum Arzt oder zu einem Treffen geht.",
+      "audio": "audio/tts/beim-arzt-termin.mp3",
+      "exampleAudio": "audio/tts/beim-arzt-termin-satz.mp3",
+      "gapAudio": "audio/tts/beim-arzt-termin-luecke.mp3",
+      "hintAudio": "audio/tts/beim-arzt-termin-tipp.mp3"
     },
     {
       "id": "praxis",
@@ -21,7 +25,11 @@
       "translation": "doctor's office, practice",
       "example": "Die Praxis ist im ersten Stock.",
       "exampleTranslation": "The practice is on the first floor.",
-      "hint": "Hier arbeitet die Ärztin. Zuerst sitzt man im Wartezimmer."
+      "hint": "Hier arbeitet die Ärztin. Zuerst sitzt man im Wartezimmer.",
+      "audio": "audio/tts/beim-arzt-praxis.mp3",
+      "exampleAudio": "audio/tts/beim-arzt-praxis-satz.mp3",
+      "gapAudio": "audio/tts/beim-arzt-praxis-luecke.mp3",
+      "hintAudio": "audio/tts/beim-arzt-praxis-tipp.mp3"
     },
     {
       "id": "schmerzen",
@@ -29,7 +37,11 @@
       "translation": "pain (plural)",
       "example": "Ich habe Schmerzen im Rücken.",
       "exampleTranslation": "I have back pain.",
-      "hint": "Es tut weh, zum Beispiel im Kopf oder im Rücken."
+      "hint": "Es tut weh, zum Beispiel im Kopf oder im Rücken.",
+      "audio": "audio/tts/beim-arzt-schmerzen.mp3",
+      "exampleAudio": "audio/tts/beim-arzt-schmerzen-satz.mp3",
+      "gapAudio": "audio/tts/beim-arzt-schmerzen-luecke.mp3",
+      "hintAudio": "audio/tts/beim-arzt-schmerzen-tipp.mp3"
     },
     {
       "id": "fieber",
@@ -37,7 +49,11 @@
       "translation": "fever",
       "example": "Das Kind hat seit gestern Fieber.",
       "exampleTranslation": "The child has had a fever since yesterday.",
-      "hint": "Die Körpertemperatur ist zu hoch, zum Beispiel 39 Grad."
+      "hint": "Die Körpertemperatur ist zu hoch, zum Beispiel 39 Grad.",
+      "audio": "audio/tts/beim-arzt-fieber.mp3",
+      "exampleAudio": "audio/tts/beim-arzt-fieber-satz.mp3",
+      "gapAudio": "audio/tts/beim-arzt-fieber-luecke.mp3",
+      "hintAudio": "audio/tts/beim-arzt-fieber-tipp.mp3"
     },
     {
       "id": "rezept",
@@ -46,7 +62,11 @@
       "translation": "prescription",
       "example": "Die Ärztin gibt mir ein Rezept.",
       "exampleTranslation": "The doctor gives me a prescription.",
-      "hint": "Ein Papier von der Ärztin. Damit bekommt man Medikamente."
+      "hint": "Ein Papier von der Ärztin. Damit bekommt man Medikamente.",
+      "audio": "audio/tts/beim-arzt-rezept.mp3",
+      "exampleAudio": "audio/tts/beim-arzt-rezept-satz.mp3",
+      "gapAudio": "audio/tts/beim-arzt-rezept-luecke.mp3",
+      "hintAudio": "audio/tts/beim-arzt-rezept-tipp.mp3"
     },
     {
       "id": "apotheke",
@@ -55,7 +75,11 @@
       "translation": "pharmacy",
       "example": "Die Apotheke hat bis 18 Uhr offen.",
       "exampleTranslation": "The pharmacy is open until 6 p.m.",
-      "hint": "Ein Geschäft, in dem man Medikamente kauft."
+      "hint": "Ein Geschäft, in dem man Medikamente kauft.",
+      "audio": "audio/tts/beim-arzt-apotheke.mp3",
+      "exampleAudio": "audio/tts/beim-arzt-apotheke-satz.mp3",
+      "gapAudio": "audio/tts/beim-arzt-apotheke-luecke.mp3",
+      "hintAudio": "audio/tts/beim-arzt-apotheke-tipp.mp3"
     },
     {
       "id": "krank",
@@ -63,7 +87,11 @@
       "translation": "sick, ill",
       "example": "Ich bin krank und bleibe zu Hause.",
       "exampleTranslation": "I'm sick and staying at home.",
-      "hint": "Nicht gesund."
+      "hint": "Nicht gesund.",
+      "audio": "audio/tts/beim-arzt-krank.mp3",
+      "exampleAudio": "audio/tts/beim-arzt-krank-satz.mp3",
+      "gapAudio": "audio/tts/beim-arzt-krank-luecke.mp3",
+      "hintAudio": "audio/tts/beim-arzt-krank-tipp.mp3"
     },
     {
       "id": "versicherungskarte",
@@ -72,7 +100,11 @@
       "translation": "health insurance card",
       "example": "Haben Sie Ihre Versicherungskarte dabei?",
       "exampleTranslation": "Do you have your insurance card with you?",
-      "hint": "Eine kleine Karte. Man zeigt sie beim Arzt, damit die Versicherung bezahlt."
+      "hint": "Eine kleine Karte. Man zeigt sie beim Arzt, damit die Versicherung bezahlt.",
+      "audio": "audio/tts/beim-arzt-versicherungskarte.mp3",
+      "exampleAudio": "audio/tts/beim-arzt-versicherungskarte-satz.mp3",
+      "gapAudio": "audio/tts/beim-arzt-versicherungskarte-luecke.mp3",
+      "hintAudio": "audio/tts/beim-arzt-versicherungskarte-tipp.mp3"
     }
   ],
   "cloze": [
@@ -152,7 +184,8 @@
           "answer": 1,
           "translation": "What should Anna bring?"
         }
-      ]
+      ],
+      "audio": "audio/tts/beim-arzt-h1.mp3"
     }
   ]
 }

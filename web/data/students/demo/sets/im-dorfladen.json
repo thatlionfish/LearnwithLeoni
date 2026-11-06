@@ -12,7 +12,11 @@
       "translation": "bread",
       "example": "Ich nehme ein Brot, bitte.",
       "exampleTranslation": "I'll take a loaf of bread, please.",
-      "hint": "Man backt es aus Mehl. Zum Frühstück isst man es oft mit Butter."
+      "hint": "Man backt es aus Mehl. Zum Frühstück isst man es oft mit Butter.",
+      "audio": "audio/tts/im-dorfladen-brot.mp3",
+      "exampleAudio": "audio/tts/im-dorfladen-brot-satz.mp3",
+      "gapAudio": "audio/tts/im-dorfladen-brot-luecke.mp3",
+      "hintAudio": "audio/tts/im-dorfladen-brot-tipp.mp3"
     },
     {
       "id": "kaese",
@@ -20,7 +24,11 @@
       "translation": "cheese",
       "example": "Der Käse kommt aus dem Tal.",
       "exampleTranslation": "The cheese comes from the valley.",
-      "hint": "Man macht ihn aus Milch. In der Schweiz gibt es sehr viele Sorten."
+      "hint": "Man macht ihn aus Milch. In der Schweiz gibt es sehr viele Sorten.",
+      "audio": "audio/tts/im-dorfladen-kaese.mp3",
+      "exampleAudio": "audio/tts/im-dorfladen-kaese-satz.mp3",
+      "gapAudio": "audio/tts/im-dorfladen-kaese-luecke.mp3",
+      "hintAudio": "audio/tts/im-dorfladen-kaese-tipp.mp3"
     },
     {
       "id": "milch",
@@ -28,7 +36,11 @@
       "translation": "milk",
       "example": "Haben Sie frische Milch?",
       "exampleTranslation": "Do you have fresh milk?",
-      "hint": "Ein weißes Getränk, zum Beispiel von der Kuh."
+      "hint": "Ein weißes Getränk, zum Beispiel von der Kuh.",
+      "audio": "audio/tts/im-dorfladen-milch.mp3",
+      "exampleAudio": "audio/tts/im-dorfladen-milch-satz.mp3",
+      "gapAudio": "audio/tts/im-dorfladen-milch-luecke.mp3",
+      "hintAudio": "audio/tts/im-dorfladen-milch-tipp.mp3"
     },
     {
       "id": "kasse",
@@ -37,7 +49,11 @@
       "translation": "checkout, till",
       "example": "Bitte bezahlen Sie an der Kasse.",
       "exampleTranslation": "Please pay at the checkout.",
-      "hint": "Hier bezahlt man im Laden."
+      "hint": "Hier bezahlt man im Laden.",
+      "audio": "audio/tts/im-dorfladen-kasse.mp3",
+      "exampleAudio": "audio/tts/im-dorfladen-kasse-satz.mp3",
+      "gapAudio": "audio/tts/im-dorfladen-kasse-luecke.mp3",
+      "hintAudio": "audio/tts/im-dorfladen-kasse-tipp.mp3"
     },
     {
       "id": "tuete",
@@ -46,7 +62,11 @@
       "translation": "bag",
       "example": "Brauchen Sie eine Tüte?",
       "exampleTranslation": "Do you need a bag?",
-      "hint": "Darin trägt man die Einkäufe nach Hause."
+      "hint": "Darin trägt man die Einkäufe nach Hause.",
+      "audio": "audio/tts/im-dorfladen-tuete.mp3",
+      "exampleAudio": "audio/tts/im-dorfladen-tuete-satz.mp3",
+      "gapAudio": "audio/tts/im-dorfladen-tuete-luecke.mp3",
+      "hintAudio": "audio/tts/im-dorfladen-tuete-tipp.mp3"
     },
     {
       "id": "kosten",
@@ -54,7 +74,10 @@
       "translation": "to cost",
       "example": "Was kostet das?",
       "exampleTranslation": "How much does that cost?",
-      "hint": "Diesen Preis muss man bezahlen."
+      "hint": "Diesen Preis muss man bezahlen.",
+      "audio": "audio/tts/im-dorfladen-kosten.mp3",
+      "exampleAudio": "audio/tts/im-dorfladen-kosten-satz.mp3",
+      "hintAudio": "audio/tts/im-dorfladen-kosten-tipp.mp3"
     }
   ]
 }

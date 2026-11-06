@@ -11,7 +11,11 @@
       "translation": "Expressionism",
       "example": "Der Expressionismus entstand Anfang des 20. Jahrhunderts in Deutschland.",
       "exampleTranslation": "Expressionism emerged in Germany at the beginning of the 20th century.",
-      "hint": "Eine Kunstrichtung um 1910. Gefühle sind wichtiger als ein genaues Bild der Wirklichkeit."
+      "hint": "Eine Kunstrichtung um 1910. Gefühle sind wichtiger als ein genaues Bild der Wirklichkeit.",
+      "audio": "audio/tts/expressionismus-expressionismus.mp3",
+      "exampleAudio": "audio/tts/expressionismus-expressionismus-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-expressionismus-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-expressionismus-tipp.mp3"
     },
     {
       "id": "kuenstlergruppe",
@@ -20,7 +24,11 @@
       "translation": "group of artists",
       "example": "Die Künstlergruppe „Die Brücke“ entstand 1905 in Dresden.",
       "exampleTranslation": "The artists' group 'Die Brücke' was formed in Dresden in 1905.",
-      "hint": "Mehrere Maler arbeiten zusammen und haben einen gemeinsamen Namen."
+      "hint": "Mehrere Maler arbeiten zusammen und haben einen gemeinsamen Namen.",
+      "audio": "audio/tts/expressionismus-kuenstlergruppe.mp3",
+      "exampleAudio": "audio/tts/expressionismus-kuenstlergruppe-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-kuenstlergruppe-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-kuenstlergruppe-tipp.mp3"
     },
     {
       "id": "gruenden",
@@ -28,7 +36,11 @@
       "translation": "to found",
       "example": "Kandinsky und Marc wollten eine neue Gruppe gründen.",
       "exampleTranslation": "Kandinsky and Marc wanted to found a new group.",
-      "hint": "Etwas Neues beginnen lassen, zum Beispiel eine Firma, einen Verein oder eine Gruppe."
+      "hint": "Etwas Neues beginnen lassen, zum Beispiel eine Firma, einen Verein oder eine Gruppe.",
+      "audio": "audio/tts/expressionismus-gruenden.mp3",
+      "exampleAudio": "audio/tts/expressionismus-gruenden-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-gruenden-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-gruenden-tipp.mp3"
     },
     {
       "id": "maler",
@@ -37,7 +49,11 @@
       "translation": "painter",
       "example": "Ernst Ludwig Kirchner war ein expressionistischer Maler.",
       "exampleTranslation": "Ernst Ludwig Kirchner was an expressionist painter.",
-      "hint": "Ein Mensch, der Bilder mit Pinsel und Farbe macht."
+      "hint": "Ein Mensch, der Bilder mit Pinsel und Farbe macht.",
+      "audio": "audio/tts/expressionismus-maler.mp3",
+      "exampleAudio": "audio/tts/expressionismus-maler-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-maler-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-maler-tipp.mp3"
     },
     {
       "id": "gemaelde",
@@ -46,7 +62,11 @@
       "translation": "painting",
       "example": "Das Gemälde zeigt ein blaues Pferd.",
       "exampleTranslation": "The painting shows a blue horse.",
-      "hint": "Ein Bild, das mit Farbe gemalt ist, zum Beispiel mit Öl auf Leinwand."
+      "hint": "Ein Bild, das mit Farbe gemalt ist, zum Beispiel mit Öl auf Leinwand.",
+      "audio": "audio/tts/expressionismus-gemaelde.mp3",
+      "exampleAudio": "audio/tts/expressionismus-gemaelde-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-gemaelde-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-gemaelde-tipp.mp3"
     },
     {
       "id": "leinwand",
@@ -55,7 +75,11 @@
       "translation": "canvas",
       "example": "Er bringt die Farbe direkt auf die Leinwand.",
       "exampleTranslation": "He puts the paint directly onto the canvas.",
-      "hint": "Ein fester Stoff in einem Holzrahmen. Darauf malt man."
+      "hint": "Ein fester Stoff in einem Holzrahmen. Darauf malt man.",
+      "audio": "audio/tts/expressionismus-leinwand.mp3",
+      "exampleAudio": "audio/tts/expressionismus-leinwand-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-leinwand-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-leinwand-tipp.mp3"
     },
     {
       "id": "pinselstrich",
@@ -64,7 +88,11 @@
       "translation": "brushstroke",
       "example": "Auf diesem Bild sieht man jeden Pinselstrich.",
       "exampleTranslation": "In this picture you can see every brushstroke.",
-      "hint": "Die Spur, die der Pinsel auf dem Bild macht."
+      "hint": "Die Spur, die der Pinsel auf dem Bild macht.",
+      "audio": "audio/tts/expressionismus-pinselstrich.mp3",
+      "exampleAudio": "audio/tts/expressionismus-pinselstrich-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-pinselstrich-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-pinselstrich-tipp.mp3"
     },
     {
       "id": "leuchtend",
@@ -72,7 +100,11 @@
       "translation": "bright, glowing",
       "example": "Die Expressionisten liebten leuchtende Farben.",
       "exampleTranslation": "The Expressionists loved bright colours.",
-      "hint": "So hell und stark, dass die Farbe fast strahlt."
+      "hint": "So hell und stark, dass die Farbe fast strahlt.",
+      "audio": "audio/tts/expressionismus-leuchtend.mp3",
+      "exampleAudio": "audio/tts/expressionismus-leuchtend-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-leuchtend-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-leuchtend-tipp.mp3"
     },
     {
       "id": "verzerrt",
@@ -80,7 +112,11 @@
       "translation": "distorted",
       "example": "Die Gesichter auf dem Bild sind verzerrt.",
       "exampleTranslation": "The faces in the picture are distorted.",
-      "hint": "Nicht in der normalen Form – zum Beispiel lang gezogen oder schief."
+      "hint": "Nicht in der normalen Form – zum Beispiel lang gezogen oder schief.",
+      "audio": "audio/tts/expressionismus-verzerrt.mp3",
+      "exampleAudio": "audio/tts/expressionismus-verzerrt-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-verzerrt-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-verzerrt-tipp.mp3"
     },
     {
       "id": "ausdruecken",
@@ -88,7 +124,11 @@
       "translation": "to express",
       "example": "Die Künstler wollten ihre Gefühle ausdrücken.",
       "exampleTranslation": "The artists wanted to express their feelings.",
-      "hint": "Zeigen, was man fühlt oder denkt – mit Worten, Musik oder Farben."
+      "hint": "Zeigen, was man fühlt oder denkt – mit Worten, Musik oder Farben.",
+      "audio": "audio/tts/expressionismus-ausdruecken.mp3",
+      "exampleAudio": "audio/tts/expressionismus-ausdruecken-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-ausdruecken-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-ausdruecken-tipp.mp3"
     },
     {
       "id": "gefuehl",
@@ -97,7 +137,11 @@
       "translation": "feeling, emotion",
       "example": "Für die Expressionisten war das Gefühl wichtiger als die Wirklichkeit.",
       "exampleTranslation": "For the Expressionists, feeling was more important than reality.",
-      "hint": "Freude, Angst, Liebe oder Trauer – so etwas hat man im Herzen."
+      "hint": "Freude, Angst, Liebe oder Trauer – so etwas hat man im Herzen.",
+      "audio": "audio/tts/expressionismus-gefuehl.mp3",
+      "exampleAudio": "audio/tts/expressionismus-gefuehl-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-gefuehl-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-gefuehl-tipp.mp3"
     },
     {
       "id": "holzschnitt",
@@ -106,7 +150,11 @@
       "translation": "woodcut",
       "example": "Die Brücke-Künstler machten viele Holzschnitte.",
       "exampleTranslation": "The Brücke artists made many woodcuts.",
-      "hint": "Ein Bild, das man in eine Holzplatte schneidet und dann auf Papier druckt."
+      "hint": "Ein Bild, das man in eine Holzplatte schneidet und dann auf Papier druckt.",
+      "audio": "audio/tts/expressionismus-holzschnitt.mp3",
+      "exampleAudio": "audio/tts/expressionismus-holzschnitt-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-holzschnitt-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-holzschnitt-tipp.mp3"
     },
     {
       "id": "selbstportraet",
@@ -115,7 +163,11 @@
       "translation": "self-portrait",
       "example": "Kirchner malte im Laufe seines Lebens viele Selbstporträts.",
       "exampleTranslation": "Kirchner painted many self-portraits during his life.",
-      "hint": "Ein Bild, auf dem der Maler sich selbst zeigt."
+      "hint": "Ein Bild, auf dem der Maler sich selbst zeigt.",
+      "audio": "audio/tts/expressionismus-selbstportraet.mp3",
+      "exampleAudio": "audio/tts/expressionismus-selbstportraet-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-selbstportraet-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-selbstportraet-tipp.mp3"
     },
     {
       "id": "grossstadt",
@@ -124,7 +176,11 @@
       "translation": "big city",
       "example": "In Berlin malte Kirchner das hektische Leben der Großstadt.",
       "exampleTranslation": "In Berlin, Kirchner painted the hectic life of the big city.",
-      "hint": "Eine sehr große Stadt mit vielen Menschen, zum Beispiel Berlin."
+      "hint": "Eine sehr große Stadt mit vielen Menschen, zum Beispiel Berlin.",
+      "audio": "audio/tts/expressionismus-grossstadt.mp3",
+      "exampleAudio": "audio/tts/expressionismus-grossstadt-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-grossstadt-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-grossstadt-tipp.mp3"
     },
     {
       "id": "ausstellung",
@@ -133,7 +189,11 @@
       "translation": "exhibition",
       "example": "Im Museum gibt es eine neue Ausstellung über den „Blauen Reiter“.",
       "exampleTranslation": "There is a new exhibition about 'Der Blaue Reiter' at the museum.",
-      "hint": "Im Museum zeigt man für eine bestimmte Zeit viele Bilder zu einem Thema."
+      "hint": "Im Museum zeigt man für eine bestimmte Zeit viele Bilder zu einem Thema.",
+      "audio": "audio/tts/expressionismus-ausstellung.mp3",
+      "exampleAudio": "audio/tts/expressionismus-ausstellung-satz.mp3",
+      "gapAudio": "audio/tts/expressionismus-ausstellung-luecke.mp3",
+      "hintAudio": "audio/tts/expressionismus-ausstellung-tipp.mp3"
     }
   ],
   "cloze": [
@@ -251,7 +311,8 @@
           "answer": 1,
           "translation": "What did Kandinsky paint later on?"
         }
-      ]
+      ],
+      "audio": "audio/tts/expressionismus-h1.mp3"
     },
     {
       "id": "h2",
@@ -299,7 +360,8 @@
           "answer": 2,
           "translation": "Where can you see his paintings today?"
         }
-      ]
+      ],
+      "audio": "audio/tts/expressionismus-h2.mp3"
     }
   ]
 }

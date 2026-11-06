@@ -234,6 +234,8 @@ void main() {
     // Nur ein Buchstabe ist spielbar: F. Hinweis lesen und Antwort tippen.
     final answers = {
       for (final h in fHints) h['clue'] as String: (h['answers'] as List).first,
+      // Annas eigenes Wort mit F: Hinweis ist die Übersetzung.
+      'fever': 'Fieber',
     };
     final clue = answers.keys.firstWhere(
       (c) => find.text(c).evaluate().isNotEmpty,
