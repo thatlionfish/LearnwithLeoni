@@ -79,6 +79,8 @@
   "chooseSet": "Which set?",
   
   "listenSentence": "Listen to the sentence",
+  "caseHint": "Watch the capital and small letters:",
+  "dictationAlmost": "Almost – look at the marked words:",
   "kumaTip": "Hint",
   "kumaAsk": "Ask Kumachan for a hint",
   "kumaNoMore": "That's all my hints – you can do it!",

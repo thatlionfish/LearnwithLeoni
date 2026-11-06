@@ -37,6 +37,7 @@ class QuizItem {
     this.translation,
     this.explanation,
     this.hints = const [],
+    this.hintAudio,
   });
 
   final String id;
@@ -65,6 +66,9 @@ class QuizItem {
 
   /// Kumachans Tipps, vom leichtesten zum stärksten (nie die Lösung).
   final List<String> hints;
+
+  /// Fertiges Audio zum ersten Tipp (der Umschreibung).
+  final String? hintAudio;
 
   bool get isChoice => options.isNotEmpty;
 }
@@ -96,6 +100,7 @@ List<QuizItem> choiceItems(
           accepted: [c.translation],
           translation: c.example,
           hints: [?c.hint],
+          hintAudio: c.hintAudio,
         );
       }(),
   ];
@@ -151,6 +156,7 @@ List<QuizItem> clozeItems(VocabSet set, {Random? random, int max = 10}) {
         accepted: [found],
         translation: c.exampleTranslation,
         hints: wordHints(description: c.hint, term: c.term, answer: found),
+        hintAudio: c.hintAudio,
       ),
     );
   }
@@ -167,6 +173,7 @@ List<QuizItem> dictationItems(VocabSet set, {Random? random, int max = 6}) {
         QuizItem(
           id: c.id,
           speak: c.example,
+          audio: c.exampleAudio,
           accepted: [c.example!],
           translation: c.exampleTranslation,
           hints: sentenceHints(c.example!),

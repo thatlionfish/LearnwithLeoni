@@ -566,6 +566,18 @@ abstract class AppLocalizations {
   /// **'Satz anhören'**
   String get listenSentence;
 
+  /// No description provided for @caseHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Achte auf die Groß- und Kleinschreibung:'**
+  String get caseHint;
+
+  /// No description provided for @dictationAlmost.
+  ///
+  /// In de, this message translates to:
+  /// **'Fast – schau dir die markierten Wörter an:'**
+  String get dictationAlmost;
+
   /// No description provided for @kumaTip.
   ///
   /// In de, this message translates to:

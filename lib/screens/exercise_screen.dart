@@ -155,19 +155,25 @@ class _QuizScreenState extends State<QuizScreen> {
         ? (value == _item.accepted.first
               ? AnswerResult.correct
               : AnswerResult.wrong)
-        : checkAnswer(value, _item.accepted);
+        : checkAnswer(value, _item.accepted, caseSensitive: _strict);
     final kind = switch (r) {
       AnswerResult.correct => 0,
       AnswerResult.close => 1,
       AnswerResult.wrong => 2,
+      AnswerResult.caseError => 3,
     };
+    // Im Diktat zählt nur ein fehlerfreier Satz – auch Groß-/Kleinschreibung.
+    final counts = _strict ? kind == 0 : kind < 2;
     setState(() {
       _chosen = value;
       _result = kind;
-      if (kind < 2) _correct++;
+      if (counts) _correct++;
     });
-    _toastKey.currentState?.answered(correct: kind < 2);
+    _toastKey.currentState?.answered(correct: counts);
   }
+
+  /// Diktat: streng prüfen (Groß-/Kleinschreibung, Tippfehler zählen).
+  bool get _strict => widget.type == ExerciseType.dictation;
 
   void _next() {
     setState(() {
@@ -198,6 +204,9 @@ class _QuizScreenState extends State<QuizScreen> {
     return KumaHelper(
       itemKey: _index,
       hints: () => _item.hints,
+      audioFor: (h) => _item.hints.isNotEmpty && h == _item.hints.first
+          ? audioUrl(widget.code, _item.hintAudio)
+          : null,
       child: LeoniToastHost(key: _toastKey, child: _question(context, t)),
     );
   }
@@ -304,6 +313,10 @@ class _QuizScreenState extends State<QuizScreen> {
             kind: _result!,
             solution: item.accepted.first,
             translation: item.translation,
+            // Diktat: falsche Wörter in der Lösung markieren.
+            marked: _strict && _result != 0
+                ? markWords(_chosen ?? '', item.accepted.first)
+                : null,
           ),
           const SizedBox(height: 16),
         ],

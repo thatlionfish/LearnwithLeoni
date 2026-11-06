@@ -99,10 +99,17 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
     super.dispose();
   }
 
-  /// Hör-Modus: den Satz vorlesen – an der Lücke kommt eine Pause.
+  /// Hör-Modus: den Satz vorlesen – an der Lücke sagt die Stimme „Hm hm hm“.
+  /// Gibt es eine fertige Aufnahme (Microsoft-Stimme), wird diese gespielt.
   void _speak(PlacedWord? w) {
     if (!widget.audioClues || w == null) return;
-    Speaker.play(text: w.clue, rate: 0.9);
+    final card = w.payload;
+    final gapAudio = card is VocabCard ? card.gapAudio : null;
+    Speaker.play(
+      url: audioUrl(widget.code, gapAudio),
+      text: w.clue,
+      rate: gapAudio == null ? 0.9 : 1,
+    );
   }
 
   void _select(int r, int c) {
@@ -292,6 +299,12 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
             term: card is VocabCard ? card.term : null,
             answer: word.answer[0] + word.answer.substring(1).toLowerCase(),
           );
+        },
+        audioFor: (h) {
+          final card = word?.payload;
+          return card is VocabCard && h == card.hint
+              ? audioUrl(widget.code, card.hintAudio)
+              : null;
         },
         child: LeoniToastHost(
           key: _toastKey,

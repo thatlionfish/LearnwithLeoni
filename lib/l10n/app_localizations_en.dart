@@ -293,6 +293,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get listenSentence => 'Listen to the sentence';
 
   @override
+  String get caseHint => 'Watch the capital and small letters:';
+
+  @override
+  String get dictationAlmost => 'Almost – look at the marked words:';
+
+  @override
   String get kumaTip => 'Hint';
 
   @override

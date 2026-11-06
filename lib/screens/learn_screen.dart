@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
+import '../audio/speaker.dart';
 import '../data/leitner.dart';
 import '../l10n/app_localizations.dart';
 import '../learn/session.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
+import '../widgets/exercise_kit.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/student_loader.dart';
@@ -163,7 +165,34 @@ class _LearnViewState extends State<_LearnView> {
                 flipped: _flipped,
                 onFlip: () => setState(() => _flipped = true),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
+              // Wort und (nach dem Umdrehen) Beispielsatz anhören.
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 8,
+                children: [
+                  TextButton.icon(
+                    onPressed: () => Speaker.play(
+                      url: audioUrl(widget.code, item.card.audio),
+                      text: item.card.term,
+                      lang: voiceLang(item.set),
+                    ),
+                    icon: const Icon(Icons.volume_up_rounded),
+                    label: Text(t.listen),
+                  ),
+                  if (_flipped && item.card.example != null)
+                    TextButton.icon(
+                      onPressed: () => Speaker.play(
+                        url: audioUrl(widget.code, item.card.exampleAudio),
+                        text: item.card.example,
+                        lang: voiceLang(item.set),
+                      ),
+                      icon: const Icon(Icons.record_voice_over_outlined),
+                      label: Text(t.listenSentence),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 10),
               AnimatedSwitcher(
                 duration: const Duration(milliseconds: 260),
                 child: _flipped

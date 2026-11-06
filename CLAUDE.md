@@ -28,6 +28,24 @@ für neue Inhalte ist keine Code-Änderung nötig.
   Buchstaben beginnen – ein Test prüft das).
 - Übersetzungen immer in die `explainLanguage` des Schülers.
 
+## Natürliche Stimmen (Microsoft / Azure AI Speech)
+
+Nach jedem neuen oder geänderten hochdeutschen Set:
+
+```
+dart run tool/tts.dart --dry   # was würde erzeugt (ohne Schlüssel möglich)
+dart run tool/tts.dart         # erzeugt MP3s unter <schüler>/audio/tts/
+```
+
+- Schlüssel in `werkstatt/azure-speech.env` (gitignored, Vorlage `.example`).
+  Den Schlüssel nie ausgeben, nie committen.
+- Erzeugt `audio` (Wort), `exampleAudio`, `gapAudio` (Lückensatz mit „hm, hm, hm“),
+  `hintAudio` (Umschreibung) und `listening[].audio` (Dialog: jede Person eigene
+  Stimme, „Leoni“ = de-CH-LeniNeural). Leonis eigene Aufnahmen (`audio/…`, nicht
+  `audio/tts/…`) werden nie überschrieben. Nur Geändertes wird neu erzeugt.
+- Bündnerdütsch-Sets werden übersprungen.
+- `"voice": "de-CH"` im Schülerprofil → Schweizer Standardstimme.
+
 ## Bündnerdütsch
 
 Leoni schreibt nach Gehör. **Immer zuerst `werkstatt/woerterbuch.json` verwenden.**

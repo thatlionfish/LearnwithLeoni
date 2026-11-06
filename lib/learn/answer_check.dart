@@ -1,17 +1,21 @@
 /// Ergebnis einer getippten Antwort.
 enum AnswerResult {
-  /// Genau richtig (Groß-/Kleinschreibung, ß/ss, Satzzeichen egal).
+  /// Genau richtig (ß/ss und Satzzeichen egal; Groß-/Kleinschreibung nur
+  /// egal, wenn nicht streng geprüft wird).
   correct,
 
-  /// Ein kleiner Tippfehler – zählt als richtig, wird aber markiert.
+  /// Ein kleiner Tippfehler – wird markiert.
   close,
+
+  /// Nur die Groß-/Kleinschreibung stimmt nicht (nur bei strenger Prüfung).
+  caseError,
   wrong,
 }
 
 /// Vereinheitlicht eine Eingabe für den Vergleich.
-String normalizeAnswer(String s) {
-  var t = s.toLowerCase().trim();
-  t = t.replaceAll('ß', 'ss').replaceAll('ẞ', 'ss');
+String normalizeAnswer(String s, {bool keepCase = false}) {
+  var t = keepCase ? s.trim() : s.toLowerCase().trim();
+  t = t.replaceAll('ß', 'ss').replaceAll('ẞ', 'SS');
   t = t.replaceAll(RegExp(r'''[.,!?;:"'«»„“”‚‘’()\-–—]'''), ' ');
   t = t.replaceAll(RegExp(r'\s+'), ' ').trim();
   return t;
@@ -20,13 +24,27 @@ String normalizeAnswer(String s) {
 /// Prüft [input] gegen alle gültigen Schreibweisen in [accepted].
 ///
 /// Umlaute sind Pflicht (ä ≠ a), aber „ae“ statt „ä“ gilt als kleiner Fehler.
-AnswerResult checkAnswer(String input, List<String> accepted) {
+/// Mit [caseSensitive] (Diktat) muss auch die Groß-/Kleinschreibung stimmen.
+AnswerResult checkAnswer(
+  String input,
+  List<String> accepted, {
+  bool caseSensitive = false,
+}) {
   final given = normalizeAnswer(input);
   if (given.isEmpty) return AnswerResult.wrong;
   var best = AnswerResult.wrong;
   for (final a in accepted) {
     final want = normalizeAnswer(a);
-    if (given == want) return AnswerResult.correct;
+    if (given == want) {
+      if (!caseSensitive ||
+          normalizeAnswer(input, keepCase: true) ==
+              normalizeAnswer(a, keepCase: true)) {
+        return AnswerResult.correct;
+      }
+      best = AnswerResult.caseError;
+      continue;
+    }
+    if (best == AnswerResult.caseError) continue;
     if (_umlautFallback(given) == _umlautFallback(want)) {
       best = AnswerResult.close;
       continue;
@@ -38,6 +56,18 @@ AnswerResult checkAnswer(String input, List<String> accepted) {
     }
   }
   return best;
+}
+
+/// Vergleicht zwei Sätze Wort für Wort und markiert in [expected] jedes Wort,
+/// das in [given] anders geschrieben ist (auch nur in der Groß-/Kleinschreibung).
+/// `null`, wenn die Wortzahl nicht übereinstimmt.
+List<(String word, bool wrong)>? markWords(String given, String expected) {
+  List<String> words(String s) =>
+      s.split(RegExp(r'\s+')).where((w) => w.trim().isNotEmpty).toList();
+  String core(String w) => normalizeAnswer(w, keepCase: true);
+  final g = words(given), e = words(expected);
+  if (g.length != e.length) return null;
+  return [for (var i = 0; i < e.length; i++) (e[i], core(g[i]) != core(e[i]))];
 }
 
 String _umlautFallback(String s) =>

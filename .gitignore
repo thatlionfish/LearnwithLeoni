@@ -50,3 +50,6 @@ app.*.map.json
 # Private Schulernotizen nie veroffentlichen
 werkstatt/notizen/*
 !werkstatt/notizen/README.md
+
+# Azure-Schlussel fur die Microsoft-Stimmen ? nie veroffentlichen
+werkstatt/azure-speech.env

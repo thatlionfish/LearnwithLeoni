@@ -293,6 +293,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get listenSentence => 'Satz anhören';
 
   @override
+  String get caseHint => 'Achte auf die Groß- und Kleinschreibung:';
+
+  @override
+  String get dictationAlmost => 'Fast – schau dir die markierten Wörter an:';
+
+  @override
   String get kumaTip => 'Tipp';
 
   @override

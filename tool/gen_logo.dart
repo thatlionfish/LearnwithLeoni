@@ -23,7 +23,8 @@ const pebble =
     'M256,34 C356,30 452,84 474,188 C494,286 462,392 372,446 '
     'C290,494 176,488 104,430 C34,374 18,270 46,180 C72,96 156,38 256,34 Z';
 
-String leoniBust() => '''
+String leoniBust() =>
+    '''
 <g transform="translate(-72 24) scale(2.4)">
   ${leoni.hairBack}
   ${leoni.neck}
@@ -37,7 +38,8 @@ String leoniBust() => '''
   ${leoni.cap}
 </g>''';
 
-String kumaBust() => '''
+String kumaBust() =>
+    '''
 <g transform="rotate(-10 352 296) translate(147 132) scale(2.05)">
   ${kuma.body}
   ${kuma.collarPart}
@@ -56,7 +58,8 @@ String sparkle(num x, num y, num r) =>
     'L${x - 7 * r},$y L${x - 2.2 * r},${y - 2.2 * r} Z" fill="$lemon" stroke="$ink" stroke-width="2.2"/>';
 
 /// Die beiden auf dem Kiesel – im Koordinatensystem 512 × 512.
-String scene() => '''
+String scene() =>
+    '''
 <defs>
   <clipPath id="pebble"><path d="$pebble"/></clipPath>
 </defs>

@@ -61,6 +61,15 @@ void main() {
             );
           }
           expect(c.translation.trim(), isNotEmpty);
+          for (final a in [c.exampleAudio, c.gapAudio, c.hintAudio]) {
+            if (a != null) {
+              expect(
+                File('${dir.path}/$a').existsSync(),
+                isTrue,
+                reason: 'Audio fehlt: $a',
+              );
+            }
+          }
           if (c.audio != null) {
             expect(
               File('${dir.path}/${c.audio}').existsSync(),

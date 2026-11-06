@@ -199,6 +199,9 @@ class VocabCard {
     this.audio,
     this.verified = true,
     this.hint,
+    this.exampleAudio,
+    this.gapAudio,
+    this.hintAudio,
   });
 
   factory VocabCard.fromJson(Map<String, dynamic> j) => VocabCard(
@@ -212,6 +215,9 @@ class VocabCard {
     audio: j['audio'] as String?,
     verified: (j['verified'] as bool?) ?? true,
     hint: j['hint'] as String?,
+    exampleAudio: j['exampleAudio'] as String?,
+    gapAudio: j['gapAudio'] as String?,
+    hintAudio: j['hintAudio'] as String?,
   );
 
   final String id;
@@ -234,4 +240,10 @@ class VocabCard {
 
   /// Umschreibung auf Deutsch – Kumachans erster Tipp, nie die Lösung.
   final String? hint;
+
+  /// Fertiges Audio (relativ zum Schülerordner): Beispielsatz, Lückensatz
+  /// mit „Hm hm hm“ und Umschreibung. Erzeugt von `tool/tts.dart`.
+  final String? exampleAudio;
+  final String? gapAudio;
+  final String? hintAudio;
 }

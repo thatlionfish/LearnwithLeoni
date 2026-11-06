@@ -87,6 +87,8 @@
   "chooseSet": "Welches Set?",
   
   "listenSentence": "Satz anhören",
+  "caseHint": "Achte auf die Groß- und Kleinschreibung:",
+  "dictationAlmost": "Fast – schau dir die markierten Wörter an:",
   "kumaTip": "Tipp",
   "kumaAsk": "Kumachan um einen Tipp bitten",
   "kumaNoMore": "Mehr Tipps habe ich nicht – du schaffst das!",

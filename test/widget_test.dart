@@ -281,6 +281,22 @@ void main() {
     expect(find.text('Termin'), findsNothing); // keine Lösung
   });
 
+  testWidgets('Diktat korrigiert Groß-/Kleinschreibung und zählt sie', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/anna1/ueben/diktat?set=arzt');
+    await tester.enterText(
+      find.byType(TextField),
+      'ich habe morgen einen termin',
+    );
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+    expect(find.text('Watch the capital and small letters:'), findsOneWidget);
+    await tester.tap(find.text('Next'));
+    await tester.pumpAndSettle();
+    expect(find.text('0 of 1 correct'), findsOneWidget);
+  });
+
   testWidgets('Unbekannter Code zeigt freundliche Meldung', (tester) async {
     await pumpApp(tester, '/s/gibtsnicht');
     expect(find.text("This link doesn't work"), findsOneWidget);

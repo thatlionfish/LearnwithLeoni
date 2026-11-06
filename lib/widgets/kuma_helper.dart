@@ -15,9 +15,13 @@ class KumaHelper extends StatefulWidget {
     required this.child,
     required this.hints,
     required this.itemKey,
+    this.audioFor,
   });
 
   final Widget child;
+
+  /// Fertiges Audio zu einem Tipp (z. B. die Umschreibung), sonst Browser-Stimme.
+  final String? Function(String hint)? audioFor;
 
   /// Tipps zur aktuellen Aufgabe, vom leichtesten zum stärksten.
   final List<String> Function() hints;
@@ -118,8 +122,11 @@ class _KumaHelperState extends State<KumaHelper> {
                                         Icons.volume_up_rounded,
                                         size: 20,
                                       ),
-                                      onPressed: () =>
-                                          Speaker.play(text: shown, rate: 0.9),
+                                      onPressed: () => Speaker.play(
+                                        url: widget.audioFor?.call(shown),
+                                        text: shown,
+                                        rate: 0.9,
+                                      ),
                                     ),
                                     IconButton(
                                       tooltip: t.close,

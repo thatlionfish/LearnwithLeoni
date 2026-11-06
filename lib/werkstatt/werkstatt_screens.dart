@@ -456,6 +456,13 @@ class _CardRow extends StatelessWidget {
               ],
             ),
           ),
+          if (hasAudio &&
+              (card['audio'] as String).startsWith('audio/tts/') &&
+              !recording)
+            Padding(
+              padding: const EdgeInsets.only(right: 6),
+              child: Text('KI-Stimme', style: text.labelMedium),
+            ),
           if (!hasAudio && !recording)
             Padding(
               padding: const EdgeInsets.only(right: 6),

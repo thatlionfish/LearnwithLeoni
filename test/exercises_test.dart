@@ -57,6 +57,51 @@ void main() {
     });
   });
 
+  group('Diktat: strenge Prüfung', () {
+    const satz = 'Ich habe morgen einen Termin.';
+
+    test('Groß-/Kleinschreibung muss stimmen', () {
+      expect(
+        checkAnswer('Ich habe morgen einen Termin', [
+          satz,
+        ], caseSensitive: true),
+        AnswerResult.correct,
+      );
+      expect(
+        checkAnswer('ich habe morgen einen termin', [
+          satz,
+        ], caseSensitive: true),
+        AnswerResult.caseError,
+      );
+      // Ohne strenge Prüfung (andere Übungen) bleibt es richtig.
+      expect(
+        checkAnswer('ich habe morgen einen termin', [satz]),
+        AnswerResult.correct,
+      );
+    });
+
+    test('ss und ß bleiben gleichwertig', () {
+      expect(
+        checkAnswer('Die Strasse ist gross.', [
+          'Die Straße ist groß.',
+        ], caseSensitive: true),
+        AnswerResult.correct,
+      );
+    });
+
+    test('falsche Wörter werden markiert', () {
+      final m = markWords('ich habe morgen einen termin', satz)!;
+      expect(
+        [
+          for (final (w, wrong) in m)
+            if (wrong) w,
+        ],
+        ['Ich', 'Termin.'],
+      );
+      expect(markWords('Ich habe', satz), isNull); // Wortzahl anders
+    });
+  });
+
   test('stripArticle', () {
     expect(stripArticle('der Termin'), 'Termin');
     expect(stripArticle('krank'), 'krank');

@@ -108,12 +108,16 @@ class FeedbackBox extends StatelessWidget {
     required this.kind,
     required this.solution,
     this.translation,
+    this.marked,
   });
 
-  /// 0 = richtig, 1 = fast, 2 = falsch.
+  /// 0 = richtig, 1 = fast, 2 = falsch, 3 = nur Groß-/Kleinschreibung falsch.
   final int kind;
   final String solution;
   final String? translation;
+
+  /// Diktat: Lösung Wort für Wort, falsch geschriebene Wörter markiert.
+  final List<(String, bool)>? marked;
 
   @override
   Widget build(BuildContext context) {
@@ -150,10 +154,31 @@ class FeedbackBox extends StatelessWidget {
               children: [
                 Text(switch (kind) {
                   0 => t.correctAnswer,
-                  1 => t.almostCorrect,
+                  1 => marked != null ? t.dictationAlmost : t.almostCorrect,
+                  3 => t.caseHint,
                   _ => t.wrongAnswer,
                 }, style: text.titleMedium),
-                if (kind != 0) Text(solution, style: serif(20, weight: 460)),
+                if (kind != 0)
+                  marked == null
+                      ? Text(solution, style: serif(20, weight: 460))
+                      : Text.rich(
+                          TextSpan(
+                            style: serif(20, weight: 400),
+                            children: [
+                              for (final (i, (word, wrong)) in marked!.indexed)
+                                TextSpan(
+                                  text: i == 0 ? word : ' $word',
+                                  style: wrong
+                                      ? serif(20, weight: 640).copyWith(
+                                          decoration: TextDecoration.underline,
+                                          decorationColor: LeoColors.chocolate,
+                                          decorationThickness: 2,
+                                        )
+                                      : null,
+                                ),
+                            ],
+                          ),
+                        ),
                 if (translation != null) ...[
                   const SizedBox(height: 4),
                   Text(translation!, style: text.bodySmall),
