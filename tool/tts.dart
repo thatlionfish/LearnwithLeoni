@@ -24,17 +24,19 @@ import 'package:learnwithleoni/learn/exercises.dart' show gapInExample;
 
 /// Standardstimme für Hochdeutsch; mit "voice": "de-CH" im Schülerprofil
 /// spricht die Schweizer Stimme.
-const voiceDe = 'de-DE-KatjaNeural';
+const voiceDe = 'de-DE-SeraphinaMultilingualNeural';
 const voiceCh = 'de-CH-LeniNeural';
 
 /// Stimmen für Dialoge: Leoni spricht Schweizer Hochdeutsch.
 const leoniVoice = 'de-CH-LeniNeural';
 const femaleVoices = [
+  'de-DE-SeraphinaMultilingualNeural',
   'de-DE-KatjaNeural',
   'de-DE-AmalaNeural',
   'de-DE-LouisaNeural',
 ];
 const maleVoices = [
+  'de-DE-FlorianMultilingualNeural',
   'de-DE-ConradNeural',
   'de-DE-KillianNeural',
   'de-DE-RalfNeural',
@@ -242,6 +244,15 @@ String _ssml(String body, {required String voice}) {
   inner = inner.replaceAll(
     RegExp(r'<voice name="[^"]+"><prosody rate="[^"]+"></prosody></voice>'),
     '',
+  );
+  // Mehrsprachige Stimmen (Seraphina, Florian) fest auf Deutsch stellen,
+  // damit sie einzelne Wörter wie „der Termin“ nicht englisch aussprechen.
+  inner = inner.replaceAllMapped(
+    RegExp(
+      r'(<voice name="[^"]*Multilingual[^"]*">)(.*?)(</voice>)',
+      dotAll: true,
+    ),
+    (m) => '${m[1]}<lang xml:lang="de-DE">${m[2]}</lang>${m[3]}',
   );
   return '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="de-DE">$inner</speak>';
 }

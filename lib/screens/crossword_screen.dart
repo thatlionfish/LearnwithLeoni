@@ -348,7 +348,11 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
               const SizedBox(height: 16),
               LayoutBuilder(
                 builder: (context, box) {
-                  final size = min(42.0, (box.maxWidth - 4) / max(1, _cw.cols));
+                  // Ganze Pixel, sonst wirken Linien ungleich dick.
+                  final size = min(
+                    42.0,
+                    (box.maxWidth - 4) / max(1, _cw.cols),
+                  ).floorToDouble();
                   return Center(child: _grid(size));
                 },
               ),
@@ -476,10 +480,11 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
       child: Semantics(
         button: true,
         label: 'Feld ${r + 1}/${c + 1}${letter.isEmpty ? '' : ': $letter'}',
+        // Jedes Feld – leer oder nicht – ist genau size × size gross,
+        // damit Zeilen und Spalten sauber untereinander stehen.
         child: Container(
           width: size,
           height: size,
-          margin: const EdgeInsets.all(0.5),
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(size * 0.18),

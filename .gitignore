@@ -53,3 +53,6 @@ werkstatt/notizen/*
 
 # Azure-Schlussel fur die Microsoft-Stimmen ? nie veroffentlichen
 werkstatt/azure-speech.env
+
+# Probesatze zum Stimmenvergleich
+werkstatt/probe/
