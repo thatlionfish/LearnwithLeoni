@@ -874,6 +874,84 @@ abstract class AppLocalizations {
   /// **'Was du weisst, kommt erst nach 1, 2, 4, 8 und 16 Tagen wieder. Weisst du es dann noch, kannst du es sicher.'**
   String get spacedInfo;
 
+  /// No description provided for @blanketTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kumachans Decke'**
+  String get blanketTitle;
+
+  /// No description provided for @blanketIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Jedes Wort ist ein Häkelquadrat. Immer wenn du ein Wort weisst, häkelt Kumachan eine Runde dazu. Ist das Wort sicher, näht er das Quadrat an die grosse Decke – und kann sich ein bisschen mehr einkuscheln.'**
+  String get blanketIntro;
+
+  /// No description provided for @blanketSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'{attached} an der Decke · {onHook} am Haken'**
+  String blanketSummary(int attached, int onHook);
+
+  /// No description provided for @blanketDone.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Decke ist schon fertig!} other{{count} Decken sind schon fertig!}}'**
+  String blanketDone(int count);
+
+  /// No description provided for @blanketOnHook.
+  ///
+  /// In de, this message translates to:
+  /// **'Am Haken'**
+  String get blanketOnHook;
+
+  /// No description provided for @blanketAttached.
+  ///
+  /// In de, this message translates to:
+  /// **'An der Decke'**
+  String get blanketAttached;
+
+  /// No description provided for @blanketWaiting.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Wort wartet noch auf Kumachans Haken.} other{{count} Wörter warten noch auf Kumachans Haken.}}'**
+  String blanketWaiting(int count);
+
+  /// No description provided for @blanketRounds.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} von 5 Runden'**
+  String blanketRounds(int count);
+
+  /// No description provided for @blanketEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Lern deine ersten Wörter – dann beginnt Kumachan zu häkeln.'**
+  String get blanketEmpty;
+
+  /// No description provided for @blanketOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Decke'**
+  String get blanketOpen;
+
+  /// No description provided for @blanketToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute gehäkelt'**
+  String get blanketToday;
+
+  /// No description provided for @blanketNewRounds.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{Kumachan hat 1 Runde gehäkelt.} other{Kumachan hat {count} Runden gehäkelt.}}'**
+  String blanketNewRounds(int count);
+
+  /// No description provided for @blanketJoined.
+  ///
+  /// In de, this message translates to:
+  /// **'an die Decke!'**
+  String get blanketJoined;
+
   /// No description provided for @helpLanguage.
   ///
   /// In de, this message translates to:

@@ -92,6 +92,10 @@ dart run tool/gen_kuma.dart    # Posen von Kumachan neu erzeugen
 ```
 
 - Design: Wabi-Sabi, Farben in `lib/ui/colors.dart`; Lemon Grass nur als Detail.
+- Lernkarten: Leitner 1, 2, 4, 8, 16 Tage, danach „sicher“ (kommt nicht mehr).
+  Belohnung „Kumachans Decke“ (`lib/learn/crochet.dart`, `lib/widgets/crochet.dart`):
+  jedes Wort ein Häkelquadrat, Runde = Fach, sicher = an die Decke (36 pro Decke),
+  pro Schüler über alle Sets; Seite `#/s/<code>/decke`.
 - Texte der Oberfläche: `lib/l10n/app_*.arb` (de, en). Neue Sprache = neue ARB-Datei.
 - Hangman stammt aus `C:\dev\Apps\Hangman` – Szene und Farben bleiben 1:1.
 - Commit/Push nur, wenn Leoni es sagt.

@@ -9,6 +9,7 @@ import 'l10n/app_localizations.dart';
 import 'l10n/gloss.dart';
 import 'games/abc/abc_screen.dart';
 import 'games/hangman/hangman_screen.dart';
+import 'screens/blanket_screen.dart';
 import 'screens/exercise_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/learn_screen.dart';
@@ -138,6 +139,11 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
               ),
             );
           },
+        ),
+        GoRoute(
+          path: 'decke',
+          builder: (_, state) =>
+              BlanketScreen(code: state.pathParameters['code']!),
         ),
         GoRoute(
           path: 'lernen',

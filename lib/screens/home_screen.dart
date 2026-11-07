@@ -3,11 +3,13 @@ import 'package:go_router/go_router.dart';
 
 import '../data/leitner.dart';
 import '../data/models.dart';
+import '../learn/crochet.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/gloss.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../widgets/app_logo.dart';
+import '../widgets/crochet.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/settings_sheet.dart';
@@ -120,6 +122,12 @@ class _HomeViewState extends State<_HomeView> {
               ),
             ],
           ),
+        ),
+
+        const SizedBox(height: 14),
+        _BlanketTile(
+          work: CrochetWork.of(sets, data.progress),
+          onTap: () => _open('/s/$code/decke'),
         ),
 
         const SizedBox(height: 32),
@@ -259,6 +267,76 @@ class _GameTile extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Kumachans Decke auf der Startseite – immer sichtbar, zum Motivieren.
+class _BlanketTile extends StatelessWidget {
+  const _BlanketTile({required this.work, required this.onTap});
+
+  final CrochetWork work;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
+    final g = glossOf(context);
+    final text = Theme.of(context).textTheme;
+    final hook = work.onHook.take(6).toList();
+    return OrganicCard(
+      seed: 14,
+      onTap: onTap,
+      semanticLabel: t.blanketTitle,
+      padding: const EdgeInsets.fromLTRB(14, 14, 18, 14),
+      child: Row(
+        children: [
+          KumaBlanket(work: work, height: 124),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Glossed(
+                  t.blanketTitle,
+                  gloss: g?.blanketTitle,
+                  style: text.titleLarge,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  work.isEmpty
+                      ? t.blanketEmpty
+                      : t.blanketSummary(
+                          work.attached.length,
+                          work.onHook.length,
+                        ),
+                  style: text.bodyMedium,
+                ),
+                if (hook.isNotEmpty) ...[
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 4,
+                    runSpacing: 4,
+                    children: [
+                      for (final s in hook) GrannySquare(square: s, size: 28),
+                    ],
+                  ),
+                ],
+                const SizedBox(height: 6),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: Text(t.blanketOpen, style: text.labelLarge),
+                    ),
+                    const Icon(Icons.chevron_right_rounded, size: 20),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -494,6 +494,75 @@ class AppLocalizationsDe extends AppLocalizations {
       'Was du weisst, kommt erst nach 1, 2, 4, 8 und 16 Tagen wieder. Weisst du es dann noch, kannst du es sicher.';
 
   @override
+  String get blanketTitle => 'Kumachans Decke';
+
+  @override
+  String get blanketIntro =>
+      'Jedes Wort ist ein Häkelquadrat. Immer wenn du ein Wort weisst, häkelt Kumachan eine Runde dazu. Ist das Wort sicher, näht er das Quadrat an die grosse Decke – und kann sich ein bisschen mehr einkuscheln.';
+
+  @override
+  String blanketSummary(int attached, int onHook) {
+    return '$attached an der Decke · $onHook am Haken';
+  }
+
+  @override
+  String blanketDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Decken sind schon fertig!',
+      one: '1 Decke ist schon fertig!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get blanketOnHook => 'Am Haken';
+
+  @override
+  String get blanketAttached => 'An der Decke';
+
+  @override
+  String blanketWaiting(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter warten noch auf Kumachans Haken.',
+      one: '1 Wort wartet noch auf Kumachans Haken.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String blanketRounds(int count) {
+    return '$count von 5 Runden';
+  }
+
+  @override
+  String get blanketEmpty =>
+      'Lern deine ersten Wörter – dann beginnt Kumachan zu häkeln.';
+
+  @override
+  String get blanketOpen => 'Zur Decke';
+
+  @override
+  String get blanketToday => 'Heute gehäkelt';
+
+  @override
+  String blanketNewRounds(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Kumachan hat $count Runden gehäkelt.',
+      one: 'Kumachan hat 1 Runde gehäkelt.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get blanketJoined => 'an die Decke!';
+
+  @override
   String get helpLanguage => 'Hilfesprache';
 
   @override

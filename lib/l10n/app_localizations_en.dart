@@ -494,6 +494,75 @@ class AppLocalizationsEn extends AppLocalizations {
       'What you know comes back after 1, 2, 4, 8 and 16 days. If you still know it then, you\'ve mastered it.';
 
   @override
+  String get blanketTitle => 'Kumachan\'s blanket';
+
+  @override
+  String get blanketIntro =>
+      'Every word is a crochet square. Each time you know a word, Kumachan crochets another round. Once you\'ve mastered the word, he sews the square onto the big blanket – and can snuggle in a little more.';
+
+  @override
+  String blanketSummary(int attached, int onHook) {
+    return '$attached on the blanket · $onHook on the hook';
+  }
+
+  @override
+  String blanketDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count blankets are already finished!',
+      one: '1 blanket is already finished!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get blanketOnHook => 'On the hook';
+
+  @override
+  String get blanketAttached => 'On the blanket';
+
+  @override
+  String blanketWaiting(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words are still waiting for Kumachan\'s hook.',
+      one: '1 word is still waiting for Kumachan\'s hook.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String blanketRounds(int count) {
+    return '$count of 5 rounds';
+  }
+
+  @override
+  String get blanketEmpty =>
+      'Learn your first words – then Kumachan starts crocheting.';
+
+  @override
+  String get blanketOpen => 'To the blanket';
+
+  @override
+  String get blanketToday => 'Crocheted today';
+
+  @override
+  String blanketNewRounds(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Kumachan crocheted $count rounds.',
+      one: 'Kumachan crocheted 1 round.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get blanketJoined => 'onto the blanket!';
+
+  @override
   String get helpLanguage => 'Help language';
 
   @override

@@ -10,10 +10,12 @@ import '../audio/speaker.dart';
 import '../data/leitner.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/gloss.dart';
+import '../learn/crochet.dart';
 import '../learn/session.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
+import '../widgets/crochet.dart';
 import '../widgets/exercise_kit.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
@@ -67,6 +69,21 @@ class _LearnViewState extends State<_LearnView> {
   /// Wörter, die in dieser Sitzung „sicher“ geworden sind.
   int _secured = 0;
 
+  /// Was Kumachan in dieser Runde gehäkelt hat (pro Wort).
+  final Map<String, CrochetStep> _crocheted = {};
+
+  /// Quadrate an der Decke vor der Runde – für die Animation am Schluss.
+  late final int _attachedBefore;
+
+  @override
+  void initState() {
+    super.initState();
+    _attachedBefore = CrochetWork.of(
+      widget.data.content.sets,
+      widget.data.progress,
+    ).currentBlanket.length;
+  }
+
   bool get _germanFront => AppScope.of(context).settings.germanFront;
 
   /// Kurze Einblendung von Leoni (Pose + Spruch).
@@ -87,11 +104,24 @@ class _LearnViewState extends State<_LearnView> {
     if (!_flipped || _session.isDone) return;
     final t = AppLocalizations.of(context);
     final item = _session.current!;
+    final before = widget.data.progress.stateOf(item.set, item.card)?.box ?? 0;
     final moment = _session.answer(grade, (item, g) {
       widget.data.progress.record(item.set, item.card, g);
     });
     unawaited(widget.data.days.markToday());
     final state = widget.data.progress.stateOf(item.set, item.card);
+    if (state != null && state.box > before) {
+      _crocheted[item.key] = CrochetStep(
+        CrochetSquare(
+          set: item.set,
+          card: item.card,
+          rounds: state.box,
+          due: state.due,
+        ),
+        from: before,
+        to: state.box,
+      );
+    }
     final secure = state?.isSecure ?? false;
     if (secure && grade == Grade.knew) _secured++;
     setState(() {
@@ -369,6 +399,18 @@ class _LearnViewState extends State<_LearnView> {
             ],
           ),
         ),
+        if (_crocheted.isNotEmpty) ...[
+          const SizedBox(height: 16),
+          _CrochetedToday(
+            code: widget.code,
+            steps: _crocheted.values.toList(),
+            work: CrochetWork.of(
+              widget.data.content.sets,
+              widget.data.progress,
+            ),
+            attachedBefore: _attachedBefore,
+          ),
+        ],
       ],
     );
   }
@@ -686,6 +728,112 @@ class _DirectionToggle extends StatelessWidget {
         option(true, t.germanFront, 121),
         option(false, t.germanBack, 122),
       ],
+    );
+  }
+}
+
+/// Nach der Lernrunde: Kumachan zeigt, was er gehäkelt hat. Die Quadrate
+/// wachsen nacheinander um ihre neuen Runden, fertige kommen an die Decke.
+class _CrochetedToday extends StatelessWidget {
+  const _CrochetedToday({
+    required this.code,
+    required this.steps,
+    required this.work,
+    required this.attachedBefore,
+  });
+
+  final String code;
+  final List<CrochetStep> steps;
+  final CrochetWork work;
+  final int attachedBefore;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
+    final g = glossOf(context);
+    final text = Theme.of(context).textTheme;
+    final rounds = steps.fold(0, (s, x) => s + x.newRounds);
+    // Erst die fertigen (die kommen an die Decke), dann die anderen.
+    final ordered = [
+      ...steps.where((s) => s.joined),
+      ...steps.where((s) => !s.joined),
+    ];
+    return OrganicCard(
+      seed: 18,
+      color: LeoColors.brightWhite,
+      padding: const EdgeInsets.fromLTRB(20, 18, 20, 18),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Glossed(
+            t.blanketToday,
+            gloss: g?.blanketToday,
+            style: text.titleLarge,
+          ),
+          const SizedBox(height: 2),
+          Text(t.blanketNewRounds(rounds), style: text.bodyMedium),
+          const SizedBox(height: 14),
+          Wrap(
+            spacing: 10,
+            runSpacing: 12,
+            children: [
+              for (final (i, s) in ordered.indexed)
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GrannySquare(
+                      square: s.square,
+                      size: 62,
+                      from: s.from,
+                      delay: Duration(milliseconds: 260 * min(i, 12)),
+                    ),
+                    const SizedBox(height: 4),
+                    SquareLabel(s.square.card.term, width: 78),
+                    if (s.joined)
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const SenchaDot(size: 8),
+                          const SizedBox(width: 4),
+                          Text(
+                            t.blanketJoined,
+                            style: sans(11.5, weight: 700, height: 1.2),
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              KumaBlanket(work: work, height: 150, animateFrom: attachedBefore),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      t.blanketSummary(
+                        work.attached.length,
+                        work.onHook.length,
+                      ),
+                      style: text.bodyMedium,
+                    ),
+                    const SizedBox(height: 8),
+                    OutlinedButton(
+                      onPressed: () => context.push('/s/$code/decke'),
+                      child: Text(t.blanketOpen),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

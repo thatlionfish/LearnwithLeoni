@@ -229,6 +229,41 @@ void main() {
   });
 
   testWidgets(
+    'Kumachan häkelt: Erfolg nach der Runde, Decke auf der Startseite',
+    (tester) async {
+      tester.view.physicalSize = const Size(800, 2000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      await pumpApp(tester, '/s/anna1');
+      expect(find.text('Kumachans Decke'), findsOneWidget);
+      expect(
+        find.text(
+          'Lern deine ersten Wörter – dann beginnt Kumachan zu häkeln.',
+        ),
+        findsOneWidget,
+      );
+
+      await tester.tap(find.text('Jetzt lernen'));
+      await tester.pumpAndSettle();
+      for (var i = 0; i < 2; i++) {
+        await tester.sendKeyEvent(LogicalKeyboardKey.space);
+        await tester.pumpAndSettle();
+        await tester.sendKeyEvent(LogicalKeyboardKey.digit1);
+        await tester.pumpAndSettle();
+      }
+      // Zwei neue Wörter gewusst: je zwei Runden.
+      expect(find.text('Heute gehäkelt'), findsOneWidget);
+      expect(find.text('Kumachan hat 4 Runden gehäkelt.'), findsOneWidget);
+
+      await tester.tap(find.text('Zur Decke'));
+      await tester.pumpAndSettle();
+      expect(find.text('Am Haken'), findsOneWidget);
+      expect(find.text('2 von 5 Runden'), findsNWidgets(2));
+      expect(find.text('0 an der Decke · 2 am Haken'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
     'Deutsch hinten: vorne die Übersetzung, danach wann sie wiederkommt',
     (tester) async {
       await pumpApp(tester, '/s/anna1/lernen?set=arzt');

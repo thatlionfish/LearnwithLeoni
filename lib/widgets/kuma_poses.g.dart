@@ -24,6 +24,12 @@ enum KumaPose implements FigurePose {
   /// Tanzen
   dance(['dance_0.svg', 'dance_1.svg'], [420, 420]),
 
+  /// Häkeln
+  crochet(
+    ['crochet_0.svg', 'crochet_1.svg', 'crochet_2.svg', 'crochet_3.svg'],
+    [380, 300, 380, 300],
+  ),
+
   /// Schlafen
   sleepy(
     ['sleepy_0.svg', 'sleepy_1.svg', 'sleepy_2.svg', 'sleepy_3.svg'],

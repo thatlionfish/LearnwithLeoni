@@ -144,6 +144,28 @@ String zzz(int step) => [
       '<path d="M${n(x)},${n(y)} h${n(s)} l-${n(s)},${n(s)} h${n(s)}" fill="none" stroke-width="1.8" opacity="${n(0.5 + i * 0.2)}"/>',
 ].join('\n');
 
+/// Kleines Häkelquadrat zwischen den Pfoten (eine Runde Lemon Grass innen).
+const crochetPiece =
+    '<path d="M88,141 C93,139.5 102,139.5 108,141 C109.5,146 109.5,153 108,158 '
+    'C102,159.5 93,159.5 88,158 C86.5,153 86.5,146 88,141 Z" fill="#E3D8C2" stroke-width="1.6"/>\n'
+    '<path d="M93,145.5 C96,144.8 100,144.8 103,145.5 C103.7,148.5 103.7,151.5 103,154.5 '
+    'C100,155.2 96,155.2 93,154.5 C92.3,151.5 92.3,148.5 93,145.5 Z" fill="$lemon" stroke-width="1.2"/>\n'
+    '<path d="M90,149.5 h2 M104,149.5 h2 M98,142.5 v1.6 M98,156 v1.6" fill="none" stroke-width="1" opacity="0.6"/>';
+
+/// Häkelnadel aus Holz, Griff in der rechten Pfote.
+const crochetHook =
+    '<path d="M114,150 L97,128" fill="none" stroke="$wood" stroke-width="3.4"/>\n'
+    '<path d="M114,150 L97,128" fill="none" stroke-width="0.9" opacity="0.55"/>\n'
+    '<path d="M97,128 c-1.6,-2.2 -0.6,-4.2 1.4,-3.6" fill="none" stroke-width="1.6"/>';
+
+/// Wollknäuel unten links, der Faden läuft hinauf zum Häkelstück.
+const yarnBall =
+    '<path d="M88,158 C70,190 40,214 46,248" fill="none" stroke="#C9B48F" stroke-width="1.6"/>\n'
+    '<circle cx="44" cy="266" r="17" fill="#E3D8C2" stroke-width="1.8"/>\n'
+    '<path d="M30,258 C38,250 52,252 58,262 M28,268 C38,258 54,262 60,272 '
+    'M34,279 C40,270 52,270 56,281 M40,250 C36,262 38,274 46,283" '
+    'fill="none" stroke="#C9B48F" stroke-width="1.3"/>';
+
 String sparkle(num x, num y, {num r = 1}) =>
     '<path d="M${n(x)},${n(y - 7 * r)} L${n(x + 2.2 * r)},${n(y - 2.2 * r)} L${n(x + 7 * r)},${n(y)} '
     'L${n(x + 2.2 * r)},${n(y + 2.2 * r)} L${n(x)},${n(y + 7 * r)} L${n(x - 2.2 * r)},${n(y + 2.2 * r)} '
@@ -263,6 +285,25 @@ final poses = <Pose>[
           headRot: deg,
         ),
         420,
+      ),
+  ]),
+  Pose('crochet', 'Häkeln', [
+    for (final (hook, ms) in const [(0, 380), (-16, 300), (0, 380), (-16, 300)])
+      (
+        figure(
+          // Beide Pfoten vor der Brust: links das Häkelstück, rechts die Nadel.
+          arms:
+              '${limb('M80,126 C70,140 76,152 88,154')}\n'
+              '${limb('M120,126 C132,138 126,150 114,150')}\n'
+              '$crochetPiece\n'
+              '${pawAt(88, 153, r: 7)}\n'
+              '${rotate(hook, 114, 150, crochetHook)}\n'
+              '${pawAt(114, 150, r: 7)}',
+          headPart: head(happy: true),
+          headRot: hook == 0 ? 3 : 5,
+          extras: yarnBall,
+        ),
+        ms,
       ),
   ]),
   Pose('sleepy', 'Schlafen', [

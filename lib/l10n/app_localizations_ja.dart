@@ -479,6 +479,71 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spacedInfo => 'わかった単語は、1日、2日、4日、8日、16日後にまた出ます。そのときも覚えていれば習得済みです。';
 
   @override
+  String get blanketTitle => 'くまちゃんのブランケット';
+
+  @override
+  String get blanketIntro =>
+      '単語はひとつずつ、かぎ針編みのモチーフになります。単語がわかるたびに、くまちゃんが1段ずつ編み足します。習得した単語のモチーフは大きなブランケットに縫いつけられ、くまちゃんは少しずつ毛布にくるまれます。';
+
+  @override
+  String blanketSummary(int attached, int onHook) {
+    return 'ブランケットに$attached枚 ・ 編み途中$onHook枚';
+  }
+
+  @override
+  String blanketDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'ブランケットがもう$count枚完成しました！',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get blanketOnHook => '編み途中';
+
+  @override
+  String get blanketAttached => 'ブランケットに縫いつけ済み';
+
+  @override
+  String blanketWaiting(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count語がくまちゃんのかぎ針を待っています。',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String blanketRounds(int count) {
+    return '5段中$count段';
+  }
+
+  @override
+  String get blanketEmpty => '最初の単語を覚えると、くまちゃんが編み始めます。';
+
+  @override
+  String get blanketOpen => 'ブランケットを見る';
+
+  @override
+  String get blanketToday => '今日編んだもの';
+
+  @override
+  String blanketNewRounds(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'くまちゃんが$count段編みました。',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get blanketJoined => 'ブランケットへ！';
+
+  @override
   String get helpLanguage => 'ヘルプの言語';
 
   @override
