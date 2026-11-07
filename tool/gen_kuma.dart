@@ -207,6 +207,32 @@ String figure({
       '$extras\n</g>\n</svg>\n';
 }
 
+/// Kumachan liegt in ihrer Decke (Rolle quer): nur Kopf und Kragen schauen
+/// heraus, der Kopf zur Seite geneigt. Drehpunkt (100,112) = Mitte der Rolle.
+const snugTilt = -38;
+
+String snugFigure(String headPart, {String extras = ''}) =>
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">\n'
+    '<!-- Kumachan – erzeugt von tool/gen_kuma.dart -->\n'
+    '<g stroke="$ink" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">\n'
+    '${rotate(snugTilt, 100, 112, [
+      '<path d="M88,98 C87,106 87,114 86,121 C94,125 106,125 114,121 C113,114 113,106 112,98 Z" fill="$mauve"/>',
+      collarPart,
+      shift(0, 6, headPart),
+    ].join('\n'))}\n'
+    '$extras\n</g>\n</svg>\n';
+
+/// Zzz über dem liegenden Kopf.
+String snugZzz(int step) => [
+  for (final (i, (x, y, s)) in const [
+    (52.0, 40.0, 7.0),
+    (40.0, 25.0, 9.0),
+    (26.0, 8.0, 11.0),
+  ].indexed)
+    if (i < step)
+      '<path d="M${n(x)},${n(y)} h${n(s)} l-${n(s)},${n(s)} h${n(s)}" fill="none" stroke-width="1.8" opacity="${n(0.5 + i * 0.2)}"/>',
+].join('\n');
+
 class Pose {
   const Pose(this.name, this.title, this.frames);
   final String name;
@@ -317,6 +343,18 @@ final poses = <Pose>[
           headRot: 10,
           extras: zzz(step),
         ),
+        step == 3 ? 1100 : 600,
+      ),
+  ]),
+  // In der Decke: erst wach und zufrieden, ab einer dicken Rolle schläft sie.
+  Pose('snug', 'Eingekuschelt', [
+    (snugFigure(head(happy: true)), 1800),
+    (snugFigure(rotate(4, 100, 72, head(happy: true))), 1400),
+  ]),
+  Pose('snugSleepy', 'Eingekuschelt schlafen', [
+    for (final step in [1, 2, 3, 3])
+      (
+        snugFigure(sleepyHead(), extras: snugZzz(step)),
         step == 3 ? 1100 : 600,
       ),
   ]),

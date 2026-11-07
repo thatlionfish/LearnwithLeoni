@@ -521,7 +521,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get blanketIntro =>
-      'Every word is a crochet square. Each time you know a word, Kumachan crochets another round. Once you\'ve mastered the word, he sews the square onto the big blanket – and can snuggle in a little more.';
+      'Every word is a crochet square. Each time you know a word, Kumachan crochets another round. Once you\'ve mastered the word, she adds the square to her big blanket and wraps herself up in it – the more you know, the thicker the roll gets. Unroll the blanket to see how much you\'ve already learned.';
 
   @override
   String blanketSummary(int attached, int onHook) {

@@ -505,7 +505,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get blanketIntro =>
-      '単語はひとつずつ、かぎ針編みのモチーフになります。単語がわかるたびに、くまちゃんが1段ずつ編み足します。習得した単語のモチーフは大きなブランケットに縫いつけられ、くまちゃんは少しずつ毛布にくるまれます。';
+      '単語はひとつずつ、かぎ針編みのモチーフになります。単語がわかるたびに、くまちゃんが1段ずつ編み足します。習得した単語のモチーフは大きなブランケットに編みつけられ、くまちゃんはそれにくるまります。覚えた単語が増えるほど、ロールは太くなります。ブランケットを広げると、どれだけ覚えたかが見られます。';
 
   @override
   String blanketSummary(int attached, int onHook) {

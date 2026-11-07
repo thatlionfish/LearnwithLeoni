@@ -96,7 +96,9 @@ dart run tool/gen_kuma.dart    # Posen von Kumachan neu erzeugen
 - Lernkarten: Leitner 1, 2, 4, 8, 16 Tage, danach „sicher“ (kommt nicht mehr).
   Belohnung „Kumachans Decke“ (`lib/learn/crochet.dart`, `lib/widgets/crochet.dart`):
   jedes Wort ein Häkelquadrat, Runde = Fach, sicher = an die Decke. Die Decke ist
-  unendlich: Kumachan steckt darin wie in einem Dürüm (`KumaRoll`), man kann sie
+  unendlich: Die Rolle liegt quer, Kumachan liegt in der Mitte darin wie die
+  Füllung im Dürüm, nur der Kopf schaut vorne heraus (`KumaRoll`, Posen `snug`
+  und `snugSleepy`); die Rolle wird immer dicker. Man kann sie
   ausrollen (`UnrolledBlanket`). Pro Schüler über alle Sets; Seite `#/s/<code>/decke`,
   erreichbar über Kumachan auf der Startseite und am Ende der Lernrunde.
 - Texte der Oberfläche: `lib/l10n/app_*.arb` (de, en, ja). Neue Sprache = neue ARB-Datei.

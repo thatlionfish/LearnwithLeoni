@@ -913,7 +913,7 @@ abstract class AppLocalizations {
   /// No description provided for @blanketIntro.
   ///
   /// In de, this message translates to:
-  /// **'Jedes Wort ist ein Häkelquadrat. Immer wenn du ein Wort weisst, häkelt Kumachan eine Runde dazu. Ist das Wort sicher, näht er das Quadrat an die grosse Decke – und kann sich ein bisschen mehr einkuscheln.'**
+  /// **'Jedes Wort ist ein Häkelquadrat. Immer wenn du ein Wort weisst, häkelt Kumachan eine Runde dazu. Ist das Wort sicher, häkelt sie das Quadrat an ihre grosse Decke und wickelt sich darin ein – je mehr du kannst, desto dicker wird die Rolle. Roll die Decke aus, um zu sehen, wie viel du schon gelernt hast.'**
   String get blanketIntro;
 
   /// No description provided for @blanketSummary.

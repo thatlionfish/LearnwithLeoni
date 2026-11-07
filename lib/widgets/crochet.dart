@@ -177,9 +177,9 @@ class GrannySquare extends StatelessWidget {
   }
 }
 
-/// Kumachan, eingewickelt in ihre Decke wie in einen Döner: Mit den ersten
-/// Quadraten reicht die Rolle bis zu den Füssen, mit [_chinAt] bis zum Kinn –
-/// danach wird sie immer dicker, ohne Ende. Oben sieht man die Spirale.
+/// Kumachan, eingewickelt in ihre Decke wie ein Dürüm: Die Rolle liegt quer,
+/// Kumachan liegt in der Mitte darin, nur ihr Kopf schaut vorne heraus. Mit
+/// jedem sicheren Wort wird die Rolle dicker – ohne Ende.
 class KumaRoll extends StatelessWidget {
   const KumaRoll({
     super.key,
@@ -198,56 +198,125 @@ class KumaRoll extends StatelessWidget {
   /// 0 = ganz eingewickelt, 1 = ganz ausgerollt (Animation beim Ausrollen).
   final double unrolled;
 
-  /// So viele Quadrate reichen bis zum Kinn.
-  static const _chinAt = 24.0;
+  /// Ab so vielen Quadraten ist es gemütlich genug zum Schlafen.
+  static const _sleepAt = 24.0;
+
+  /// Breite : Höhe der Szene.
+  static const aspect = 1.42;
 
   @override
   Widget build(BuildContext context) {
     final n = work.attached.length;
     // Aussen liegen die neuesten Quadrate.
     final colors = [for (final s in work.attached.reversed) yarnFor(s.key)];
-    final width = height * 0.9;
 
-    Widget scene(double count) {
+    Widget scene(double count, double h) {
+      final w = h * aspect;
       final shown = count * (1 - unrolled);
-      final wrapped = shown / _chinAt >= 0.6;
-      final pose = unrolled > 0.25
-          ? KumaPose.cheer
-          : (wrapped ? KumaPose.sleepy : KumaPose.crochet);
+      if (shown <= 0.01) {
+        // Noch keine Decke oder ganz ausgerollt: Kumachan steht.
+        return SizedBox(
+          width: w,
+          height: h,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: KumaFigure(
+              pose: unrolled > 0 ? KumaPose.cheer : KumaPose.crochet,
+              height: h,
+            ),
+          ),
+        );
+      }
+      final g = _RollGeometry(Size(w, h), shown);
+      final pose = unrolled > 0.05 || shown < _sleepAt
+          ? KumaPose.snug
+          : KumaPose.snugSleepy;
+      final fh = g.headFigureHeight;
       return SizedBox(
-        width: width,
-        height: height,
+        width: w,
+        height: h,
         child: Stack(
           clipBehavior: Clip.none,
-          alignment: Alignment.bottomCenter,
           children: [
-            KumaFigure(pose: pose, height: height),
-            if (shown > 0.01)
-              Positioned.fill(
-                child: CustomPaint(
-                  painter: _RollPainter(colors, shown, paws: wrapped),
-                ),
-              ),
+            Positioned.fill(
+              child: CustomPaint(painter: _RollPainter(colors, shown, g)),
+            ),
+            // Drehpunkt der Pose (100,112 von 200×300) liegt in der Rolle.
+            Positioned(
+              left: g.neck.dx - fh / 3,
+              top: g.neck.dy - fh * 112 / 300,
+              child: IgnorePointer(child: KumaFigure(pose: pose, height: fh)),
+            ),
           ],
         ),
       );
     }
 
-    final from = animateFrom;
-    if (from == null || from >= n || MediaQuery.disableAnimationsOf(context)) {
-      return scene(n.toDouble());
-    }
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: from.toDouble(), end: n.toDouble()),
-      duration: Duration(milliseconds: 900 + 400 * min(n - from, 8)),
-      curve: Curves.easeInOutCubic,
-      builder: (context, v, _) => scene(v),
+    return LayoutBuilder(
+      builder: (context, c) {
+        final h = c.maxWidth.isFinite
+            ? min(height, c.maxWidth / aspect)
+            : height;
+        final from = animateFrom;
+        if (from == null ||
+            from >= n ||
+            MediaQuery.disableAnimationsOf(context)) {
+          return scene(n.toDouble(), h);
+        }
+        return TweenAnimationBuilder<double>(
+          tween: Tween(begin: from.toDouble(), end: n.toDouble()),
+          duration: Duration(milliseconds: 900 + 400 * min(n - from, 8)),
+          curve: Curves.easeInOutCubic,
+          builder: (context, v, _) => scene(v, h),
+        );
+      },
     );
   }
 }
 
+/// Masse der liegenden Rolle – gemeinsam für Malen und Kopf.
+class _RollGeometry {
+  _RollGeometry(this.size, double count)
+    : cy = size.height * 0.56,
+      headR = size.height * 0.15,
+      xl = size.width * 0.33,
+      xr = size.width * 0.86,
+      // Dicker ohne Ende, aber immer langsamer.
+      r = size.height * min(0.43, 0.2 + 0.06 * log(1 + count / 4));
+
+  final Size size;
+
+  /// Mitte der Rolle (senkrecht).
+  final double cy;
+
+  /// Kopfgrösse von Kumachan.
+  final double headR;
+
+  /// Vorne (offen, Kopf) und hinten (zu).
+  final double xl, xr;
+
+  /// Halbe Dicke der Rolle.
+  final double r;
+
+  /// Die Enden sind leicht schräg zu sehen.
+  double get erx => r * 0.32;
+
+  /// Neigung des Kopfes in den Posen `snug` (`snugTilt` in tool/gen_kuma.dart).
+  static const _tilt = -38 * pi / 180;
+
+  /// Kumachans Kopf liegt mitten in der offenen Seite der Rolle.
+  Offset get headCenter => Offset(xl - headR * 0.22, cy);
+
+  /// Drehpunkt der Pose (Hals), vom Kopf aus gesehen.
+  Offset get neck =>
+      headCenter + Offset(-sin(_tilt), cos(_tilt)) * headR;
+
+  /// Höhe der Pose, damit der Kopf [headR] gross ist (Kopfradius 34 von 300).
+  double get headFigureHeight => headR * 300 / 34;
+}
+
 class _RollPainter extends CustomPainter {
-  _RollPainter(this.colors, this.count, {required this.paws});
+  _RollPainter(this.colors, this.count, this.g);
 
   /// Farben der Quadrate, das neueste zuerst (liegt aussen).
   final List<List<Color>> colors;
@@ -255,71 +324,55 @@ class _RollPainter extends CustomPainter {
   /// Wie viele Quadrate (Zwischenwerte beim Wachsen und Ausrollen).
   final double count;
 
-  /// Kumachan hält den Rand mit beiden Pfoten.
-  final bool paws;
+  final _RollGeometry g;
 
   @override
   void paint(Canvas canvas, Size size) {
     if (count <= 0 || colors.isEmpty) return;
-    final h = size.height, w = size.width, cx = w / 2;
     final ink = LeoColors.chocolate;
-    final bottom = h * 0.975;
-    final chin = h * 0.44;
-    final reach = min(1.0, count / KumaRoll._chinAt);
-    // Dicke wächst ohne Ende – langsamer, je dicker die Rolle schon ist.
-    // Ein Dürüm bleibt schlank: die Dicke wächst langsam, aber ohne Ende.
-    final rx = min(w * 0.47, h * (0.19 + 0.017 * sqrt(count)));
-    final ry = rx * 0.17;
-    final top = bottom - ry - reach * (bottom - ry - chin);
+    final cy = g.cy, r = g.r, xl = g.xl, xr = g.xr, erx = g.erx;
+    final span = xr - xl;
 
     // Schatten am Boden.
     canvas.drawOval(
-      Rect.fromCenter(
-        center: Offset(cx, bottom),
-        width: rx * 2.2,
-        height: ry * 1.4,
-      ),
+      Rect.fromLTRB(xl - erx * 1.2, cy + r * 0.9, xr + erx * 1.3, cy + r * 1.12),
       Paint()
         ..color = ink.withValues(alpha: 0.16)
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4),
     );
 
-    // Der Mantel der Rolle.
+    // Der Mantel: von vorne bis zum runden, geschlossenen Ende hinten.
     final body = Path()
-      ..moveTo(cx - rx, top)
-      ..lineTo(cx - rx, bottom - ry)
+      ..moveTo(xl, cy - r)
+      ..lineTo(xr, cy - r)
       ..arcTo(
-        Rect.fromCenter(
-          center: Offset(cx, bottom - ry),
-          width: rx * 2,
-          height: ry * 2,
-        ),
+        Rect.fromCenter(center: Offset(xr, cy), width: erx * 2, height: r * 2),
+        -pi / 2,
         pi,
-        -pi,
         false,
       )
-      ..lineTo(cx + rx, top)
+      ..lineTo(xl, cy + r)
       ..close();
     canvas.drawPath(body, Paint()..color = const Color(0xFFE3D8C2));
     canvas.save();
     canvas.clipPath(body);
 
-    // Quadrate rund um die Rolle: an den Seiten schmaler (Zylinder).
-    const cols = 7;
-    final rowH = rx * 2 / cols;
+    // Quadrate rund um die Rolle: oben und unten schmaler (Zylinder).
+    const rows = 7;
+    final cell = r * 2 / rows;
     var idx = 0;
-    for (var y = bottom; y > top - rowH; y -= rowH) {
-      for (var i = 0; i < cols; i++) {
-        final a0 = -pi / 2 + i * pi / cols;
-        final x0 = cx + rx * sin(a0);
-        final x1 = cx + rx * sin(a0 + pi / cols);
-        final cell = Rect.fromLTRB(x0, y - rowH, x1, y);
+    for (var x = xr + erx; x > xl - cell; x -= cell) {
+      for (var i = 0; i < rows; i++) {
+        final a0 = -pi / 2 + i * pi / rows;
+        final y0 = cy + r * sin(a0);
+        final y1 = cy + r * sin(a0 + pi / rows);
+        final rect = Rect.fromLTRB(x - cell, y0, x, y1);
         canvas.save();
-        canvas.translate(cell.center.dx, cell.center.dy);
-        canvas.scale(max(0.05, cell.width / rowH), 1);
+        canvas.translate(rect.center.dx, rect.center.dy);
+        canvas.scale(1, max(0.05, rect.height / cell));
         paintGranny(
           canvas,
-          Rect.fromCenter(center: Offset.zero, width: rowH, height: rowH),
+          Rect.fromCenter(center: Offset.zero, width: cell, height: cell),
           Leitner.secure.toDouble(),
           colors[idx % colors.length],
           outline: false,
@@ -329,20 +382,30 @@ class _RollPainter extends CustomPainter {
       }
     }
 
-    // Rundung: Seiten dunkler, vorne ein Hauch Licht.
+    // Rundung: oben und unten dunkler, oben ein Hauch Licht.
     canvas.drawRect(
-      Rect.fromLTRB(cx - rx, top - ry, cx + rx, bottom + ry),
+      Rect.fromLTRB(xl - erx, cy - r, xr + erx, cy + r),
       Paint()
         ..shader = LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
           colors: [
-            ink.withValues(alpha: 0.28),
+            ink.withValues(alpha: 0.26),
             ink.withValues(alpha: 0),
-            Colors.white.withValues(alpha: 0.12),
+            Colors.white.withValues(alpha: 0.14),
             ink.withValues(alpha: 0),
-            ink.withValues(alpha: 0.28),
+            ink.withValues(alpha: 0.32),
           ],
-          stops: const [0, 0.28, 0.42, 0.7, 1],
-        ).createShader(Rect.fromLTRB(cx - rx, 0, cx + rx, 1)),
+          stops: const [0, 0.22, 0.34, 0.62, 1],
+        ).createShader(Rect.fromLTRB(0, cy - r, 1, cy + r)),
+    );
+    // Hinten biegt sich die Rolle weg.
+    canvas.drawRect(
+      Rect.fromLTRB(xr - erx, cy - r, xr + erx, cy + r),
+      Paint()
+        ..shader = LinearGradient(
+          colors: [ink.withValues(alpha: 0), ink.withValues(alpha: 0.22)],
+        ).createShader(Rect.fromLTRB(xr - erx, 0, xr + erx, 1)),
     );
 
     final seam = Paint()
@@ -359,19 +422,18 @@ class _RollPainter extends CustomPainter {
 
     // Schräg herumgewickelt wie ein Dürüm: Der Rand der äussersten Lage
     // läuft diagonal über die Rolle und wirft einen leisen Schatten.
-    final span = bottom - ry - top;
     final wrapEdge = Path()
-      ..moveTo(cx - rx * 1.02, top + span * 0.82)
+      ..moveTo(xl + span * 0.1, cy + r * 1.02)
       ..cubicTo(
-        cx - rx * 0.35,
-        top + span * 0.62,
-        cx + rx * 0.15,
-        top + span * 0.3,
-        cx + rx * 0.62,
-        top + ry * 0.4,
+        xl + span * 0.3,
+        cy + r * 0.45,
+        xl + span * 0.46,
+        cy - r * 0.35,
+        xl + span * 0.68,
+        cy - r * 1.02,
       );
     canvas.drawPath(
-      wrapEdge.shift(const Offset(0, 3)),
+      wrapEdge.shift(const Offset(3, 0)),
       Paint()
         ..color = ink.withValues(alpha: 0.3)
         ..style = PaintingStyle.stroke
@@ -382,22 +444,62 @@ class _RollPainter extends CustomPainter {
     canvas.restore();
     dashed(body);
 
-    // Oben schauen die Lagen der Decke um Kumachan heraus – zarte Ringe,
-    // je mehr Quadrate, desto mehr Lagen.
-    final rim = Rect.fromCenter(
-      center: Offset(cx, top),
-      width: rx * 2,
-      height: ry * 2,
+    // Der Zipfel der Decke steht hinten oben ab, wie beim Dürüm das Papier.
+    if (count >= 10) {
+      final lift = min(r * 0.6, size.height * 0.12);
+      final a = Offset(xr - span * 0.28, cy - r * 0.97);
+      final b = Offset(xr - span * 0.03, cy - r * 0.99);
+      final tip = Offset(xr - span * 0.06, cy - r - lift);
+      final corner = Path()
+        ..moveTo(a.dx, a.dy)
+        ..quadraticBezierTo(
+          a.dx + (tip.dx - a.dx) * 0.35,
+          cy - r - lift * 0.6,
+          tip.dx,
+          tip.dy,
+        )
+        ..quadraticBezierTo(b.dx + span * 0.03, cy - r - lift * 0.4, b.dx, b.dy)
+        ..close();
+      canvas.drawPath(corner, Paint()..color = const Color(0xFFE3D8C2));
+      canvas.save();
+      canvas.clipPath(corner);
+      paintGranny(
+        canvas,
+        Rect.fromCenter(
+          center: Offset(xr - span * 0.12, cy - r - lift * 0.35),
+          width: lift * 1.1,
+          height: lift * 1.1,
+        ),
+        Leitner.secure.toDouble(),
+        colors.first,
+        outline: false,
+      );
+      canvas.restore();
+      canvas.drawPath(
+        corner,
+        Paint()
+          ..color = ink.withValues(alpha: 0.75)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.4,
+      );
+    }
+
+    // Vorne ist die Rolle offen: die Lagen der Decke als zarte Ringe,
+    // je mehr Quadrate, desto mehr Lagen. In der Mitte liegt Kumachan.
+    final face = Rect.fromCenter(
+      center: Offset(xl, cy),
+      width: erx * 2,
+      height: r * 2,
     );
-    final hole = min(rx * 0.8, h * 0.118);
-    canvas.drawOval(rim, Paint()..color = const Color(0xFFEFE6D4));
+    canvas.drawOval(face, Paint()..color = const Color(0xFFEFE6D4));
+    final hole = min(r * 0.9, g.headR * 1.12);
     final layers = (count / 10).ceil().clamp(1, 8);
     for (var k = layers; k >= 1; k--) {
-      final r = hole + (rx - hole) * k / layers;
+      final rr = hole + (r - hole) * k / layers;
       final ring = Rect.fromCenter(
-        center: Offset(cx, top),
-        width: r * 2,
-        height: r * 2 * ry / rx,
+        center: Offset(xl, cy),
+        width: rr * 2 * erx / r,
+        height: rr * 2,
       );
       if (k % 3 == 0) {
         final yarn = colors[(k * 5) % colors.length];
@@ -415,90 +517,27 @@ class _RollPainter extends CustomPainter {
       );
     }
     canvas.drawOval(
-      rim,
+      face,
       Paint()
         ..color = ink.withValues(alpha: 0.7)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 1.5,
     );
-
-    // Der Zipfel der Decke steht oben ab, wie beim Dürüm das Papier.
-    if (reach >= 0.6) {
-      final a = Offset(cx + rx * 0.38, top + ry * 0.55);
-      final b = Offset(cx + rx * 0.95, top + ry * 0.2);
-      final tip = Offset(cx + rx * 0.86, top - ry * 2.6);
-      final corner = Path()
-        ..moveTo(a.dx, a.dy)
-        ..quadraticBezierTo(cx + rx * 0.55, top - ry * 1.2, tip.dx, tip.dy)
-        ..quadraticBezierTo(cx + rx * 1.02, top - ry * 0.9, b.dx, b.dy)
-        ..close();
-      canvas.drawPath(corner, Paint()..color = const Color(0xFFE3D8C2));
-      canvas.save();
-      canvas.clipPath(corner);
-      final c = colors.first;
-      paintGranny(
-        canvas,
-        Rect.fromCenter(
-          center: Offset(cx + rx * 0.74, top - ry * 0.7),
-          width: rx * 0.5,
-          height: rx * 0.5,
-        ),
-        Leitner.secure.toDouble(),
-        c,
-        outline: false,
-      );
-      canvas.restore();
-      canvas.drawPath(
-        corner,
-        Paint()
-          ..color = ink.withValues(alpha: 0.75)
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 1.4,
-      );
-    }
-    // Innen steckt Kumachan.
     canvas.drawOval(
       Rect.fromCenter(
-        center: Offset(cx, top),
-        width: hole * 2,
-        height: hole * 2 * ry / rx,
+        center: Offset(xl, cy),
+        width: hole * 2 * erx / r,
+        height: hole * 2,
       ),
       Paint()..color = const Color(0xFF6F5869),
     );
-
-    if (paws) {
-      for (final dx in [-0.72, 0.72]) {
-        final p = Offset(cx + dx * hole, top - ry * 0.25);
-        final radius = h * 0.036;
-        canvas.drawCircle(p, radius, Paint()..color = const Color(0xFFF1DCD6));
-        canvas.drawCircle(
-          p,
-          radius,
-          Paint()
-            ..color = ink
-            ..style = PaintingStyle.stroke
-            ..strokeWidth = 1.6,
-        );
-        final toe = Paint()
-          ..color = ink.withValues(alpha: 0.55)
-          ..strokeWidth = 1.1
-          ..strokeCap = StrokeCap.round;
-        for (final tx in [-0.35, 0.0, 0.35]) {
-          canvas.drawLine(
-            p + Offset(tx * radius, -radius * 0.75),
-            p + Offset(tx * radius, -radius * 0.35),
-            toe,
-          );
-        }
-      }
-    }
   }
 
   @override
   bool shouldRepaint(_RollPainter old) =>
       old.count != count ||
-      old.paws != paws ||
-      old.colors.length != colors.length;
+      old.colors.length != colors.length ||
+      old.g.size != g.size;
 }
 
 /// Die ausgerollte Decke: alle fertigen Quadrate, 6 breit, mit den Wörtern.

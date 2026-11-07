@@ -811,7 +811,7 @@ class _CrochetedToday extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              KumaRoll(work: work, height: 150, animateFrom: attachedBefore),
+              KumaRoll(work: work, height: 120, animateFrom: attachedBefore),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(

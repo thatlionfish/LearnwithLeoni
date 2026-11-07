@@ -96,7 +96,7 @@ class _BlanketViewState extends State<_BlanketView>
                 builder: (context, _) => Center(
                   child: KumaRoll(
                     work: work,
-                    height: 250,
+                    height: 230,
                     unrolled: Curves.easeInOut.transform(_unroll.value),
                   ),
                 ),
