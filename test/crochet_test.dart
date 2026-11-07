@@ -44,8 +44,6 @@ void main() {
         ('milch', 1),
       ]);
       expect(work.waiting, 1); // das Ei
-      expect(work.blankets, 0);
-      expect(work.snuggle, closeTo(1 / CrochetWork.perBlanket, 1e-9));
     },
   );
 
@@ -66,17 +64,30 @@ void main() {
     expect(CrochetStep(sq(2), from: 0, to: 2).newRounds, 2);
   });
 
-  test('Nach 36 Quadraten ist eine Decke fertig, die nächste beginnt', () {
-    final cards = [
-      for (var i = 0; i < 40; i++)
-        VocabCard(id: 'c$i', term: 'w$i', translation: 't$i'),
-    ];
-    final squares = [
-      for (final c in cards)
-        CrochetSquare(set: set, card: c, rounds: Leitner.secure, due: monday),
-    ];
-    final work = CrochetWork(attached: squares, onHook: const [], waiting: 0);
-    expect(work.blankets, 1);
-    expect(work.currentBlanket, hasLength(4));
+  test('Die Decke wächst ohne Ende, in der Reihenfolge des Lernens', () async {
+    SharedPreferences.setMockInitialValues({});
+    ProgressStore.resetCache();
+    final p = await ProgressStore.open('viel');
+    final big = VocabSet(
+      id: 'gross',
+      title: 'Gross',
+      titleTranslation: '',
+      variety: Variety.de,
+      published: true,
+      cards: [
+        for (var i = 0; i < 120; i++)
+          VocabCard(id: 'c$i', term: 'w$i', translation: 't$i'),
+      ],
+    );
+    // Jede Karte an einem anderen Tag fünfmal gewusst → sicher.
+    for (final (i, c) in big.cards.indexed) {
+      for (var k = 0; k < 5; k++) {
+        await p.record(big, c, Grade.knew, now: monday.add(Duration(days: i)));
+      }
+    }
+    final work = CrochetWork.of([big], p);
+    expect(work.attached, hasLength(120)); // keine Grenze
+    expect(work.attached.first.card.id, 'c0'); // das älteste zuerst
+    expect(work.attached.last.card.id, 'c119');
   });
 }

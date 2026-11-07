@@ -1,7 +1,7 @@
 import '../data/repository.dart';
 
 /// Kumachans vorab aufgenommene Sätze (`data/kuma/index.json`, erzeugt von
-/// `tool/tts.dart`): Satz → Aufnahme mit seiner Kinderstimme.
+/// `tool/tts.dart`): Satz → Aufnahme mit ihrer Kinderstimme.
 abstract final class KumaVoice {
   static Map<String, String>? _phrases;
   static Future<void>? _loading;

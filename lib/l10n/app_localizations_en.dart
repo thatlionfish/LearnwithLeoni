@@ -494,6 +494,29 @@ class AppLocalizationsEn extends AppLocalizations {
       'What you know comes back after 1, 2, 4, 8 and 16 days. If you still know it then, you\'ve mastered it.';
 
   @override
+  String get blanketUnroll => 'Unroll the blanket';
+
+  @override
+  String get blanketRollUp => 'Roll it up again';
+
+  @override
+  String get blanketAsk => 'Do you want to see your blanket?';
+
+  @override
+  String get blanketTapKuma => 'See Kumachan\'s blanket';
+
+  @override
+  String blanketSquares(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count squares in the blanket',
+      one: '1 square in the blanket',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get blanketTitle => 'Kumachan\'s blanket';
 
   @override
@@ -503,17 +526,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String blanketSummary(int attached, int onHook) {
     return '$attached on the blanket · $onHook on the hook';
-  }
-
-  @override
-  String blanketDone(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count blankets are already finished!',
-      one: '1 blanket is already finished!',
-    );
-    return '$_temp0';
   }
 
   @override

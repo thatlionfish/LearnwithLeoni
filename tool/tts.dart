@@ -8,7 +8,7 @@
 //   - Hörtexte, Dialoge mit verschiedenen Stimmen → listening.audio
 //   - fide-Aufgaben: Situation + Frage (Prüferin), Hörtext (andere
 //     deutsche Stimmen), Frage nochmals → fide[].items[].audio
-//   - Kumachans Satzsammlung: jeder Tipp, den er geben kann
+//   - Kumachans Satzsammlung: jeder Tipp, den sie geben kann
 //                                 → web/data/kuma/ (für alle Schüler)
 //
 // Aufruf:
@@ -183,7 +183,7 @@ Future<void> main(List<String> args) async {
 
         final hint = card['hint'] as String?;
         if (hint != null) {
-          // Kumachan liest seine Tipps selbst – mit süsser, quietschiger Stimme.
+          // Kumachan liest ihre Tipps selbst – mit süsser, quietschiger Stimme.
           final rel = await make(
             '$id-tipp',
             '<prosody pitch="$kumaPitch" rate="+4%">${_say(hint)}</prosody>',
@@ -287,8 +287,8 @@ String _dialog(String text) {
   return out.toString();
 }
 
-/// Kumachans Satzsammlung unter web/data/kuma/: jeder Satz, den er sagen
-/// kann, einmal mit seiner Stimme – gemeinsam für alle Schüler.
+/// Kumachans Satzsammlung unter web/data/kuma/: jeder Satz, den sie sagen
+/// kann, einmal mit ihrer Stimme – gemeinsam für alle Schüler.
 Future<void> _kumaBank(List<Map<String, dynamic>> sets) async {
   final abcFile = File('web/data/abc/hints.json');
   final abc = abcFile.existsSync()

@@ -494,6 +494,29 @@ class AppLocalizationsDe extends AppLocalizations {
       'Was du weisst, kommt erst nach 1, 2, 4, 8 und 16 Tagen wieder. Weisst du es dann noch, kannst du es sicher.';
 
   @override
+  String get blanketUnroll => 'Decke ausrollen';
+
+  @override
+  String get blanketRollUp => 'Wieder einrollen';
+
+  @override
+  String get blanketAsk => 'Willst du deine Decke sehen?';
+
+  @override
+  String get blanketTapKuma => 'Kumachans Decke ansehen';
+
+  @override
+  String blanketSquares(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Quadrate in der Decke',
+      one: '1 Quadrat in der Decke',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get blanketTitle => 'Kumachans Decke';
 
   @override
@@ -503,17 +526,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String blanketSummary(int attached, int onHook) {
     return '$attached an der Decke · $onHook am Haken';
-  }
-
-  @override
-  String blanketDone(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count Decken sind schon fertig!',
-      one: '1 Decke ist schon fertig!',
-    );
-    return '$_temp0';
   }
 
   @override

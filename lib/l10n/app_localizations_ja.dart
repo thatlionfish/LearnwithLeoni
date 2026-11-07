@@ -479,6 +479,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get spacedInfo => 'わかった単語は、1日、2日、4日、8日、16日後にまた出ます。そのときも覚えていれば習得済みです。';
 
   @override
+  String get blanketUnroll => 'ブランケットを広げる';
+
+  @override
+  String get blanketRollUp => 'また巻く';
+
+  @override
+  String get blanketAsk => 'ブランケットを見てみる？';
+
+  @override
+  String get blanketTapKuma => 'くまちゃんのブランケットを見る';
+
+  @override
+  String blanketSquares(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'ブランケットのモチーフ：$count枚',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get blanketTitle => 'くまちゃんのブランケット';
 
   @override
@@ -488,16 +510,6 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String blanketSummary(int attached, int onHook) {
     return 'ブランケットに$attached枚 ・ 編み途中$onHook枚';
-  }
-
-  @override
-  String blanketDone(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: 'ブランケットがもう$count枚完成しました！',
-    );
-    return '$_temp0';
   }
 
   @override

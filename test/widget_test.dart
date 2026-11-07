@@ -7,6 +7,7 @@ import 'package:learnwithleoni/audio/kuma_voice.dart';
 import 'package:learnwithleoni/data/leitner.dart';
 import 'package:learnwithleoni/data/repository.dart';
 import 'package:learnwithleoni/main.dart';
+import 'package:learnwithleoni/screens/home_screen.dart';
 import 'package:learnwithleoni/widgets/leoni.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -155,13 +156,19 @@ FakeSource demoSource() => FakeSource({
   },
 });
 
-Future<void> pumpApp(WidgetTester tester, String location) async {
+Future<void> pumpApp(
+  WidgetTester tester,
+  String location, {
+  double kumaAsk = 0,
+}) async {
   SharedPreferences.setMockInitialValues({});
   // Zwischengespeicherte Futures nicht über Tests hinweg teilen.
   LeoniPhrases.resetCache();
   ProgressStore.resetCache();
   KumaVoice.reset();
   LeoniFigure.animate = false;
+  // Zufall aus: Kumachan fragt nur, wenn ein Test es will.
+  HomeScreen.kumaAskChance = kumaAsk;
   rootBundle.clear();
   svg.cache.clear();
   final settings = await AppSettings.load();
@@ -228,40 +235,52 @@ void main() {
     expect(find.textContaining('2 gewusst'), findsOneWidget);
   });
 
-  testWidgets(
-    'Kumachan häkelt: Erfolg nach der Runde, Decke auf der Startseite',
-    (tester) async {
-      tester.view.physicalSize = const Size(800, 2000);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.reset);
-      await pumpApp(tester, '/s/anna1');
-      expect(find.text('Kumachans Decke'), findsOneWidget);
-      expect(
-        find.text(
-          'Lern deine ersten Wörter – dann beginnt Kumachan zu häkeln.',
-        ),
-        findsOneWidget,
-      );
+  testWidgets('Kumachan häkelt: Erfolg nach der Runde, Decke über Kumachan', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 2000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await pumpApp(tester, '/s/anna1', kumaAsk: 1); // sie fragt bestimmt
+    // Keine grosse Kachel mehr; ohne Quadrate fragt Kumachan noch nicht.
+    expect(find.text('Kumachans Decke'), findsNothing);
+    expect(find.text('Willst du deine Decke sehen?'), findsNothing);
 
-      await tester.tap(find.text('Jetzt lernen'));
-      await tester.pumpAndSettle();
-      for (var i = 0; i < 2; i++) {
-        await tester.sendKeyEvent(LogicalKeyboardKey.space);
-        await tester.pumpAndSettle();
-        await tester.sendKeyEvent(LogicalKeyboardKey.digit1);
-        await tester.pumpAndSettle();
-      }
-      // Zwei neue Wörter gewusst: je zwei Runden.
-      expect(find.text('Heute gehäkelt'), findsOneWidget);
-      expect(find.text('Kumachan hat 4 Runden gehäkelt.'), findsOneWidget);
+    // Kumachan antippen öffnet ihre Decke.
+    await tester.tap(find.byTooltip('Kumachans Decke ansehen'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Lern deine ersten Wörter – dann beginnt Kumachan zu häkeln.'),
+      findsOneWidget,
+    );
+    await tester.tap(find.byType(BackButton));
+    await tester.pumpAndSettle();
 
-      await tester.tap(find.text('Zur Decke'));
+    await tester.tap(find.text('Jetzt lernen'));
+    await tester.pumpAndSettle();
+    for (var i = 0; i < 2; i++) {
+      await tester.sendKeyEvent(LogicalKeyboardKey.space);
       await tester.pumpAndSettle();
-      expect(find.text('Am Haken'), findsOneWidget);
-      expect(find.text('2 von 5 Runden'), findsNWidgets(2));
-      expect(find.text('0 an der Decke · 2 am Haken'), findsOneWidget);
-    },
-  );
+      await tester.sendKeyEvent(LogicalKeyboardKey.digit1);
+      await tester.pumpAndSettle();
+    }
+    // Zwei neue Wörter gewusst: je zwei Runden.
+    expect(find.text('Heute gehäkelt'), findsOneWidget);
+    expect(find.text('Kumachan hat 4 Runden gehäkelt.'), findsOneWidget);
+
+    await tester.tap(find.text('Zur Decke'));
+    await tester.pumpAndSettle();
+    expect(find.text('Am Haken'), findsOneWidget);
+    expect(find.text('2 von 5 Runden'), findsNWidgets(2));
+    expect(find.text('0 an der Decke · 2 am Haken'), findsOneWidget);
+
+    // Zurück auf der Startseite fragt Kumachan nach ihrer Decke.
+    await tester.tap(find.byType(BackButton));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Zur Startseite'));
+    await tester.pumpAndSettle();
+    expect(find.text('Willst du deine Decke sehen?'), findsOneWidget);
+  });
 
   testWidgets(
     'Deutsch hinten: vorne die Übersetzung, danach wann sie wiederkommt',

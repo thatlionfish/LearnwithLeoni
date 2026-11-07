@@ -64,7 +64,7 @@ dart run tool/tts.dart         # erzeugt MP3s unter <schüler>/audio/tts/
   Hörtext mit anderen deutschen Stimmen, Frage nochmals. Der fide-Test prüft
   Hochdeutsch: keine Schweizer Stimmen für fide-Schüler.
 - Kumachans Satzsammlung `web/data/kuma/` (für alle Schüler): jeder Tipp, den
-  er geben kann (`kumaPhrases` in `lib/learn/kuma_phrases.dart`), mit seiner
+  sie geben kann (`kumaPhrases` in `lib/learn/kuma_phrases.dart`), mit ihrer
   Kinderstimme. Feste Sätze stehen in `KumaLines` (`lib/learn/hints.dart`).
 
 ## Bündnerdütsch
@@ -92,10 +92,13 @@ dart run tool/gen_kuma.dart    # Posen von Kumachan neu erzeugen
 ```
 
 - Design: Wabi-Sabi, Farben in `lib/ui/colors.dart`; Lemon Grass nur als Detail.
+- Kumachan ist ein Mädchen: in allen Texten „sie/ihr“ (en: she/her).
 - Lernkarten: Leitner 1, 2, 4, 8, 16 Tage, danach „sicher“ (kommt nicht mehr).
   Belohnung „Kumachans Decke“ (`lib/learn/crochet.dart`, `lib/widgets/crochet.dart`):
-  jedes Wort ein Häkelquadrat, Runde = Fach, sicher = an die Decke (36 pro Decke),
-  pro Schüler über alle Sets; Seite `#/s/<code>/decke`.
-- Texte der Oberfläche: `lib/l10n/app_*.arb` (de, en). Neue Sprache = neue ARB-Datei.
+  jedes Wort ein Häkelquadrat, Runde = Fach, sicher = an die Decke. Die Decke ist
+  unendlich: Kumachan steckt darin wie in einem Dürüm (`KumaRoll`), man kann sie
+  ausrollen (`UnrolledBlanket`). Pro Schüler über alle Sets; Seite `#/s/<code>/decke`,
+  erreichbar über Kumachan auf der Startseite und am Ende der Lernrunde.
+- Texte der Oberfläche: `lib/l10n/app_*.arb` (de, en, ja). Neue Sprache = neue ARB-Datei.
 - Hangman stammt aus `C:\dev\Apps\Hangman` – Szene und Farben bleiben 1:1.
 - Commit/Push nur, wenn Leoni es sagt.

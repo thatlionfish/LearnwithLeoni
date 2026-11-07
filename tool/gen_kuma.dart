@@ -1,4 +1,4 @@
-// Erzeugt Kumachan (Leonis gehäkelten Bären) als SVG-Einzelbilder in
+// Erzeugt Kumachan (Leonis gehäkelte Bärin) als SVG-Einzelbilder in
 // assets/kuma/ und die Übersicht lib/widgets/kuma_poses.g.dart.
 //
 //   dart run tool/gen_kuma.dart
@@ -331,7 +331,7 @@ void main() {
     ..writeln('// GENERIERT von tool/gen_kuma.dart – nicht von Hand ändern.')
     ..writeln("import 'figure.dart';")
     ..writeln()
-    ..writeln('/// Posen von Kumachan, Leonis gehäkeltem Bären.')
+    ..writeln('/// Posen von Kumachan, Leonis gehäkelter Bärin.')
     ..writeln('enum KumaPose implements FigurePose {');
   for (final p in poses) {
     final files = <String>[];

@@ -1,7 +1,7 @@
 // GENERIERT von tool/gen_kuma.dart – nicht von Hand ändern.
 import 'figure.dart';
 
-/// Posen von Kumachan, Leonis gehäkeltem Bären.
+/// Posen von Kumachan, Leonis gehäkelter Bärin.
 enum KumaPose implements FigurePose {
   /// Da sein
   idle(['idle_0.svg', 'idle_1.svg'], [1300, 1300]),

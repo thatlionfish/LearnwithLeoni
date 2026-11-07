@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../app_scope.dart';
 import '../audio/speaker.dart';
 import '../data/leitner.dart';
+import '../data/models.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/gloss.dart';
 import '../learn/crochet.dart';
@@ -35,11 +36,7 @@ class LearnScreen extends StatelessWidget {
       final sets = setId == null
           ? data.content.sets
           : [?data.content.set(setId!)];
-      return _LearnView(
-        code: code,
-        data: data,
-        session: LearnSession.build(sets, data.progress),
-      );
+      return _LearnView(code: code, data: data, sets: sets);
     },
   );
 }
@@ -48,12 +45,12 @@ class _LearnView extends StatefulWidget {
   const _LearnView({
     required this.code,
     required this.data,
-    required this.session,
+    required this.sets,
   });
 
   final String code;
   final StudentData data;
-  final LearnSession session;
+  final List<VocabSet> sets;
 
   @override
   State<_LearnView> createState() => _LearnViewState();
@@ -81,7 +78,7 @@ class _LearnViewState extends State<_LearnView> {
     _attachedBefore = CrochetWork.of(
       widget.data.content.sets,
       widget.data.progress,
-    ).currentBlanket.length;
+    ).attached.length;
   }
 
   bool get _germanFront => AppScope.of(context).settings.germanFront;
@@ -91,7 +88,12 @@ class _LearnViewState extends State<_LearnView> {
   Timer? _toastTimer;
   LeoniPhrase? _donePhrase;
 
-  LearnSession get _session => widget.session;
+  /// Einmal pro Seite gebaut: Wer zwischendurch die Decke anschaut und
+  /// zurückkommt, findet seine Runde (und ihren Abschluss) wieder.
+  late final LearnSession _session = LearnSession.build(
+    widget.sets,
+    widget.data.progress,
+  );
 
   @override
   void dispose() {
@@ -732,7 +734,7 @@ class _DirectionToggle extends StatelessWidget {
   }
 }
 
-/// Nach der Lernrunde: Kumachan zeigt, was er gehäkelt hat. Die Quadrate
+/// Nach der Lernrunde: Kumachan zeigt, was sie gehäkelt hat. Die Quadrate
 /// wachsen nacheinander um ihre neuen Runden, fertige kommen an die Decke.
 class _CrochetedToday extends StatelessWidget {
   const _CrochetedToday({
@@ -809,7 +811,7 @@ class _CrochetedToday extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              KumaBlanket(work: work, height: 150, animateFrom: attachedBefore),
+              KumaRoll(work: work, height: 150, animateFrom: attachedBefore),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(

@@ -31,7 +31,7 @@ class LeoniFigure extends StatelessWidget {
       AnimatedFigure(pose: pose, height: height);
 }
 
-/// Kumachan, Leonis gehäkelter Bär.
+/// Kumachan, Leonis gehäkelte Bärin.
 class KumaFigure extends StatelessWidget {
   const KumaFigure({super.key, this.pose = KumaPose.idle, this.height = 110});
 
@@ -97,10 +97,22 @@ class LeoniSays extends StatelessWidget {
     this.subline,
     this.figureHeight = 168,
     this.companion,
+    this.onCompanionTap,
+    this.companionLabel,
+    this.companionSays,
+    this.companionSaysGloss,
   });
 
   /// Kumachan steht klein neben Leoni (optional).
   final KumaPose? companion;
+
+  /// Kumachan antippen (z. B. öffnet ihre Decke).
+  final VoidCallback? onCompanionTap;
+  final String? companionLabel;
+
+  /// Kleine Sprechblase über Kumachan, z. B. „Willst du deine Decke sehen?“.
+  final String? companionSays;
+  final String? companionSaysGloss;
 
   /// Fett über dem Spruch, z. B. „Hallo Anna!“. Leer = keine Überschrift.
   final String headline;
@@ -120,7 +132,7 @@ class LeoniSays extends StatelessWidget {
         if (companion != null)
           Padding(
             padding: const EdgeInsets.only(right: 2),
-            child: KumaFigure(pose: companion!, height: figureHeight * 0.52),
+            child: _companion(),
           ),
         LeoniFigure(pose: pose, height: figureHeight),
         const SizedBox(width: 4),
@@ -154,6 +166,66 @@ class LeoniSays extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+extension on LeoniSays {
+  Widget _companion() {
+    Widget kuma = KumaFigure(pose: companion!, height: figureHeight * 0.52);
+    final says = companionSays;
+    if (says != null) {
+      kuma = Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            constraints: BoxConstraints(maxWidth: figureHeight * 0.78),
+            margin: const EdgeInsets.only(bottom: 4),
+            padding: const EdgeInsets.fromLTRB(9, 6, 9, 7),
+            decoration: BoxDecoration(
+              color: LeoColors.brightWhite,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.elliptical(14, 11),
+                topRight: Radius.elliptical(12, 13),
+                bottomLeft: Radius.elliptical(13, 10),
+                bottomRight: Radius.elliptical(4, 4),
+              ),
+              border: Border.all(color: LeoColors.woodAsh),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  says,
+                  textAlign: TextAlign.center,
+                  style: sans(12.5, weight: 650, height: 1.25),
+                ),
+                if (companionSaysGloss != null)
+                  Text(
+                    companionSaysGloss!,
+                    textAlign: TextAlign.center,
+                    style: glossStyle(10.5),
+                  ),
+              ],
+            ),
+          ),
+          kuma,
+        ],
+      );
+    }
+    final tap = onCompanionTap;
+    if (tap == null) return kuma;
+    return Tooltip(
+      message: companionLabel ?? '',
+      child: Semantics(
+        button: true,
+        label: companionLabel,
+        child: GestureDetector(
+          onTap: tap,
+          behavior: HitTestBehavior.opaque,
+          child: MouseRegion(cursor: SystemMouseCursors.click, child: kuma),
+        ),
+      ),
     );
   }
 }

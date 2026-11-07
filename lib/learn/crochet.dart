@@ -24,7 +24,7 @@ class CrochetSquare {
   String get key => '${set.id}/${card.id}';
 }
 
-/// Kumachans Häkelarbeit für einen Schüler – über alle seine Sets.
+/// Kumachans Häkelarbeit für einen Schüler – über alle Sets dieses Schülers.
 class CrochetWork {
   const CrochetWork({
     required this.attached,
@@ -61,11 +61,10 @@ class CrochetWork {
     return CrochetWork(attached: attached, onHook: onHook, waiting: waiting);
   }
 
-  /// Quadrate pro Decke (6 × 6). Ist eine Decke voll, beginnt die nächste.
-  static const perBlanket = 36;
+  /// Die Decke wächst ohne Ende: ausgerollt 6 Quadrate breit.
   static const columns = 6;
 
-  /// Fertige Quadrate, an die Decke genäht.
+  /// Fertige Quadrate an der grossen Decke, das älteste zuerst.
   final List<CrochetSquare> attached;
 
   /// Angefangene Quadrate (1–5 Runden).
@@ -73,16 +72,6 @@ class CrochetWork {
 
   /// Wörter, die noch nicht gelernt wurden.
   final int waiting;
-
-  /// Ganz fertige Decken.
-  int get blankets => attached.length ~/ perBlanket;
-
-  /// Quadrate der Decke, an der Kumachan gerade näht.
-  List<CrochetSquare> get currentBlanket =>
-      attached.sublist(blankets * perBlanket);
-
-  /// 0 … 1: wie weit sich Kumachan schon einkuscheln kann.
-  double get snuggle => currentBlanket.length / perBlanket;
 
   bool get isEmpty => attached.isEmpty && onHook.isEmpty;
 }

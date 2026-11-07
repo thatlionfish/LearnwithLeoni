@@ -6,7 +6,7 @@ import 'exercises.dart';
 import 'hints.dart';
 
 /// Alles, was Kumachan zu diesen Inhalten sagen kann – damit `tool/tts.dart`
-/// jeden Satz vorab mit seiner Stimme aufnimmt. Lieber ein Satz zu viel als
+/// jeden Satz vorab mit ihrer Stimme aufnimmt. Lieber ein Satz zu viel als
 /// einer zu wenig: Fehlt einer, liest ihn die Browser-Stimme vor.
 Set<String> kumaPhrases(
   Iterable<VocabSet> sets, {

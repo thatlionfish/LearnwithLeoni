@@ -874,6 +874,36 @@ abstract class AppLocalizations {
   /// **'Was du weisst, kommt erst nach 1, 2, 4, 8 und 16 Tagen wieder. Weisst du es dann noch, kannst du es sicher.'**
   String get spacedInfo;
 
+  /// No description provided for @blanketUnroll.
+  ///
+  /// In de, this message translates to:
+  /// **'Decke ausrollen'**
+  String get blanketUnroll;
+
+  /// No description provided for @blanketRollUp.
+  ///
+  /// In de, this message translates to:
+  /// **'Wieder einrollen'**
+  String get blanketRollUp;
+
+  /// No description provided for @blanketAsk.
+  ///
+  /// In de, this message translates to:
+  /// **'Willst du deine Decke sehen?'**
+  String get blanketAsk;
+
+  /// No description provided for @blanketTapKuma.
+  ///
+  /// In de, this message translates to:
+  /// **'Kumachans Decke ansehen'**
+  String get blanketTapKuma;
+
+  /// No description provided for @blanketSquares.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Quadrat in der Decke} other{{count} Quadrate in der Decke}}'**
+  String blanketSquares(int count);
+
   /// No description provided for @blanketTitle.
   ///
   /// In de, this message translates to:
@@ -891,12 +921,6 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'{attached} an der Decke · {onHook} am Haken'**
   String blanketSummary(int attached, int onHook);
-
-  /// No description provided for @blanketDone.
-  ///
-  /// In de, this message translates to:
-  /// **'{count, plural, =1{1 Decke ist schon fertig!} other{{count} Decken sind schon fertig!}}'**
-  String blanketDone(int count);
 
   /// No description provided for @blanketOnHook.
   ///

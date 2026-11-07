@@ -1,7 +1,7 @@
 import '../data/models.dart';
 import 'answer_check.dart';
 
-/// Kumachans feste Sätze. Alles, was er sagt, wird vorab mit seiner Stimme
+/// Kumachans feste Sätze. Alles, was sie sagt, wird vorab mit ihrer Stimme
 /// aufgenommen (`tool/tts.dart`) – neue Sätze deshalb hier eintragen.
 abstract final class KumaLines {
   static const noMore = 'Mehr Tipps habe ich nicht – du schaffst das!';
