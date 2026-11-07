@@ -447,6 +447,53 @@ class AppLocalizationsEn extends AppLocalizations {
       'There aren\'t enough clues for these topics yet. Choose more topics.';
 
   @override
+  String get statSecure => 'mastered';
+
+  @override
+  String get germanFront => 'German on the front';
+
+  @override
+  String get germanBack => 'German on the back';
+
+  @override
+  String reviewIn(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'comes back in $count days',
+      one: 'comes back tomorrow',
+      zero: 'comes back today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reviewAgainNow => 'comes back in a moment';
+
+  @override
+  String get reviewSecure => 'mastered – it won\'t come back on its own';
+
+  @override
+  String securedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'You\'ve mastered $count words!',
+      one: 'You\'ve mastered 1 word!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String cardBox(int box) {
+    return 'Box $box of 5';
+  }
+
+  @override
+  String get spacedInfo =>
+      'What you know comes back after 1, 2, 4, 8 and 16 days. If you still know it then, you\'ve mastered it.';
+
+  @override
   String get helpLanguage => 'Help language';
 
   @override

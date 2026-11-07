@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../data/leitner.dart';
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/gloss.dart';
@@ -8,7 +9,9 @@ import '../learn/exercises.dart';
 import '../widgets/exercise_kit.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
+import '../ui/theme.dart';
 import '../widgets/page_frame.dart';
+import '../widgets/stats_line.dart';
 import '../widgets/student_loader.dart';
 import 'message_screen.dart';
 
@@ -65,15 +68,19 @@ class _SetViewState extends State<_SetView> {
           Text(set.titleTranslation, style: text.bodyLarge),
         const SizedBox(height: 18),
         StackedProgress(
+          secure: stats.secure,
           learned: stats.learned,
           learning: stats.learning,
           total: stats.total,
         ),
         const SizedBox(height: 8),
-        Text(
-          '${t.cardCount(stats.total)} · ${stats.learned} ${t.statLearned} · '
-          '${stats.learning} ${t.statLearning} · ${stats.fresh} ${t.statNew}',
+        Text(statsLine(t, stats), style: text.bodySmall),
+        const SizedBox(height: 4),
+        Glossed(
+          t.spacedInfo,
+          gloss: glossOf(context)?.spacedInfo,
           style: text.bodySmall,
+          glossSize: 11.5,
         ),
         const SizedBox(height: 18),
         Align(
@@ -144,7 +151,11 @@ class _SetViewState extends State<_SetView> {
         ),
         const SizedBox(height: 12),
         for (final (i, card) in set.cards.indexed) ...[
-          _CardRow(card: card, seed: 60 + i),
+          _CardRow(
+            card: card,
+            seed: 60 + i,
+            state: widget.data.progress.stateOf(set, card),
+          ),
           const SizedBox(height: 10),
         ],
       ],
@@ -153,10 +164,13 @@ class _SetViewState extends State<_SetView> {
 }
 
 class _CardRow extends StatelessWidget {
-  const _CardRow({required this.card, required this.seed});
+  const _CardRow({required this.card, required this.seed, this.state});
 
   final VocabCard card;
   final int seed;
+
+  /// Lernstand; `null` = noch nicht gelernt.
+  final CardState? state;
 
   @override
   Widget build(BuildContext context) {
@@ -167,13 +181,21 @@ class _CardRow extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Wrap(
-            spacing: 10,
-            crossAxisAlignment: WrapCrossAlignment.end,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(card.term, style: text.titleLarge),
-              if (card.plural != null)
-                Text(card.plural!, style: text.bodySmall),
+              Expanded(
+                child: Wrap(
+                  spacing: 10,
+                  crossAxisAlignment: WrapCrossAlignment.end,
+                  children: [
+                    Text(card.term, style: text.titleLarge),
+                    if (card.plural != null)
+                      Text(card.plural!, style: text.bodySmall),
+                  ],
+                ),
+              ),
+              if (state != null) _BoxDots(state!),
             ],
           ),
           Text(card.translation, style: text.bodyMedium),
@@ -197,6 +219,59 @@ class _CardRow extends StatelessWidget {
               ),
             ),
           ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Lernstand einer Karte: fünf Punkte für die Fächer, darunter wann sie
+/// wiederkommt – oder „sicher“.
+class _BoxDots extends StatelessWidget {
+  const _BoxDots(this.state);
+
+  final CardState state;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
+    final small = sans(11.5, color: LeoColors.inkSoft, height: 1.2);
+    if (state.isSecure) {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SenchaDot(size: 10),
+          const SizedBox(width: 6),
+          Text(t.statSecure, style: sans(12.5, weight: 700)),
+        ],
+      );
+    }
+    final days = Leitner.daysUntil(state);
+    return Tooltip(
+      message: t.cardBox(state.box),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (var b = 1; b <= Leitner.boxes; b++)
+                Container(
+                  width: 8,
+                  height: 8,
+                  margin: const EdgeInsets.only(left: 3),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: b <= state.box
+                        ? LeoColors.chocolate
+                        : LeoColors.vanillaIce,
+                    border: Border.all(color: LeoColors.woodAsh, width: 0.8),
+                  ),
+                ),
+            ],
+          ),
+          const SizedBox(height: 3),
+          Text(t.reviewIn(days < 0 ? 0 : days), style: small),
         ],
       ),
     );

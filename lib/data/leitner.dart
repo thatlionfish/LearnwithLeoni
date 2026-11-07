@@ -8,7 +8,8 @@ import 'models.dart';
 /// Selbsteinschätzung nach einer Karte.
 enum Grade { knew, almost, didNotKnow }
 
-/// Lernstand einer Karte: Fach 1–5 und nächster Fälligkeitstag.
+/// Lernstand einer Karte: Fach 1–5 (oder [Leitner.secure]) und nächster
+/// Fälligkeitstag.
 class CardState {
   const CardState({required this.box, required this.due});
 
@@ -20,12 +21,22 @@ class CardState {
   /// Nur das Datum zählt (lokale Mitternacht).
   final DateTime due;
 
+  /// Ganz sicher gelernt: kommt nicht mehr von selbst.
+  bool get isSecure => box >= Leitner.secure;
+
   Map<String, dynamic> toJson() => {'b': box, 'd': _ymd(due)};
 }
 
-/// Leitner-System mit 5 Fächern.
+/// Leitner-System: 5 Fächer mit wachsenden Abständen, danach „sicher“.
+///
+/// Gewusst → ein Fach weiter, Abstand 1, 2, 4, 8, 16 Tage. Wer eine Karte nach
+/// den 16 Tagen in Fach 5 noch weiss, kann sie sicher: Sie kommt in keiner
+/// Lernsitzung mehr. Fast → gleiches Fach, morgen. Nicht gewusst → Fach 1.
 abstract final class Leitner {
   static const int boxes = 5;
+
+  /// Stufe nach Fach 5.
+  static const int secure = 6;
 
   /// Abstand in Tagen nach dem Einsortieren in Fach 1–5.
   static const List<int> intervalDays = [1, 2, 4, 8, 16];
@@ -37,16 +48,25 @@ abstract final class Leitner {
 
   /// Neuer Lernstand nach einer Antwort. [current] == null: neue Karte (Fach 1).
   static CardState review(CardState? current, Grade grade, {DateTime? now}) {
-    final box = current?.box ?? 1;
+    final box = (current?.box ?? 1).clamp(1, secure);
+    final t = today(now);
+    if (grade == Grade.knew && box >= boxes) {
+      // Sicher: praktisch nie mehr fällig.
+      return CardState(box: secure, due: DateTime(t.year + 10, t.month, t.day));
+    }
     final newBox = switch (grade) {
-      Grade.knew => (box + 1).clamp(1, boxes),
-      Grade.almost => box,
+      Grade.knew => box + 1,
+      Grade.almost => box.clamp(1, boxes),
       Grade.didNotKnow => 1,
     };
     final days = grade == Grade.knew ? intervalDays[newBox - 1] : 1;
-    final t = today(now);
     return CardState(box: newBox, due: DateTime(t.year, t.month, t.day + days));
   }
+
+  /// In wie vielen Tagen die Karte wiederkommt (0 = heute).
+  static int daysUntil(CardState s, {DateTime? now}) =>
+      // Runden: bei der Zeitumstellung hat ein Tag 23 oder 25 Stunden.
+      (s.due.difference(today(now)).inHours / 24).round();
 }
 
 /// Zusammenfassung eines Sets für die Startseite.
@@ -56,9 +76,13 @@ class SetStats {
     required this.learned,
     required this.learning,
     required this.due,
+    this.secure = 0,
   });
 
   final int total;
+
+  /// Ganz sicher (nach Fach 5).
+  final int secure;
 
   /// Fach 4–5.
   final int learned;
@@ -69,7 +93,7 @@ class SetStats {
   /// Heute oder früher fällig.
   final int due;
 
-  int get fresh => total - learned - learning;
+  int get fresh => total - secure - learned - learning;
 }
 
 /// Lernstand eines Schülers, gespeichert nur auf dem Gerät.
@@ -132,10 +156,14 @@ class ProgressStore {
 
   SetStats stats(VocabSet set, {DateTime? now}) {
     final t = Leitner.today(now);
-    var learned = 0, learning = 0, due = 0;
+    var secure = 0, learned = 0, learning = 0, due = 0;
     for (final card in set.cards) {
       final s = stateOf(set, card);
       if (s == null) continue;
+      if (s.isSecure) {
+        secure++;
+        continue;
+      }
       if (s.box >= 4) {
         learned++;
       } else {
@@ -145,6 +173,7 @@ class ProgressStore {
     }
     return SetStats(
       total: set.cards.length,
+      secure: secure,
       learned: learned,
       learning: learning,
       due: due,

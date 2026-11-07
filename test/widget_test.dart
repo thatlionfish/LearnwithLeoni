@@ -228,6 +228,29 @@ void main() {
     expect(find.textContaining('2 gewusst'), findsOneWidget);
   });
 
+  testWidgets(
+    'Deutsch hinten: vorne die Übersetzung, danach wann sie wiederkommt',
+    (tester) async {
+      await pumpApp(tester, '/s/anna1/lernen?set=arzt');
+      await tester.tap(find.text('Deutsch hinten'));
+      await tester.pumpAndSettle();
+      expect(find.text('appointment'), findsOneWidget);
+      expect(find.text('der Termin'), findsNothing);
+      expect(find.text('Anhören'), findsNothing); // würde die Lösung verraten
+
+      await tester.tap(find.text('appointment'));
+      await tester.pumpAndSettle();
+      expect(find.text('der Termin'), findsOneWidget);
+      await tester.tap(find.text('Wusste ich'));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('kommt in 2 Tagen wieder'), findsOneWidget);
+
+      // Die Wahl bleibt: nächste Karte wieder mit der Übersetzung vorne.
+      expect(find.text('fever'), findsOneWidget);
+      expect(find.text('das Fieber'), findsNothing);
+    },
+  );
+
   testWidgets('Lückentext: tippen, prüfen, Rückmeldung', (tester) async {
     await pumpApp(tester, '/s/anna1/ueben/luecken?set=arzt');
     expect(find.text('Was passt in die Lücke?'), findsOneWidget);

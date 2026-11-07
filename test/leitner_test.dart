@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:learnwithleoni/data/leitner.dart';
 import 'package:learnwithleoni/data/models.dart';
+import 'package:learnwithleoni/learn/session.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -33,14 +34,25 @@ void main() {
       expect(s.due, DateTime(2026, 11, 3));
     });
 
-    test('Fach 5 bleibt Fach 5, 16 Tage', () {
+    test('Abstände wachsen: 2, 4, 8, 16 Tage', () {
+      CardState? s;
+      final gaps = <int>[];
+      for (var i = 0; i < 4; i++) {
+        s = Leitner.review(s, Grade.knew, now: monday);
+        gaps.add(Leitner.daysUntil(s, now: monday));
+      }
+      expect(gaps, [2, 4, 8, 16]);
+      expect(s!.box, 5);
+    });
+
+    test('Fach 5 gewusst → sicher, kommt nicht mehr von selbst', () {
       final s = Leitner.review(
         CardState(box: 5, due: monday),
         Grade.knew,
         now: monday,
       );
-      expect(s.box, 5);
-      expect(s.due, DateTime(2026, 11, 18));
+      expect(s.isSecure, isTrue);
+      expect(Leitner.daysUntil(s, now: monday), greaterThan(3000));
     });
 
     test('über den Monatswechsel', () {
@@ -77,5 +89,20 @@ void main() {
     expect(tomorrow.fresh, 1);
     expect(tomorrow.due, 1); // nur „b“
     expect(reopened.stats(set, now: DateTime(2026, 11, 4)).due, 2);
+
+    // „c“ fünfmal gewusst → sicher: zählt als sicher, nie mehr fällig.
+    for (var i = 0; i < 5; i++) {
+      await reopened.record(set, set.cards[2], Grade.knew, now: monday);
+    }
+    final later = reopened.stats(set, now: DateTime(2027, 6, 1));
+    expect(later.secure, 1);
+    expect(later.fresh, 0);
+    expect(later.due, 2); // „a“ und „b“, nicht „c“
+    final session = LearnSession.build(
+      [set],
+      reopened,
+      now: DateTime(2027, 6, 1),
+    );
+    expect(session.total, 2);
   });
 }

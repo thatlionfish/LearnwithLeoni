@@ -12,6 +12,7 @@ class AppSettings extends ChangeNotifier {
   AppSettings._(this._prefs, this._chosen);
 
   static const _helpKey = 'settings/help';
+  static const _directionKey = 'settings/germanFront';
 
   /// Oberflächensprache.
   static const Locale uiLocale = Locale('de');
@@ -54,6 +55,14 @@ class AppSettings extends ChangeNotifier {
     _chosen = languageCode;
     notifyListeners();
     await _prefs.setString(_helpKey, languageCode);
+  }
+
+  /// Lernkarten: Deutsch vorne (Standard) oder hinten.
+  bool get germanFront => _prefs.getBool(_directionKey) ?? true;
+
+  Future<void> setGermanFront(bool value) async {
+    await _prefs.setBool(_directionKey, value);
+    notifyListeners();
   }
 }
 

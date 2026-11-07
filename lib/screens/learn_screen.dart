@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
+import '../app_scope.dart';
 import '../audio/speaker.dart';
 import '../data/leitner.dart';
 import '../l10n/app_localizations.dart';
@@ -60,6 +61,14 @@ class _LearnViewState extends State<_LearnView> {
   final FocusNode _focus = FocusNode(debugLabel: 'learn-keys');
   bool _flipped = false;
 
+  /// Nach jeder Antwort: wann die letzte Karte wiederkommt.
+  ({String term, String note, bool secure})? _lastNote;
+
+  /// Wörter, die in dieser Sitzung „sicher“ geworden sind.
+  int _secured = 0;
+
+  bool get _germanFront => AppScope.of(context).settings.germanFront;
+
   /// Kurze Einblendung von Leoni (Pose + Spruch).
   (LeoniPose, LeoniPhrase)? _toast;
   Timer? _toastTimer;
@@ -76,11 +85,27 @@ class _LearnViewState extends State<_LearnView> {
 
   Future<void> _grade(Grade grade) async {
     if (!_flipped || _session.isDone) return;
+    final t = AppLocalizations.of(context);
+    final item = _session.current!;
     final moment = _session.answer(grade, (item, g) {
       widget.data.progress.record(item.set, item.card, g);
     });
     unawaited(widget.data.days.markToday());
-    setState(() => _flipped = false);
+    final state = widget.data.progress.stateOf(item.set, item.card);
+    final secure = state?.isSecure ?? false;
+    if (secure && grade == Grade.knew) _secured++;
+    setState(() {
+      _flipped = false;
+      _lastNote = (
+        term: item.card.term,
+        secure: secure,
+        note: _session.isQueued(item)
+            ? t.reviewAgainNow
+            : secure
+            ? t.reviewSecure
+            : t.reviewIn(state == null ? 1 : max(0, Leitner.daysUntil(state))),
+      );
+    });
 
     if (_session.isDone) {
       final phrase = await LeoniPhrases.pick('done');
@@ -159,28 +184,54 @@ class _LearnViewState extends State<_LearnView> {
                   color: LeoColors.woodAsh,
                 ),
               ),
-              const SizedBox(height: 22),
+              const SizedBox(height: 12),
+              // Feste Plätze: Schalter rechts, darunter der Hinweis zur
+              // letzten Karte – nichts springt, wenn er erscheint.
+              Align(
+                alignment: Alignment.centerRight,
+                child: _DirectionToggle(
+                  germanFront: _germanFront,
+                  onChanged: (v) async {
+                    await AppScope.of(context).settings.setGermanFront(v);
+                    if (mounted) setState(() => _flipped = false);
+                  },
+                ),
+              ),
+              const SizedBox(height: 8),
+              ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 20),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: _LastNote(_lastNote),
+                ),
+              ),
+              const SizedBox(height: 8),
               _FlipCard(
-                key: ValueKey(item.key + _session.answeredCount.toString()),
+                key: ValueKey(
+                  '${item.key}${_session.answeredCount}$_germanFront',
+                ),
                 item: item,
                 flipped: _flipped,
+                germanFront: _germanFront,
                 onFlip: () => setState(() => _flipped = true),
               ),
               const SizedBox(height: 10),
-              // Wort und (nach dem Umdrehen) Beispielsatz anhören.
+              // Wort und (nach dem Umdrehen) Beispielsatz anhören. Steht
+              // Deutsch hinten, verrät das Anhören vor dem Umdrehen die Lösung.
               Wrap(
                 alignment: WrapAlignment.center,
                 spacing: 8,
                 children: [
-                  TextButton.icon(
-                    onPressed: () => Speaker.play(
-                      url: audioUrl(widget.code, item.card.audio),
-                      text: item.card.term,
-                      lang: voiceLang(item.set),
+                  if (_germanFront || _flipped)
+                    TextButton.icon(
+                      onPressed: () => Speaker.play(
+                        url: audioUrl(widget.code, item.card.audio),
+                        text: item.card.term,
+                        lang: voiceLang(item.set),
+                      ),
+                      icon: const Icon(Icons.volume_up_rounded),
+                      label: Text(t.listen),
                     ),
-                    icon: const Icon(Icons.volume_up_rounded),
-                    label: Text(t.listen),
-                  ),
                   if (_flipped && item.card.example != null)
                     TextButton.icon(
                       onPressed: () => Speaker.play(
@@ -288,6 +339,21 @@ class _LearnViewState extends State<_LearnView> {
                 t.sessionDoneStats(s.knew, s.almost, s.notKnown),
                 style: text.bodyLarge,
               ),
+              if (_secured > 0) ...[
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    const SenchaDot(size: 11),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        t.securedCount(_secured),
+                        style: sans(16, weight: 650),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
               const SizedBox(height: 6),
               Text(
                 t.streakDays(max(1, widget.data.days.streak())),
@@ -330,11 +396,15 @@ class _FlipCard extends StatelessWidget {
     required this.item,
     required this.flipped,
     required this.onFlip,
+    this.germanFront = true,
   });
 
   final SessionItem item;
   final bool flipped;
   final VoidCallback onFlip;
+
+  /// `false`: vorne die Übersetzung, hinten das deutsche Wort.
+  final bool germanFront;
 
   @override
   Widget build(BuildContext context) {
@@ -378,7 +448,7 @@ class _FlipCard extends StatelessWidget {
     final c = item.card;
     return _shell(
       color: LeoColors.brightWhite,
-      label: c.term,
+      label: germanFront ? c.term : c.translation,
       child: SizedBox(
         height: 220,
         child: Column(
@@ -386,15 +456,22 @@ class _FlipCard extends StatelessWidget {
           children: [
             Text(item.set.title, style: text.labelMedium),
             const SizedBox(height: 22),
-            Text(
-              c.term,
-              textAlign: TextAlign.center,
-              style: serif(36, weight: 420),
-            ),
-            if (c.plural != null) ...[
-              const SizedBox(height: 6),
-              Text(c.plural!, style: text.bodyMedium),
-            ],
+            if (germanFront) ...[
+              Text(
+                c.term,
+                textAlign: TextAlign.center,
+                style: serif(36, weight: 420),
+              ),
+              if (c.plural != null) ...[
+                const SizedBox(height: 6),
+                Text(c.plural!, style: text.bodyMedium),
+              ],
+            ] else
+              Text(
+                c.translation,
+                textAlign: TextAlign.center,
+                style: serif(32, weight: 420),
+              ),
           ],
         ),
       ),
@@ -412,13 +489,32 @@ class _FlipCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(c.term, style: text.titleMedium, textAlign: TextAlign.center),
-            const SizedBox(height: 10),
-            Text(
-              c.translation,
-              textAlign: TextAlign.center,
-              style: serif(30, weight: 420),
-            ),
+            if (germanFront) ...[
+              Text(
+                c.term,
+                style: text.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                c.translation,
+                textAlign: TextAlign.center,
+                style: serif(30, weight: 420),
+              ),
+            ] else ...[
+              // Deutsch hinten: das deutsche Wort ist die Lösung, also gross.
+              Text(c.translation, style: text.titleMedium),
+              const SizedBox(height: 10),
+              Text(
+                c.term,
+                textAlign: TextAlign.center,
+                style: serif(34, weight: 420),
+              ),
+              if (c.plural != null) ...[
+                const SizedBox(height: 4),
+                Text(c.plural!, style: text.bodyMedium),
+              ],
+            ],
             if (c.alt != null) ...[
               const SizedBox(height: 6),
               Text(c.alt!, style: text.bodyMedium),
@@ -509,6 +605,86 @@ class _GradeButtons extends StatelessWidget {
           73,
           '1',
         ),
+      ],
+    );
+  }
+}
+
+/// Kurz nach jeder Antwort: wann die letzte Karte wiederkommt.
+class _LastNote extends StatelessWidget {
+  const _LastNote(this.note);
+
+  final ({String term, String note, bool secure})? note;
+
+  @override
+  Widget build(BuildContext context) {
+    final n = note;
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: n == null
+          ? const SizedBox(height: 20)
+          : Row(
+              key: ValueKey(n),
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (n.secure) ...[
+                  const SenchaDot(size: 10),
+                  const SizedBox(width: 6),
+                ],
+                Flexible(
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(text: n.term, style: sans(13.5, weight: 700)),
+                        TextSpan(text: ' – ${n.note}'),
+                      ],
+                    ),
+                    style: sans(13.5, color: LeoColors.inkSoft),
+                  ),
+                ),
+              ],
+            ),
+    );
+  }
+}
+
+/// Deutsch vorne oder hinten – das Gerät merkt sich die Wahl.
+class _DirectionToggle extends StatelessWidget {
+  const _DirectionToggle({required this.germanFront, required this.onChanged});
+
+  final bool germanFront;
+  final ValueChanged<bool> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
+    Widget option(bool value, String label, int seed) {
+      final on = value == germanFront;
+      return Padding(
+        padding: const EdgeInsets.only(left: 6),
+        child: OrganicCard(
+          seed: seed,
+          color: on ? LeoColors.chocolate : LeoColors.brightWhite,
+          onTap: on ? null : () => onChanged(value),
+          semanticLabel: label,
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+          child: Text(
+            label,
+            style: sans(
+              13,
+              weight: 650,
+              color: on ? LeoColors.brightWhite : LeoColors.chocolate,
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        option(true, t.germanFront, 121),
+        option(false, t.germanBack, 122),
       ],
     );
   }

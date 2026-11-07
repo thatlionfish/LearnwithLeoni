@@ -154,15 +154,17 @@ Path pebblePath(Offset center, double radius, Random r, {int points = 7}) {
   return path..close();
 }
 
-/// Dreiteiliger Fortschrittsbalken: gelernt · im Lernen · neu.
+/// Fortschrittsbalken: sicher · gelernt · im Lernen · neu.
 class StackedProgress extends StatelessWidget {
   const StackedProgress({
     super.key,
     required this.learned,
     required this.learning,
     required this.total,
+    this.secure = 0,
   });
 
+  final int secure;
   final int learned;
   final int learning;
   final int total;
@@ -184,19 +186,24 @@ class StackedProgress extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              if (secure > 0)
+                Expanded(
+                  flex: secure,
+                  child: const ColoredBox(color: LeoColors.chocolate),
+                ),
               if (learned > 0)
                 Expanded(
                   flex: learned,
-                  child: const ColoredBox(color: LeoColors.chocolate),
+                  child: const ColoredBox(color: LeoColors.inkSoft),
                 ),
               if (learning > 0)
                 Expanded(
                   flex: learning,
                   child: const ColoredBox(color: LeoColors.woodAsh),
                 ),
-              if (total - learned - learning > 0)
+              if (total - secure - learned - learning > 0)
                 Expanded(
-                  flex: total - learned - learning,
+                  flex: total - secure - learned - learning,
                   child: const ColoredBox(color: LeoColors.vanillaIce),
                 ),
             ],

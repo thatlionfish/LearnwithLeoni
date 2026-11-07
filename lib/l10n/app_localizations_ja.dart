@@ -434,6 +434,51 @@ class AppLocalizationsJa extends AppLocalizations {
   String get abcNotEnough => 'このテーマにはまだヒントが足りません。テーマをもっと選んでください。';
 
   @override
+  String get statSecure => '習得済み';
+
+  @override
+  String get germanFront => 'ドイツ語が表';
+
+  @override
+  String get germanBack => 'ドイツ語が裏';
+
+  @override
+  String reviewIn(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count日後にまた出ます',
+      one: '明日また出ます',
+      zero: '今日もう一度出ます',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reviewAgainNow => 'すぐにもう一度出ます';
+
+  @override
+  String get reviewSecure => '習得済み。もう自動では出ません';
+
+  @override
+  String securedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count語を習得しました！',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String cardBox(int box) {
+    return '$box / 5 段階目';
+  }
+
+  @override
+  String get spacedInfo => 'わかった単語は、1日、2日、4日、8日、16日後にまた出ます。そのときも覚えていれば習得済みです。';
+
+  @override
   String get helpLanguage => 'ヘルプの言語';
 
   @override

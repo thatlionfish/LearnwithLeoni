@@ -38,7 +38,7 @@ class LearnSession {
         final state = progress.stateOf(set, card);
         if (state == null) {
           fresh.add(SessionItem(set, card));
-        } else if (!state.due.isAfter(today)) {
+        } else if (!state.isSecure && !state.due.isAfter(today)) {
           due.add((SessionItem(set, card), state.due));
         }
       }
@@ -67,6 +67,9 @@ class LearnSession {
 
   /// Wie viele verschiedene Karten schon beantwortet sind.
   int get answeredCount => _answered.length;
+
+  /// Kommt die Karte in dieser Sitzung noch einmal?
+  bool isQueued(SessionItem item) => _queue.any((i) => i.key == item.key);
 
   /// Verarbeitet eine Antwort. Gibt zurück, ob Leoni etwas sagen soll.
   /// [record] wird nur bei der ersten Antwort pro Karte aufgerufen.

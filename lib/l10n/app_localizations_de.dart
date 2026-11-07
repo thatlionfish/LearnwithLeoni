@@ -447,6 +447,53 @@ class AppLocalizationsDe extends AppLocalizations {
       'Für diese Themen gibt es noch nicht genug Hinweise. Wähle mehr Themen aus.';
 
   @override
+  String get statSecure => 'sicher';
+
+  @override
+  String get germanFront => 'Deutsch vorne';
+
+  @override
+  String get germanBack => 'Deutsch hinten';
+
+  @override
+  String reviewIn(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'kommt in $count Tagen wieder',
+      one: 'kommt morgen wieder',
+      zero: 'kommt heute nochmal',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reviewAgainNow => 'kommt gleich nochmal';
+
+  @override
+  String get reviewSecure => 'jetzt sicher – kommt nicht mehr von selbst';
+
+  @override
+  String securedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter kannst du jetzt sicher!',
+      one: '1 Wort kannst du jetzt sicher!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String cardBox(int box) {
+    return 'Fach $box von 5';
+  }
+
+  @override
+  String get spacedInfo =>
+      'Was du weisst, kommt erst nach 1, 2, 4, 8 und 16 Tagen wieder. Weisst du es dann noch, kannst du es sicher.';
+
+  @override
   String get helpLanguage => 'Hilfesprache';
 
   @override

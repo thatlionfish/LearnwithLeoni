@@ -11,6 +11,7 @@ import '../widgets/app_logo.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/settings_sheet.dart';
+import '../widgets/stats_line.dart';
 import '../widgets/student_loader.dart';
 
 /// Persönliche Startseite unter `#/s/<code>`.
@@ -215,16 +216,13 @@ class _SetTile extends StatelessWidget {
           ),
           const SizedBox(height: 14),
           StackedProgress(
+            secure: stats.secure,
             learned: stats.learned,
             learning: stats.learning,
             total: stats.total,
           ),
           const SizedBox(height: 8),
-          Text(
-            '${t.cardCount(stats.total)} · ${stats.learned} ${t.statLearned} · '
-            '${stats.learning} ${t.statLearning} · ${stats.fresh} ${t.statNew}',
-            style: text.bodySmall,
-          ),
+          Text(statsLine(t, stats), style: text.bodySmall),
         ],
       ),
     );

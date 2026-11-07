@@ -820,6 +820,60 @@ abstract class AppLocalizations {
   /// **'Für diese Themen gibt es noch nicht genug Hinweise. Wähle mehr Themen aus.'**
   String get abcNotEnough;
 
+  /// No description provided for @statSecure.
+  ///
+  /// In de, this message translates to:
+  /// **'sicher'**
+  String get statSecure;
+
+  /// No description provided for @germanFront.
+  ///
+  /// In de, this message translates to:
+  /// **'Deutsch vorne'**
+  String get germanFront;
+
+  /// No description provided for @germanBack.
+  ///
+  /// In de, this message translates to:
+  /// **'Deutsch hinten'**
+  String get germanBack;
+
+  /// No description provided for @reviewIn.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =0{kommt heute nochmal} =1{kommt morgen wieder} other{kommt in {count} Tagen wieder}}'**
+  String reviewIn(int count);
+
+  /// No description provided for @reviewAgainNow.
+  ///
+  /// In de, this message translates to:
+  /// **'kommt gleich nochmal'**
+  String get reviewAgainNow;
+
+  /// No description provided for @reviewSecure.
+  ///
+  /// In de, this message translates to:
+  /// **'jetzt sicher – kommt nicht mehr von selbst'**
+  String get reviewSecure;
+
+  /// No description provided for @securedCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Wort kannst du jetzt sicher!} other{{count} Wörter kannst du jetzt sicher!}}'**
+  String securedCount(int count);
+
+  /// No description provided for @cardBox.
+  ///
+  /// In de, this message translates to:
+  /// **'Fach {box} von 5'**
+  String cardBox(int box);
+
+  /// No description provided for @spacedInfo.
+  ///
+  /// In de, this message translates to:
+  /// **'Was du weisst, kommt erst nach 1, 2, 4, 8 und 16 Tagen wieder. Weisst du es dann noch, kannst du es sicher.'**
+  String get spacedInfo;
+
   /// No description provided for @helpLanguage.
   ///
   /// In de, this message translates to:
