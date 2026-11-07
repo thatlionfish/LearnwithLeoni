@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../app_scope.dart';
+import '../audio/kuma_voice.dart';
 import '../audio/speaker.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
+import '../learn/hints.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
@@ -38,6 +42,12 @@ class _KumaHelperState extends State<KumaHelper> {
   String? _shown;
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    KumaVoice.preload(AppScope.of(context).repository);
+  }
+
+  @override
   void didUpdateWidget(KumaHelper old) {
     super.didUpdateWidget(old);
     if (old.itemKey != widget.itemKey) {
@@ -47,14 +57,13 @@ class _KumaHelperState extends State<KumaHelper> {
   }
 
   void _tap() {
-    final t = AppLocalizations.of(context);
     final hints = widget.hints();
     setState(() {
       if (_level < hints.length) {
         _shown = hints[_level];
         _level++;
       } else {
-        _shown = t.kumaNoMore;
+        _shown = KumaLines.noMore;
       }
     });
   }
@@ -127,9 +136,11 @@ class _KumaHelperState extends State<KumaHelper> {
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(
+                    child: Glossed(
                       t.kumaStrip,
+                      gloss: glossOf(context)?.kumaStrip,
                       style: sans(13.5, color: LeoColors.inkSoft),
+                      glossSize: 11.5,
                     ),
                   ),
                   _kuma(t, shown, height: 58),
@@ -173,9 +184,10 @@ class _KumaHelperState extends State<KumaHelper> {
                 visualDensity: VisualDensity.compact,
                 icon: const Icon(Icons.volume_up_rounded, size: 20),
                 onPressed: () => Speaker.play(
-                  url: widget.audioFor?.call(shown),
+                  // Kumachans eigene Aufnahme; nur falls ein Satz fehlt,
+                  // liest die Browser-Stimme möglichst hoch vor.
+                  url: widget.audioFor?.call(shown) ?? KumaVoice.urlFor(shown),
                   text: shown,
-                  // Kumachans Stimme: hoch und ein bisschen quietschig.
                   pitch: 1.8,
                   rate: 1.05,
                 ),

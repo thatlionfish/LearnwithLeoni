@@ -23,6 +23,21 @@ für neue Inhalte ist keine Code-Änderung nötig.
   - `cloze`: `{ "id", "text" mit ___, "answers": [...], "options"?: [...], "translation"? }`
   - `listening`: `{ "id", "title", "titleTranslation"?, "text" ("Name: …"-Zeilen), "audio"?,
     "questions": [{ "q", "options", "answer" (Index), "translation"? }] }`
+  - `fide` (Hörverstehen wie im fide-Test „Verstehen“ A2–B1):
+    `{ "id", "level": "A2"|"B1", "situation", "situationTranslation"?, "items": [...] }`
+    - Item: `{ "id", "question", "questionTranslation"?, "text" ("Name: …", ein
+      Dialogbeitrag; A2 30–45, B1 35–55 Wörter), "hint"? }`
+    - A2: `"pictures"`: genau 3 (`"clock:19:30"`, `"price:4.50"`, `"cal:5,19"`,
+      `"week:Di,Sa"`, `"count:4:person"`, `"icon:cake"`, `"icons:table,window"`,
+      `"text:500 g"`, als `{ "pic", "label" }`), `"answer"`: Index.
+      Zeichen-Namen: `fideIcons` in `lib/widgets/fide_picture.dart`.
+    - B1: `"keywords"`: Gruppen, Alternativen mit `|`, alle Gruppen müssen
+      vorkommen (`["sieben|7|19"]`); `"model"` (Musterantwort), `"modelTranslation"`?
+    - Typisch fide: Im Hörtext kommen auch die falschen Antworten vor.
+    - Eigene Texte schreiben – die fide-Modellversion ist urheberrechtlich geschützt.
+- Die Oberfläche ist immer Deutsch. Die Erklärsprache (`explainLanguage`) ist nur
+  „Hilfesprache“: klein daneben (`Glossed`) oder auf Tippen (`HelpReveal`).
+  Sprachen mit Hilfetexten: `lib/l10n/app_*.arb` (de, en, ja).
 - ABC-Radio, gemeinsame Hinweise: `web/data/abc/hints.json`
   (`topic`: culture | people | food | traditions; jede Antwort muss mit dem
   Buchstaben beginnen – ein Test prüft das).
@@ -45,6 +60,11 @@ dart run tool/tts.dart         # erzeugt MP3s unter <schüler>/audio/tts/
   `audio/tts/…`) werden nie überschrieben. Nur Geändertes wird neu erzeugt.
 - Bündnerdütsch-Sets werden übersprungen.
 - `"voice": "de-CH"` im Schülerprofil → Schweizer Standardstimme.
+- fide-Aufgaben: eine Aufnahme pro Frage – Prüferin (Situation, Frage),
+  Hörtext mit Schweizer Stimmen (Leni/Jan), Frage nochmals.
+- Kumachans Satzsammlung `web/data/kuma/` (für alle Schüler): jeder Tipp, den
+  er geben kann (`kumaPhrases` in `lib/learn/kuma_phrases.dart`), mit seiner
+  Kinderstimme. Feste Sätze stehen in `KumaLines` (`lib/learn/hints.dart`).
 
 ## Bündnerdütsch
 

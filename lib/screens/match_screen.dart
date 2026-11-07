@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
 import '../learn/exercises.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
@@ -113,7 +114,7 @@ class _MatchScreenState extends State<MatchScreen> {
     return KumaHelper(
       itemKey: _selectedLeft,
       hints: () => selected == null
-          ? const ['Tippe zuerst links ein deutsches Wort an.']
+          ? const [KumaLines.matchStart]
           : wordHints(
               description: selected.hint,
               term: selected.term,
@@ -129,7 +130,11 @@ class _MatchScreenState extends State<MatchScreen> {
             style: text.labelLarge,
           ),
           children: [
-            Text(t.matchInstruction, style: text.bodyMedium),
+            Glossed(
+              t.matchInstruction,
+              gloss: glossOf(context)?.matchInstruction,
+              style: text.bodyMedium,
+            ),
             const SizedBox(height: 16),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,

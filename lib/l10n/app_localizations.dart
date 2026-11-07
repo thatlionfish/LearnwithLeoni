@@ -7,6 +7,7 @@ import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_ja.dart';
 
 // ignore_for_file: type=lint
 
@@ -96,6 +97,7 @@ abstract class AppLocalizations {
   static const List<Locale> supportedLocales = <Locale>[
     Locale('de'),
     Locale('en'),
+    Locale('ja'),
   ];
 
   /// No description provided for @appTitle.
@@ -211,12 +213,6 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Einstellungen'**
   String get settings;
-
-  /// No description provided for @language.
-  ///
-  /// In de, this message translates to:
-  /// **'Sprache'**
-  String get language;
 
   /// No description provided for @privacy.
   ///
@@ -596,12 +592,6 @@ abstract class AppLocalizations {
   /// **'Kumachan um einen Tipp bitten'**
   String get kumaAsk;
 
-  /// No description provided for @kumaNoMore.
-  ///
-  /// In de, this message translates to:
-  /// **'Mehr Tipps habe ich nicht – du schaffst das!'**
-  String get kumaNoMore;
-
   /// No description provided for @crosswordListenHint.
   ///
   /// In de, this message translates to:
@@ -830,6 +820,132 @@ abstract class AppLocalizations {
   /// **'Für diese Themen gibt es noch nicht genug Hinweise. Wähle mehr Themen aus.'**
   String get abcNotEnough;
 
+  /// No description provided for @helpLanguage.
+  ///
+  /// In de, this message translates to:
+  /// **'Hilfesprache'**
+  String get helpLanguage;
+
+  /// No description provided for @helpLanguageInfo.
+  ///
+  /// In de, this message translates to:
+  /// **'Die App bleibt auf Deutsch. Die Hilfesprache steht nur klein daneben.'**
+  String get helpLanguageInfo;
+
+  /// No description provided for @helpNone.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine – nur Deutsch'**
+  String get helpNone;
+
+  /// No description provided for @exFide.
+  ///
+  /// In de, this message translates to:
+  /// **'fide · Verstehen'**
+  String get exFide;
+
+  /// No description provided for @fideIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie im fide-Test: Du hörst die Situation und die Frage, dann den Text – und am Schluss noch einmal die Frage.'**
+  String get fideIntro;
+
+  /// No description provided for @fideModeExam.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie in der Prüfung'**
+  String get fideModeExam;
+
+  /// No description provided for @fideModeExamInfo.
+  ///
+  /// In de, this message translates to:
+  /// **'Höchstens zweimal hören, kein Text, keine Tipps.'**
+  String get fideModeExamInfo;
+
+  /// No description provided for @fideModePractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get fideModePractice;
+
+  /// No description provided for @fideModePracticeInfo.
+  ///
+  /// In de, this message translates to:
+  /// **'So oft hören, wie du willst – auch langsam. Nach der Antwort siehst du den Text.'**
+  String get fideModePracticeInfo;
+
+  /// No description provided for @fideStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht\'s'**
+  String get fideStart;
+
+  /// No description provided for @fideSituation.
+  ///
+  /// In de, this message translates to:
+  /// **'Situation'**
+  String get fideSituation;
+
+  /// No description provided for @fideQuestion.
+  ///
+  /// In de, this message translates to:
+  /// **'Frage {number}'**
+  String fideQuestion(int number);
+
+  /// No description provided for @fidePlay.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get fidePlay;
+
+  /// No description provided for @fidePlaysLeft.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =0{Du hast zweimal gehört.} =1{Du darfst noch einmal hören.} other{Du darfst {count}-mal hören.}}'**
+  String fidePlaysLeft(int count);
+
+  /// No description provided for @fidePictureTask.
+  ///
+  /// In de, this message translates to:
+  /// **'Welches Bild passt? Tippe auf a, b oder c.'**
+  String get fidePictureTask;
+
+  /// No description provided for @fideOpenTask.
+  ///
+  /// In de, this message translates to:
+  /// **'Beantworte die Frage kurz – zwei, drei Wörter genügen.'**
+  String get fideOpenTask;
+
+  /// No description provided for @fideModelAnswer.
+  ///
+  /// In de, this message translates to:
+  /// **'Mögliche Antwort:'**
+  String get fideModelAnswer;
+
+  /// No description provided for @fideSelfCheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Antwort bedeutet dasselbe'**
+  String get fideSelfCheck;
+
+  /// No description provided for @fideTranscript.
+  ///
+  /// In de, this message translates to:
+  /// **'Das hast du gehört:'**
+  String get fideTranscript;
+
+  /// No description provided for @fidePoints.
+  ///
+  /// In de, this message translates to:
+  /// **'{level}: {points} von {max} Punkten'**
+  String fidePoints(String level, int points, int max);
+
+  /// No description provided for @fideResultNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Im echten Test zählen die Punkte aus «Verstehen» und «Sprechen» zusammen.'**
+  String get fideResultNote;
+
   /// No description provided for @privacyBody.
   ///
   /// In de, this message translates to:
@@ -848,7 +964,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['de', 'en'].contains(locale.languageCode);
+      <String>['de', 'en', 'ja'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -861,6 +977,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsDe();
     case 'en':
       return AppLocalizationsEn();
+    case 'ja':
+      return AppLocalizationsJa();
   }
 
   throw FlutterError(

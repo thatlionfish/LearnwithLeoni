@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../data/leitner.dart';
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../widgets/app_logo.dart';
@@ -93,7 +94,11 @@ class _HomeViewState extends State<_HomeView> {
                 children: [
                   const SenchaDot(),
                   const SizedBox(width: 10),
-                  Text(t.todayTitle, style: text.titleLarge),
+                  Glossed(
+                    t.todayTitle,
+                    gloss: glossOf(context)?.todayTitle,
+                    style: text.titleLarge,
+                  ),
                   const Spacer(),
                   if (streak > 0)
                     Text(t.streakDays(streak), style: text.labelMedium),
@@ -117,7 +122,11 @@ class _HomeViewState extends State<_HomeView> {
         ),
 
         const SizedBox(height: 32),
-        Text(t.yourSets, style: text.headlineSmall),
+        Glossed(
+          t.yourSets,
+          gloss: glossOf(context)?.yourSets,
+          style: text.headlineSmall,
+        ),
         const SizedBox(height: 12),
         for (final (i, set) in sets.indexed) ...[
           _SetTile(
@@ -130,7 +139,11 @@ class _HomeViewState extends State<_HomeView> {
         ],
 
         const SizedBox(height: 20),
-        Text(t.games, style: text.headlineSmall),
+        Glossed(
+          t.games,
+          gloss: glossOf(context)?.games,
+          style: text.headlineSmall,
+        ),
         const SizedBox(height: 12),
         Wrap(
           spacing: 12,

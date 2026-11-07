@@ -6,6 +6,7 @@ import 'app_scope.dart';
 import 'app_settings.dart';
 import 'data/repository.dart';
 import 'l10n/app_localizations.dart';
+import 'l10n/gloss.dart';
 import 'games/abc/abc_screen.dart';
 import 'games/hangman/hangman_screen.dart';
 import 'screens/exercise_screen.dart';
@@ -67,7 +68,19 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
       path: '/',
       builder: (context, _) {
         final t = AppLocalizations.of(context);
-        return MessageScreen(title: t.landingTitle, body: t.landingBody);
+        // Ohne Schüler-Link: Englisch als Hilfe, ausser auf diesem Gerät
+        // wurde etwas anderes gewählt.
+        final g =
+            glossOf(context) ??
+            (AppScope.of(context).settings.chosen == null
+                ? lookupAppLocalizations(const Locale('en'))
+                : null);
+        return MessageScreen(
+          title: t.landingTitle,
+          body: t.landingBody,
+          titleGloss: g?.landingTitle,
+          bodyGloss: g?.landingBody,
+        );
       },
     ),
     GoRoute(
@@ -151,9 +164,12 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
   ],
   errorBuilder: (context, _) {
     final t = AppLocalizations.of(context);
+    final g = glossOf(context);
     return MessageScreen(
       title: t.notFoundTitle,
       body: t.notFoundBody,
+      titleGloss: g?.notFoundTitle,
+      bodyGloss: g?.notFoundBody,
       pose: LeoniPose.shrug,
     );
   },
@@ -184,14 +200,15 @@ class _LearnWithLeoniAppState extends State<LearnWithLeoniApp> {
     return AppScope(
       repository: widget.repository,
       settings: widget.settings,
-      child: ListenableBuilder(
-        listenable: widget.settings,
-        builder: (context, _) => MaterialApp.router(
+      child: HelpScope(
+        settings: widget.settings,
+        child: MaterialApp.router(
           title: 'LearnwithLeoni',
           debugShowCheckedModeBanner: false,
           theme: _theme,
           themeMode: ThemeMode.light,
-          locale: widget.settings.locale,
+          // Immer Deutsch – die Hilfesprache steht nur klein daneben.
+          locale: AppSettings.uiLocale,
           supportedLocales: AppLocalizations.supportedLocales,
           localizationsDelegates: const [
             AppLocalizations.delegate,

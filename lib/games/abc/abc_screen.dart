@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../app_scope.dart';
 import '../../data/models.dart';
 import '../../l10n/app_localizations.dart';
+import '../../l10n/gloss.dart';
 import '../../learn/answer_check.dart';
 import '../../ui/colors.dart';
 import '../../ui/organic.dart';
@@ -166,7 +167,7 @@ class _AbcRadioScreenState extends State<AbcRadioScreen> {
         hints: () {
           final h = _round?.current;
           if (h == null || _phase != _Phase.onAir) {
-            return const ['Drück auf „Auf Sendung!“ – dann helfe ich dir.'];
+            return const [KumaLines.abcStart];
           }
           return wordHints(
             description: h.card?.hint,
@@ -215,7 +216,11 @@ class _AbcRadioScreenState extends State<AbcRadioScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(t.abcIntro, style: text.bodyMedium),
+        Glossed(
+          t.abcIntro,
+          gloss: glossOf(context)?.abcIntro,
+          style: text.bodyMedium,
+        ),
         const SizedBox(height: 18),
         Text(t.abcTopics, style: text.titleMedium),
         const SizedBox(height: 8),
@@ -280,8 +285,8 @@ class _AbcRadioScreenState extends State<AbcRadioScreen> {
     final round = _round!;
     final hint = round.current;
     if (hint == null) return const SizedBox.shrink();
-    final lang = Localizations.localeOf(context).languageCode;
-    final translation = hint.topic == AbcTopic.vocab
+    final lang = helpLanguageOf(context);
+    final translation = hint.topic == AbcTopic.vocab || lang == null
         ? null
         : hint.translations[lang];
     final last = _last;
@@ -298,7 +303,7 @@ class _AbcRadioScreenState extends State<AbcRadioScreen> {
               Text('${t.abcLetter} $_letter …', style: text.labelMedium),
               const SizedBox(height: 6),
               Text(hint.clue, style: serif(22, weight: 440)),
-              if (translation != null) Text(translation, style: text.bodySmall),
+              HelpReveal(translation),
             ],
           ),
         ),
@@ -362,7 +367,7 @@ class _AbcRadioScreenState extends State<AbcRadioScreen> {
     final text = Theme.of(context).textTheme;
     final round = _round!;
     final reached = round.score >= round.goal;
-    final lang = Localizations.localeOf(context).languageCode;
+    final lang = helpLanguageOf(context);
     return PageFrame(
       showBack: true,
       seed: 37,
@@ -433,7 +438,7 @@ class _AbcRadioScreenState extends State<AbcRadioScreen> {
                       Text(r.hint.clue, style: text.bodyMedium),
                       if (r.hint.translations[lang] case final tr?
                           when r.hint.topic != AbcTopic.vocab)
-                        Text(tr, style: text.bodySmall),
+                        Text(tr, style: glossStyle()),
                       if (r.given != null &&
                           !r.correct &&
                           r.given!.trim().isNotEmpty)

@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../audio/speaker.dart';
 import '../data/leitner.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
 import '../learn/session.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
@@ -201,7 +202,12 @@ class _LearnViewState extends State<_LearnView> {
                         key: const ValueKey('hint'),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 14),
-                          child: Text(t.tapToFlip, style: text.bodySmall),
+                          child: Glossed(
+                            t.tapToFlip,
+                            gloss: glossOf(context)?.tapToFlip,
+                            style: text.bodySmall,
+                            glossSize: 11.5,
+                          ),
                         ),
                       ),
               ),

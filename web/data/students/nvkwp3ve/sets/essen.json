@@ -1,0 +1,654 @@
+{
+  "id": "essen",
+  "title": "Essen und Einkaufen",
+  "titleTranslation": "食べ物と買い物",
+  "variety": "de",
+  "status": "published",
+  "cards": [
+    {
+      "id": "brot",
+      "term": "das Brot",
+      "plural": "die Brote",
+      "translation": "パン",
+      "example": "Am Morgen kaufe ich frisches Brot in der Bäckerei.",
+      "exampleTranslation": "朝、パン屋で焼きたてのパンを買います。",
+      "hint": "Man backt es aus Mehl. Zum Frühstück isst man es oft mit Butter.",
+      "audio": "audio/tts/essen-brot.mp3",
+      "exampleAudio": "audio/tts/essen-brot-satz.mp3",
+      "gapAudio": "audio/tts/essen-brot-luecke.mp3",
+      "hintAudio": "audio/tts/essen-brot-tipp.mp3"
+    },
+    {
+      "id": "kaese",
+      "term": "der Käse",
+      "plural": "die Käse",
+      "translation": "チーズ",
+      "example": "Für ein Raclette braucht man viel Käse.",
+      "exampleTranslation": "ラクレットにはチーズがたくさん必要です。",
+      "hint": "Man macht ihn aus Milch. In der Schweiz gibt es sehr viele Sorten.",
+      "audio": "audio/tts/essen-kaese.mp3",
+      "exampleAudio": "audio/tts/essen-kaese-satz.mp3",
+      "gapAudio": "audio/tts/essen-kaese-luecke.mp3",
+      "hintAudio": "audio/tts/essen-kaese-tipp.mp3"
+    },
+    {
+      "id": "gemuese",
+      "term": "das Gemüse",
+      "translation": "野菜",
+      "example": "Auf dem Markt ist das Gemüse frisch und günstig.",
+      "exampleTranslation": "市場の野菜は新鮮で安いです。",
+      "hint": "Karotten, Tomaten und Salat gehören dazu.",
+      "audio": "audio/tts/essen-gemuese.mp3",
+      "exampleAudio": "audio/tts/essen-gemuese-satz.mp3",
+      "gapAudio": "audio/tts/essen-gemuese-luecke.mp3",
+      "hintAudio": "audio/tts/essen-gemuese-tipp.mp3"
+    },
+    {
+      "id": "obst",
+      "term": "das Obst",
+      "translation": "果物",
+      "example": "Ich esse jeden Tag Obst, zum Beispiel einen Apfel.",
+      "exampleTranslation": "毎日果物を食べます。たとえばりんごです。",
+      "hint": "Äpfel, Birnen und Bananen – süss und gesund.",
+      "audio": "audio/tts/essen-obst.mp3",
+      "exampleAudio": "audio/tts/essen-obst-satz.mp3",
+      "gapAudio": "audio/tts/essen-obst-luecke.mp3",
+      "hintAudio": "audio/tts/essen-obst-tipp.mp3"
+    },
+    {
+      "id": "poulet",
+      "term": "das Poulet",
+      "translation": "鶏肉（スイスでの言い方）",
+      "example": "Heute gibt es Poulet mit Reis.",
+      "exampleTranslation": "今日は鶏肉とごはんです。",
+      "hint": "In der Schweiz sagt man so für Hähnchen.",
+      "audio": "audio/tts/essen-poulet.mp3",
+      "exampleAudio": "audio/tts/essen-poulet-satz.mp3",
+      "gapAudio": "audio/tts/essen-poulet-luecke.mp3",
+      "hintAudio": "audio/tts/essen-poulet-tipp.mp3"
+    },
+    {
+      "id": "rahm",
+      "term": "der Rahm",
+      "translation": "生クリーム（スイスでの言い方）",
+      "example": "Für die Sauce brauche ich noch Rahm.",
+      "exampleTranslation": "ソースにはまだ生クリームが必要です。",
+      "hint": "Weiss und fett, aus Milch. In Deutschland sagt man Sahne.",
+      "audio": "audio/tts/essen-rahm.mp3",
+      "exampleAudio": "audio/tts/essen-rahm-satz.mp3",
+      "gapAudio": "audio/tts/essen-rahm-luecke.mp3",
+      "hintAudio": "audio/tts/essen-rahm-tipp.mp3"
+    },
+    {
+      "id": "milch",
+      "term": "die Milch",
+      "translation": "牛乳",
+      "example": "Die Milch ist leider schon ausverkauft.",
+      "exampleTranslation": "牛乳は残念ながらもう売り切れです。",
+      "hint": "Weiss und flüssig, sie kommt von der Kuh.",
+      "audio": "audio/tts/essen-milch.mp3",
+      "exampleAudio": "audio/tts/essen-milch-satz.mp3",
+      "gapAudio": "audio/tts/essen-milch-luecke.mp3",
+      "hintAudio": "audio/tts/essen-milch-tipp.mp3"
+    },
+    {
+      "id": "ei",
+      "term": "das Ei",
+      "plural": "die Eier",
+      "translation": "卵",
+      "example": "Für den Kuchen braucht man drei Eier.",
+      "exampleTranslation": "ケーキには卵が3つ必要です。",
+      "hint": "Das Huhn legt es. Man kann es kochen oder braten.",
+      "audio": "audio/tts/essen-ei.mp3",
+      "exampleAudio": "audio/tts/essen-ei-satz.mp3",
+      "gapAudio": "audio/tts/essen-ei-luecke.mp3",
+      "hintAudio": "audio/tts/essen-ei-tipp.mp3"
+    },
+    {
+      "id": "einkaufen",
+      "term": "einkaufen",
+      "translation": "買い物をする",
+      "example": "Am Samstag gehe ich im Supermarkt einkaufen.",
+      "exampleTranslation": "土曜日にスーパーへ買い物に行きます。",
+      "hint": "In ein Geschäft gehen, Essen oder andere Sachen holen und bezahlen.",
+      "audio": "audio/tts/essen-einkaufen.mp3",
+      "exampleAudio": "audio/tts/essen-einkaufen-satz.mp3",
+      "gapAudio": "audio/tts/essen-einkaufen-luecke.mp3",
+      "hintAudio": "audio/tts/essen-einkaufen-tipp.mp3"
+    },
+    {
+      "id": "bestellen",
+      "term": "bestellen",
+      "translation": "注文する",
+      "example": "Möchten Sie jetzt bestellen?",
+      "exampleTranslation": "ご注文はお決まりですか？",
+      "hint": "Im Restaurant sagt man dem Kellner, was man essen möchte.",
+      "audio": "audio/tts/essen-bestellen.mp3",
+      "exampleAudio": "audio/tts/essen-bestellen-satz.mp3",
+      "gapAudio": "audio/tts/essen-bestellen-luecke.mp3",
+      "hintAudio": "audio/tts/essen-bestellen-tipp.mp3"
+    },
+    {
+      "id": "bezahlen",
+      "term": "bezahlen",
+      "translation": "払う",
+      "example": "Kann ich hier mit Karte bezahlen?",
+      "exampleTranslation": "ここでカードで払えますか？",
+      "hint": "Man gibt Geld für etwas, zum Beispiel an der Kasse.",
+      "audio": "audio/tts/essen-bezahlen.mp3",
+      "exampleAudio": "audio/tts/essen-bezahlen-satz.mp3",
+      "gapAudio": "audio/tts/essen-bezahlen-luecke.mp3",
+      "hintAudio": "audio/tts/essen-bezahlen-tipp.mp3"
+    },
+    {
+      "id": "rechnung",
+      "term": "die Rechnung",
+      "plural": "die Rechnungen",
+      "translation": "お会計・請求書",
+      "example": "Die Rechnung, bitte!",
+      "exampleTranslation": "お会計をお願いします！",
+      "hint": "Auf diesem Papier steht, wie viel man bezahlen muss.",
+      "audio": "audio/tts/essen-rechnung.mp3",
+      "exampleAudio": "audio/tts/essen-rechnung-satz.mp3",
+      "gapAudio": "audio/tts/essen-rechnung-luecke.mp3",
+      "hintAudio": "audio/tts/essen-rechnung-tipp.mp3"
+    },
+    {
+      "id": "trinkgeld",
+      "term": "das Trinkgeld",
+      "translation": "チップ",
+      "example": "In der Schweiz ist das Trinkgeld schon im Preis dabei.",
+      "exampleTranslation": "スイスではチップはもう値段に含まれています。",
+      "hint": "Ein bisschen Geld extra für die Bedienung im Restaurant.",
+      "audio": "audio/tts/essen-trinkgeld.mp3",
+      "exampleAudio": "audio/tts/essen-trinkgeld-satz.mp3",
+      "gapAudio": "audio/tts/essen-trinkgeld-luecke.mp3",
+      "hintAudio": "audio/tts/essen-trinkgeld-tipp.mp3"
+    },
+    {
+      "id": "speisekarte",
+      "term": "die Speisekarte",
+      "plural": "die Speisekarten",
+      "translation": "メニュー（料理の一覧）",
+      "example": "Können Sie mir bitte die Speisekarte bringen?",
+      "exampleTranslation": "メニューを持ってきていただけますか？",
+      "hint": "Darauf stehen alle Gerichte und Preise im Restaurant.",
+      "audio": "audio/tts/essen-speisekarte.mp3",
+      "exampleAudio": "audio/tts/essen-speisekarte-satz.mp3",
+      "gapAudio": "audio/tts/essen-speisekarte-luecke.mp3",
+      "hintAudio": "audio/tts/essen-speisekarte-tipp.mp3"
+    },
+    {
+      "id": "tagesmenue",
+      "term": "das Tagesmenü",
+      "plural": "die Tagesmenüs",
+      "translation": "日替わりランチ・日替わり定食",
+      "example": "Das Tagesmenü kostet heute 18 Franken.",
+      "exampleTranslation": "日替わりランチは今日18フランです。",
+      "hint": "Ein Mittagessen, das jeden Tag anders ist – oft mit Suppe oder Salat.",
+      "audio": "audio/tts/essen-tagesmenue.mp3",
+      "exampleAudio": "audio/tts/essen-tagesmenue-satz.mp3",
+      "gapAudio": "audio/tts/essen-tagesmenue-luecke.mp3",
+      "hintAudio": "audio/tts/essen-tagesmenue-tipp.mp3"
+    },
+    {
+      "id": "reservieren",
+      "term": "reservieren",
+      "translation": "予約する",
+      "example": "Ich möchte einen Tisch für vier Personen reservieren.",
+      "exampleTranslation": "4人用のテーブルを予約したいです。",
+      "hint": "Vorher anrufen, damit ein Tisch für dich frei ist.",
+      "audio": "audio/tts/essen-reservieren.mp3",
+      "exampleAudio": "audio/tts/essen-reservieren-satz.mp3",
+      "gapAudio": "audio/tts/essen-reservieren-luecke.mp3",
+      "hintAudio": "audio/tts/essen-reservieren-tipp.mp3"
+    },
+    {
+      "id": "vegetarisch",
+      "term": "vegetarisch",
+      "translation": "ベジタリアンの・肉を使わない",
+      "example": "Haben Sie auch ein vegetarisches Gericht?",
+      "exampleTranslation": "ベジタリアン料理もありますか？",
+      "hint": "Ohne Fleisch und ohne Fisch.",
+      "audio": "audio/tts/essen-vegetarisch.mp3",
+      "exampleAudio": "audio/tts/essen-vegetarisch-satz.mp3",
+      "gapAudio": "audio/tts/essen-vegetarisch-luecke.mp3",
+      "hintAudio": "audio/tts/essen-vegetarisch-tipp.mp3"
+    },
+    {
+      "id": "allergie",
+      "term": "die Allergie",
+      "plural": "die Allergien",
+      "translation": "アレルギー",
+      "example": "Mein Sohn hat eine Allergie gegen Nüsse.",
+      "exampleTranslation": "息子はナッツアレルギーがあります。",
+      "hint": "Der Körper verträgt etwas nicht, zum Beispiel Nüsse oder Milch.",
+      "audio": "audio/tts/essen-allergie.mp3",
+      "exampleAudio": "audio/tts/essen-allergie-satz.mp3",
+      "gapAudio": "audio/tts/essen-allergie-luecke.mp3",
+      "hintAudio": "audio/tts/essen-allergie-tipp.mp3"
+    },
+    {
+      "id": "aktion",
+      "term": "die Aktion",
+      "plural": "die Aktionen",
+      "translation": "特売・セール（スイスでの言い方）",
+      "example": "Diese Woche sind die Tomaten in Aktion.",
+      "exampleTranslation": "今週はトマトが特売です。",
+      "hint": "In der Schweiz sagt man so, wenn etwas für kurze Zeit billiger ist.",
+      "audio": "audio/tts/essen-aktion.mp3",
+      "exampleAudio": "audio/tts/essen-aktion-satz.mp3",
+      "gapAudio": "audio/tts/essen-aktion-luecke.mp3",
+      "hintAudio": "audio/tts/essen-aktion-tipp.mp3"
+    },
+    {
+      "id": "kilo",
+      "term": "das Kilo",
+      "plural": "die Kilo",
+      "translation": "キロ（キログラム）",
+      "example": "Ein Kilo Äpfel kostet vier Franken.",
+      "exampleTranslation": "りんご1キロは4フランです。",
+      "hint": "Tausend Gramm.",
+      "audio": "audio/tts/essen-kilo.mp3",
+      "exampleAudio": "audio/tts/essen-kilo-satz.mp3",
+      "gapAudio": "audio/tts/essen-kilo-luecke.mp3",
+      "hintAudio": "audio/tts/essen-kilo-tipp.mp3"
+    },
+    {
+      "id": "kasse",
+      "term": "die Kasse",
+      "plural": "die Kassen",
+      "translation": "レジ",
+      "example": "Bitte bezahlen Sie vorne an der Kasse.",
+      "exampleTranslation": "前のレジでお支払いください。",
+      "hint": "Dort bezahlt man im Geschäft.",
+      "audio": "audio/tts/essen-kasse.mp3",
+      "exampleAudio": "audio/tts/essen-kasse-satz.mp3",
+      "gapAudio": "audio/tts/essen-kasse-luecke.mp3",
+      "hintAudio": "audio/tts/essen-kasse-tipp.mp3"
+    },
+    {
+      "id": "franken",
+      "term": "der Franken",
+      "plural": "die Franken",
+      "translation": "フラン（スイスのお金）",
+      "example": "Das macht zusammen zwölf Franken fünfzig.",
+      "exampleTranslation": "全部で12フラン50です。",
+      "hint": "Das Geld in der Schweiz.",
+      "audio": "audio/tts/essen-franken.mp3",
+      "exampleAudio": "audio/tts/essen-franken-satz.mp3",
+      "gapAudio": "audio/tts/essen-franken-luecke.mp3",
+      "hintAudio": "audio/tts/essen-franken-tipp.mp3"
+    }
+  ],
+  "cloze": [
+    {
+      "id": "c-reservieren",
+      "text": "Ich möchte gern einen Tisch für zwei Personen ___.",
+      "answers": [
+        "reservieren"
+      ],
+      "options": [
+        "reservieren",
+        "bezahlen",
+        "bestellen"
+      ],
+      "translation": "2人用のテーブルを予約したいのですが。",
+      "hint": "Vorher anrufen, damit ein Tisch für dich frei ist."
+    },
+    {
+      "id": "c-aktion",
+      "text": "Die Tomaten sind diese Woche in ___ – sie kosten nur die Hälfte.",
+      "answers": [
+        "Aktion"
+      ],
+      "options": [
+        "Aktion",
+        "Kasse",
+        "Rechnung"
+      ],
+      "translation": "今週トマトは特売で、半額です。",
+      "hint": "In der Schweiz sagt man so, wenn etwas für kurze Zeit billiger ist."
+    },
+    {
+      "id": "c-rechnung",
+      "text": "Entschuldigung, können wir bitte die ___ haben? Wir möchten bezahlen.",
+      "answers": [
+        "Rechnung"
+      ],
+      "options": [
+        "Rechnung",
+        "Speisekarte",
+        "Allergie"
+      ],
+      "translation": "すみません、お会計をお願いできますか？支払いたいです。",
+      "hint": "Auf diesem Papier steht, wie viel man bezahlen muss."
+    },
+    {
+      "id": "c-vegetarisch",
+      "text": "Ich esse kein Fleisch. Haben Sie ein ___ Gericht?",
+      "answers": [
+        "vegetarisches"
+      ],
+      "options": [
+        "vegetarisches",
+        "vegetarische",
+        "vegetarischer"
+      ],
+      "translation": "私は肉を食べません。ベジタリアン料理はありますか？",
+      "hint": "Ohne Fleisch und ohne Fisch. Achte auf die Endung: „ein … Gericht“."
+    },
+    {
+      "id": "c-trinkgeld",
+      "text": "Im Restaurant gibt man in der Schweiz oft ein kleines ___, zum Beispiel zwei Franken.",
+      "answers": [
+        "Trinkgeld"
+      ],
+      "options": [
+        "Trinkgeld",
+        "Tagesmenü",
+        "Kilo"
+      ],
+      "translation": "スイスのレストランでは、よく少しチップを渡します。たとえば2フランです。",
+      "hint": "Ein bisschen Geld extra für die Bedienung im Restaurant."
+    },
+    {
+      "id": "c-allergie",
+      "text": "Hat jemand von euch eine ___? Dann koche ich ohne Nüsse.",
+      "answers": [
+        "Allergie"
+      ],
+      "options": [
+        "Allergie",
+        "Aktion",
+        "Kasse"
+      ],
+      "translation": "誰かアレルギーがありますか？それならナッツなしで料理します。",
+      "hint": "Der Körper verträgt etwas nicht, zum Beispiel Nüsse oder Milch."
+    }
+  ],
+  "listening": [
+    {
+      "id": "restaurant",
+      "title": "Im Restaurant",
+      "titleTranslation": "レストランで",
+      "text": "Kellner: Grüezi! Haben Sie reserviert?\nReika: Ja, für zwei Personen, um halb acht.\nKellner: Genau, Ihr Tisch ist auf der Terrasse. Hier ist die Speisekarte.\nReika: Danke. Was ist heute das Tagesmenü?\nKellner: Heute gibt es Poulet mit Reis und einen kleinen Salat. Das kostet 19 Franken 50.\nReika: Gibt es auch etwas Vegetarisches?\nKellner: Ja, eine Gemüsesuppe und Pasta mit Tomatensauce.\nReika: Dann nehme ich die Pasta. Und eine Flasche Wasser, bitte.",
+      "questions": [
+        {
+          "q": "Wo ist der Tisch?",
+          "options": [
+            "auf der Terrasse",
+            "am Fenster",
+            "an der Bar"
+          ],
+          "answer": 0,
+          "translation": "テーブルはどこですか？"
+        },
+        {
+          "q": "Was kostet das Tagesmenü?",
+          "options": [
+            "19 Franken 50",
+            "9 Franken 50",
+            "15 Franken 90"
+          ],
+          "answer": 0,
+          "translation": "日替わりランチはいくらですか？"
+        },
+        {
+          "q": "Was bestellt Reika?",
+          "options": [
+            "Pasta mit Tomatensauce",
+            "Poulet mit Reis",
+            "eine Gemüsesuppe"
+          ],
+          "answer": 0,
+          "translation": "レイカさんは何を注文しますか？"
+        }
+      ],
+      "audio": "audio/tts/essen-restaurant.mp3"
+    }
+  ],
+  "fide": [
+    {
+      "id": "markt",
+      "level": "A2",
+      "situation": "Frau Nakamura ist auf dem Wochenmarkt in Zürich. Sie kauft am Gemüsestand ein. Die Verkäuferin spricht mit ihr.",
+      "situationTranslation": "中村さんはチューリッヒの朝市にいます。野菜の屋台で買い物をしています。売り手の女性が話しかけます。",
+      "items": [
+        {
+          "id": "markt-1",
+          "question": "Wie viel kostet ein Kilo Tomaten heute?",
+          "questionTranslation": "今日、トマト1キロはいくらですか？",
+          "text": "Verkäuferin: Grüezi! Die Tomaten kommen heute ganz frisch aus dem Tessin. Normalerweise kostet das Kilo sechs Franken, aber heute sind sie in Aktion: Sie bezahlen nur vier Franken fünfzig. Die Peperoni kosten fünf Franken vierzig.",
+          "pictures": [
+            {
+              "pic": "price:6.00",
+              "label": "sechs Franken"
+            },
+            {
+              "pic": "price:4.50",
+              "label": "vier Franken fünfzig"
+            },
+            {
+              "pic": "price:5.40",
+              "label": "fünf Franken vierzig"
+            }
+          ],
+          "answer": 1,
+          "hint": "Der normale Preis ist nicht die Antwort. Was kostet es heute?",
+          "audio": "audio/tts/essen-fide-markt-1.mp3"
+        },
+        {
+          "id": "markt-2",
+          "question": "An welchen Tagen ist die Verkäuferin hier in Zürich?",
+          "questionTranslation": "売り手の女性は何曜日にここチューリッヒにいますか？",
+          "text": "Verkäuferin: Wir sind nicht jeden Tag hier. Am Montag und am Donnerstag stehe ich auf dem Markt in Winterthur. Hier in Zürich bin ich nur zweimal pro Woche: am Dienstag und am Samstag, immer von sieben bis zwölf Uhr.",
+          "pictures": [
+            {
+              "pic": "week:Mo,Do",
+              "label": "Montag und Donnerstag"
+            },
+            {
+              "pic": "week:Di,Sa",
+              "label": "Dienstag und Samstag"
+            },
+            {
+              "pic": "week:Di,Do",
+              "label": "Dienstag und Donnerstag"
+            }
+          ],
+          "answer": 1,
+          "hint": "Die Verkäuferin spricht von zwei Städten. Welche Tage sind in Zürich?",
+          "audio": "audio/tts/essen-fide-markt-2.mp3"
+        },
+        {
+          "id": "markt-3",
+          "question": "Wie bezahlt Frau Nakamura?",
+          "questionTranslation": "中村さんはどうやって払いますか？",
+          "text": "Verkäuferin: Das macht zusammen elf Franken zwanzig. Mit Karte? Nein, das geht hier leider nicht, ich habe kein Kartengerät. Aber Sie müssen nicht bar bezahlen: Sie können ganz einfach mit dem Handy bezahlen. Der Code ist hier vorne am Stand.",
+          "pictures": [
+            {
+              "pic": "icon:cash",
+              "label": "bar (mit Bargeld)"
+            },
+            {
+              "pic": "icon:card",
+              "label": "mit der Karte"
+            },
+            {
+              "pic": "icon:phone",
+              "label": "mit dem Handy"
+            }
+          ],
+          "answer": 2,
+          "audio": "audio/tts/essen-fide-markt-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "linde",
+      "level": "A2",
+      "situation": "Herr Keller ruft im Restaurant «Linde» an. Er möchte für Samstag einen Tisch reservieren.",
+      "situationTranslation": "ケラーさんはレストラン「リンデ」に電話します。土曜日のテーブルを予約したいです。",
+      "items": [
+        {
+          "id": "linde-1",
+          "question": "Für wie viele Personen ist der Tisch?",
+          "questionTranslation": "テーブルは何人用ですか？",
+          "text": "Kellner: Restaurant Linde, guten Tag. Am Samstag? Einen Moment, bitte. Für sechs Personen ist leider schon alles voll. Ah, Sie kommen nur zu viert? Gut, dann habe ich noch einen Tisch für vier Personen.",
+          "pictures": [
+            {
+              "pic": "count:2:person",
+              "label": "zwei Personen"
+            },
+            {
+              "pic": "count:4:person",
+              "label": "vier Personen"
+            },
+            {
+              "pic": "count:6:person",
+              "label": "sechs Personen"
+            }
+          ],
+          "answer": 1,
+          "audio": "audio/tts/essen-fide-linde-1.mp3"
+        },
+        {
+          "id": "linde-2",
+          "question": "Um wie viel Uhr ist der Tisch reserviert?",
+          "questionTranslation": "テーブルは何時に予約されていますか？",
+          "text": "Kellner: Um sieben Uhr ist der Tisch leider noch besetzt. Um neun Uhr ist es zu spät, dann schliesst die Küche. Ich kann Ihnen den Tisch um halb acht geben. Ist das gut für Sie? Perfekt, dann bis Samstag um halb acht!",
+          "pictures": [
+            {
+              "pic": "clock:19:00",
+              "label": "sieben Uhr"
+            },
+            {
+              "pic": "clock:19:30",
+              "label": "halb acht"
+            },
+            {
+              "pic": "clock:21:00",
+              "label": "neun Uhr"
+            }
+          ],
+          "answer": 1,
+          "hint": "Hör genau auf die Uhrzeit ganz am Schluss.",
+          "audio": "audio/tts/essen-fide-linde-2.mp3"
+        },
+        {
+          "id": "linde-3",
+          "question": "Wo sitzt Herr Keller?",
+          "questionTranslation": "ケラーさんはどこに座りますか？",
+          "text": "Kellner: Möchten Sie lieber drinnen oder draussen sitzen? Auf der Terrasse ist es am Abend schon ein bisschen kalt. Und an der Bar ist es sehr laut. Ich reserviere Ihnen einen schönen Tisch drinnen, direkt am Fenster. Das ist gemütlich.",
+          "pictures": [
+            {
+              "pic": "icon:terrace",
+              "label": "auf der Terrasse"
+            },
+            {
+              "pic": "icons:table,window",
+              "label": "drinnen am Fenster"
+            },
+            {
+              "pic": "icon:bar",
+              "label": "an der Bar"
+            }
+          ],
+          "answer": 1,
+          "audio": "audio/tts/essen-fide-linde-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "einladung",
+      "level": "B1",
+      "situation": "Frau Silva ist bei ihrer Nachbarin Ruth zum Abendessen eingeladen. Ruth ruft sie an.",
+      "situationTranslation": "シルヴァさんは隣に住むルースさんの家の夕食に招待されています。ルースさんが電話をかけてきます。",
+      "items": [
+        {
+          "id": "einladung-1",
+          "question": "Was soll Frau Silva mitbringen?",
+          "questionTranslation": "シルヴァさんは何を持っていけばいいですか？",
+          "text": "Nachbarin: Hallo, hier ist Ruth. Ich freue mich so auf Samstag! Du hast gefragt, ob du etwas mitbringen kannst. Wein haben wir schon genug, und die Suppe koche ich selbst. Aber vielleicht kannst du ein Dessert machen? Du machst doch so einen feinen Schokoladenkuchen!",
+          "keywords": [
+            "Dessert|Nachtisch|Kuchen|Torte|Süssspeise"
+          ],
+          "model": "ein Dessert, zum Beispiel einen Schokoladenkuchen",
+          "modelTranslation": "デザート（たとえばチョコレートケーキ）",
+          "audio": "audio/tts/essen-fide-einladung-1.mp3"
+        },
+        {
+          "id": "einladung-2",
+          "question": "Was darf Ruths Mann nicht essen?",
+          "questionTranslation": "ルースさんの夫は何を食べてはいけませんか？",
+          "text": "Nachbarin: Ach ja, noch etwas Wichtiges: Mein Mann hat eine Allergie. Fleisch und Fisch isst er gern, und Milch ist auch kein Problem. Aber er darf auf keinen Fall Nüsse essen, auch keine Haselnüsse. Bitte mach den Kuchen also ohne Nüsse, ja?",
+          "keywords": [
+            "Nüsse|Nuss|Nüssen|Haselnuss"
+          ],
+          "model": "keine Nüsse",
+          "modelTranslation": "ナッツ（アレルギーがあるため）",
+          "audio": "audio/tts/essen-fide-einladung-2.mp3"
+        },
+        {
+          "id": "einladung-3",
+          "question": "Wann soll Frau Silva kommen?",
+          "questionTranslation": "シルヴァさんはいつ来ればいいですか？",
+          "text": "Nachbarin: Wir essen am Samstag, nicht am Freitag – am Freitag hat mein Mann Chorprobe. Die anderen Gäste kommen schon um sechs zum Apéro. Du hast aber gesagt, dass du bis sechs arbeitest. Komm also einfach um sieben, dann essen wir zusammen.",
+          "keywords": [
+            "sieben|7|19"
+          ],
+          "model": "am Samstag um sieben Uhr (19 Uhr)",
+          "modelTranslation": "土曜日の7時（19時）",
+          "hint": "Im Text gibt es zwei Uhrzeiten. Welche ist für Frau Silva?",
+          "audio": "audio/tts/essen-fide-einladung-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "kueche",
+      "level": "B1",
+      "situation": "Frau Nakamura hat eine neue Stelle in der Küche von einem Altersheim. Am ersten Tag erklärt ihr der Küchenchef, wie alles funktioniert.",
+      "situationTranslation": "中村さんは老人ホームの厨房で新しい仕事を始めました。初日に料理長が仕事の流れを説明します。",
+      "items": [
+        {
+          "id": "kueche-1",
+          "question": "Um wie viel Uhr beginnt Frau Nakamura diese Woche?",
+          "questionTranslation": "中村さんは今週、何時に仕事を始めますか？",
+          "text": "Küchenchef: Willkommen im Team! Das Frühstück für die Bewohner gibt es um halb acht. Darum fangen wir in der Küche schon früh an, um sechs Uhr. Für Sie gilt das ab nächster Woche. Diese Woche kommen Sie jeden Tag erst um sieben, dann zeige ich Ihnen alles in Ruhe.",
+          "keywords": [
+            "sieben|7"
+          ],
+          "model": "um sieben Uhr",
+          "modelTranslation": "7時",
+          "hint": "Pass auf: Ab nächster Woche ist die Zeit anders.",
+          "audio": "audio/tts/essen-fide-kueche-1.mp3"
+        },
+        {
+          "id": "kueche-2",
+          "question": "Was tragen in der Küche alle immer?",
+          "questionTranslation": "厨房では全員がいつも何を身につけますか？",
+          "text": "Küchenchef: Hier ist Ihr Schrank. Eine weisse Jacke und eine Schürze bekommen Sie von uns, die waschen wir auch. Handschuhe brauchen Sie nur beim Putzen. Wichtig ist aber: In der Küche tragen alle immer eine Haube für die Haare. Die liegen dort im Regal.",
+          "keywords": [
+            "Haube|Haar|Haarnetz|Mütze|Kappe"
+          ],
+          "model": "eine Haube für die Haare",
+          "modelTranslation": "髪をおおう帽子（ヘアキャップ）",
+          "audio": "audio/tts/essen-fide-kueche-2.mp3"
+        },
+        {
+          "id": "kueche-3",
+          "question": "Was muss Frau Nakamura machen, wenn sie krank ist?",
+          "questionTranslation": "中村さんは病気のとき、何をしなければなりませんか？",
+          "text": "Küchenchef: Noch etwas: Wenn Sie krank sind, schreiben Sie bitte keine E-Mail, die lese ich oft erst am Abend. Rufen Sie mich am Morgen vor sechs Uhr auf dem Handy an. Ab dem dritten Tag brauchen wir dann ein Arztzeugnis.",
+          "keywords": [
+            "anrufen|rufen|ruft|Anruf|telefonieren|telefoniert|Telefon|Handy"
+          ],
+          "model": "den Küchenchef am Morgen vor sechs Uhr anrufen",
+          "modelTranslation": "朝6時前に料理長の携帯に電話する",
+          "audio": "audio/tts/essen-fide-kueche-3.mp3"
+        }
+      ]
+    }
+  ]
+}

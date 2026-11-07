@@ -1,37 +1,37 @@
 {
   "greeting": [
-    { "text": "Schön, dass du da bist!", "en": "Great to see you!" },
-    { "text": "Bereit für ein paar Wörter?", "en": "Ready for a few words?" },
-    { "text": "Heute lernen wir gemeinsam weiter.", "en": "Let's keep learning together today." },
-    { "text": "Ein bisschen jeden Tag – das wirkt Wunder.", "en": "A little every day works wonders." },
-    { "text": "Ich freue mich, dass du übst!", "en": "I'm so happy you're practising!" }
+    { "text": "Schön, dass du da bist!", "en": "Great to see you!", "ja": "来てくれてうれしい！" },
+    { "text": "Bereit für ein paar Wörter?", "en": "Ready for a few words?", "ja": "単語をいくつか覚える準備はできた？" },
+    { "text": "Heute lernen wir gemeinsam weiter.", "en": "Let's keep learning together today.", "ja": "今日も一緒に続けよう。" },
+    { "text": "Ein bisschen jeden Tag – das wirkt Wunder.", "en": "A little every day works wonders.", "ja": "毎日少しずつが、すごく効くよ。" },
+    { "text": "Ich freue mich, dass du übst!", "en": "I'm so happy you're practising!", "ja": "練習してくれてうれしい！" }
   ],
   "streak": [
-    { "text": "Super gemacht!", "en": "Great job!" },
-    { "text": "Du bist richtig gut in Fahrt!", "en": "You're on a roll!" },
-    { "text": "Wow, das sitzt!", "en": "Wow, you've really got it!" },
-    { "text": "Genau so!", "en": "Exactly like that!" },
-    { "text": "Ich bin stolz auf dich!", "en": "I'm proud of you!" }
+    { "text": "Super gemacht!", "en": "Great job!", "ja": "よくできました！" },
+    { "text": "Du bist richtig gut in Fahrt!", "en": "You're on a roll!", "ja": "絶好調だね！" },
+    { "text": "Wow, das sitzt!", "en": "Wow, you've really got it!", "ja": "わあ、しっかり覚えてる！" },
+    { "text": "Genau so!", "en": "Exactly like that!", "ja": "その通り！" },
+    { "text": "Ich bin stolz auf dich!", "en": "I'm proud of you!", "ja": "誇りに思うよ！" }
   ],
   "encourage": [
-    { "text": "Kein Problem – Fehler gehören dazu.", "en": "No problem – mistakes are part of learning." },
-    { "text": "Fast! Beim nächsten Mal klappt's.", "en": "Almost! You'll get it next time." },
-    { "text": "Dranbleiben, du schaffst das!", "en": "Keep going, you can do it!" },
-    { "text": "Jeder Versuch bringt dich weiter.", "en": "Every try moves you forward." },
-    { "text": "Schwierige Wörter kommen öfter – so lernst du sie.", "en": "Tricky words come back more often – that's how you learn them." }
+    { "text": "Kein Problem – Fehler gehören dazu.", "en": "No problem – mistakes are part of learning.", "ja": "大丈夫、まちがいも勉強のうち。" },
+    { "text": "Fast! Beim nächsten Mal klappt's.", "en": "Almost! You'll get it next time.", "ja": "おしい！次はきっとできるよ。" },
+    { "text": "Dranbleiben, du schaffst das!", "en": "Keep going, you can do it!", "ja": "その調子、きっとできる！" },
+    { "text": "Jeder Versuch bringt dich weiter.", "en": "Every try moves you forward.", "ja": "一回一回が前進だよ。" },
+    { "text": "Schwierige Wörter kommen öfter – so lernst du sie.", "en": "Tricky words come back more often – that's how you learn them.", "ja": "むずかしい単語はよく出てくるよ。そうやって覚えるんだ。" }
   ],
   "done": [
-    { "text": "Geschafft! Toll gemacht.", "en": "Done! Well done." },
-    { "text": "Das war eine schöne Runde!", "en": "That was a lovely round!" },
-    { "text": "Dein Gehirn sagt danke.", "en": "Your brain says thank you." },
-    { "text": "Wunderbar – bis morgen!", "en": "Wonderful – see you tomorrow!" }
+    { "text": "Geschafft! Toll gemacht.", "en": "Done! Well done.", "ja": "できた！すばらしい。" },
+    { "text": "Das war eine schöne Runde!", "en": "That was a lovely round!", "ja": "いいラウンドだったね！" },
+    { "text": "Dein Gehirn sagt danke.", "en": "Your brain says thank you.", "ja": "脳が「ありがとう」って言ってるよ。" },
+    { "text": "Wunderbar – bis morgen!", "en": "Wonderful – see you tomorrow!", "ja": "すばらしい、また明日ね！" }
   ],
   "dayStreak": [
-    { "text": "Du übst jeden Tag – das ist super!", "en": "You practise every day – that's amazing!" },
-    { "text": "Deine Lernserie wächst!", "en": "Your learning streak is growing!" },
-    { "text": "So viel Ausdauer, ich freue mich!", "en": "So much dedication, I love it!" }
+    { "text": "Du übst jeden Tag – das ist super!", "en": "You practise every day – that's amazing!", "ja": "毎日練習していてすごい！" },
+    { "text": "Deine Lernserie wächst!", "en": "Your learning streak is growing!", "ja": "連続記録がのびているよ！" },
+    { "text": "So viel Ausdauer, ich freue mich!", "en": "So much dedication, I love it!", "ja": "その根気、うれしいな！" }
   ],
   "hint": [
-    { "text": "Hmm, lass uns kurz nachdenken …", "en": "Hmm, let's think for a moment …" }
+    { "text": "Hmm, lass uns kurz nachdenken …", "en": "Hmm, let's think for a moment …", "ja": "うーん、ちょっと考えてみよう…" }
   ]
 }

@@ -3,49 +3,70 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'l10n/app_localizations.dart';
 
-/// Geräteweite Einstellungen: Sprache der Oberfläche.
+/// Geräteweite Einstellungen.
 ///
-/// Ohne eigene Wahl gilt die Erklärsprache des Schülers, sonst Englisch.
+/// Die Oberfläche ist immer deutsch – der Fokus liegt auf der Zielsprache.
+/// Die **Hilfesprache** (Erklärsprache) erscheint nur klein daneben. Ohne
+/// eigene Wahl gilt die Erklärsprache des Schülers.
 class AppSettings extends ChangeNotifier {
   AppSettings._(this._prefs, this._chosen);
 
-  static const _localeKey = 'settings/locale';
+  static const _helpKey = 'settings/help';
+
+  /// Oberflächensprache.
+  static const Locale uiLocale = Locale('de');
 
   static Future<AppSettings> load() async {
     final prefs = await SharedPreferences.getInstance();
-    final code = prefs.getString(_localeKey);
-    return AppSettings._(prefs, code == null ? null : Locale(code));
+    return AppSettings._(prefs, prefs.getString(_helpKey));
   }
 
   final SharedPreferences _prefs;
-  Locale? _chosen;
-  Locale? _studentDefault;
+  String? _chosen;
+  String? _studentDefault;
 
-  static List<Locale> get supported => AppLocalizations.supportedLocales;
+  /// Sprachen, in denen es Hilfetexte gibt (`de` = keine Hilfe).
+  static List<String> get helpLanguages => [
+    for (final l in AppLocalizations.supportedLocales) l.languageCode,
+  ];
 
-  static bool isSupported(String code) =>
-      supported.any((l) => l.languageCode == code);
+  static bool isSupported(String code) => helpLanguages.contains(code);
 
-  /// `null` = Systemsprache (nur auf der Startseite ohne Schüler-Link).
-  Locale? get locale => _chosen ?? _studentDefault;
+  /// `null` = keine Hilfesprache, nur Deutsch.
+  String? get helpLanguage {
+    final code = _chosen ?? _studentDefault;
+    return code == null || code == 'de' || !isSupported(code) ? null : code;
+  }
 
-  Locale? get chosen => _chosen;
+  /// Eigene Wahl auf diesem Gerät (`de` = nur Deutsch), sonst `null`.
+  String? get chosen => _chosen;
 
   void setStudentDefault(String languageCode) {
-    final next = isSupported(languageCode)
-        ? Locale(languageCode)
-        : const Locale('en');
-    if (next == _studentDefault) return;
-    _studentDefault = next;
+    if (languageCode == _studentDefault) return;
+    _studentDefault = languageCode;
     if (_chosen == null) {
       // Während des Bauens der Seite aufgerufen: erst danach benachrichtigen.
       WidgetsBinding.instance.addPostFrameCallback((_) => notifyListeners());
     }
   }
 
-  Future<void> choose(Locale locale) async {
-    _chosen = locale;
+  Future<void> choose(String languageCode) async {
+    _chosen = languageCode;
     notifyListeners();
-    await _prefs.setString(_localeKey, locale.languageCode);
+    await _prefs.setString(_helpKey, languageCode);
   }
+}
+
+/// Macht Änderungen der Hilfesprache für alle Seiten sichtbar.
+class HelpScope extends InheritedNotifier<AppSettings> {
+  const HelpScope({
+    super.key,
+    required AppSettings settings,
+    required super.child,
+  }) : super(notifier: settings);
+
+  static String? languageOf(BuildContext context) => context
+      .dependOnInheritedWidgetOfExactType<HelpScope>()
+      ?.notifier
+      ?.helpLanguage;
 }

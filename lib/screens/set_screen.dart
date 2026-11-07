@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
 import '../learn/exercises.dart';
 import '../widgets/exercise_kit.dart';
 import '../ui/colors.dart';
@@ -86,7 +87,11 @@ class _SetViewState extends State<_SetView> {
           ),
         ),
         const SizedBox(height: 30),
-        Text(t.practice, style: text.headlineSmall),
+        Glossed(
+          t.practice,
+          gloss: glossOf(context)?.practice,
+          style: text.headlineSmall,
+        ),
         const SizedBox(height: 12),
         Wrap(
           spacing: 10,
@@ -132,7 +137,11 @@ class _SetViewState extends State<_SetView> {
           ],
         ),
         const SizedBox(height: 30),
-        Text(t.allCards, style: text.headlineSmall),
+        Glossed(
+          t.allCards,
+          gloss: glossOf(context)?.allCards,
+          style: text.headlineSmall,
+        ),
         const SizedBox(height: 12),
         for (final (i, card) in set.cards.indexed) ...[
           _CardRow(card: card, seed: 60 + i),

@@ -58,6 +58,7 @@ class VocabSet {
     required this.cards,
     this.cloze = const [],
     this.listening = const [],
+    this.fide = const [],
   });
 
   factory VocabSet.fromJson(Map<String, dynamic> j) => VocabSet(
@@ -78,6 +79,10 @@ class VocabSet {
       for (final l in (j['listening'] as List?) ?? const [])
         ListeningText.fromJson(l as Map<String, dynamic>),
     ],
+    fide: [
+      for (final f in (j['fide'] as List?) ?? const [])
+        FideSituation.fromJson(f as Map<String, dynamic>),
+    ],
   );
 
   final String id;
@@ -94,6 +99,120 @@ class VocabSet {
 
   /// Hörtexte mit Fragen.
   final List<ListeningText> listening;
+
+  /// Hörverstehen im Aufbau des fide-Tests.
+  final List<FideSituation> fide;
+}
+
+/// fide-Test „Verstehen“: Die Prüferin erklärt eine Situation, dann folgen
+/// Fragen mit je einem kurzen Hörtext.
+class FideSituation {
+  const FideSituation({
+    required this.id,
+    required this.situation,
+    required this.level,
+    required this.items,
+    this.situationTranslation,
+  });
+
+  factory FideSituation.fromJson(Map<String, dynamic> j) => FideSituation(
+    id: j['id'] as String,
+    situation: j['situation'] as String,
+    situationTranslation: j['situationTranslation'] as String?,
+    level: (j['level'] as String?) ?? 'A2',
+    items: [
+      for (final i in (j['items'] as List?) ?? const [])
+        FideItem.fromJson(i as Map<String, dynamic>),
+    ],
+  );
+
+  final String id;
+  final String situation;
+  final String? situationTranslation;
+
+  /// `A2` (Bild auswählen) oder `B1` (frei antworten).
+  final String level;
+  final List<FideItem> items;
+}
+
+class FideItem {
+  const FideItem({
+    required this.id,
+    required this.question,
+    required this.text,
+    this.questionTranslation,
+    this.audio,
+    this.pictures = const [],
+    this.answer = 0,
+    this.keywords = const [],
+    this.model,
+    this.modelTranslation,
+    this.hint,
+  });
+
+  factory FideItem.fromJson(Map<String, dynamic> j) => FideItem(
+    id: j['id'] as String,
+    question: j['question'] as String,
+    questionTranslation: j['questionTranslation'] as String?,
+    text: j['text'] as String,
+    audio: j['audio'] as String?,
+    pictures: [
+      for (final p in (j['pictures'] as List?) ?? const [])
+        FidePicture.fromJson(p),
+    ],
+    answer: (j['answer'] as int?) ?? 0,
+    keywords: [
+      for (final k in (j['keywords'] as List?) ?? const []) k as String,
+    ],
+    model: j['model'] as String?,
+    modelTranslation: j['modelTranslation'] as String?,
+    hint: j['hint'] as String?,
+  );
+
+  final String id;
+  final String question;
+  final String? questionTranslation;
+
+  /// Der Hörtext; Zeilen mit „Name: …“ bekommen je eine eigene Stimme.
+  final String text;
+
+  /// Fertige Aufnahme: (Situation,) Frage, Hörtext, Frage nochmals.
+  final String? audio;
+
+  /// A2: genau drei Bilder a), b), c); [answer] ist der Index des richtigen.
+  final List<FidePicture> pictures;
+  final int answer;
+
+  /// B1: Stichwörter, die in der Antwort vorkommen müssen. Jeder Eintrag ist
+  /// eine Gruppe mit Alternativen, getrennt mit „|“ – alle Gruppen müssen passen.
+  final List<String> keywords;
+
+  /// B1: Musterantwort.
+  final String? model;
+  final String? modelTranslation;
+
+  /// Kumachans erster Tipp (auf Deutsch, nie die Lösung).
+  final String? hint;
+
+  bool get isPicture => pictures.isNotEmpty;
+}
+
+/// Ein Antwortbild, z. B. `clock:18:30`, `price:4.50`, `cal:5,19`,
+/// `week:Di,Sa`, `icon:cake`, `icons:cake,coffee`, `count:4:person`.
+class FidePicture {
+  const FidePicture(this.spec, {this.label});
+
+  factory FidePicture.fromJson(Object? j) => j is Map
+      ? FidePicture(j['pic'] as String, label: j['label'] as String?)
+      : FidePicture(j as String);
+
+  final String spec;
+
+  /// Was das Bild zeigt (auf Deutsch); erscheint nach dem Antworten.
+  final String? label;
+
+  String get kind => spec.split(':').first;
+  String get value => spec.substring(spec.indexOf(':') + 1);
 }
 
 /// Lückensatz: `___` markiert die Lücke.

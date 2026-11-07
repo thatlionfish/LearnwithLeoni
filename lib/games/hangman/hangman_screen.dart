@@ -220,7 +220,7 @@ class _HangmanScreenState extends State<HangmanScreen> {
       itemKey: _entry,
       hints: () => [
         ...wordHints(description: card?.hint, term: card?.term, answer: ''),
-        'Fang mit häufigen Buchstaben an: E, N, R, S, I.',
+        KumaLines.hangmanLetters,
       ],
       child: Theme(
         data: buildBeigeTheme(),

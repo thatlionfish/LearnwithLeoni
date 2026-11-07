@@ -4,6 +4,7 @@ import '../app_scope.dart';
 import '../data/leitner.dart';
 import '../data/repository.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
 import '../screens/message_screen.dart';
 import '../ui/colors.dart';
 import 'leoni.dart';
@@ -55,6 +56,7 @@ class _StudentLoaderState extends State<StudentLoader> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context);
+    final g = glossOf(context);
     return FutureBuilder<StudentData>(
       future: _future,
       builder: (context, snap) {
@@ -63,11 +65,15 @@ class _StudentLoaderState extends State<StudentLoader> {
               ? MessageScreen(
                   title: t.notFoundTitle,
                   body: t.notFoundBody,
+                  titleGloss: g?.notFoundTitle,
+                  bodyGloss: g?.notFoundBody,
                   pose: LeoniPose.shrug,
                 )
               : MessageScreen(
                   title: t.loadErrorTitle,
                   body: t.loadErrorBody,
+                  titleGloss: g?.loadErrorTitle,
+                  bodyGloss: g?.loadErrorBody,
                   actionLabel: t.retry,
                   onAction: () => setState(() => _future = _load()),
                   pose: LeoniPose.shrug,

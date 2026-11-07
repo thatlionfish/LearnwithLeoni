@@ -21,6 +21,7 @@ String exerciseLabel(AppLocalizations t, ExerciseType type) => switch (type) {
   ExerciseType.dictation => t.exDictation,
   ExerciseType.listening => t.exListening,
   ExerciseType.crossword => t.exCrossword,
+  ExerciseType.fide => t.exFide,
 };
 
 IconData exerciseIcon(ExerciseType type) => switch (type) {
@@ -30,6 +31,7 @@ IconData exerciseIcon(ExerciseType type) => switch (type) {
   ExerciseType.dictation => Icons.edit_note_rounded,
   ExerciseType.listening => Icons.hearing_rounded,
   ExerciseType.crossword => Icons.grid_view_rounded,
+  ExerciseType.fide => Icons.headphones_rounded,
 };
 
 /// Adresse einer Audiodatei im Ordner des Schülers.

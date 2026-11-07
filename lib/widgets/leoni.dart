@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../l10n/gloss.dart';
 import '../ui/colors.dart';
 import '../ui/theme.dart';
 import 'figure.dart';
@@ -49,9 +50,11 @@ class LeoniPhrase {
   final String original;
   final Map<String, String> translations;
 
-  String? translationFor(String languageCode) => languageCode == 'de'
+  /// Übersetzung in die Hilfesprache (`null` = nur Deutsch).
+  String? translationFor(String? languageCode) =>
+      languageCode == null || languageCode == 'de'
       ? null
-      : translations[languageCode] ?? translations['en'];
+      : translations[languageCode];
 }
 
 /// Lädt `assets/leoni/phrases.json` einmal.
@@ -110,8 +113,7 @@ class LeoniSays extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lang = Localizations.localeOf(context).languageCode;
-    final translation = phrase?.translationFor(lang);
+    final translation = phrase?.translationFor(helpLanguageOf(context));
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
@@ -143,10 +145,7 @@ class LeoniSays extends StatelessWidget {
                       const SizedBox(height: 4),
                       Text(phrase!.original, style: sans(16, weight: 520)),
                       if (translation != null)
-                        Text(
-                          translation,
-                          style: sans(14, color: LeoColors.inkSoft),
-                        ),
+                        Text(translation, style: glossStyle(13.5)),
                     ],
                   ],
                 ),

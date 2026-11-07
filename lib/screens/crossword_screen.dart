@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import '../audio/speaker.dart';
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
 import '../learn/crossword.dart';
 import '../learn/exercises.dart';
 import '../learn/hints.dart';
@@ -297,7 +298,7 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
           return wordHints(
             description: card is VocabCard ? card.hint : null,
             term: card is VocabCard ? card.term : null,
-            answer: word.answer[0] + word.answer.substring(1).toLowerCase(),
+            answer: crosswordHintAnswer(word.answer),
           );
         },
         audioFor: (h) {
@@ -343,7 +344,12 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
                 ),
               if (widget.audioClues) ...[
                 const SizedBox(height: 8),
-                Text(t.crosswordListenHint, style: text.bodySmall),
+                Glossed(
+                  t.crosswordListenHint,
+                  gloss: glossOf(context)?.crosswordListenHint,
+                  style: text.bodySmall,
+                  glossSize: 11.5,
+                ),
               ],
               const SizedBox(height: 16),
               LayoutBuilder(

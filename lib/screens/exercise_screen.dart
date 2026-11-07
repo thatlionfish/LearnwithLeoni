@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
 import '../learn/answer_check.dart';
 import '../learn/exercises.dart';
 import '../ui/colors.dart';
@@ -12,6 +13,7 @@ import '../widgets/kuma_helper.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/student_loader.dart';
 import 'crossword_screen.dart';
+import 'fide_screen.dart';
 import 'match_screen.dart';
 import 'message_screen.dart';
 
@@ -58,6 +60,7 @@ class ExerciseScreen extends StatelessWidget {
       final s = set ?? sets.first;
       return switch (type) {
         ExerciseType.match => MatchScreen(code: code, set: s),
+        ExerciseType.fide => FideScreen(code: code, set: s),
         ExerciseType.listening => _ListeningScreen(
           code: code,
           set: s,
@@ -215,12 +218,15 @@ class _QuizScreenState extends State<QuizScreen> {
     final text = Theme.of(context).textTheme;
     final item = _item;
     final answered = _result != null;
-    final instruction = switch (widget.type) {
-      ExerciseType.choice => t.chooseTranslation,
-      ExerciseType.cloze => t.fillGap,
-      ExerciseType.dictation => t.writeWhatYouHear,
-      _ => null,
-    };
+    String? instructionOf(AppLocalizations? l) => l == null
+        ? null
+        : switch (widget.type) {
+            ExerciseType.choice => l.chooseTranslation,
+            ExerciseType.cloze => l.fillGap,
+            ExerciseType.dictation => l.writeWhatYouHear,
+            _ => null,
+          };
+    final instruction = instructionOf(t);
 
     return PageFrame(
       showBack: true,
@@ -232,7 +238,11 @@ class _QuizScreenState extends State<QuizScreen> {
       children: [
         ?widget.header,
         if (instruction != null) ...[
-          Text(instruction, style: text.bodyMedium),
+          Glossed(
+            instruction,
+            gloss: instructionOf(glossOf(context)),
+            style: text.bodyMedium,
+          ),
           const SizedBox(height: 14),
         ],
         OrganicCard(
@@ -411,7 +421,11 @@ class _ListeningScreenState extends State<_ListeningScreen> {
           if (listening.titleTranslation != null)
             Text(listening.titleTranslation!, style: text.bodySmall),
           const SizedBox(height: 6),
-          Text(t.listenFirst, style: text.bodyMedium),
+          Glossed(
+            t.listenFirst,
+            gloss: glossOf(context)?.listenFirst,
+            style: text.bodyMedium,
+          ),
           const SizedBox(height: 14),
           ListenButtons(
             // Sprecherwechsel als kurze Pause vorlesen.

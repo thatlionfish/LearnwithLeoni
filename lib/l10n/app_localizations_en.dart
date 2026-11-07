@@ -96,9 +96,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings => 'Settings';
 
   @override
-  String get language => 'Language';
-
-  @override
   String get privacy => 'Privacy';
 
   @override
@@ -308,9 +305,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get kumaAsk => 'Ask Kumachan for a hint';
 
   @override
-  String get kumaNoMore => 'That\'s all my hints – you can do it!';
-
-  @override
   String get crosswordListenHint =>
       'Listen to the sentence. A word is missing at the pause – write it in the puzzle the way it fits the sentence.';
 
@@ -451,6 +445,87 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get abcNotEnough =>
       'There aren\'t enough clues for these topics yet. Choose more topics.';
+
+  @override
+  String get helpLanguage => 'Help language';
+
+  @override
+  String get helpLanguageInfo =>
+      'The app stays in German. The help language is only shown in small print.';
+
+  @override
+  String get helpNone => 'None – German only';
+
+  @override
+  String get exFide => 'fide · Listening';
+
+  @override
+  String get fideIntro =>
+      'Just like the fide test: you hear the situation and the question, then the text – and at the end the question once more.';
+
+  @override
+  String get fideModeExam => 'Like the exam';
+
+  @override
+  String get fideModeExamInfo => 'Listen twice at most, no text, no hints.';
+
+  @override
+  String get fideModePractice => 'Practise';
+
+  @override
+  String get fideModePracticeInfo =>
+      'Listen as often as you like – slowly too. After answering you see the text.';
+
+  @override
+  String get fideStart => 'Let\'s go';
+
+  @override
+  String get fideSituation => 'Situation';
+
+  @override
+  String fideQuestion(int number) {
+    return 'Question $number';
+  }
+
+  @override
+  String get fidePlay => 'Listen';
+
+  @override
+  String fidePlaysLeft(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'You can listen $count times.',
+      one: 'You can listen once more.',
+      zero: 'You\'ve listened twice.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get fidePictureTask => 'Which picture fits? Tap a, b or c.';
+
+  @override
+  String get fideOpenTask =>
+      'Answer the question briefly – two or three words are enough.';
+
+  @override
+  String get fideModelAnswer => 'Possible answer:';
+
+  @override
+  String get fideSelfCheck => 'My answer means the same';
+
+  @override
+  String get fideTranscript => 'This is what you heard:';
+
+  @override
+  String fidePoints(String level, int points, int max) {
+    return '$level: $points of $max points';
+  }
+
+  @override
+  String get fideResultNote =>
+      'In the real test, the points from “Listening” and “Speaking” are combined.';
 
   @override
   String get privacyBody =>

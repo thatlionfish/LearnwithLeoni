@@ -1,4 +1,52 @@
+import '../data/models.dart';
 import 'answer_check.dart';
+
+/// Kumachans feste Sätze. Alles, was er sagt, wird vorab mit seiner Stimme
+/// aufgenommen (`tool/tts.dart`) – neue Sätze deshalb hier eintragen.
+abstract final class KumaLines {
+  static const noMore = 'Mehr Tipps habe ich nicht – du schaffst das!';
+  static const listening = [
+    'Hör dir den Text nochmal an – auch langsam.',
+    'Du kannst den Text einblenden und nachlesen.',
+  ];
+  static const matchStart = 'Tippe zuerst links ein deutsches Wort an.';
+  static const abcStart = 'Drück auf „Auf Sendung!“ – dann helfe ich dir.';
+  static const hangmanLetters =
+      'Fang mit häufigen Buchstaben an: E, N, R, S, I.';
+  static const fideAgain =
+      'Hör dir alles noch einmal an – in der Prüfung darfst du zweimal hören.';
+  static const fidePicture = [
+    fideAgain,
+    'Achte auf Zahlen, Uhrzeiten und Tage.',
+    'Vorsicht: Im Text kommen oft auch die falschen Bilder vor. Hör bis zum Schluss zu!',
+  ];
+  static const fideOpen = [
+    fideAgain,
+    'Die Frage hilft dir: Wann? – eine Zeit. Wo? – ein Ort. Was? – eine Sache.',
+    'Eine kurze Antwort genügt, zwei oder drei Wörter.',
+  ];
+
+  static const all = [
+    noMore,
+    ...listening,
+    matchStart,
+    abcStart,
+    hangmanLetters,
+    ...fidePicture,
+    ...fideOpen,
+  ];
+}
+
+/// Tipps zu einer fide-Frage.
+List<String> fideHints(FideItem item) => [
+  if (item.hint != null && item.hint!.trim().isNotEmpty) item.hint!.trim(),
+  ...(item.isPicture ? KumaLines.fidePicture : KumaLines.fideOpen),
+];
+
+/// Kreuzworträtsel: Gitterwort („KÄSE“) → Form für den Buchstaben-Tipp.
+String crosswordHintAnswer(String gridWord) => gridWord.isEmpty
+    ? gridWord
+    : gridWord[0] + gridWord.substring(1).toLowerCase();
 
 /// Kumachans Tipps zu einem gesuchten Wort – Schritt für Schritt mehr Hilfe,
 /// aber nie die Lösung selbst.

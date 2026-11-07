@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/gloss.dart';
 import '../ui/organic.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
@@ -14,12 +15,18 @@ class MessageScreen extends StatelessWidget {
     this.onAction,
     this.showBack = false,
     this.pose = LeoniPose.wave,
+    this.titleGloss,
+    this.bodyGloss,
   });
 
   final LeoniPose pose;
 
   final String title;
   final String body;
+
+  /// Dieselben Texte klein in der Hilfesprache.
+  final String? titleGloss;
+  final String? bodyGloss;
   final String? actionLabel;
   final VoidCallback? onAction;
   final bool showBack;
@@ -53,9 +60,9 @@ class MessageScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: text.headlineSmall),
+              Glossed(title, gloss: titleGloss, style: text.headlineSmall),
               const SizedBox(height: 10),
-              Text(body, style: text.bodyLarge),
+              Glossed(body, gloss: bodyGloss, style: text.bodyLarge),
               if (actionLabel != null && onAction != null) ...[
                 const SizedBox(height: 20),
                 FilledButton(onPressed: onAction, child: Text(actionLabel!)),

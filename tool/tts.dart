@@ -6,6 +6,10 @@
 //   - Lückensatz mit „Hm hm hm“   → card.gapAudio    (Hör-Kreuzworträtsel)
 //   - Kumachans Umschreibung      → card.hintAudio
 //   - Hörtexte, Dialoge mit verschiedenen Stimmen → listening.audio
+//   - fide-Aufgaben: Situation + Frage (Prüferin), Hörtext (Schweizer
+//     Stimmen), Frage nochmals      → fide[].items[].audio
+//   - Kumachans Satzsammlung: jeder Tipp, den er geben kann
+//                                 → web/data/kuma/ (für alle Schüler)
 //
 // Aufruf:
 //   dart run tool/tts.dart            # erzeugt, was fehlt oder sich geändert hat
@@ -20,7 +24,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:learnwithleoni/data/models.dart';
+import 'package:learnwithleoni/games/abc/abc_game.dart' show AbcHint;
 import 'package:learnwithleoni/learn/exercises.dart' show gapInExample;
+import 'package:learnwithleoni/learn/kuma_phrases.dart';
 
 /// Standardstimme für Hochdeutsch; mit "voice": "de-CH" im Schülerprofil
 /// spricht die Schweizer Stimme.
@@ -45,6 +51,20 @@ const maleVoices = [
 /// Kumachan: Kinderstimme, deutlich höher – süss und ein bisschen quietschig.
 const kumaVoice = 'de-DE-GiselaNeural';
 const kumaPitch = '+22%';
+
+/// fide: Die Prüferin liest Situation und Frage, die Hörtexte sprechen –
+/// wie im echten Test – Schweizer Stimmen (Hochdeutsch mit Schweizer Klang).
+const fideExaminer = 'de-DE-SeraphinaMultilingualNeural';
+const fideFemale = [
+  'de-CH-LeniNeural',
+  'de-DE-KatjaNeural',
+  'de-DE-AmalaNeural',
+];
+const fideMale = [
+  'de-CH-JanNeural',
+  'de-DE-ConradNeural',
+  'de-DE-KillianNeural',
+];
 
 /// Etwas langsamer als normal – natürlich, aber gut verständlich.
 const rate = '-6%';
@@ -77,6 +97,7 @@ Future<void> main(List<String> args) async {
     region = creds.$2;
   }
 
+  final allSets = <Map<String, dynamic>>[];
   final students = Directory('web/data/students');
   for (final dir in students.listSync().whereType<Directory>()) {
     final student = jsonDecode(
@@ -92,6 +113,8 @@ Future<void> main(List<String> args) async {
       final setFile = File('${dir.path}/sets/$setId.json');
       final set =
           jsonDecode(setFile.readAsStringSync()) as Map<String, dynamic>;
+      // Kumachan hilft auch bei Bündnerdütsch – auf Hochdeutsch.
+      allSets.add(set);
       if (set['variety'] == 'gsw') continue; // Bündnerdütsch spricht nur Leoni.
       var changed = false;
 
@@ -99,9 +122,10 @@ Future<void> main(List<String> args) async {
         String name,
         String ssmlBody, {
         String v = voiceDe,
+        bool fullSsml = false,
       }) async {
         final rel = '$ttsDir/$setId-$name.mp3';
-        final ssml = _ssml(ssmlBody, voice: v);
+        final ssml = fullSsml ? _speak(ssmlBody) : _ssml(ssmlBody, voice: v);
         final hash = _hash(ssml);
         final file = File('${dir.path}/$rel');
         if (!force && manifest[rel] == hash && file.existsSync()) {
@@ -188,6 +212,31 @@ Future<void> main(List<String> args) async {
         }
       }
 
+      // fide: eine Aufnahme pro Frage, aufgebaut wie im Test.
+      for (final s
+          in ((set['fide'] as List?) ?? const [])
+              .cast<Map<String, dynamic>>()) {
+        final items = ((s['items'] as List?) ?? const [])
+            .cast<Map<String, dynamic>>();
+        for (final (i, item) in items.indexed) {
+          final own = item['audio'] as String?;
+          if (own != null && !own.startsWith('$ttsDir/')) continue;
+          final rel = await make(
+            'fide-${item['id']}',
+            _fide(
+              situation: i == 0 ? s['situation'] as String : null,
+              question: item['question'] as String,
+              text: item['text'] as String,
+            ),
+            fullSsml: true,
+          );
+          if (rel != null && item['audio'] != rel) {
+            item['audio'] = rel;
+            changed = true;
+          }
+        }
+      }
+
       if (changed && dry.isEmpty) {
         setFile.writeAsStringSync(
           '${const JsonEncoder.withIndent('  ').convert(set)}\n',
@@ -204,6 +253,7 @@ Future<void> main(List<String> args) async {
       );
     }
   }
+  await _kumaBank(allSets);
   stdout.writeln(
     '${dry.isNotEmpty ? 'Probelauf' : 'Fertig'}: $made erzeugt, $skipped unverändert, '
     'ca. $chars Zeichen${dry.isNotEmpty ? ' würden gesendet' : ''}.',
@@ -237,6 +287,112 @@ String _dialog(String text) {
   return out.toString();
 }
 
+/// Kumachans Satzsammlung unter web/data/kuma/: jeder Satz, den er sagen
+/// kann, einmal mit seiner Stimme – gemeinsam für alle Schüler.
+Future<void> _kumaBank(List<Map<String, dynamic>> sets) async {
+  final abcFile = File('web/data/abc/hints.json');
+  final abc = abcFile.existsSync()
+      ? [
+          for (final h
+              in ((jsonDecode(abcFile.readAsStringSync())
+                          as Map<String, dynamic>)['hints']
+                      as List?) ??
+                  const [])
+            AbcHint.fromJson(h as Map<String, dynamic>),
+        ]
+      : <AbcHint>[];
+  final phrases = kumaPhrases([
+    for (final s in sets) VocabSet.fromJson(s),
+  ], abc: abc).toList()..sort();
+
+  final dir = Directory('web/data/kuma');
+  final index = <String, String>{};
+  var kumaMade = 0;
+  stdout.writeln('Kumachan: ${phrases.length} Sätze');
+  for (final text in phrases) {
+    final ssml = _ssml(
+      '<prosody pitch="$kumaPitch" rate="+4%">${_say(text)}</prosody>',
+      voice: kumaVoice,
+    );
+    final rel = 'kuma/${_hash(ssml).replaceFirst('-', 'n')}.mp3';
+    final file = File('web/data/$rel');
+    if (!force && file.existsSync()) {
+      skipped++;
+      index[text] = rel;
+      continue;
+    }
+    chars += text.length;
+    if (dry.isNotEmpty) {
+      stdout.writeln('  würde erzeugen: $rel  „$text“');
+      continue;
+    }
+    await _synthesize(ssml, file);
+    index[text] = rel;
+    made++;
+    kumaMade++;
+  }
+  if (dry.isNotEmpty) return;
+  dir.createSync(recursive: true);
+  File('${dir.path}/index.json').writeAsStringSync(
+    '${const JsonEncoder.withIndent('  ').convert({'phrases': index})}\n',
+  );
+  // Aufnahmen von Sätzen, die es nicht mehr gibt, wegräumen.
+  final keep = {for (final r in index.values) r.split('/').last};
+  var removed = 0;
+  for (final f in dir.listSync().whereType<File>()) {
+    final name = f.uri.pathSegments.last;
+    if (name.endsWith('.mp3') && !keep.contains(name)) {
+      f.deleteSync();
+      removed++;
+    }
+  }
+  stdout.writeln(
+    'Kumachan: $kumaMade neu aufgenommen'
+    '${removed > 0 ? ', $removed alte entfernt' : ''}.',
+  );
+}
+
+/// fide-Aufnahme: Prüferin (Situation, Frage) → Hörtext → Frage nochmals.
+String _fide({
+  String? situation,
+  required String question,
+  required String text,
+}) {
+  String block(String voice, String body) =>
+      '<voice name="$voice"><prosody rate="$rate">$body</prosody></voice>';
+  final out = StringBuffer(
+    block(
+      fideExaminer,
+      '${situation == null ? '' : 'Situation: ${_say(situation)}<break time="700ms"/>'}'
+      'Frage: ${_say(question)}<break time="1200ms"/>',
+    ),
+  );
+  final voices = <String, String>{};
+  var f = 0, m = 0;
+  for (final line in text.split('\n')) {
+    final match = RegExp(r'^([^:]{1,30}):\s*(.*)$').firstMatch(line.trim());
+    final name = (match?.group(1) ?? '').trim().toLowerCase();
+    final said = (match?.group(2) ?? line).trim();
+    if (said.isEmpty) continue;
+    final v = voices.putIfAbsent(name, () {
+      final female =
+          name.startsWith('frau') ||
+          (!name.startsWith('herr') && RegExp(r'(a|e|in|i)$').hasMatch(name));
+      return female
+          ? fideFemale[f++ % fideFemale.length]
+          : fideMale[m++ % fideMale.length];
+    });
+    out.write(block(v, '${_say(said)}<break time="400ms"/>'));
+  }
+  out.write(
+    block(
+      fideExaminer,
+      '<break time="900ms"/>Noch einmal die Frage: ${_say(question)}',
+    ),
+  );
+  return out.toString();
+}
+
 String _ssml(String body, {required String voice}) {
   var inner =
       '<voice name="$voice"><prosody rate="$rate">$body</prosody></voice>';
@@ -245,6 +401,10 @@ String _ssml(String body, {required String voice}) {
     RegExp(r'<voice name="[^"]+"><prosody rate="[^"]+"></prosody></voice>'),
     '',
   );
+  return _speak(inner);
+}
+
+String _speak(String inner) {
   // Mehrsprachige Stimmen (Seraphina, Florian) fest auf Deutsch stellen,
   // damit sie einzelne Wörter wie „der Termin“ nicht englisch aussprechen.
   inner = inner.replaceAllMapped(

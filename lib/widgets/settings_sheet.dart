@@ -4,26 +4,17 @@ import 'package:go_router/go_router.dart';
 import '../app_scope.dart';
 import '../app_settings.dart';
 import '../l10n/app_localizations.dart';
+import '../l10n/gloss.dart';
 import '../ui/theme.dart';
-
-/// Sprachnamen in der jeweiligen Sprache selbst.
-const Map<String, String> nativeLanguageNames = {
-  'de': 'Deutsch',
-  'en': 'English',
-  'es': 'Español',
-  'fr': 'Français',
-  'it': 'Italiano',
-  'ja': '日本語',
-  'pt': 'Português',
-};
 
 Future<void> showSettingsSheet(BuildContext context) {
   return showModalBottomSheet<void>(
     context: context,
     builder: (context) {
       final t = AppLocalizations.of(context);
+      final g = glossOf(context);
       final settings = AppScope.of(context).settings;
-      final current = Localizations.localeOf(context).languageCode;
+      final current = settings.helpLanguage ?? 'de';
       return SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(24, 0, 24, 16),
@@ -33,21 +24,33 @@ Future<void> showSettingsSheet(BuildContext context) {
             children: [
               Text(t.settings, style: serif(24)),
               const SizedBox(height: 16),
-              Text(t.language, style: Theme.of(context).textTheme.titleMedium),
+              Glossed(
+                t.helpLanguage,
+                gloss: g?.helpLanguage,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 4),
+              Glossed(
+                t.helpLanguageInfo,
+                gloss: g?.helpLanguageInfo,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
               RadioGroup<String>(
                 groupValue: current,
                 onChanged: (code) {
-                  if (code != null) settings.choose(Locale(code));
+                  if (code != null) settings.choose(code);
                   Navigator.of(context).pop();
                 },
                 child: Column(
                   children: [
-                    for (final l in AppSettings.supported)
+                    for (final code in AppSettings.helpLanguages)
                       RadioListTile<String>(
-                        value: l.languageCode,
+                        value: code,
                         contentPadding: EdgeInsets.zero,
                         title: Text(
-                          nativeLanguageNames[l.languageCode] ?? l.languageCode,
+                          code == 'de'
+                              ? t.helpNone
+                              : helpLanguageNames[code] ?? code,
                         ),
                       ),
                   ],
@@ -57,7 +60,7 @@ Future<void> showSettingsSheet(BuildContext context) {
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(Icons.lock_outline),
-                title: Text(t.privacy),
+                title: Glossed(t.privacy, gloss: g?.privacy),
                 onTap: () {
                   Navigator.of(context).pop();
                   context.push('/datenschutz');

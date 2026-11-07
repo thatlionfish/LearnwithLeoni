@@ -11,7 +11,10 @@ enum ExerciseType {
   cloze('luecken'),
   dictation('diktat'),
   listening('hoeren'),
-  crossword('kreuzwort');
+  crossword('kreuzwort'),
+
+  /// Hörverstehen wie im fide-Test.
+  fide('fide');
 
   const ExerciseType(this.slug);
   final String slug;
@@ -191,10 +194,7 @@ List<QuizItem> listeningItems(ListeningText text) => [
       options: q.options,
       accepted: [q.options[q.answer]],
       translation: q.translation,
-      hints: const [
-        'Hör dir den Text nochmal an – auch langsam.',
-        'Du kannst den Text einblenden und nachlesen.',
-      ],
+      hints: KumaLines.listening,
     ),
 ];
 
@@ -213,6 +213,7 @@ List<List<VocabCard>> matchRounds(
 
 /// Welche Übungen ein Set anbieten kann.
 List<ExerciseType> availableExercises(VocabSet set) => [
+  if (set.fide.any((s) => s.items.isNotEmpty)) ExerciseType.fide,
   if (set.cards.length >= 2) ExerciseType.choice,
   if (set.cards.length >= 2) ExerciseType.match,
   if (set.cloze.isNotEmpty || set.cards.any((c) => c.example != null))

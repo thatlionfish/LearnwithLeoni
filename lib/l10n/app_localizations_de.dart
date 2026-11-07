@@ -96,9 +96,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settings => 'Einstellungen';
 
   @override
-  String get language => 'Sprache';
-
-  @override
   String get privacy => 'Datenschutz';
 
   @override
@@ -308,9 +305,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get kumaAsk => 'Kumachan um einen Tipp bitten';
 
   @override
-  String get kumaNoMore => 'Mehr Tipps habe ich nicht – du schaffst das!';
-
-  @override
   String get crosswordListenHint =>
       'Hör dir den Satz an. Bei der Pause fehlt ein Wort – schreib es so ins Rätsel, wie es in den Satz passt.';
 
@@ -451,6 +445,88 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get abcNotEnough =>
       'Für diese Themen gibt es noch nicht genug Hinweise. Wähle mehr Themen aus.';
+
+  @override
+  String get helpLanguage => 'Hilfesprache';
+
+  @override
+  String get helpLanguageInfo =>
+      'Die App bleibt auf Deutsch. Die Hilfesprache steht nur klein daneben.';
+
+  @override
+  String get helpNone => 'Keine – nur Deutsch';
+
+  @override
+  String get exFide => 'fide · Verstehen';
+
+  @override
+  String get fideIntro =>
+      'Wie im fide-Test: Du hörst die Situation und die Frage, dann den Text – und am Schluss noch einmal die Frage.';
+
+  @override
+  String get fideModeExam => 'Wie in der Prüfung';
+
+  @override
+  String get fideModeExamInfo =>
+      'Höchstens zweimal hören, kein Text, keine Tipps.';
+
+  @override
+  String get fideModePractice => 'Üben';
+
+  @override
+  String get fideModePracticeInfo =>
+      'So oft hören, wie du willst – auch langsam. Nach der Antwort siehst du den Text.';
+
+  @override
+  String get fideStart => 'Los geht\'s';
+
+  @override
+  String get fideSituation => 'Situation';
+
+  @override
+  String fideQuestion(int number) {
+    return 'Frage $number';
+  }
+
+  @override
+  String get fidePlay => 'Anhören';
+
+  @override
+  String fidePlaysLeft(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Du darfst $count-mal hören.',
+      one: 'Du darfst noch einmal hören.',
+      zero: 'Du hast zweimal gehört.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get fidePictureTask => 'Welches Bild passt? Tippe auf a, b oder c.';
+
+  @override
+  String get fideOpenTask =>
+      'Beantworte die Frage kurz – zwei, drei Wörter genügen.';
+
+  @override
+  String get fideModelAnswer => 'Mögliche Antwort:';
+
+  @override
+  String get fideSelfCheck => 'Meine Antwort bedeutet dasselbe';
+
+  @override
+  String get fideTranscript => 'Das hast du gehört:';
+
+  @override
+  String fidePoints(String level, int points, int max) {
+    return '$level: $points von $max Punkten';
+  }
+
+  @override
+  String get fideResultNote =>
+      'Im echten Test zählen die Punkte aus «Verstehen» und «Sprechen» zusammen.';
 
   @override
   String get privacyBody =>

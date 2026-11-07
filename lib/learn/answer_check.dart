@@ -58,6 +58,31 @@ AnswerResult checkAnswer(
   return best;
 }
 
+/// Freie Antwort (fide B1): Jede Stichwort-Gruppe in [groups] muss in
+/// [input] vorkommen; Alternativen einer Gruppe sind mit „|“ getrennt.
+/// Kleine Tippfehler und „ae“ statt „ä“ sind erlaubt.
+bool checkKeywords(String input, List<String> groups) {
+  final given = normalizeAnswer(input);
+  if (given.isEmpty || groups.isEmpty) return false;
+  final words = given.split(' ');
+  bool hit(String alternative) {
+    final a = normalizeAnswer(alternative);
+    if (a.isEmpty) return false;
+    // Zahlen nur als ganzes Wort: „7“ passt nicht zu „17“.
+    if (RegExp(r'^\d+$').hasMatch(a)) return words.contains(a);
+    if (given.contains(a) ||
+        _umlautFallback(given).contains(_umlautFallback(a))) {
+      return true;
+    }
+    if (a.contains(' ')) return false;
+    final allowed = a.length <= 4 ? 0 : (a.length <= 8 ? 1 : 2);
+    return allowed > 0 &&
+        words.any((w) => levenshtein(w, a, max: allowed) <= allowed);
+  }
+
+  return groups.every((g) => g.split('|').any(hit));
+}
+
 /// Vergleicht zwei Sätze Wort für Wort und markiert in [expected] jedes Wort,
 /// das in [given] anders geschrieben ist (auch nur in der Groß-/Kleinschreibung).
 /// `null`, wenn die Wortzahl nicht übereinstimmt.
