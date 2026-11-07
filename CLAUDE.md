@@ -61,7 +61,8 @@ dart run tool/tts.dart         # erzeugt MP3s unter <schüler>/audio/tts/
 - Bündnerdütsch-Sets werden übersprungen.
 - `"voice": "de-CH"` im Schülerprofil → Schweizer Standardstimme.
 - fide-Aufgaben: eine Aufnahme pro Frage – Prüferin (Situation, Frage),
-  Hörtext mit Schweizer Stimmen (Leni/Jan), Frage nochmals.
+  Hörtext mit anderen deutschen Stimmen, Frage nochmals. Der fide-Test prüft
+  Hochdeutsch: keine Schweizer Stimmen für fide-Schüler.
 - Kumachans Satzsammlung `web/data/kuma/` (für alle Schüler): jeder Tipp, den
   er geben kann (`kumaPhrases` in `lib/learn/kuma_phrases.dart`), mit seiner
   Kinderstimme. Feste Sätze stehen in `KumaLines` (`lib/learn/hints.dart`).

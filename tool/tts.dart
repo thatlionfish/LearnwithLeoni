@@ -6,8 +6,8 @@
 //   - Lückensatz mit „Hm hm hm“   → card.gapAudio    (Hör-Kreuzworträtsel)
 //   - Kumachans Umschreibung      → card.hintAudio
 //   - Hörtexte, Dialoge mit verschiedenen Stimmen → listening.audio
-//   - fide-Aufgaben: Situation + Frage (Prüferin), Hörtext (Schweizer
-//     Stimmen), Frage nochmals      → fide[].items[].audio
+//   - fide-Aufgaben: Situation + Frage (Prüferin), Hörtext (andere
+//     deutsche Stimmen), Frage nochmals → fide[].items[].audio
 //   - Kumachans Satzsammlung: jeder Tipp, den er geben kann
 //                                 → web/data/kuma/ (für alle Schüler)
 //
@@ -52,16 +52,16 @@ const maleVoices = [
 const kumaVoice = 'de-DE-GiselaNeural';
 const kumaPitch = '+22%';
 
-/// fide: Die Prüferin liest Situation und Frage, die Hörtexte sprechen –
-/// wie im echten Test – Schweizer Stimmen (Hochdeutsch mit Schweizer Klang).
+/// fide: Die Prüferin liest Situation und Frage, die Hörtexte sprechen andere
+/// Stimmen. Der fide-Test prüft Hochdeutsch – deshalb nur deutsche Stimmen.
 const fideExaminer = 'de-DE-SeraphinaMultilingualNeural';
 const fideFemale = [
-  'de-CH-LeniNeural',
   'de-DE-KatjaNeural',
   'de-DE-AmalaNeural',
+  'de-DE-LouisaNeural',
 ];
 const fideMale = [
-  'de-CH-JanNeural',
+  'de-DE-FlorianMultilingualNeural',
   'de-DE-ConradNeural',
   'de-DE-KillianNeural',
 ];
