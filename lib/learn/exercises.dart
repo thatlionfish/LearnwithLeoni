@@ -221,5 +221,6 @@ List<ExerciseType> availableExercises(VocabSet set) => [
   if (set.cards.any((c) => c.example != null) && set.variety == Variety.de)
     ExerciseType.dictation,
   if (set.listening.isNotEmpty) ExerciseType.listening,
-  if (set.cards.length >= 3) ExerciseType.crossword,
+  if (set.cards.where((c) => isSingleWord(c.term)).length >= 3)
+    ExerciseType.crossword,
 ];

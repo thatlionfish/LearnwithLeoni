@@ -1,0 +1,131 @@
+{
+  "id": "unterricht",
+  "title": "Aus dem Unterricht",
+  "titleTranslation": "授業のことば",
+  "variety": "de",
+  "status": "published",
+  "cards": [
+    {
+      "id": "sport-machen",
+      "term": "um Sport zu machen",
+      "translation": "スポーツをするために",
+      "example": "Ich gehe in den Park, um Sport zu machen.",
+      "exampleTranslation": "スポーツをするために公園へ行きます。",
+      "hint": "So nennst du den Grund, warum du joggen oder schwimmen gehst.",
+      "audio": "audio/tts/unterricht-sport-machen.mp3",
+      "exampleAudio": "audio/tts/unterricht-sport-machen-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-sport-machen-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-sport-machen-tipp.mp3"
+    },
+    {
+      "id": "sportarten",
+      "term": "die Sportarten",
+      "translation": "スポーツの種類",
+      "example": "Welche Sportarten machst du gern?",
+      "exampleTranslation": "どんなスポーツをするのが好きですか。",
+      "hint": "Fussball, Tennis und Schwimmen sind drei davon.",
+      "audio": "audio/tts/unterricht-sportarten.mp3",
+      "exampleAudio": "audio/tts/unterricht-sportarten-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-sportarten-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-sportarten-tipp.mp3"
+    },
+    {
+      "id": "seilziehen",
+      "term": "das Seilziehen",
+      "translation": "綱引き",
+      "example": "Am Schulfest machen die Kinder gern Seilziehen.",
+      "exampleTranslation": "学校のお祭りでは、子どもたちは綱引きをするのが好きです。",
+      "hint": "Zwei Gruppen halten einen dicken Strick. Wer stärker ist, gewinnt.",
+      "audio": "audio/tts/unterricht-seilziehen.mp3",
+      "exampleAudio": "audio/tts/unterricht-seilziehen-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-seilziehen-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-seilziehen-tipp.mp3"
+    },
+    {
+      "id": "ball-werfen",
+      "term": "einen Ball werfen",
+      "translation": "ボールを投げる",
+      "example": "Das Kind kann schon einen Ball werfen.",
+      "exampleTranslation": "その子はもうボールを投げることができます。",
+      "hint": "Das runde Spielzeug fliegt aus deiner Hand durch die Luft.",
+      "audio": "audio/tts/unterricht-ball-werfen.mp3",
+      "exampleAudio": "audio/tts/unterricht-ball-werfen-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-ball-werfen-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-ball-werfen-tipp.mp3"
+    },
+    {
+      "id": "wie-spannend",
+      "term": "Wie spannend!",
+      "translation": "わあ、とてもおもしろいですね!",
+      "example": "Du kommst aus Japan? Wie spannend!",
+      "exampleTranslation": "日本から来たんですか?わあ、とてもおもしろいですね!",
+      "hint": "Das sagst du, wenn dich etwas sehr interessiert und du mehr hören willst.",
+      "audio": "audio/tts/unterricht-wie-spannend.mp3",
+      "exampleAudio": "audio/tts/unterricht-wie-spannend-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-wie-spannend-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-wie-spannend-tipp.mp3"
+    },
+    {
+      "id": "lieferservice",
+      "term": "der Lieferservice",
+      "plural": "die Lieferservices",
+      "translation": "宅配サービス、デリバリー",
+      "example": "Heute koche ich nicht, ich bestelle beim Lieferservice eine Pizza.",
+      "exampleTranslation": "今日は料理をしません。宅配サービスでピザを注文します。",
+      "hint": "Du bestellst Essen per Telefon oder im Internet, und jemand bringt es zu dir nach Hause.",
+      "audio": "audio/tts/unterricht-lieferservice.mp3",
+      "exampleAudio": "audio/tts/unterricht-lieferservice-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-lieferservice-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-lieferservice-tipp.mp3"
+    },
+    {
+      "id": "schuerze",
+      "term": "die Schürze",
+      "plural": "die Schürzen",
+      "translation": "エプロン",
+      "example": "Beim Kochen trage ich immer eine Schürze.",
+      "exampleTranslation": "料理をするときは、いつもエプロンをつけます。",
+      "hint": "Du bindest sie beim Kochen um den Bauch, damit deine Kleider sauber bleiben.",
+      "audio": "audio/tts/unterricht-schuerze.mp3",
+      "exampleAudio": "audio/tts/unterricht-schuerze-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-schuerze-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-schuerze-tipp.mp3"
+    },
+    {
+      "id": "zutaten",
+      "term": "die Zutaten",
+      "translation": "材料",
+      "example": "Für diesen Kuchen brauchst du nur vier Zutaten.",
+      "exampleTranslation": "このケーキに必要な材料は4つだけです。",
+      "hint": "Mehl, Eier und Zucker für einen Kuchen: Das alles steht im Rezept.",
+      "audio": "audio/tts/unterricht-zutaten.mp3",
+      "exampleAudio": "audio/tts/unterricht-zutaten-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-zutaten-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-zutaten-tipp.mp3"
+    },
+    {
+      "id": "beachten",
+      "term": "beachten",
+      "translation": "注意する、守る",
+      "example": "Bitte beachten Sie die Öffnungszeiten der Gemeinde.",
+      "exampleTranslation": "役所の開庁時間にご注意ください。",
+      "hint": "Du denkst an eine Regel oder einen Hinweis und hältst dich daran.",
+      "audio": "audio/tts/unterricht-beachten.mp3",
+      "exampleAudio": "audio/tts/unterricht-beachten-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-beachten-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-beachten-tipp.mp3"
+    },
+    {
+      "id": "bestaetigen",
+      "term": "bestätigen",
+      "translation": "確認する、確定する",
+      "example": "Das Restaurant muss unsere Reservation noch bestätigen.",
+      "exampleTranslation": "レストランはこれから私たちの予約を確定しなければなりません。",
+      "hint": "Du sagst oder schreibst: Ja, das stimmt, der Termin ist in Ordnung.",
+      "audio": "audio/tts/unterricht-bestaetigen.mp3",
+      "exampleAudio": "audio/tts/unterricht-bestaetigen-satz.mp3",
+      "gapAudio": "audio/tts/unterricht-bestaetigen-luecke.mp3",
+      "hintAudio": "audio/tts/unterricht-bestaetigen-tipp.mp3"
+    }
+  ]
+}

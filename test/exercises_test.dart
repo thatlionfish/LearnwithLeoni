@@ -29,6 +29,35 @@ const set = VocabSet(
 );
 
 void main() {
+  test('Wortgruppen gehören nicht ins Kreuzworträtsel', () {
+    expect(isSingleWord('die Schürze'), isTrue);
+    expect(isSingleWord('bestätigen'), isTrue);
+    expect(isSingleWord('einen Ball werfen'), isFalse);
+    expect(isSingleWord('um Sport zu machen'), isFalse);
+    expect(isSingleWord('Wie spannend!'), isFalse);
+
+    VocabSet setOf(List<String> terms) => VocabSet(
+      id: 's',
+      title: 's',
+      titleTranslation: '',
+      variety: Variety.de,
+      published: true,
+      cards: [
+        for (final t in terms) VocabCard(id: t, term: t, translation: 'x'),
+      ],
+    );
+    expect(
+      availableExercises(
+        setOf(['die Schürze', 'beachten', 'einen Ball werfen']),
+      ),
+      isNot(contains(ExerciseType.crossword)),
+    );
+    expect(
+      availableExercises(setOf(['die Schürze', 'beachten', 'die Zutaten'])),
+      contains(ExerciseType.crossword),
+    );
+  });
+
   group('checkAnswer', () {
     test('Groß-/Kleinschreibung, Satzzeichen und ß/ss sind egal', () {
       expect(checkAnswer(' termin ', ['Termin']), AnswerResult.correct);

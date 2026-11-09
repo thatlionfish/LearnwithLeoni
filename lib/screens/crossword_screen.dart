@@ -8,6 +8,7 @@ import '../audio/speaker.dart';
 import '../data/models.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/gloss.dart';
+import '../learn/answer_check.dart';
 import '../learn/crossword.dart';
 import '../learn/exercises.dart';
 import '../learn/hints.dart';
@@ -75,7 +76,7 @@ class _CrosswordScreenState extends State<CrosswordScreen> {
   void _build() {
     final entries = [
       for (final s in widget.sets)
-        for (final c in s.cards)
+        for (final c in s.cards.where((c) => isSingleWord(c.term)))
           if (!widget.audioClues)
             (answer: toGridWord(c.term), clue: c.translation, payload: c)
           // Hör-Modus: nur Wörter mit Lückensatz; gesucht ist die Form im Satz.

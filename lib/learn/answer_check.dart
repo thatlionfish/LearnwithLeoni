@@ -139,3 +139,7 @@ String stripArticle(String term) {
   ).firstMatch(term);
   return m == null ? term : term.substring(m.end);
 }
+
+/// Ein einzelnes Wort (mit oder ohne Artikel), keine Wortgruppe wie
+/// „einen Ball werfen“. Nur solche Wörter passen ins Kreuzworträtsel.
+bool isSingleWord(String term) => !stripArticle(term).trim().contains(' ');
