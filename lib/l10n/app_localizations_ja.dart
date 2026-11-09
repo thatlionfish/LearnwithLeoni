@@ -178,6 +178,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get allCards => 'すべてのカード';
 
   @override
+  String get allWords => 'すべての単語';
+
+  @override
+  String wordCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count語',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get wordSearch => '単語を探す';
+
+  @override
+  String get wordsNoMatch => '単語が見つかりません。';
+
+  @override
+  String get looseWordsPractice => 'テーマのない単語を練習する';
+
+  @override
   String get practice => '練習';
 
   @override

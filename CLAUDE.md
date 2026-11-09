@@ -15,6 +15,12 @@ für neue Inhalte ist keine Code-Änderung nötig.
   - `<code>` ist ein schwer erratbarer Codename (z. B. 8 Zeichen a–z, 0–9),
     nie der echte Name. Der Link ist `https://thatlionfish.github.io/LearnwithLeoni/#/s/<code>`.
   - Nur Vorname oder Spitzname, nie Nachname oder Preply-Daten (Repo ist öffentlich).
+- Sets sind nur für **neue Themen aus dem Unterricht**. Einzelne Wörter, die Leoni
+  schickt, kommen in die Sammlung des Schülers (Set mit `"collection": true`,
+  Titel „Wörter ohne Thema“, höchstens eine pro Schüler; bei Reika `sets/unterricht.json`):
+  Sie steht nicht unter „Deine Sets“, die Wörter erscheinen unter „Alle Wörter“
+  (`#/s/<code>/woerter`), kommen beim Lernen dran und haben dort eigene Übungen.
+  Passt ein Wort klar zu einem bestehenden Thema, nur nach Absprache dorthin.
 - Set: `web/data/students/<code>/sets/<id>.json`
   - `"status": "draft"` bis Leoni freigibt (Werkstatt), dann `"published"`.
   - `"variety": "de"` (Hochdeutsch) oder `"gsw"` (Bündnerdütsch).

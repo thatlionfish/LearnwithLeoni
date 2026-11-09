@@ -90,7 +90,7 @@ class _SetViewState extends State<_SetView> {
               await context.push('/s/${widget.code}/lernen?set=${set.id}');
               if (mounted) setState(() {});
             },
-            child: Text(t.learnThisSet),
+            child: Text(set.isCollection ? t.startLearning : t.learnThisSet),
           ),
         ),
         const SizedBox(height: 30),

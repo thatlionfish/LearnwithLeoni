@@ -187,6 +187,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allCards => 'All cards';
 
   @override
+  String get allWords => 'All words';
+
+  @override
+  String wordCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count words',
+      one: '1 word',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get wordSearch => 'Search for a word';
+
+  @override
+  String get wordsNoMatch => 'No word found.';
+
+  @override
+  String get looseWordsPractice => 'Practise words without a topic';
+
+  @override
   String get practice => 'Practise';
 
   @override

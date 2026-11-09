@@ -364,6 +364,36 @@ abstract class AppLocalizations {
   /// **'Alle Karten'**
   String get allCards;
 
+  /// No description provided for @allWords.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Wörter'**
+  String get allWords;
+
+  /// No description provided for @wordCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Wort} other{{count} Wörter}}'**
+  String wordCount(int count);
+
+  /// No description provided for @wordSearch.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort suchen'**
+  String get wordSearch;
+
+  /// No description provided for @wordsNoMatch.
+  ///
+  /// In de, this message translates to:
+  /// **'Kein Wort gefunden.'**
+  String get wordsNoMatch;
+
+  /// No description provided for @looseWordsPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter ohne Thema üben'**
+  String get looseWordsPractice;
+
   /// No description provided for @practice.
   ///
   /// In de, this message translates to:

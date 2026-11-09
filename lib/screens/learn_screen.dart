@@ -498,8 +498,11 @@ class _FlipCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(item.set.title, style: text.labelMedium),
-            const SizedBox(height: 22),
+            // Einzelne Wörter gehören zu keinem Thema.
+            if (!item.set.isCollection) ...[
+              Text(item.set.title, style: text.labelMedium),
+              const SizedBox(height: 22),
+            ],
             if (germanFront) ...[
               Text(
                 c.term,

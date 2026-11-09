@@ -15,6 +15,7 @@ import 'screens/home_screen.dart';
 import 'screens/learn_screen.dart';
 import 'screens/message_screen.dart';
 import 'screens/set_screen.dart';
+import 'screens/words_screen.dart';
 import 'ui/proportional_scale.dart';
 import 'ui/theme.dart';
 import 'widgets/leoni.dart';
@@ -144,6 +145,11 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
           path: 'decke',
           builder: (_, state) =>
               BlanketScreen(code: state.pathParameters['code']!),
+        ),
+        GoRoute(
+          path: 'woerter',
+          builder: (_, state) =>
+              WordsScreen(code: state.pathParameters['code']!),
         ),
         GoRoute(
           path: 'lernen',

@@ -105,6 +105,20 @@ class StudentContent {
   final Student student;
   final List<VocabSet> sets;
 
+  /// Die Themen aus dem Unterricht: das, was unter „Deine Sets“ steht.
+  List<VocabSet> get topics => [
+    for (final s in sets)
+      if (!s.isCollection) s,
+  ];
+
+  /// Die einzelnen Wörter ohne Thema, falls es welche gibt.
+  VocabSet? get collection {
+    for (final s in sets) {
+      if (s.isCollection) return s;
+    }
+    return null;
+  }
+
   VocabSet? set(String id) {
     for (final s in sets) {
       if (s.id == id) return s;

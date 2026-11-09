@@ -1,7 +1,8 @@
 {
   "id": "unterricht",
-  "title": "Aus dem Unterricht",
-  "titleTranslation": "授業のことば",
+  "title": "Wörter ohne Thema",
+  "titleTranslation": "テーマのない単語",
+  "collection": true,
   "variety": "de",
   "status": "published",
   "cards": [

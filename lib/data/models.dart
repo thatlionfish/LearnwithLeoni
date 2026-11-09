@@ -59,6 +59,7 @@ class VocabSet {
     this.cloze = const [],
     this.listening = const [],
     this.fide = const [],
+    this.isCollection = false,
   });
 
   factory VocabSet.fromJson(Map<String, dynamic> j) => VocabSet(
@@ -67,6 +68,7 @@ class VocabSet {
     titleTranslation: (j['titleTranslation'] as String?) ?? '',
     variety: Variety.parse(j['variety']),
     published: j['status'] == 'published',
+    isCollection: j['collection'] == true,
     cards: [
       for (final c in (j['cards'] as List?) ?? const [])
         VocabCard.fromJson(c as Map<String, dynamic>),
@@ -92,6 +94,10 @@ class VocabSet {
 
   /// Entwürfe sieht nur die Werkstatt, nie ein Schüler.
   final bool published;
+
+  /// Sammlung einzelner Wörter ohne Thema: kein eigenes Set auf der
+  /// Startseite, die Wörter stehen unter „Alle Wörter“ und kommen beim Lernen.
+  final bool isCollection;
   final List<VocabCard> cards;
 
   /// Von Leoni geschriebene Lückensätze.

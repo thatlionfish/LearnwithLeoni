@@ -126,7 +126,8 @@ class LeoniSays extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final translation = phrase?.translationFor(helpLanguageOf(context));
-    return Row(
+    final figures = Row(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         if (companion != null)
@@ -135,6 +136,21 @@ class LeoniSays extends StatelessWidget {
             child: _companion(),
           ),
         LeoniFigure(pose: pose, height: figureHeight),
+      ],
+    );
+    final says = companionSays;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        // Kumachans Frage steht über den Figuren, sonst wird Leonis Blase zu schmal.
+        if (says == null)
+          figures
+        else
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [_question(says), figures],
+          ),
         const SizedBox(width: 4),
         Expanded(
           child: Padding(
@@ -171,63 +187,103 @@ class LeoniSays extends StatelessWidget {
 }
 
 extension on LeoniSays {
+  Widget _tappable(Widget child) {
+    final tap = onCompanionTap;
+    if (tap == null) return child;
+    return GestureDetector(
+      onTap: tap,
+      behavior: HitTestBehavior.opaque,
+      child: MouseRegion(cursor: SystemMouseCursors.click, child: child),
+    );
+  }
+
+  /// Kumachans kleine Sprechblase, oben über den beiden Figuren.
+  Widget _question(String says) => Semantics(
+    button: onCompanionTap != null,
+    child: _tappable(
+      Container(
+        constraints: BoxConstraints(maxWidth: figureHeight * 0.92),
+        padding: const EdgeInsets.fromLTRB(9, 6, 9, 7),
+        decoration: BoxDecoration(
+          color: LeoColors.brightWhite,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.elliptical(14, 11),
+            topRight: Radius.elliptical(12, 13),
+            bottomLeft: Radius.elliptical(4, 4),
+            bottomRight: Radius.elliptical(13, 10),
+          ),
+          border: Border.all(color: LeoColors.woodAsh),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              says,
+              textAlign: TextAlign.center,
+              style: sans(12.5, weight: 650, height: 1.25),
+            ),
+            if (companionSaysGloss != null)
+              Text(
+                companionSaysGloss!,
+                textAlign: TextAlign.center,
+                style: glossStyle(10.5),
+              ),
+          ],
+        ),
+      ),
+    ),
+  );
+
   Widget _companion() {
-    Widget kuma = KumaFigure(pose: companion!, height: figureHeight * 0.52);
-    final says = companionSays;
-    if (says != null) {
+    final height = figureHeight * 0.52;
+    Widget kuma = KumaFigure(pose: companion!, height: height);
+    if (companionSays != null) {
+      // Kleine Kreise führen von ihrer Frage hinunter zu ihrem Kopf.
       kuma = Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            constraints: BoxConstraints(maxWidth: figureHeight * 0.78),
-            margin: const EdgeInsets.only(bottom: 4),
-            padding: const EdgeInsets.fromLTRB(9, 6, 9, 7),
-            decoration: BoxDecoration(
-              color: LeoColors.brightWhite,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.elliptical(14, 11),
-                topRight: Radius.elliptical(12, 13),
-                bottomLeft: Radius.elliptical(13, 10),
-                bottomRight: Radius.elliptical(4, 4),
-              ),
-              border: Border.all(color: LeoColors.woodAsh),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  says,
-                  textAlign: TextAlign.center,
-                  style: sans(12.5, weight: 650, height: 1.25),
-                ),
-                if (companionSaysGloss != null)
-                  Text(
-                    companionSaysGloss!,
-                    textAlign: TextAlign.center,
-                    style: glossStyle(10.5),
-                  ),
-              ],
-            ),
+          SizedBox(
+            width: height * 2 / 3,
+            height: figureHeight - height,
+            child: CustomPaint(painter: _TrailPainter()),
           ),
           kuma,
         ],
       );
     }
-    final tap = onCompanionTap;
-    if (tap == null) return kuma;
+    if (onCompanionTap == null) return kuma;
     return Tooltip(
       message: companionLabel ?? '',
       child: Semantics(
         button: true,
         label: companionLabel,
-        child: GestureDetector(
-          onTap: tap,
-          behavior: HitTestBehavior.opaque,
-          child: MouseRegion(cursor: SystemMouseCursors.click, child: kuma),
-        ),
+        child: _tappable(kuma),
       ),
     );
   }
+}
+
+/// Die Kreise zwischen Kumachans Sprechblase und ihrem Kopf.
+class _TrailPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final fill = Paint()..color = LeoColors.brightWhite;
+    final line = Paint()
+      ..color = LeoColors.woodAsh
+      ..style = PaintingStyle.stroke;
+    for (final (x, y, r) in const [
+      (0.30, 0.16, 5.5),
+      (0.40, 0.50, 4.0),
+      (0.48, 0.80, 2.8),
+    ]) {
+      final c = Offset(size.width * x, size.height * y);
+      canvas.drawCircle(c, r, fill);
+      canvas.drawCircle(c, r, line);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_TrailPainter oldDelegate) => false;
 }
 
 /// Sprechblase mit leicht unregelmäßiger Form und Zipfel nach links unten.

@@ -82,6 +82,28 @@ FakeSource demoSource() => FakeSource({
   },
   'students/hoer1/sets/arzt.json': arztSet,
   'abc/hints.json': {'hints': fHints},
+  'students/samm1/student.json': {
+    'name': 'Mia',
+    'explainLanguage': 'en',
+    'sets': ['arzt', 'lose'],
+  },
+  'students/samm1/sets/arzt.json': arztSet,
+  'students/samm1/sets/lose.json': {
+    'id': 'lose',
+    'title': 'Wörter ohne Thema',
+    'status': 'published',
+    'collection': true,
+    'cards': [
+      {
+        'id': 'schuerze',
+        'term': 'die Schürze',
+        'translation': 'apron',
+        'example': 'Beim Kochen trage ich eine Schürze.',
+      },
+      {'id': 'beachten', 'term': 'beachten', 'translation': 'to observe'},
+      {'id': 'ball', 'term': 'einen Ball werfen', 'translation': 'to throw'},
+    ],
+  },
   'students/anna1/student.json': {
     'name': 'Anna',
     'explainLanguage': 'en',
@@ -498,6 +520,103 @@ void main() {
     await tester.tap(find.text('a)'));
     await tester.pumpAndSettle();
     expect(find.text('Richtig wäre:'), findsNothing);
+  });
+
+  testWidgets('Einzelne Wörter: kein Set, aber unter „Alle Wörter“', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/samm1');
+    // Unter „Deine Sets“ steht nur das Thema.
+    expect(find.text('Beim Arzt'), findsOneWidget);
+    expect(find.text('Wörter ohne Thema'), findsNothing);
+    expect(find.text('5 Wörter'), findsOneWidget);
+
+    await tester.tap(find.text('Alle Wörter'));
+    await tester.pumpAndSettle();
+
+    // Alle Wörter von A bis Z, der Artikel zählt nicht mit.
+    double y(String term) => tester.getTopLeft(find.text(term)).dy;
+    expect(y('beachten'), lessThan(y('einen Ball werfen')));
+    expect(y('einen Ball werfen'), lessThan(y('das Fieber')));
+    expect(y('das Fieber'), lessThan(y('die Schürze')));
+    expect(y('die Schürze'), lessThan(y('der Termin')));
+    // Die einzelnen Wörter kann man hier üben.
+    expect(find.text('Wörter ohne Thema üben'), findsOneWidget);
+
+    // Suche: ü wie u, auch in der Übersetzung.
+    await tester.enterText(find.byType(TextField), 'schurz');
+    await tester.pumpAndSettle();
+    expect(find.text('die Schürze'), findsOneWidget);
+    expect(find.text('der Termin'), findsNothing);
+    await tester.enterText(find.byType(TextField), 'fever');
+    await tester.pumpAndSettle();
+    expect(find.text('das Fieber'), findsOneWidget);
+    expect(find.text('die Schürze'), findsNothing);
+    await tester.enterText(find.byType(TextField), 'xyz');
+    await tester.pumpAndSettle();
+    expect(find.text('Kein Wort gefunden.'), findsOneWidget);
+
+    // Tippen zeigt den Beispielsatz.
+    await tester.enterText(find.byType(TextField), 'schurz');
+    await tester.pumpAndSettle();
+    expect(find.text('Beim Kochen trage ich eine Schürze.'), findsNothing);
+    await tester.ensureVisible(find.text('die Schürze'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('die Schürze'));
+    await tester.pumpAndSettle();
+    expect(find.text('Beim Kochen trage ich eine Schürze.'), findsOneWidget);
+  });
+
+  testWidgets('Lernkarte eines einzelnen Worts nennt kein Thema', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/samm1/lernen?set=lose');
+    expect(find.text('Wörter ohne Thema'), findsNothing);
+    expect(find.textContaining('von 3'), findsOneWidget);
+  });
+
+  testWidgets('Ohne Sammlung gibt es keine Übungen bei „Alle Wörter“', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/anna1/woerter');
+    expect(find.text('der Termin'), findsOneWidget);
+    expect(find.text('Wörter ohne Thema üben'), findsNothing);
+  });
+
+  testWidgets('Wörter ohne Thema üben führt zu den Übungen', (tester) async {
+    await pumpApp(tester, '/s/samm1/woerter');
+    await tester.tap(find.text('Wörter ohne Thema üben'));
+    await tester.pumpAndSettle();
+    expect(find.text('Wörter ohne Thema'), findsOneWidget);
+    expect(find.text('Zuordnen'), findsOneWidget);
+    expect(find.text('Dieses Set lernen'), findsNothing);
+  });
+
+  testWidgets('Kumachans Frage drückt Leonis Blase nicht zusammen', (
+    tester,
+  ) async {
+    LeoniFigure.animate = false;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Center(
+            child: SizedBox(
+              width: 335,
+              child: LeoniSays(
+                headline: 'Reika!',
+                companion: KumaPose.wave,
+                companionSays: 'Willst du deine Decke sehen?',
+                onCompanionTap: () {},
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    // Genug Platz für den Text (früher blieben rund 40 Pixel).
+    expect(tester.getSize(find.text('Reika!')).width, greaterThan(90));
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('Unbekannter Code zeigt freundliche Meldung', (tester) async {

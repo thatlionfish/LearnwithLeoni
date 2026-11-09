@@ -141,21 +141,30 @@ class _HomeViewState extends State<_HomeView> {
           ),
         ),
 
-        const SizedBox(height: 32),
-        Glossed(
-          t.yourSets,
-          gloss: glossOf(context)?.yourSets,
-          style: text.headlineSmall,
-        ),
         const SizedBox(height: 12),
-        for (final (i, set) in sets.indexed) ...[
-          _SetTile(
-            set: set,
-            stats: stats[set.id]!,
-            seed: 20 + i,
-            onTap: () => _open('/s/$code/set/${set.id}'),
+        _WordsTile(
+          count: stats.values.fold(0, (a, s) => a + s.total),
+          onTap: () => _open('/s/$code/woerter'),
+        ),
+
+        // Unter „Deine Sets“ stehen nur die Themen aus dem Unterricht.
+        if (data.content.topics.isNotEmpty) ...[
+          const SizedBox(height: 32),
+          Glossed(
+            t.yourSets,
+            gloss: glossOf(context)?.yourSets,
+            style: text.headlineSmall,
           ),
           const SizedBox(height: 12),
+          for (final (i, set) in data.content.topics.indexed) ...[
+            _SetTile(
+              set: set,
+              stats: stats[set.id]!,
+              seed: 20 + i,
+              onTap: () => _open('/s/$code/set/${set.id}'),
+            ),
+            const SizedBox(height: 12),
+          ],
         ],
 
         const SizedBox(height: 20),
@@ -186,6 +195,41 @@ class _HomeViewState extends State<_HomeView> {
           ],
         ),
       ],
+    );
+  }
+}
+
+/// Klein und schmal: der Weg zu allen Wörtern.
+class _WordsTile extends StatelessWidget {
+  const _WordsTile({required this.count, required this.onTap});
+
+  final int count;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context);
+    final text = Theme.of(context).textTheme;
+    return OrganicCard(
+      seed: 16,
+      onTap: onTap,
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+      child: Row(
+        children: [
+          const Icon(Icons.menu_book_rounded, size: 22),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Glossed(
+              t.allWords,
+              gloss: glossOf(context)?.allWords,
+              style: text.titleSmall,
+            ),
+          ),
+          Text(t.wordCount(count), style: text.bodySmall),
+          const SizedBox(width: 4),
+          const Icon(Icons.chevron_right_rounded, size: 22),
+        ],
+      ),
     );
   }
 }

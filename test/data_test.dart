@@ -36,6 +36,20 @@ void main() {
         reason: 'Nur Vorname/Spitzname, kein Nachname',
       );
 
+      expect(
+        [
+          for (final id in student.setIds)
+            if (File('${dir.path}/sets/$id.json').existsSync() &&
+                (jsonDecode(
+                      File('${dir.path}/sets/$id.json').readAsStringSync(),
+                    ) as Map<String, dynamic>)['collection'] ==
+                    true)
+              id,
+        ].length,
+        lessThanOrEqualTo(1),
+        reason: 'Höchstens eine Sammlung einzelner Wörter',
+      );
+
       for (final id in student.setIds) {
         final file = File('${dir.path}/sets/$id.json');
         expect(file.existsSync(), isTrue, reason: 'Set $id fehlt');
