@@ -1,0 +1,499 @@
+{
+  "id": "impressionismus",
+  "title": "Impressionismus",
+  "titleTranslation": "Impressionism",
+  "variety": "de",
+  "status": "published",
+  "cards": [
+    {
+      "id": "kraeftig",
+      "term": "kräftig",
+      "translation": "strong, intense (colors)",
+      "example": "Die Farben sind sehr kräftig, wie bei Franz Marc.",
+      "exampleTranslation": "The colors are very strong, like in Franz Marc's paintings.",
+      "hint": "Sehr stark und intensiv, zum Beispiel ein tiefes Rot oder ein sattes Blau.",
+      "audio": "audio/tts/impressionismus-kraeftig.mp3",
+      "exampleAudio": "audio/tts/impressionismus-kraeftig-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-kraeftig-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-kraeftig-tipp.mp3"
+    },
+    {
+      "id": "zart",
+      "term": "zart",
+      "translation": "delicate, soft (colors)",
+      "example": "Die Farben sind sehr zart, wie bei Monets Seerosen.",
+      "exampleTranslation": "The colors are very delicate, like in Monet's water lilies.",
+      "hint": "Ganz fein, hell und weich, zum Beispiel ein helles Rosa.",
+      "audio": "audio/tts/impressionismus-zart.mp3",
+      "exampleAudio": "audio/tts/impressionismus-zart-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-zart-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-zart-tipp.mp3"
+    },
+    {
+      "id": "impressionismus",
+      "term": "der Impressionismus",
+      "translation": "Impressionism",
+      "example": "Der Impressionismus malt den Eindruck von Licht.",
+      "exampleTranslation": "Impressionism paints the impression of light.",
+      "hint": "Eine Kunstrichtung aus Frankreich um 1870. Die Maler zeigen Licht und weiche Farben.",
+      "audio": "audio/tts/impressionismus-impressionismus.mp3",
+      "exampleAudio": "audio/tts/impressionismus-impressionismus-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-impressionismus-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-impressionismus-tipp.mp3"
+    },
+    {
+      "id": "eindruck",
+      "term": "der Eindruck",
+      "plural": "die Eindrücke",
+      "translation": "impression",
+      "example": "Das Bild ist nur ein Eindruck und nicht fertig.",
+      "exampleTranslation": "The painting is only an impression and not finished.",
+      "hint": "Das, was man in einem kurzen Moment sieht und fühlt.",
+      "audio": "audio/tts/impressionismus-eindruck.mp3",
+      "exampleAudio": "audio/tts/impressionismus-eindruck-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-eindruck-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-eindruck-tipp.mp3"
+    },
+    {
+      "id": "licht",
+      "term": "das Licht",
+      "translation": "light",
+      "example": "Monet malt dasselbe Motiv oft, denn das Licht ändert sich.",
+      "exampleTranslation": "Monet often paints the same motif because the light changes.",
+      "hint": "Es kommt von der Sonne oder von einer Lampe. Ohne es ist alles dunkel.",
+      "audio": "audio/tts/impressionismus-licht.mp3",
+      "exampleAudio": "audio/tts/impressionismus-licht-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-licht-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-licht-tipp.mp3"
+    },
+    {
+      "id": "sonnenaufgang",
+      "term": "der Sonnenaufgang",
+      "plural": "die Sonnenaufgänge",
+      "translation": "sunrise",
+      "example": "Am frühen Morgen sieht man den Sonnenaufgang über dem Hafen.",
+      "exampleTranslation": "Early in the morning you can see the sunrise over the harbor.",
+      "hint": "Am Morgen kommt die Sonne über den Horizont.",
+      "audio": "audio/tts/impressionismus-sonnenaufgang.mp3",
+      "exampleAudio": "audio/tts/impressionismus-sonnenaufgang-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-sonnenaufgang-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-sonnenaufgang-tipp.mp3"
+    },
+    {
+      "id": "hafen",
+      "term": "der Hafen",
+      "plural": "die Häfen",
+      "translation": "harbor",
+      "example": "Monet malt den Hafen von Le Havre am frühen Morgen.",
+      "exampleTranslation": "Monet paints the harbor of Le Havre early in the morning.",
+      "hint": "Hier kommen die Schiffe an und fahren wieder ab.",
+      "audio": "audio/tts/impressionismus-hafen.mp3",
+      "exampleAudio": "audio/tts/impressionismus-hafen-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-hafen-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-hafen-tipp.mp3"
+    },
+    {
+      "id": "nebel",
+      "term": "der Nebel",
+      "translation": "fog",
+      "example": "Hinter der Brücke stehen Bäume im Nebel.",
+      "exampleTranslation": "Behind the bridge there are trees in the fog.",
+      "hint": "Wie eine graue Wolke ganz unten am Boden. Man sieht nicht weit.",
+      "audio": "audio/tts/impressionismus-nebel.mp3",
+      "exampleAudio": "audio/tts/impressionismus-nebel-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-nebel-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-nebel-tipp.mp3"
+    },
+    {
+      "id": "teich",
+      "term": "der Teich",
+      "plural": "die Teiche",
+      "translation": "pond",
+      "example": "Monet baut in Giverny einen Garten mit einem Teich.",
+      "exampleTranslation": "In Giverny, Monet builds a garden with a pond.",
+      "hint": "Ein kleiner See, oft in einem Garten.",
+      "audio": "audio/tts/impressionismus-teich.mp3",
+      "exampleAudio": "audio/tts/impressionismus-teich-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-teich-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-teich-tipp.mp3"
+    },
+    {
+      "id": "seerose",
+      "term": "die Seerose",
+      "plural": "die Seerosen",
+      "translation": "water lily",
+      "example": "Auf dem Teich schwimmen viele Seerosen.",
+      "exampleTranslation": "Many water lilies float on the pond.",
+      "hint": "Eine Blume, die auf dem Wasser schwimmt. Monet hat sie oft gemalt.",
+      "audio": "audio/tts/impressionismus-seerose.mp3",
+      "exampleAudio": "audio/tts/impressionismus-seerose-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-seerose-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-seerose-tipp.mp3"
+    },
+    {
+      "id": "farbtupfer",
+      "term": "der Farbtupfer",
+      "plural": "die Farbtupfer",
+      "translation": "dab of paint",
+      "example": "Male keine scharfen Linien, male nur kleine Farbtupfer!",
+      "exampleTranslation": "Don't paint sharp lines, only paint small dabs of color!",
+      "hint": "Ein kleiner Fleck Farbe, mit der Spitze vom Pinsel gemacht.",
+      "audio": "audio/tts/impressionismus-farbtupfer.mp3",
+      "exampleAudio": "audio/tts/impressionismus-farbtupfer-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-farbtupfer-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-farbtupfer-tipp.mp3"
+    },
+    {
+      "id": "serie",
+      "term": "die Serie",
+      "plural": "die Serien",
+      "translation": "series",
+      "example": "Dasselbe Motiv in vielen Bildern nennt man eine Serie.",
+      "exampleTranslation": "The same motif in many paintings is called a series.",
+      "hint": "Viele Bilder mit demselben Motiv, zum Beispiel Heuhaufen im Sommer und im Winter.",
+      "audio": "audio/tts/impressionismus-serie.mp3",
+      "exampleAudio": "audio/tts/impressionismus-serie-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-serie-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-serie-tipp.mp3"
+    },
+    {
+      "id": "lustigmachen",
+      "term": "sich lustig machen über",
+      "translation": "to make fun of",
+      "example": "Ein Journalist macht sich über das Bild lustig.",
+      "exampleTranslation": "A journalist makes fun of the painting.",
+      "hint": "Über jemanden lachen, weil man ihn komisch oder dumm findet.",
+      "audio": "audio/tts/impressionismus-lustigmachen.mp3",
+      "exampleAudio": "audio/tts/impressionismus-lustigmachen-satz.mp3",
+      "hintAudio": "audio/tts/impressionismus-lustigmachen-tipp.mp3"
+    },
+    {
+      "id": "trennung",
+      "term": "die Trennung",
+      "plural": "die Trennungen",
+      "translation": "separation (Secession)",
+      "example": "Das Wort Secession bedeutet Trennung.",
+      "exampleTranslation": "The word Secession means separation.",
+      "hint": "Wenn zwei Menschen oder Gruppen nicht mehr zusammen sind.",
+      "audio": "audio/tts/impressionismus-trennung.mp3",
+      "exampleAudio": "audio/tts/impressionismus-trennung-satz.mp3",
+      "gapAudio": "audio/tts/impressionismus-trennung-luecke.mp3",
+      "hintAudio": "audio/tts/impressionismus-trennung-tipp.mp3"
+    }
+  ],
+  "cloze": [
+    {
+      "id": "k1",
+      "text": "Monet malt das Bild „Impression, Sonnenaufgang“ im Jahr ___.",
+      "answers": [
+        "1872"
+      ],
+      "options": [
+        "1872",
+        "1874",
+        "1883"
+      ],
+      "translation": "Monet paints 'Impression, Sunrise' in 1872.",
+      "hint": "Zwei Jahre vor der Ausstellung in Paris."
+    },
+    {
+      "id": "k2",
+      "text": "Ein Journalist macht sich über das Bild ___.",
+      "answers": [
+        "lustig"
+      ],
+      "translation": "A journalist makes fun of the painting.",
+      "hint": "Er lacht über die Maler und nimmt sie nicht ernst."
+    },
+    {
+      "id": "k3",
+      "text": "Ab 1883 wohnt Monet in ___, nicht weit von Paris.",
+      "answers": [
+        "Giverny"
+      ],
+      "options": [
+        "Giverny",
+        "Le Havre",
+        "Berlin"
+      ],
+      "translation": "From 1883, Monet lives in Giverny, not far from Paris.",
+      "hint": "Ein kleines Dorf mit Monets Garten und Teich."
+    },
+    {
+      "id": "k4",
+      "text": "Monet stirbt 1926 im Alter von ___ Jahren.",
+      "answers": [
+        "86",
+        "sechsundachtzig"
+      ],
+      "translation": "Monet dies in 1926 at the age of 86.",
+      "hint": "Achtzig plus sechs."
+    },
+    {
+      "id": "k5",
+      "text": "Im Jahr 1898 gründen Berliner Künstler die Berliner ___.",
+      "answers": [
+        "Secession"
+      ],
+      "options": [
+        "Secession",
+        "Brücke",
+        "Ausstellung"
+      ],
+      "translation": "In 1898, Berlin artists found the Berlin Secession.",
+      "hint": "Das Wort bedeutet Trennung."
+    },
+    {
+      "id": "k6",
+      "text": "Der deutsche Impressionismus ist etwas ruhiger und ___ als der französische.",
+      "answers": [
+        "dunkler"
+      ],
+      "options": [
+        "dunkler",
+        "heller",
+        "bunter"
+      ],
+      "translation": "German Impressionism is somewhat calmer and darker than French Impressionism.",
+      "hint": "Das Gegenteil von heller."
+    }
+  ],
+  "listening": [
+    {
+      "id": "h1",
+      "title": "Impression, Sonnenaufgang",
+      "titleTranslation": "Impression, Sunrise",
+      "text": "Im Jahr 1872 malt der französische Maler Claude Monet den Hafen von Le Havre am frühen Morgen.\nDie Sonne ist orange, der Nebel ist grau und blau. Das Bild ist sehr weich, man sieht fast keine Linien.\nMonet nennt es „Impression, Sonnenaufgang“. Im Jahr 1874 zeigt er das Bild in Paris in einer Ausstellung, zusammen mit anderen Malern.\nEin Journalist namens Louis Leroy macht sich darüber lustig. Er schreibt: Das Bild ist nur ein Eindruck und nicht fertig.\nEr nennt die Maler spöttisch „Impressionisten“. Die Maler behalten den Namen.",
+      "questions": [
+        {
+          "q": "In welchem Jahr malte Monet das Bild?",
+          "options": [
+            "1872",
+            "1874",
+            "1882"
+          ],
+          "answer": 0,
+          "translation": "In which year did Monet paint the picture?"
+        },
+        {
+          "q": "Welchen Hafen malte er?",
+          "options": [
+            "Den Hafen von Paris",
+            "Den Hafen von Le Havre",
+            "Den Hafen von Hamburg"
+          ],
+          "answer": 1,
+          "translation": "Which harbor did he paint?"
+        },
+        {
+          "q": "Welche Farben hat die Szene?",
+          "options": [
+            "Rot, gelb und grün",
+            "Orange, grau und blau",
+            "Rosa, weiß und grün"
+          ],
+          "answer": 1,
+          "translation": "What colors does the scene have?"
+        },
+        {
+          "q": "Wer schrieb den spöttischen Text?",
+          "options": [
+            "Claude Monet",
+            "Ein Maler aus Paris",
+            "Der Journalist Louis Leroy"
+          ],
+          "answer": 2,
+          "translation": "Who wrote the mocking text?"
+        },
+        {
+          "q": "Welchen Namen bekamen die Maler?",
+          "options": [
+            "Impressionisten",
+            "Expressionisten",
+            "Secessionisten"
+          ],
+          "answer": 0,
+          "translation": "What name did the painters get?"
+        }
+      ],
+      "audio": "audio/tts/impressionismus-h1.mp3"
+    },
+    {
+      "id": "h2",
+      "title": "Monet und die Seerosen",
+      "titleTranslation": "Monet and the water lilies",
+      "text": "Im Jahr 1883 zieht Monet in das Dorf Giverny, nicht weit von Paris.\nDort baut er einen Garten mit einem Teich und einer kleinen japanischen Brücke. Auf dem Teich schwimmen viele Seerosen.\nMonet malt sie immer wieder, zu jeder Tageszeit, denn das Licht ändert sich. Dasselbe Motiv in vielen Bildern nennt man eine Serie.\nEine bekannte Serie zeigt Heuhaufen auf einem Feld, im Sommer und im Winter. Einige dieser Bilder hängen heute im Art Institute of Chicago.\nMonet stirbt im Jahr 1926, im Alter von sechsundachtzig Jahren.",
+      "questions": [
+        {
+          "q": "Wohin zog Monet, und wann?",
+          "options": [
+            "Nach Paris, 1883",
+            "Nach Giverny, 1883",
+            "Nach Giverny, 1926"
+          ],
+          "answer": 1,
+          "translation": "Where did Monet move to, and when?"
+        },
+        {
+          "q": "Was baute er dort?",
+          "options": [
+            "Ein Museum für seine Bilder",
+            "Einen Garten mit Teich und japanischer Brücke",
+            "Ein Haus am Hafen"
+          ],
+          "answer": 1,
+          "translation": "What did he build there?"
+        },
+        {
+          "q": "Warum malte er dasselbe Motiv oft?",
+          "options": [
+            "Weil sich das Licht zu jeder Tageszeit ändert",
+            "Weil er keine anderen Motive hatte",
+            "Weil die Seerosen schnell sterben"
+          ],
+          "answer": 0,
+          "translation": "Why did he often paint the same motif?"
+        },
+        {
+          "q": "Wo in Amerika hängen heute Bilder der Serie?",
+          "options": [
+            "In einer Schule in Chicago",
+            "Im Rathaus von Chicago",
+            "Im Art Institute of Chicago"
+          ],
+          "answer": 2,
+          "translation": "Where in America do paintings from the series hang today?"
+        },
+        {
+          "q": "Wie alt wurde Monet?",
+          "options": [
+            "68 Jahre",
+            "86 Jahre",
+            "96 Jahre"
+          ],
+          "answer": 1,
+          "translation": "How old did Monet live to be?"
+        }
+      ],
+      "audio": "audio/tts/impressionismus-h2.mp3"
+    },
+    {
+      "id": "h3",
+      "title": "Impressionismus in Deutschland",
+      "titleTranslation": "Impressionism in Germany",
+      "text": "Auch in Deutschland malen Künstler mit viel Licht. Die bekanntesten sind Max Liebermann, Lovis Corinth und Max Slevogt.\nIm Jahr 1898 gründen Berliner Künstler die Berliner Secession. Das Wort bedeutet Trennung.\nSie wollen sich von den strengen Regeln der offiziellen Ausstellungen trennen. Max Liebermann wird einer der wichtigsten Männer der Gruppe.\nEr malt gern Menschen im Freien und den Garten an seinem Haus am Wannsee in Berlin. Heute kann man dort ein Museum besuchen.\nDer deutsche Impressionismus ist etwas ruhiger und dunkler als der französische.",
+      "questions": [
+        {
+          "q": "Welche drei Maler werden genannt?",
+          "options": [
+            "Monet, Corinth und Slevogt",
+            "Liebermann, Corinth und Slevogt",
+            "Liebermann, Kirchner und Marc"
+          ],
+          "answer": 1,
+          "translation": "Which three painters are mentioned?"
+        },
+        {
+          "q": "Wann wurde die Berliner Secession gegründet?",
+          "options": [
+            "1889",
+            "1898",
+            "1918"
+          ],
+          "answer": 1,
+          "translation": "When was the Berlin Secession founded?"
+        },
+        {
+          "q": "Was bedeutet das Wort Secession?",
+          "options": [
+            "Ausstellung",
+            "Trennung",
+            "Regel"
+          ],
+          "answer": 1,
+          "translation": "What does the word Secession mean?"
+        },
+        {
+          "q": "Was malte Liebermann gern?",
+          "options": [
+            "Menschen im Freien und seinen Garten am Wannsee",
+            "Seerosen in Giverny",
+            "Die hektische Großstadt"
+          ],
+          "answer": 0,
+          "translation": "What did Liebermann like to paint?"
+        },
+        {
+          "q": "Wie ist der deutsche Impressionismus?",
+          "options": [
+            "Heller und bunter als der französische",
+            "Ruhiger und dunkler als der französische",
+            "Genau wie der französische"
+          ],
+          "answer": 1,
+          "translation": "What is German Impressionism like?"
+        }
+      ],
+      "audio": "audio/tts/impressionismus-h3.mp3"
+    },
+    {
+      "id": "h4",
+      "title": "Am Seerosenteich",
+      "titleTranslation": "At the water lily pond",
+      "text": "Es ist früh am Morgen. Vor dir liegt ein kleiner Teich. Das Wasser ist hellblau und grün.\nAuf dem Wasser schwimmen rosa und weiße Seerosen. Über den Teich führt eine kleine grüne Brücke.\nHinter der Brücke stehen Bäume im Nebel. Die Sonne ist gelb und orange und spiegelt sich im Wasser.\nMale keine scharfen Linien, male nur kleine Farbtupfer!",
+      "questions": [
+        {
+          "q": "Welche Farbe hat das Wasser?",
+          "options": [
+            "Hellblau und grün",
+            "Dunkelblau und grau",
+            "Gelb und orange"
+          ],
+          "answer": 0,
+          "translation": "What color is the water?"
+        },
+        {
+          "q": "Welche Seerosen schwimmen auf dem Wasser?",
+          "options": [
+            "Rote und gelbe",
+            "Rosa und weiße",
+            "Blaue und weiße"
+          ],
+          "answer": 1,
+          "translation": "Which water lilies float on the water?"
+        },
+        {
+          "q": "Was führt über den Teich?",
+          "options": [
+            "Ein kleines Boot",
+            "Eine kleine grüne Brücke",
+            "Ein langer Weg"
+          ],
+          "answer": 1,
+          "translation": "What leads across the pond?"
+        },
+        {
+          "q": "Was steht hinter der Brücke?",
+          "options": [
+            "Ein Haus im Garten",
+            "Bäume im Nebel",
+            "Menschen im Freien"
+          ],
+          "answer": 1,
+          "translation": "What is behind the bridge?"
+        },
+        {
+          "q": "Wie soll man malen?",
+          "options": [
+            "Mit scharfen Linien",
+            "Nur in Schwarz und Weiß",
+            "Nur mit kleinen Farbtupfern"
+          ],
+          "answer": 2,
+          "translation": "How should you paint?"
+        }
+      ],
+      "audio": "audio/tts/impressionismus-h4.mp3"
+    }
+  ]
+}
