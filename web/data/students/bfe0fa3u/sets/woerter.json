@@ -1,0 +1,2167 @@
+{
+  "id": "woerter",
+  "title": "Wörter ohne Thema",
+  "titleTranslation": "Words without a topic",
+  "variety": "de",
+  "status": "published",
+  "collection": true,
+  "cards": [
+    {
+      "id": "unwetter",
+      "term": "das Unwetter",
+      "plural": "die Unwetter",
+      "translation": "severe weather, storm",
+      "example": "Gestern Abend gab es ein starkes Unwetter mit Blitz und Hagel.",
+      "exampleTranslation": "Last night there was a heavy storm with lightning and hail.",
+      "hint": "Sehr schlechtes Wetter mit Sturm, Gewitter oder Hagel.",
+      "audio": "audio/tts/woerter-unwetter.mp3",
+      "exampleAudio": "audio/tts/woerter-unwetter-satz.mp3",
+      "gapAudio": "audio/tts/woerter-unwetter-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-unwetter-tipp.mp3"
+    },
+    {
+      "id": "wortwoertlich",
+      "term": "wortwörtlich",
+      "translation": "literally, word for word",
+      "example": "Man kann diesen Satz nicht wortwörtlich übersetzen.",
+      "exampleTranslation": "You can't translate this sentence word for word.",
+      "hint": "Genau Wort für Wort, ohne etwas zu ändern.",
+      "audio": "audio/tts/woerter-wortwoertlich.mp3",
+      "exampleAudio": "audio/tts/woerter-wortwoertlich-satz.mp3",
+      "gapAudio": "audio/tts/woerter-wortwoertlich-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-wortwoertlich-tipp.mp3"
+    },
+    {
+      "id": "notwendig",
+      "term": "notwendig",
+      "translation": "necessary",
+      "example": "Für diese Reise ist ein Visum nicht notwendig.",
+      "exampleTranslation": "A visa is not necessary for this trip.",
+      "hint": "So wichtig, dass man es unbedingt braucht.",
+      "audio": "audio/tts/woerter-notwendig.mp3",
+      "exampleAudio": "audio/tts/woerter-notwendig-satz.mp3",
+      "gapAudio": "audio/tts/woerter-notwendig-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-notwendig-tipp.mp3"
+    },
+    {
+      "id": "seenot",
+      "term": "die Seenot",
+      "translation": "distress at sea",
+      "example": "Das Boot war in Seenot, und die Küstenwache hat geholfen.",
+      "exampleTranslation": "The boat was in distress at sea, and the coastguard helped.",
+      "hint": "Große Gefahr auf dem Meer, zum Beispiel wenn ein Schiff sinkt.",
+      "audio": "audio/tts/woerter-seenot.mp3",
+      "exampleAudio": "audio/tts/woerter-seenot-satz.mp3",
+      "gapAudio": "audio/tts/woerter-seenot-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-seenot-tipp.mp3"
+    },
+    {
+      "id": "notfall",
+      "term": "der Notfall",
+      "plural": "die Notfälle",
+      "translation": "emergency",
+      "example": "Im Notfall rufst du sofort den Arzt an.",
+      "exampleTranslation": "In an emergency, you call the doctor straight away.",
+      "hint": "Eine plötzliche, gefährliche Situation. Man braucht schnell Hilfe.",
+      "audio": "audio/tts/woerter-notfall.mp3",
+      "exampleAudio": "audio/tts/woerter-notfall-satz.mp3",
+      "gapAudio": "audio/tts/woerter-notfall-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-notfall-tipp.mp3"
+    },
+    {
+      "id": "wenden",
+      "term": "sich an jemanden wenden",
+      "translation": "to turn to someone, to contact someone",
+      "example": "Wenn du noch Fragen hast, kannst du dich an mich wenden.",
+      "exampleTranslation": "If you have any more questions, you can contact me.",
+      "hint": "Jemanden um Hilfe oder um eine Auskunft bitten.",
+      "audio": "audio/tts/woerter-wenden.mp3",
+      "exampleAudio": "audio/tts/woerter-wenden-satz.mp3",
+      "hintAudio": "audio/tts/woerter-wenden-tipp.mp3"
+    },
+    {
+      "id": "anwenden",
+      "term": "anwenden",
+      "translation": "to apply, to use (= benutzen)",
+      "example": "Joan wendet das neue Wort „notwendig“ an.",
+      "exampleTranslation": "Joan uses the new word 'notwendig'.",
+      "hint": "Etwas Neues benutzen, zum Beispiel ein Wort oder eine Regel.",
+      "audio": "audio/tts/woerter-anwenden.mp3",
+      "exampleAudio": "audio/tts/woerter-anwenden-satz.mp3",
+      "hintAudio": "audio/tts/woerter-anwenden-tipp.mp3"
+    },
+    {
+      "id": "tiefgruendig",
+      "term": "tiefgründig",
+      "translation": "profound, deep",
+      "example": "Wir sprechen heute über tiefgründige Fragen.",
+      "exampleTranslation": "Today we're talking about deep questions.",
+      "hint": "Nicht oberflächlich. Man muss lange darüber nachdenken.",
+      "audio": "audio/tts/woerter-tiefgruendig.mp3",
+      "exampleAudio": "audio/tts/woerter-tiefgruendig-satz.mp3",
+      "gapAudio": "audio/tts/woerter-tiefgruendig-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-tiefgruendig-tipp.mp3"
+    },
+    {
+      "id": "grund",
+      "term": "der Grund",
+      "plural": "die Gründe",
+      "translation": "reason; ground, bottom",
+      "example": "Aus welchem Grund lernst du Deutsch?",
+      "exampleTranslation": "For what reason are you learning German?",
+      "hint": "Die Antwort auf die Frage „Warum?“. Es kann auch der Boden sein.",
+      "audio": "audio/tts/woerter-grund.mp3",
+      "exampleAudio": "audio/tts/woerter-grund-satz.mp3",
+      "gapAudio": "audio/tts/woerter-grund-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-grund-tipp.mp3"
+    },
+    {
+      "id": "meeresgrund",
+      "term": "der Meeresgrund",
+      "translation": "seabed, bottom of the sea",
+      "example": "Auf dem Meeresgrund liegt ein altes Schiff.",
+      "exampleTranslation": "An old ship lies on the seabed.",
+      "hint": "Der Boden ganz unten im Meer.",
+      "audio": "audio/tts/woerter-meeresgrund.mp3",
+      "exampleAudio": "audio/tts/woerter-meeresgrund-satz.mp3",
+      "gapAudio": "audio/tts/woerter-meeresgrund-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-meeresgrund-tipp.mp3"
+    },
+    {
+      "id": "grundwasser",
+      "term": "das Grundwasser",
+      "translation": "groundwater",
+      "example": "Das Grundwasser ist hier sehr sauber.",
+      "exampleTranslation": "The groundwater here is very clean.",
+      "hint": "Wasser, das tief unter der Erde ist.",
+      "audio": "audio/tts/woerter-grundwasser.mp3",
+      "exampleAudio": "audio/tts/woerter-grundwasser-satz.mp3",
+      "gapAudio": "audio/tts/woerter-grundwasser-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-grundwasser-tipp.mp3"
+    },
+    {
+      "id": "erstesmal",
+      "term": "zum ersten Mal",
+      "translation": "for the first time",
+      "example": "Was hast du zuletzt zum ersten Mal gemacht?",
+      "exampleTranslation": "What did you do for the first time most recently?",
+      "hint": "Noch nie vorher – jetzt passiert es das allererste Mal.",
+      "audio": "audio/tts/woerter-erstesmal.mp3",
+      "exampleAudio": "audio/tts/woerter-erstesmal-satz.mp3",
+      "gapAudio": "audio/tts/woerter-erstesmal-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-erstesmal-tipp.mp3"
+    },
+    {
+      "id": "ueberdenken",
+      "term": "überdenken",
+      "translation": "to reconsider, to rethink",
+      "example": "Ich muss meinen Plan noch einmal überdenken.",
+      "exampleTranslation": "I need to reconsider my plan.",
+      "hint": "Noch einmal genau prüfen und vielleicht ändern.",
+      "audio": "audio/tts/woerter-ueberdenken.mp3",
+      "exampleAudio": "audio/tts/woerter-ueberdenken-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ueberdenken-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ueberdenken-tipp.mp3"
+    },
+    {
+      "id": "nachdenken",
+      "term": "über etwas nachdenken",
+      "translation": "to think about something, to reflect",
+      "example": "Ich denke oft über meine Zukunft nach.",
+      "exampleTranslation": "I often think about my future.",
+      "hint": "Lange und ruhig überlegen.",
+      "audio": "audio/tts/woerter-nachdenken.mp3",
+      "exampleAudio": "audio/tts/woerter-nachdenken-satz.mp3",
+      "hintAudio": "audio/tts/woerter-nachdenken-tipp.mp3"
+    },
+    {
+      "id": "denkenan",
+      "term": "an jemanden denken",
+      "translation": "to think of someone",
+      "example": "Ich denke an dich.",
+      "exampleTranslation": "I'm thinking of you.",
+      "hint": "Jemand ist in deinen Gedanken.",
+      "audio": "audio/tts/woerter-denkenan.mp3",
+      "exampleAudio": "audio/tts/woerter-denkenan-satz.mp3",
+      "hintAudio": "audio/tts/woerter-denkenan-tipp.mp3"
+    },
+    {
+      "id": "spass",
+      "term": "Spaß machen",
+      "translation": "to be fun",
+      "example": "Was macht dir an deiner Arbeit gerade am meisten Spaß?",
+      "exampleTranslation": "What do you enjoy most about your work at the moment?",
+      "hint": "Etwas gefällt dir, und du hast Freude dabei.",
+      "audio": "audio/tts/woerter-spass.mp3",
+      "exampleAudio": "audio/tts/woerter-spass-satz.mp3",
+      "hintAudio": "audio/tts/woerter-spass-tipp.mp3"
+    },
+    {
+      "id": "kleider",
+      "term": "die Kleider wechseln",
+      "translation": "to change clothes",
+      "example": "Nach dem Sport wechsle ich meine Kleider.",
+      "exampleTranslation": "After sport I change my clothes.",
+      "hint": "Eine andere Hose und ein anderes Hemd anziehen.",
+      "audio": "audio/tts/woerter-kleider.mp3",
+      "exampleAudio": "audio/tts/woerter-kleider-satz.mp3",
+      "hintAudio": "audio/tts/woerter-kleider-tipp.mp3"
+    },
+    {
+      "id": "arbeit",
+      "term": "zur Arbeit gehen",
+      "translation": "to go to work",
+      "example": "Was würdest du gern machen, wenn du nicht zur Arbeit gehen müsstest?",
+      "exampleTranslation": "What would you like to do if you didn't have to go to work?",
+      "hint": "Am Morgen ins Büro oder in die Firma gehen.",
+      "audio": "audio/tts/woerter-arbeit.mp3",
+      "exampleAudio": "audio/tts/woerter-arbeit-satz.mp3",
+      "gapAudio": "audio/tts/woerter-arbeit-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-arbeit-tipp.mp3"
+    },
+    {
+      "id": "herunterfallen",
+      "term": "herunterfallen",
+      "translation": "to fall down, to drop",
+      "example": "Die Weißwurst ist heruntergefallen.",
+      "exampleTranslation": "The white sausage fell on the floor.",
+      "hint": "Von oben nach unten auf den Boden fallen.",
+      "audio": "audio/tts/woerter-herunterfallen.mp3",
+      "exampleAudio": "audio/tts/woerter-herunterfallen-satz.mp3",
+      "hintAudio": "audio/tts/woerter-herunterfallen-tipp.mp3"
+    },
+    {
+      "id": "beieuch",
+      "term": "bei euch",
+      "translation": "where you are, at your place",
+      "example": "Wie warm ist es bei euch?",
+      "exampleTranslation": "How warm is it where you are?",
+      "hint": "Dort, wo ihr wohnt.",
+      "audio": "audio/tts/woerter-beieuch.mp3",
+      "exampleAudio": "audio/tts/woerter-beieuch-satz.mp3",
+      "gapAudio": "audio/tts/woerter-beieuch-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-beieuch-tipp.mp3"
+    },
+    {
+      "id": "ersetzen",
+      "term": "ersetzen",
+      "translation": "to replace",
+      "example": "Kann eine App einen guten Lehrer ersetzen?",
+      "exampleTranslation": "Can an app replace a good teacher?",
+      "hint": "Etwas wegnehmen und etwas anderes an seinen Platz tun.",
+      "audio": "audio/tts/woerter-ersetzen.mp3",
+      "exampleAudio": "audio/tts/woerter-ersetzen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ersetzen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ersetzen-tipp.mp3"
+    },
+    {
+      "id": "verletzt",
+      "term": "verletzt",
+      "translation": "injured, hurt",
+      "example": "Beim Fußball hat er sich am Knie verletzt.",
+      "exampleTranslation": "He hurt his knee playing football.",
+      "hint": "Man hat eine Wunde oder Schmerzen, zum Beispiel nach einem Unfall.",
+      "audio": "audio/tts/woerter-verletzt.mp3",
+      "exampleAudio": "audio/tts/woerter-verletzt-satz.mp3",
+      "gapAudio": "audio/tts/woerter-verletzt-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-verletzt-tipp.mp3"
+    },
+    {
+      "id": "aufpassen",
+      "term": "aufpassen",
+      "translation": "to look after, to watch out (auf + Akk.)",
+      "example": "Kannst du auf das Auto aufpassen, wenn ich einkaufe?",
+      "exampleTranslation": "Can you keep an eye on the car while I'm shopping?",
+      "hint": "Gut schauen, dass nichts Schlimmes passiert.",
+      "audio": "audio/tts/woerter-aufpassen.mp3",
+      "exampleAudio": "audio/tts/woerter-aufpassen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-aufpassen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-aufpassen-tipp.mp3"
+    },
+    {
+      "id": "vermissen",
+      "term": "vermissen",
+      "translation": "to miss",
+      "example": "Was vermisst du gerade am meisten in deinem Leben?",
+      "exampleTranslation": "What do you miss most in your life at the moment?",
+      "hint": "Traurig sein, weil jemand oder etwas nicht mehr da ist.",
+      "audio": "audio/tts/woerter-vermissen.mp3",
+      "exampleAudio": "audio/tts/woerter-vermissen-satz.mp3",
+      "hintAudio": "audio/tts/woerter-vermissen-tipp.mp3"
+    },
+    {
+      "id": "raten",
+      "term": "raten",
+      "translation": "to advise (jemandem etwas raten)",
+      "example": "Was würdest du deinem jüngeren Ich raten?",
+      "exampleTranslation": "What would you advise your younger self?",
+      "hint": "Jemandem einen Tipp geben, was er tun soll.",
+      "audio": "audio/tts/woerter-raten.mp3",
+      "exampleAudio": "audio/tts/woerter-raten-satz.mp3",
+      "gapAudio": "audio/tts/woerter-raten-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-raten-tipp.mp3"
+    },
+    {
+      "id": "vergangenheit",
+      "term": "die Vergangenheit",
+      "translation": "the past",
+      "example": "Was würdest du in der Vergangenheit ändern?",
+      "exampleTranslation": "What would you change in the past?",
+      "hint": "Die Zeit, die schon vorbei ist.",
+      "audio": "audio/tts/woerter-vergangenheit.mp3",
+      "exampleAudio": "audio/tts/woerter-vergangenheit-satz.mp3",
+      "gapAudio": "audio/tts/woerter-vergangenheit-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-vergangenheit-tipp.mp3"
+    },
+    {
+      "id": "erstellen",
+      "term": "erstellen",
+      "translation": "to create, to make",
+      "example": "Kannst du eine neue Tabelle erstellen?",
+      "exampleTranslation": "Can you create a new spreadsheet?",
+      "hint": "Etwas Neues machen, zum Beispiel ein Dokument am Computer.",
+      "audio": "audio/tts/woerter-erstellen.mp3",
+      "exampleAudio": "audio/tts/woerter-erstellen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-erstellen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-erstellen-tipp.mp3"
+    },
+    {
+      "id": "bearbeiten",
+      "term": "bearbeiten",
+      "translation": "to edit, to work on",
+      "example": "Ich darf das Dokument lesen, aber nicht bearbeiten.",
+      "exampleTranslation": "I'm allowed to read the document, but not to edit it.",
+      "hint": "Etwas ändern und verbessern, zum Beispiel einen Text.",
+      "audio": "audio/tts/woerter-bearbeiten.mp3",
+      "exampleAudio": "audio/tts/woerter-bearbeiten-satz.mp3",
+      "gapAudio": "audio/tts/woerter-bearbeiten-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-bearbeiten-tipp.mp3"
+    },
+    {
+      "id": "erlaubnis",
+      "term": "die Erlaubnis",
+      "translation": "permission",
+      "example": "Für diesen Ordner brauchst du die Erlaubnis deines Chefs.",
+      "exampleTranslation": "For this folder you need your boss's permission.",
+      "hint": "Wenn jemand sagt: Ja, du darfst das.",
+      "audio": "audio/tts/woerter-erlaubnis.mp3",
+      "exampleAudio": "audio/tts/woerter-erlaubnis-satz.mp3",
+      "gapAudio": "audio/tts/woerter-erlaubnis-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-erlaubnis-tipp.mp3"
+    },
+    {
+      "id": "zugang",
+      "term": "der Zugang",
+      "plural": "die Zugänge",
+      "translation": "access",
+      "example": "Ich habe noch keinen Zugang zum neuen Programm.",
+      "exampleTranslation": "I don't have access to the new program yet.",
+      "hint": "Die Möglichkeit hineinzukommen, zum Beispiel mit einem Passwort.",
+      "audio": "audio/tts/woerter-zugang.mp3",
+      "exampleAudio": "audio/tts/woerter-zugang-satz.mp3",
+      "gapAudio": "audio/tts/woerter-zugang-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-zugang-tipp.mp3"
+    },
+    {
+      "id": "planen",
+      "term": "planen",
+      "translation": "to plan",
+      "example": "Am Montag planen wir die Aufgaben für die ganze Woche.",
+      "exampleTranslation": "On Monday we plan the tasks for the whole week.",
+      "hint": "Vorher überlegen, was man wann macht.",
+      "audio": "audio/tts/woerter-planen.mp3",
+      "exampleAudio": "audio/tts/woerter-planen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-planen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-planen-tipp.mp3"
+    },
+    {
+      "id": "erreichen",
+      "term": "erreichen",
+      "translation": "to reach, to achieve",
+      "example": "Was willst du dieses Jahr erreichen?",
+      "exampleTranslation": "What do you want to achieve this year?",
+      "hint": "Ein Ziel schaffen, an einem Ziel ankommen.",
+      "audio": "audio/tts/woerter-erreichen.mp3",
+      "exampleAudio": "audio/tts/woerter-erreichen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-erreichen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-erreichen-tipp.mp3"
+    },
+    {
+      "id": "abfragen",
+      "term": "abfragen",
+      "translation": "to test someone on something, to query",
+      "example": "Kannst du mich morgen die Vokabeln abfragen?",
+      "exampleTranslation": "Can you test me on the vocabulary tomorrow?",
+      "hint": "Fragen stellen, um zu prüfen, was jemand weiß.",
+      "audio": "audio/tts/woerter-abfragen.mp3",
+      "exampleAudio": "audio/tts/woerter-abfragen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-abfragen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-abfragen-tipp.mp3"
+    },
+    {
+      "id": "gegenteil",
+      "term": "das Gegenteil",
+      "translation": "the opposite",
+      "example": "Das Gegenteil von „warm“ ist „kalt“.",
+      "exampleTranslation": "The opposite of 'warm' is 'cold'.",
+      "hint": "Ganz anders, zum Beispiel groß und klein.",
+      "audio": "audio/tts/woerter-gegenteil.mp3",
+      "exampleAudio": "audio/tts/woerter-gegenteil-satz.mp3",
+      "gapAudio": "audio/tts/woerter-gegenteil-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-gegenteil-tipp.mp3"
+    },
+    {
+      "id": "meinung",
+      "term": "meiner Meinung nach",
+      "translation": "in my opinion",
+      "example": "Meiner Meinung nach ist die Schweiz ein sehr sicheres Land.",
+      "exampleTranslation": "In my opinion, Switzerland is a very safe country.",
+      "hint": "So denke ich darüber, das ist meine Sicht.",
+      "audio": "audio/tts/woerter-meinung.mp3",
+      "exampleAudio": "audio/tts/woerter-meinung-satz.mp3",
+      "gapAudio": "audio/tts/woerter-meinung-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-meinung-tipp.mp3"
+    },
+    {
+      "id": "fachperson",
+      "term": "die Fachperson",
+      "plural": "die Fachpersonen",
+      "translation": "specialist, professional",
+      "example": "Wenn du keine Fachperson bist, ist das Thema schwer zu verstehen.",
+      "exampleTranslation": "If you're not a specialist, the topic is hard to understand.",
+      "hint": "Jemand, der in einem Beruf sehr viel weiß, ein Profi.",
+      "audio": "audio/tts/woerter-fachperson.mp3",
+      "exampleAudio": "audio/tts/woerter-fachperson-satz.mp3",
+      "gapAudio": "audio/tts/woerter-fachperson-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-fachperson-tipp.mp3"
+    },
+    {
+      "id": "experte",
+      "term": "der Experte",
+      "plural": "die Experten",
+      "translation": "expert",
+      "example": "Ich bin kein Experte, aber ich finde das interessant.",
+      "exampleTranslation": "I'm not an expert, but I find it interesting.",
+      "hint": "Ein Mensch, der ein Thema sehr gut kennt.",
+      "audio": "audio/tts/woerter-experte.mp3",
+      "exampleAudio": "audio/tts/woerter-experte-satz.mp3",
+      "gapAudio": "audio/tts/woerter-experte-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-experte-tipp.mp3"
+    },
+    {
+      "id": "schulfach",
+      "term": "das Schulfach",
+      "plural": "die Schulfächer",
+      "translation": "school subject",
+      "example": "Welches Schulfach hattest du am liebsten?",
+      "exampleTranslation": "Which school subject did you like best?",
+      "hint": "Mathematik, Geschichte oder Deutsch in der Schule.",
+      "audio": "audio/tts/woerter-schulfach.mp3",
+      "exampleAudio": "audio/tts/woerter-schulfach-satz.mp3",
+      "gapAudio": "audio/tts/woerter-schulfach-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-schulfach-tipp.mp3"
+    },
+    {
+      "id": "kenntnisse",
+      "term": "die Kenntnisse",
+      "translation": "knowledge, skills (plural)",
+      "example": "Er hat gute Kenntnisse in Informatik.",
+      "exampleTranslation": "He has good knowledge of computer science.",
+      "hint": "Das, was man gelernt hat und weiß.",
+      "audio": "audio/tts/woerter-kenntnisse.mp3",
+      "exampleAudio": "audio/tts/woerter-kenntnisse-satz.mp3",
+      "gapAudio": "audio/tts/woerter-kenntnisse-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-kenntnisse-tipp.mp3"
+    },
+    {
+      "id": "widerstandsfaehigkeit",
+      "term": "die Widerstandsfähigkeit",
+      "translation": "resilience",
+      "example": "Sport stärkt die Widerstandsfähigkeit.",
+      "exampleTranslation": "Sport strengthens resilience.",
+      "hint": "Die Kraft, nach Problemen wieder stark zu werden.",
+      "audio": "audio/tts/woerter-widerstandsfaehigkeit.mp3",
+      "exampleAudio": "audio/tts/woerter-widerstandsfaehigkeit-satz.mp3",
+      "gapAudio": "audio/tts/woerter-widerstandsfaehigkeit-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-widerstandsfaehigkeit-tipp.mp3"
+    },
+    {
+      "id": "widerstandsfaehig",
+      "term": "widerstandsfähig",
+      "translation": "resilient, robust",
+      "example": "Durch schwierige Zeiten bin ich widerstandsfähiger geworden.",
+      "exampleTranslation": "Difficult times have made me more resilient.",
+      "hint": "Stark genug, um Probleme gut auszuhalten.",
+      "audio": "audio/tts/woerter-widerstandsfaehig.mp3",
+      "exampleAudio": "audio/tts/woerter-widerstandsfaehig-satz.mp3",
+      "gapAudio": "audio/tts/woerter-widerstandsfaehig-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-widerstandsfaehig-tipp.mp3"
+    },
+    {
+      "id": "anstellen",
+      "term": "anstellen",
+      "translation": "to switch on (= einschalten)",
+      "example": "Kannst du bitte die Lautsprecher anstellen?",
+      "exampleTranslation": "Can you switch on the speakers, please?",
+      "hint": "Ein Gerät einschalten, zum Beispiel das Radio.",
+      "audio": "audio/tts/woerter-anstellen.mp3",
+      "exampleAudio": "audio/tts/woerter-anstellen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-anstellen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-anstellen-tipp.mp3"
+    },
+    {
+      "id": "lautsprecher",
+      "term": "der Lautsprecher",
+      "plural": "die Lautsprecher",
+      "translation": "loudspeaker",
+      "example": "Ich stelle am Freitag die Lautsprecher an.",
+      "exampleTranslation": "I'll switch on the speakers on Friday.",
+      "hint": "Aus diesem Gerät kommt die Musik.",
+      "audio": "audio/tts/woerter-lautsprecher.mp3",
+      "exampleAudio": "audio/tts/woerter-lautsprecher-satz.mp3",
+      "gapAudio": "audio/tts/woerter-lautsprecher-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-lautsprecher-tipp.mp3"
+    },
+    {
+      "id": "ueberfuellt",
+      "term": "überfüllt",
+      "translation": "overcrowded",
+      "example": "Am Samstag ist der Zug immer überfüllt.",
+      "exampleTranslation": "On Saturdays the train is always overcrowded.",
+      "hint": "Viel zu viele Menschen sind an einem Ort.",
+      "audio": "audio/tts/woerter-ueberfuellt.mp3",
+      "exampleAudio": "audio/tts/woerter-ueberfuellt-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ueberfuellt-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ueberfuellt-tipp.mp3"
+    },
+    {
+      "id": "kellner",
+      "term": "der Kellner",
+      "plural": "die Kellner",
+      "translation": "waiter",
+      "example": "Der Kellner bringt uns die Speisekarte.",
+      "exampleTranslation": "The waiter brings us the menu.",
+      "hint": "Er bringt im Restaurant das Essen und die Getränke.",
+      "audio": "audio/tts/woerter-kellner.mp3",
+      "exampleAudio": "audio/tts/woerter-kellner-satz.mp3",
+      "gapAudio": "audio/tts/woerter-kellner-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-kellner-tipp.mp3"
+    },
+    {
+      "id": "kellnerin",
+      "term": "die Kellnerin",
+      "plural": "die Kellnerinnen",
+      "translation": "waitress",
+      "alt": "Schweiz: die Serviertochter",
+      "example": "In der Schweiz sagt man oft „Serviertochter“ statt „Kellnerin“.",
+      "exampleTranslation": "In Switzerland people often say 'Serviertochter' instead of 'Kellnerin'.",
+      "hint": "Sie bringt im Restaurant das Essen und die Getränke.",
+      "audio": "audio/tts/woerter-kellnerin.mp3",
+      "exampleAudio": "audio/tts/woerter-kellnerin-satz.mp3",
+      "gapAudio": "audio/tts/woerter-kellnerin-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-kellnerin-tipp.mp3"
+    },
+    {
+      "id": "zukunft",
+      "term": "die Zukunft",
+      "translation": "the future",
+      "example": "Wenn man an die Zukunft denkt, wird man manchmal nervös.",
+      "exampleTranslation": "When you think about the future, you sometimes get nervous.",
+      "hint": "Die Zeit, die noch kommt.",
+      "audio": "audio/tts/woerter-zukunft.mp3",
+      "exampleAudio": "audio/tts/woerter-zukunft-satz.mp3",
+      "gapAudio": "audio/tts/woerter-zukunft-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-zukunft-tipp.mp3"
+    },
+    {
+      "id": "wespe",
+      "term": "die Wespe",
+      "plural": "die Wespen",
+      "translation": "wasp",
+      "example": "Im Sommer fliegt eine Wespe um meinen Kuchen.",
+      "exampleTranslation": "In summer a wasp flies around my cake.",
+      "hint": "Ein gelb-schwarzes Insekt, das stechen kann.",
+      "audio": "audio/tts/woerter-wespe.mp3",
+      "exampleAudio": "audio/tts/woerter-wespe-satz.mp3",
+      "gapAudio": "audio/tts/woerter-wespe-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-wespe-tipp.mp3"
+    },
+    {
+      "id": "zulegen",
+      "term": "sich etwas zulegen",
+      "translation": "to get oneself something",
+      "example": "Ich lege mir ein neues Auto zu.",
+      "exampleTranslation": "I'm getting myself a new car.",
+      "hint": "Etwas kaufen oder bekommen und dann behalten.",
+      "audio": "audio/tts/woerter-zulegen.mp3",
+      "exampleAudio": "audio/tts/woerter-zulegen-satz.mp3",
+      "hintAudio": "audio/tts/woerter-zulegen-tipp.mp3"
+    },
+    {
+      "id": "anschauen",
+      "term": "anschauen",
+      "translation": "to look at, to watch",
+      "example": "Wollen wir heute Abend einen Film anschauen?",
+      "exampleTranslation": "Shall we watch a film tonight?",
+      "hint": "Mit den Augen genau sehen, zum Beispiel einen Film.",
+      "audio": "audio/tts/woerter-anschauen.mp3",
+      "exampleAudio": "audio/tts/woerter-anschauen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-anschauen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-anschauen-tipp.mp3"
+    },
+    {
+      "id": "aussprache",
+      "term": "die Aussprache",
+      "translation": "pronunciation",
+      "example": "Deine Aussprache wird immer besser.",
+      "exampleTranslation": "Your pronunciation is getting better and better.",
+      "hint": "Wie man ein Wort mit dem Mund sagt.",
+      "audio": "audio/tts/woerter-aussprache.mp3",
+      "exampleAudio": "audio/tts/woerter-aussprache-satz.mp3",
+      "gapAudio": "audio/tts/woerter-aussprache-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-aussprache-tipp.mp3"
+    },
+    {
+      "id": "zuverlaessig",
+      "term": "zuverlässig",
+      "translation": "reliable",
+      "example": "Ich bin jemand, der zuverlässig ist.",
+      "exampleTranslation": "I'm someone who is reliable.",
+      "hint": "Man kann diesem Menschen immer vertrauen.",
+      "audio": "audio/tts/woerter-zuverlaessig.mp3",
+      "exampleAudio": "audio/tts/woerter-zuverlaessig-satz.mp3",
+      "gapAudio": "audio/tts/woerter-zuverlaessig-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-zuverlaessig-tipp.mp3"
+    },
+    {
+      "id": "autofahren",
+      "term": "das Autofahren",
+      "translation": "driving (a car)",
+      "example": "Ich habe gemerkt, dass ich Autofahren liebe.",
+      "exampleTranslation": "I realised that I love driving.",
+      "hint": "Selbst am Steuer sitzen und unterwegs sein.",
+      "audio": "audio/tts/woerter-autofahren.mp3",
+      "exampleAudio": "audio/tts/woerter-autofahren-satz.mp3",
+      "gapAudio": "audio/tts/woerter-autofahren-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-autofahren-tipp.mp3"
+    },
+    {
+      "id": "erfolg",
+      "term": "der Erfolg",
+      "plural": "die Erfolge",
+      "translation": "success",
+      "example": "Viele Menschen denken, dass Erfolg alles ist.",
+      "exampleTranslation": "Many people think that success is everything.",
+      "hint": "Wenn man ein Ziel erreicht und gute Resultate hat.",
+      "audio": "audio/tts/woerter-erfolg.mp3",
+      "exampleAudio": "audio/tts/woerter-erfolg-satz.mp3",
+      "gapAudio": "audio/tts/woerter-erfolg-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-erfolg-tipp.mp3"
+    },
+    {
+      "id": "wunschdenken",
+      "term": "das Wunschdenken",
+      "translation": "wishful thinking",
+      "example": "Dass Erfolg alles wäre, ist nur Wunschdenken.",
+      "exampleTranslation": "That success would be everything is just wishful thinking.",
+      "hint": "Man glaubt etwas nur, weil man es sich wünscht.",
+      "audio": "audio/tts/woerter-wunschdenken.mp3",
+      "exampleAudio": "audio/tts/woerter-wunschdenken-satz.mp3",
+      "gapAudio": "audio/tts/woerter-wunschdenken-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-wunschdenken-tipp.mp3"
+    },
+    {
+      "id": "stolz",
+      "term": "stolz",
+      "translation": "proud (auf + Akk.); der Stolz = pride",
+      "example": "Ich bin stolz auf meine Familie.",
+      "exampleTranslation": "I'm proud of my family.",
+      "hint": "Ein gutes Gefühl, weil man etwas gut gemacht hat.",
+      "audio": "audio/tts/woerter-stolz.mp3",
+      "exampleAudio": "audio/tts/woerter-stolz-satz.mp3",
+      "gapAudio": "audio/tts/woerter-stolz-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-stolz-tipp.mp3"
+    },
+    {
+      "id": "fokussieren",
+      "term": "sich fokussieren",
+      "translation": "to focus (auf + Akk.)",
+      "example": "Ich möchte mich mehr auf mich selbst fokussieren.",
+      "exampleTranslation": "I want to focus more on myself.",
+      "hint": "Die ganze Aufmerksamkeit auf eine Sache richten.",
+      "audio": "audio/tts/woerter-fokussieren.mp3",
+      "exampleAudio": "audio/tts/woerter-fokussieren-satz.mp3",
+      "hintAudio": "audio/tts/woerter-fokussieren-tipp.mp3"
+    },
+    {
+      "id": "ehrlich",
+      "term": "ehrlich gesagt",
+      "translation": "to be honest",
+      "example": "Ehrlich gesagt habe ich heute keine Lust.",
+      "exampleTranslation": "To be honest, I don't feel like it today.",
+      "hint": "So beginnt man einen Satz, wenn man ganz offen die Wahrheit sagt.",
+      "audio": "audio/tts/woerter-ehrlich.mp3",
+      "exampleAudio": "audio/tts/woerter-ehrlich-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ehrlich-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ehrlich-tipp.mp3"
+    },
+    {
+      "id": "drucker",
+      "term": "der Drucker",
+      "plural": "die Drucker",
+      "translation": "printer",
+      "example": "Vielleicht haben wir bald alle einen 3D-Drucker zu Hause.",
+      "exampleTranslation": "Maybe soon we will all have a 3D printer at home.",
+      "hint": "Ein Gerät, das Texte auf Papier bringt oder Dinge herstellt.",
+      "audio": "audio/tts/woerter-drucker.mp3",
+      "exampleAudio": "audio/tts/woerter-drucker-satz.mp3",
+      "gapAudio": "audio/tts/woerter-drucker-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-drucker-tipp.mp3"
+    },
+    {
+      "id": "allgemein",
+      "term": "allgemein",
+      "translation": "general (Allgemeines = general things)",
+      "example": "Zuerst sprechen wir über Allgemeines, dann über die Arbeit.",
+      "exampleTranslation": "First we talk about general things, then about work.",
+      "hint": "Nicht speziell, sondern für vieles gültig.",
+      "audio": "audio/tts/woerter-allgemein.mp3",
+      "exampleAudio": "audio/tts/woerter-allgemein-satz.mp3",
+      "gapAudio": "audio/tts/woerter-allgemein-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-allgemein-tipp.mp3"
+    },
+    {
+      "id": "gegenseitigkeit",
+      "term": "die Gegenseitigkeit",
+      "translation": "reciprocity, mutuality",
+      "example": "Was ich an meinem besten Freund am meisten schätze, ist die Gegenseitigkeit.",
+      "exampleTranslation": "What I value most about my best friend is that it goes both ways.",
+      "hint": "Beide geben und beide bekommen etwas.",
+      "audio": "audio/tts/woerter-gegenseitigkeit.mp3",
+      "exampleAudio": "audio/tts/woerter-gegenseitigkeit-satz.mp3",
+      "gapAudio": "audio/tts/woerter-gegenseitigkeit-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-gegenseitigkeit-tipp.mp3"
+    },
+    {
+      "id": "schaetzen",
+      "term": "schätzen",
+      "translation": "to value, to appreciate",
+      "example": "Was ich an meinem besten Freund am meisten schätze, ist, dass er für mich da ist.",
+      "exampleTranslation": "What I value most about my best friend is that he is there for me.",
+      "hint": "Etwas sehr gut und wertvoll finden.",
+      "audio": "audio/tts/woerter-schaetzen.mp3",
+      "exampleAudio": "audio/tts/woerter-schaetzen-satz.mp3",
+      "hintAudio": "audio/tts/woerter-schaetzen-tipp.mp3"
+    },
+    {
+      "id": "ursache",
+      "term": "die Ursache",
+      "plural": "die Ursachen",
+      "translation": "cause",
+      "example": "Was ist die Ursache für das Problem?",
+      "exampleTranslation": "What is the cause of the problem?",
+      "hint": "Der Grund, warum etwas passiert.",
+      "audio": "audio/tts/woerter-ursache.mp3",
+      "exampleAudio": "audio/tts/woerter-ursache-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ursache-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ursache-tipp.mp3"
+    },
+    {
+      "id": "entfernung",
+      "term": "die Entfernung",
+      "plural": "die Entfernungen",
+      "translation": "distance",
+      "example": "Ich glaube, dass Freundschaften auch mit Entfernung funktionieren.",
+      "exampleTranslation": "I believe that friendships also work over a distance.",
+      "hint": "Wie weit zwei Orte auseinander sind, zum Beispiel 500 Kilometer.",
+      "audio": "audio/tts/woerter-entfernung.mp3",
+      "exampleAudio": "audio/tts/woerter-entfernung-satz.mp3",
+      "gapAudio": "audio/tts/woerter-entfernung-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-entfernung-tipp.mp3"
+    },
+    {
+      "id": "gegenwart",
+      "term": "die Gegenwart",
+      "translation": "presence; the present",
+      "example": "Was ich an meinem besten Freund schätze, ist seine Gegenwart.",
+      "exampleTranslation": "What I value about my best friend is his presence.",
+      "hint": "Wenn jemand bei dir ist. Auch: die Zeit jetzt.",
+      "audio": "audio/tts/woerter-gegenwart.mp3",
+      "exampleAudio": "audio/tts/woerter-gegenwart-satz.mp3",
+      "gapAudio": "audio/tts/woerter-gegenwart-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-gegenwart-tipp.mp3"
+    },
+    {
+      "id": "daseinfuer",
+      "term": "für jemanden da sein",
+      "translation": "to be there for someone",
+      "example": "Ein guter Freund ist immer für dich da.",
+      "exampleTranslation": "A good friend is always there for you.",
+      "hint": "Helfen und zuhören, wenn der andere dich braucht.",
+      "audio": "audio/tts/woerter-daseinfuer.mp3",
+      "exampleAudio": "audio/tts/woerter-daseinfuer-satz.mp3",
+      "hintAudio": "audio/tts/woerter-daseinfuer-tipp.mp3"
+    },
+    {
+      "id": "stadt",
+      "term": "die Stadt",
+      "plural": "die Städte",
+      "translation": "town, city",
+      "example": "Zürich ist eine große Stadt, aber es gibt noch größere Städte.",
+      "exampleTranslation": "Zurich is a big city, but there are even bigger cities.",
+      "hint": "Ein Ort mit vielen Häusern und Menschen, größer als ein Dorf.",
+      "audio": "audio/tts/woerter-stadt.mp3",
+      "exampleAudio": "audio/tts/woerter-stadt-satz.mp3",
+      "gapAudio": "audio/tts/woerter-stadt-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-stadt-tipp.mp3"
+    },
+    {
+      "id": "anzuenden",
+      "term": "anzünden",
+      "translation": "to light, to set fire to",
+      "example": "Kannst du bitte die Kerze anzünden?",
+      "exampleTranslation": "Can you light the candle, please?",
+      "hint": "Mit Feuer etwas zum Brennen bringen.",
+      "audio": "audio/tts/woerter-anzuenden.mp3",
+      "exampleAudio": "audio/tts/woerter-anzuenden-satz.mp3",
+      "gapAudio": "audio/tts/woerter-anzuenden-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-anzuenden-tipp.mp3"
+    },
+    {
+      "id": "streichholz",
+      "term": "das Streichholz",
+      "plural": "die Streichhölzer",
+      "translation": "match (for lighting)",
+      "alt": "Bündnerdütsch: Züssi",
+      "example": "Ich zünde die Kerze mit einem Streichholz an.",
+      "exampleTranslation": "I light the candle with a match.",
+      "hint": "Ein kleines Stück Holz, mit dem man Feuer macht.",
+      "audio": "audio/tts/woerter-streichholz.mp3",
+      "exampleAudio": "audio/tts/woerter-streichholz-satz.mp3",
+      "gapAudio": "audio/tts/woerter-streichholz-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-streichholz-tipp.mp3"
+    },
+    {
+      "id": "sinn",
+      "term": "der Sinn",
+      "translation": "sense, meaning",
+      "example": "Das macht keinen Sinn.",
+      "exampleTranslation": "That doesn't make sense.",
+      "hint": "Wenn etwas logisch ist und man versteht, warum.",
+      "audio": "audio/tts/woerter-sinn.mp3",
+      "exampleAudio": "audio/tts/woerter-sinn-satz.mp3",
+      "gapAudio": "audio/tts/woerter-sinn-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-sinn-tipp.mp3"
+    },
+    {
+      "id": "schlimmste",
+      "term": "das Schlimmste",
+      "translation": "the worst thing",
+      "example": "Das Schlimmste ist, dass niemand hilft.",
+      "exampleTranslation": "The worst thing is that nobody helps.",
+      "hint": "Das, was am meisten schlecht ist.",
+      "audio": "audio/tts/woerter-schlimmste.mp3",
+      "exampleAudio": "audio/tts/woerter-schlimmste-satz.mp3",
+      "gapAudio": "audio/tts/woerter-schlimmste-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-schlimmste-tipp.mp3"
+    },
+    {
+      "id": "investor",
+      "term": "der Investor",
+      "plural": "die Investoren",
+      "translation": "investor",
+      "example": "Die Investoren haben viel Geld verloren.",
+      "exampleTranslation": "The investors lost a lot of money.",
+      "hint": "Jemand gibt Geld in eine Firma, um später mehr Geld zu bekommen.",
+      "audio": "audio/tts/woerter-investor.mp3",
+      "exampleAudio": "audio/tts/woerter-investor-satz.mp3",
+      "gapAudio": "audio/tts/woerter-investor-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-investor-tipp.mp3"
+    },
+    {
+      "id": "schneeball",
+      "term": "der Schneeball",
+      "plural": "die Schneebälle",
+      "translation": "snowball",
+      "example": "Das ist wie ein Schneeball: Es wird immer größer.",
+      "exampleTranslation": "It's like a snowball: it keeps getting bigger.",
+      "hint": "Eine Kugel aus Schnee, die man werfen kann.",
+      "audio": "audio/tts/woerter-schneeball.mp3",
+      "exampleAudio": "audio/tts/woerter-schneeball-satz.mp3",
+      "gapAudio": "audio/tts/woerter-schneeball-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-schneeball-tipp.mp3"
+    },
+    {
+      "id": "werte",
+      "term": "die Werte",
+      "translation": "values (plural)",
+      "example": "Das ist schwierig, weil die Kultur und die Werte unterschiedlich sind.",
+      "exampleTranslation": "That's difficult because the culture and the values are different.",
+      "hint": "Dinge, die für einen Menschen wichtig sind, zum Beispiel Ehrlichkeit.",
+      "audio": "audio/tts/woerter-werte.mp3",
+      "exampleAudio": "audio/tts/woerter-werte-satz.mp3",
+      "gapAudio": "audio/tts/woerter-werte-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-werte-tipp.mp3"
+    },
+    {
+      "id": "unterschiedlich",
+      "term": "unterschiedlich",
+      "translation": "different",
+      "example": "Wir haben unterschiedliche Meinungen.",
+      "exampleTranslation": "We have different opinions.",
+      "hint": "Nicht gleich, sondern anders.",
+      "audio": "audio/tts/woerter-unterschiedlich.mp3",
+      "exampleAudio": "audio/tts/woerter-unterschiedlich-satz.mp3",
+      "gapAudio": "audio/tts/woerter-unterschiedlich-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-unterschiedlich-tipp.mp3"
+    },
+    {
+      "id": "oev",
+      "term": "der öffentliche Verkehr",
+      "translation": "public transport (Swiss: der ÖV)",
+      "alt": "Schweiz: der ÖV",
+      "example": "Der öffentliche Verkehr in der Schweiz ist sehr pünktlich.",
+      "exampleTranslation": "Public transport in Switzerland is very punctual.",
+      "hint": "Busse, Züge und Trams, die alle benutzen können.",
+      "audio": "audio/tts/woerter-oev.mp3",
+      "exampleAudio": "audio/tts/woerter-oev-satz.mp3",
+      "gapAudio": "audio/tts/woerter-oev-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-oev-tipp.mp3"
+    },
+    {
+      "id": "eigenverantwortung",
+      "term": "die Eigenverantwortung",
+      "translation": "personal responsibility",
+      "example": "In der Schweiz ist Eigenverantwortung sehr wichtig.",
+      "exampleTranslation": "In Switzerland, personal responsibility is very important.",
+      "hint": "Man ist selbst für sein Leben und seine Entscheidungen zuständig.",
+      "audio": "audio/tts/woerter-eigenverantwortung.mp3",
+      "exampleAudio": "audio/tts/woerter-eigenverantwortung-satz.mp3",
+      "gapAudio": "audio/tts/woerter-eigenverantwortung-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-eigenverantwortung-tipp.mp3"
+    },
+    {
+      "id": "vorsorgen",
+      "term": "vorsorgen",
+      "translation": "to make provisions (die Vorsorge = provision, e.g. for retirement)",
+      "example": "Man sollte schon früh für das Alter vorsorgen.",
+      "exampleTranslation": "You should make provisions for old age early on.",
+      "hint": "Schon heute etwas tun, damit man später keine Probleme hat.",
+      "audio": "audio/tts/woerter-vorsorgen.mp3",
+      "exampleAudio": "audio/tts/woerter-vorsorgen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-vorsorgen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-vorsorgen-tipp.mp3"
+    },
+    {
+      "id": "rosenkohl",
+      "term": "der Rosenkohl",
+      "translation": "Brussels sprouts",
+      "alt": "Bündnerdütsch: Rösliköhl",
+      "example": "Als Kind habe ich Rosenkohl gar nicht gemocht.",
+      "exampleTranslation": "As a child I didn't like Brussels sprouts at all.",
+      "hint": "Ein kleines, rundes, grünes Gemüse.",
+      "audio": "audio/tts/woerter-rosenkohl.mp3",
+      "exampleAudio": "audio/tts/woerter-rosenkohl-satz.mp3",
+      "gapAudio": "audio/tts/woerter-rosenkohl-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-rosenkohl-tipp.mp3"
+    },
+    {
+      "id": "geruch",
+      "term": "der Geruch",
+      "plural": "die Gerüche",
+      "translation": "smell",
+      "example": "Ich mag den Geruch von frischem Brot.",
+      "exampleTranslation": "I like the smell of fresh bread.",
+      "hint": "Das, was man mit der Nase wahrnimmt.",
+      "audio": "audio/tts/woerter-geruch.mp3",
+      "exampleAudio": "audio/tts/woerter-geruch-satz.mp3",
+      "gapAudio": "audio/tts/woerter-geruch-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-geruch-tipp.mp3"
+    },
+    {
+      "id": "gewoehnt",
+      "term": "an etwas gewöhnt sein",
+      "translation": "to be used to something",
+      "example": "Ich bin nicht daran gewöhnt.",
+      "exampleTranslation": "I'm not used to it.",
+      "hint": "Etwas ist normal für dich, weil du es schon lange kennst.",
+      "audio": "audio/tts/woerter-gewoehnt.mp3",
+      "exampleAudio": "audio/tts/woerter-gewoehnt-satz.mp3",
+      "hintAudio": "audio/tts/woerter-gewoehnt-tipp.mp3"
+    },
+    {
+      "id": "dose",
+      "term": "die Dose",
+      "plural": "die Dosen",
+      "translation": "tin, can",
+      "example": "Ich kaufe den Mais in der Dose.",
+      "exampleTranslation": "I buy the sweetcorn in a tin.",
+      "hint": "Ein Behälter aus Metall, zum Beispiel für Mais oder Cola.",
+      "audio": "audio/tts/woerter-dose.mp3",
+      "exampleAudio": "audio/tts/woerter-dose-satz.mp3",
+      "gapAudio": "audio/tts/woerter-dose-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-dose-tipp.mp3"
+    },
+    {
+      "id": "dosenthunfisch",
+      "term": "der Dosenthunfisch",
+      "translation": "tinned tuna",
+      "example": "Der Dosenthunfisch ist praktisch für einen schnellen Salat.",
+      "exampleTranslation": "Tinned tuna is handy for a quick salad.",
+      "hint": "Fisch aus dem Meer, den man in einer kleinen Metallbox kauft.",
+      "audio": "audio/tts/woerter-dosenthunfisch.mp3",
+      "exampleAudio": "audio/tts/woerter-dosenthunfisch-satz.mp3",
+      "gapAudio": "audio/tts/woerter-dosenthunfisch-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-dosenthunfisch-tipp.mp3"
+    },
+    {
+      "id": "ankommen",
+      "term": "ankommen",
+      "translation": "to arrive",
+      "example": "Wann wirst du in Zürich ankommen?",
+      "exampleTranslation": "When will you arrive in Zurich?",
+      "hint": "Am Ziel einer Reise sein.",
+      "audio": "audio/tts/woerter-ankommen.mp3",
+      "exampleAudio": "audio/tts/woerter-ankommen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ankommen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ankommen-tipp.mp3"
+    },
+    {
+      "id": "tastatur",
+      "term": "die Tastatur",
+      "plural": "die Tastaturen",
+      "translation": "keyboard",
+      "example": "Auf meiner Tastatur fehlen die Umlaute.",
+      "exampleTranslation": "My keyboard is missing the umlauts.",
+      "hint": "Damit schreibt man am Computer. Sie hat viele Knöpfe mit Buchstaben.",
+      "audio": "audio/tts/woerter-tastatur.mp3",
+      "exampleAudio": "audio/tts/woerter-tastatur-satz.mp3",
+      "gapAudio": "audio/tts/woerter-tastatur-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-tastatur-tipp.mp3"
+    },
+    {
+      "id": "taste",
+      "term": "die Taste",
+      "plural": "die Tasten",
+      "translation": "key (on a keyboard), button",
+      "example": "Drück bitte die Taste „Enter“.",
+      "exampleTranslation": "Please press the 'Enter' key.",
+      "hint": "Ein einzelner Knopf am Computer oder am Handy.",
+      "audio": "audio/tts/woerter-taste.mp3",
+      "exampleAudio": "audio/tts/woerter-taste-satz.mp3",
+      "gapAudio": "audio/tts/woerter-taste-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-taste-tipp.mp3"
+    },
+    {
+      "id": "eingerechnet",
+      "term": "eingerechnet",
+      "translation": "included (in the price)",
+      "example": "Im Preis ist das Frühstück schon eingerechnet.",
+      "exampleTranslation": "Breakfast is already included in the price.",
+      "hint": "Schon im Preis oder in der Rechnung dabei.",
+      "audio": "audio/tts/woerter-eingerechnet.mp3",
+      "exampleAudio": "audio/tts/woerter-eingerechnet-satz.mp3",
+      "gapAudio": "audio/tts/woerter-eingerechnet-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-eingerechnet-tipp.mp3"
+    },
+    {
+      "id": "ablenkung",
+      "term": "die Ablenkung",
+      "plural": "die Ablenkungen",
+      "translation": "distraction",
+      "example": "Das Handy ist eine große Ablenkung beim Lernen.",
+      "exampleTranslation": "The mobile phone is a big distraction when studying.",
+      "hint": "Etwas, das dich stört, wenn du dich konzentrieren willst.",
+      "audio": "audio/tts/woerter-ablenkung.mp3",
+      "exampleAudio": "audio/tts/woerter-ablenkung-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ablenkung-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ablenkung-tipp.mp3"
+    },
+    {
+      "id": "physisch",
+      "term": "physisch",
+      "translation": "physical",
+      "example": "Ich lese lieber physische Bücher als digitale.",
+      "exampleTranslation": "I prefer reading physical books to digital ones.",
+      "hint": "Echt zum Anfassen, nicht am Bildschirm. Man spricht es „füsisch“.",
+      "audio": "audio/tts/woerter-physisch.mp3",
+      "exampleAudio": "audio/tts/woerter-physisch-satz.mp3",
+      "gapAudio": "audio/tts/woerter-physisch-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-physisch-tipp.mp3"
+    },
+    {
+      "id": "digital",
+      "term": "digital",
+      "translation": "digital",
+      "example": "Heute lesen viele Menschen digital.",
+      "exampleTranslation": "Today many people read digitally.",
+      "hint": "Am Computer, am Handy oder im Internet.",
+      "audio": "audio/tts/woerter-digital.mp3",
+      "exampleAudio": "audio/tts/woerter-digital-satz.mp3",
+      "gapAudio": "audio/tts/woerter-digital-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-digital-tipp.mp3"
+    },
+    {
+      "id": "gewicht",
+      "term": "das Gewicht",
+      "translation": "weight",
+      "example": "Ein E-Book hat kein Gewicht.",
+      "exampleTranslation": "An e-book has no weight.",
+      "hint": "Wie schwer etwas ist, zum Beispiel in Kilo.",
+      "audio": "audio/tts/woerter-gewicht.mp3",
+      "exampleAudio": "audio/tts/woerter-gewicht-satz.mp3",
+      "gapAudio": "audio/tts/woerter-gewicht-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-gewicht-tipp.mp3"
+    },
+    {
+      "id": "interessiert",
+      "term": "interessiert",
+      "translation": "interested (an + Dativ)",
+      "example": "Es gibt viele Bücher, an denen ich interessiert bin.",
+      "exampleTranslation": "There are many books I am interested in.",
+      "hint": "Man möchte mehr über etwas wissen.",
+      "audio": "audio/tts/woerter-interessiert.mp3",
+      "exampleAudio": "audio/tts/woerter-interessiert-satz.mp3",
+      "gapAudio": "audio/tts/woerter-interessiert-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-interessiert-tipp.mp3"
+    },
+    {
+      "id": "unternehmensberater",
+      "term": "der Unternehmensberater",
+      "plural": "die Unternehmensberater",
+      "translation": "management consultant",
+      "example": "Ein Unternehmensberater ist in unser Büro gekommen.",
+      "exampleTranslation": "A management consultant came to our office.",
+      "hint": "Ein Experte, der Firmen Tipps gibt, wie sie besser arbeiten.",
+      "audio": "audio/tts/woerter-unternehmensberater.mp3",
+      "exampleAudio": "audio/tts/woerter-unternehmensberater-satz.mp3",
+      "gapAudio": "audio/tts/woerter-unternehmensberater-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-unternehmensberater-tipp.mp3"
+    },
+    {
+      "id": "vortrag",
+      "term": "der Vortrag",
+      "plural": "die Vorträge",
+      "translation": "talk, presentation",
+      "example": "Nächste Woche halte ich einen Vortrag, deshalb muss ich üben.",
+      "exampleTranslation": "Next week I'm giving a talk, so I have to practise.",
+      "hint": "Man spricht vor vielen Menschen über ein Thema.",
+      "audio": "audio/tts/woerter-vortrag.mp3",
+      "exampleAudio": "audio/tts/woerter-vortrag-satz.mp3",
+      "gapAudio": "audio/tts/woerter-vortrag-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-vortrag-tipp.mp3"
+    },
+    {
+      "id": "begeistert",
+      "term": "begeistert",
+      "translation": "enthusiastic, thrilled",
+      "example": "Ich war begeistert von den sportlichen Autos.",
+      "exampleTranslation": "I was thrilled by the sports cars.",
+      "hint": "Sehr froh und voller Freude über etwas.",
+      "audio": "audio/tts/woerter-begeistert.mp3",
+      "exampleAudio": "audio/tts/woerter-begeistert-satz.mp3",
+      "gapAudio": "audio/tts/woerter-begeistert-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-begeistert-tipp.mp3"
+    },
+    {
+      "id": "organisieren",
+      "term": "sich selbst organisieren",
+      "translation": "to organise oneself",
+      "example": "Am Anfang war es schwierig, dass man sich selbst organisieren muss.",
+      "exampleTranslation": "At the beginning it was hard that you have to organise yourself.",
+      "hint": "Allein planen, wann man was macht.",
+      "audio": "audio/tts/woerter-organisieren.mp3",
+      "exampleAudio": "audio/tts/woerter-organisieren-satz.mp3",
+      "gapAudio": "audio/tts/woerter-organisieren-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-organisieren-tipp.mp3"
+    },
+    {
+      "id": "reduzieren",
+      "term": "reduzieren",
+      "translation": "to reduce",
+      "example": "Sport hilft mir, Stress zu reduzieren.",
+      "exampleTranslation": "Sport helps me to reduce stress.",
+      "hint": "Weniger machen, kleiner machen.",
+      "audio": "audio/tts/woerter-reduzieren.mp3",
+      "exampleAudio": "audio/tts/woerter-reduzieren-satz.mp3",
+      "gapAudio": "audio/tts/woerter-reduzieren-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-reduzieren-tipp.mp3"
+    },
+    {
+      "id": "ueberrascht",
+      "term": "überrascht",
+      "translation": "surprised",
+      "example": "Ich war überrascht, als ich in der Schweiz angekommen bin.",
+      "exampleTranslation": "I was surprised when I arrived in Switzerland.",
+      "hint": "So fühlt man sich, wenn etwas ganz unerwartet passiert.",
+      "audio": "audio/tts/woerter-ueberrascht.mp3",
+      "exampleAudio": "audio/tts/woerter-ueberrascht-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ueberrascht-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ueberrascht-tipp.mp3"
+    },
+    {
+      "id": "ki",
+      "term": "die künstliche Intelligenz",
+      "translation": "artificial intelligence (KI)",
+      "example": "Die künstliche Intelligenz verändert unsere Arbeit.",
+      "exampleTranslation": "Artificial intelligence is changing our work.",
+      "hint": "Computer, die selbst lernen und Texte schreiben können.",
+      "audio": "audio/tts/woerter-ki.mp3",
+      "exampleAudio": "audio/tts/woerter-ki-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ki-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ki-tipp.mp3"
+    },
+    {
+      "id": "kuenstlerisch",
+      "term": "künstlerisch",
+      "translation": "artistic",
+      "example": "Meine Schwester ist sehr künstlerisch.",
+      "exampleTranslation": "My sister is very artistic.",
+      "hint": "Mit viel Talent für Malen, Musik oder Design.",
+      "audio": "audio/tts/woerter-kuenstlerisch.mp3",
+      "exampleAudio": "audio/tts/woerter-kuenstlerisch-satz.mp3",
+      "gapAudio": "audio/tts/woerter-kuenstlerisch-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-kuenstlerisch-tipp.mp3"
+    },
+    {
+      "id": "kunst",
+      "term": "die Kunst",
+      "translation": "art",
+      "example": "Ich interessiere mich für moderne Kunst.",
+      "exampleTranslation": "I'm interested in modern art.",
+      "hint": "Bilder, Musik und Theater gehören dazu.",
+      "audio": "audio/tts/woerter-kunst.mp3",
+      "exampleAudio": "audio/tts/woerter-kunst-satz.mp3",
+      "gapAudio": "audio/tts/woerter-kunst-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-kunst-tipp.mp3"
+    },
+    {
+      "id": "kuenstler",
+      "term": "der Künstler",
+      "plural": "die Künstler",
+      "translation": "artist",
+      "example": "Der Künstler malt ein großes Bild.",
+      "exampleTranslation": "The artist is painting a big picture.",
+      "hint": "Ein Mensch, der Bilder malt oder Musik macht.",
+      "audio": "audio/tts/woerter-kuenstler.mp3",
+      "exampleAudio": "audio/tts/woerter-kuenstler-satz.mp3",
+      "gapAudio": "audio/tts/woerter-kuenstler-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-kuenstler-tipp.mp3"
+    },
+    {
+      "id": "wohlstand",
+      "term": "der Wohlstand",
+      "translation": "prosperity, wealth",
+      "example": "Wohlstand bedeutet für mich, dass meine Familie genug hat.",
+      "exampleTranslation": "For me, prosperity means that my family has enough.",
+      "hint": "Wenn man genug Geld hat und gut leben kann.",
+      "audio": "audio/tts/woerter-wohlstand.mp3",
+      "exampleAudio": "audio/tts/woerter-wohlstand-satz.mp3",
+      "gapAudio": "audio/tts/woerter-wohlstand-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-wohlstand-tipp.mp3"
+    },
+    {
+      "id": "schlaf",
+      "term": "der Schlaf",
+      "translation": "sleep",
+      "example": "Für mich heißt das: acht Stunden guten Schlaf und keinen Stress.",
+      "exampleTranslation": "For me that means eight hours of good sleep and no stress.",
+      "hint": "Das macht man nachts im Bett mit geschlossenen Augen.",
+      "audio": "audio/tts/woerter-schlaf.mp3",
+      "exampleAudio": "audio/tts/woerter-schlaf-satz.mp3",
+      "gapAudio": "audio/tts/woerter-schlaf-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-schlaf-tipp.mp3"
+    },
+    {
+      "id": "suechtig",
+      "term": "süchtig",
+      "translation": "addicted (nach + Dativ)",
+      "example": "Viele Menschen sind süchtig nach ihrem Handy.",
+      "exampleTranslation": "Many people are addicted to their phones.",
+      "hint": "Man kann nicht mehr aufhören, obwohl es nicht gut ist.",
+      "audio": "audio/tts/woerter-suechtig.mp3",
+      "exampleAudio": "audio/tts/woerter-suechtig-satz.mp3",
+      "gapAudio": "audio/tts/woerter-suechtig-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-suechtig-tipp.mp3"
+    },
+    {
+      "id": "urlaub",
+      "term": "der Urlaub",
+      "translation": "holiday (in den Urlaub fahren / fliegen / gehen)",
+      "alt": "Schweiz meist: die Ferien",
+      "example": "Im Sommer fliegen wir in den Urlaub nach Spanien.",
+      "exampleTranslation": "In summer we're flying to Spain on holiday.",
+      "hint": "Freie Tage, an denen man nicht arbeitet und oft verreist.",
+      "audio": "audio/tts/woerter-urlaub.mp3",
+      "exampleAudio": "audio/tts/woerter-urlaub-satz.mp3",
+      "gapAudio": "audio/tts/woerter-urlaub-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-urlaub-tipp.mp3"
+    },
+    {
+      "id": "freihaben",
+      "term": "frei haben",
+      "translation": "to be off (work)",
+      "example": "Wenn ich frei habe, gehe ich gern wandern.",
+      "exampleTranslation": "When I'm off work, I like going hiking.",
+      "hint": "Nicht arbeiten müssen, zum Beispiel am Wochenende.",
+      "audio": "audio/tts/woerter-freihaben.mp3",
+      "exampleAudio": "audio/tts/woerter-freihaben-satz.mp3",
+      "hintAudio": "audio/tts/woerter-freihaben-tipp.mp3"
+    },
+    {
+      "id": "umgang",
+      "term": "der Umgang",
+      "translation": "dealing with; the company you keep",
+      "example": "Jemand hat einen schlechten Umgang.",
+      "exampleTranslation": "Someone keeps bad company.",
+      "hint": "Die Menschen, mit denen man viel Zeit verbringt.",
+      "audio": "audio/tts/woerter-umgang.mp3",
+      "exampleAudio": "audio/tts/woerter-umgang-satz.mp3",
+      "gapAudio": "audio/tts/woerter-umgang-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-umgang-tipp.mp3"
+    },
+    {
+      "id": "umgehenmit",
+      "term": "mit etwas umgehen",
+      "translation": "to deal with something (stress on UM)",
+      "example": "Wie gehst du damit um, wenn du einen Termin im Rathaus hast?",
+      "exampleTranslation": "How do you deal with it when you have an appointment at the town hall?",
+      "hint": "Wie man auf etwas reagiert und es behandelt.",
+      "audio": "audio/tts/woerter-umgehenmit.mp3",
+      "exampleAudio": "audio/tts/woerter-umgehenmit-satz.mp3",
+      "hintAudio": "audio/tts/woerter-umgehenmit-tipp.mp3"
+    },
+    {
+      "id": "umgehen",
+      "term": "etwas umgehen",
+      "translation": "to avoid, to get round something (stress on GEH)",
+      "example": "Ich umgehe schlechten Umgang.",
+      "exampleTranslation": "I avoid bad company.",
+      "hint": "Einen Weg um ein Problem herum finden, es vermeiden.",
+      "audio": "audio/tts/woerter-umgehen.mp3",
+      "exampleAudio": "audio/tts/woerter-umgehen-satz.mp3",
+      "hintAudio": "audio/tts/woerter-umgehen-tipp.mp3"
+    },
+    {
+      "id": "bedeutung",
+      "term": "die Bedeutung",
+      "plural": "die Bedeutungen",
+      "translation": "meaning",
+      "example": "Das Wort „umgehen“ hat zwei Bedeutungen.",
+      "exampleTranslation": "The word 'umgehen' has two meanings.",
+      "hint": "Das, was ein Wort sagen will.",
+      "audio": "audio/tts/woerter-bedeutung.mp3",
+      "exampleAudio": "audio/tts/woerter-bedeutung-satz.mp3",
+      "gapAudio": "audio/tts/woerter-bedeutung-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-bedeutung-tipp.mp3"
+    },
+    {
+      "id": "rathaus",
+      "term": "das Rathaus",
+      "plural": "die Rathäuser",
+      "translation": "town hall",
+      "example": "Ich habe morgen einen Termin im Rathaus.",
+      "exampleTranslation": "I have an appointment at the town hall tomorrow.",
+      "hint": "Das Haus, in dem die Gemeinde oder die Stadt arbeitet.",
+      "audio": "audio/tts/woerter-rathaus.mp3",
+      "exampleAudio": "audio/tts/woerter-rathaus-satz.mp3",
+      "gapAudio": "audio/tts/woerter-rathaus-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-rathaus-tipp.mp3"
+    },
+    {
+      "id": "luftfeuchtigkeit",
+      "term": "die Luftfeuchtigkeit",
+      "translation": "humidity",
+      "example": "Im Sommer ist die Luftfeuchtigkeit hier sehr hoch.",
+      "exampleTranslation": "In summer the humidity here is very high.",
+      "hint": "Wie viel Wasser in der Luft ist.",
+      "audio": "audio/tts/woerter-luftfeuchtigkeit.mp3",
+      "exampleAudio": "audio/tts/woerter-luftfeuchtigkeit-satz.mp3",
+      "gapAudio": "audio/tts/woerter-luftfeuchtigkeit-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-luftfeuchtigkeit-tipp.mp3"
+    },
+    {
+      "id": "besetzt",
+      "term": "besetzt",
+      "translation": "taken, occupied",
+      "example": "Alle Tische sind besetzt, nur bei einer Person ist noch ein Platz frei.",
+      "exampleTranslation": "All the tables are taken; there's only one free seat, next to one person.",
+      "hint": "Dort sitzt schon jemand, der Platz ist nicht frei.",
+      "audio": "audio/tts/woerter-besetzt.mp3",
+      "exampleAudio": "audio/tts/woerter-besetzt-satz.mp3",
+      "gapAudio": "audio/tts/woerter-besetzt-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-besetzt-tipp.mp3"
+    },
+    {
+      "id": "stuhl",
+      "term": "der Stuhl",
+      "plural": "die Stühle",
+      "translation": "chair",
+      "example": "Wenn dieser Stuhl frei ist, dürfte ich ihn bitte haben?",
+      "exampleTranslation": "If this chair is free, may I please have it?",
+      "hint": "Darauf sitzt man am Tisch.",
+      "audio": "audio/tts/woerter-stuhl.mp3",
+      "exampleAudio": "audio/tts/woerter-stuhl-satz.mp3",
+      "gapAudio": "audio/tts/woerter-stuhl-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-stuhl-tipp.mp3"
+    },
+    {
+      "id": "setzen",
+      "term": "sich setzen",
+      "translation": "to sit down",
+      "example": "Natürlich, Sie können sich gerne setzen.",
+      "exampleTranslation": "Of course, please sit down.",
+      "hint": "Auf einen Stuhl gehen und Platz nehmen.",
+      "audio": "audio/tts/woerter-setzen.mp3",
+      "exampleAudio": "audio/tts/woerter-setzen-satz.mp3",
+      "hintAudio": "audio/tts/woerter-setzen-tipp.mp3"
+    },
+    {
+      "id": "verwirrt",
+      "term": "verwirrt",
+      "translation": "confused",
+      "example": "Michel war verwirrt. Er wollte nur den Stuhl mitnehmen.",
+      "exampleTranslation": "Michel was confused. He only wanted to take the chair.",
+      "hint": "Man versteht gerade nicht, was los ist.",
+      "audio": "audio/tts/woerter-verwirrt.mp3",
+      "exampleAudio": "audio/tts/woerter-verwirrt-satz.mp3",
+      "gapAudio": "audio/tts/woerter-verwirrt-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-verwirrt-tipp.mp3"
+    },
+    {
+      "id": "stottern",
+      "term": "stottern",
+      "translation": "to stutter (ich stottere, du stotterst, er stottert)",
+      "example": "Michel war nervös und begann zu stottern.",
+      "exampleTranslation": "Michel was nervous and began to stutter.",
+      "hint": "Beim Sprechen bleibt man hängen: I-i-ich …",
+      "audio": "audio/tts/woerter-stottern.mp3",
+      "exampleAudio": "audio/tts/woerter-stottern-satz.mp3",
+      "gapAudio": "audio/tts/woerter-stottern-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-stottern-tipp.mp3"
+    },
+    {
+      "id": "einstecken",
+      "term": "einstecken",
+      "translation": "to plug in; to put in (a pocket/bag)",
+      "example": "Du musst das Ladekabel einstecken.",
+      "exampleTranslation": "You have to plug in the charging cable.",
+      "hint": "Etwas in eine Steckdose, in die Tasche oder in die Hose tun.",
+      "audio": "audio/tts/woerter-einstecken.mp3",
+      "exampleAudio": "audio/tts/woerter-einstecken-satz.mp3",
+      "gapAudio": "audio/tts/woerter-einstecken-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-einstecken-tipp.mp3"
+    },
+    {
+      "id": "ladekabel",
+      "term": "das Ladekabel",
+      "plural": "die Ladekabel",
+      "translation": "charging cable",
+      "example": "Ich stecke das Ladekabel ein.",
+      "exampleTranslation": "I'm plugging in the charging cable.",
+      "hint": "Damit lädt man das Handy auf.",
+      "audio": "audio/tts/woerter-ladekabel.mp3",
+      "exampleAudio": "audio/tts/woerter-ladekabel-satz.mp3",
+      "gapAudio": "audio/tts/woerter-ladekabel-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-ladekabel-tipp.mp3"
+    },
+    {
+      "id": "kopfhoerer",
+      "term": "die Kopfhörer",
+      "translation": "headphones (plural)",
+      "example": "Ich stecke meine Kopfhörer ein.",
+      "exampleTranslation": "I'm putting my headphones in my bag.",
+      "hint": "Damit hört man Musik, ohne dass andere sie hören.",
+      "audio": "audio/tts/woerter-kopfhoerer.mp3",
+      "exampleAudio": "audio/tts/woerter-kopfhoerer-satz.mp3",
+      "gapAudio": "audio/tts/woerter-kopfhoerer-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-kopfhoerer-tipp.mp3"
+    },
+    {
+      "id": "massgeschneidert",
+      "term": "maßgeschneidert",
+      "translation": "tailor-made",
+      "example": "Die App ist maßgeschneidert für dich.",
+      "exampleTranslation": "The app is tailor-made for you.",
+      "hint": "Genau passend für eine Person gemacht, wie ein Anzug vom Schneider.",
+      "audio": "audio/tts/woerter-massgeschneidert.mp3",
+      "exampleAudio": "audio/tts/woerter-massgeschneidert-satz.mp3",
+      "gapAudio": "audio/tts/woerter-massgeschneidert-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-massgeschneidert-tipp.mp3"
+    },
+    {
+      "id": "speichern",
+      "term": "speichern",
+      "translation": "to save (data)",
+      "example": "Vergiss nicht, das Dokument zu speichern.",
+      "exampleTranslation": "Don't forget to save the document.",
+      "hint": "Daten im Computer sichern, damit sie nicht verloren gehen.",
+      "audio": "audio/tts/woerter-speichern.mp3",
+      "exampleAudio": "audio/tts/woerter-speichern-satz.mp3",
+      "gapAudio": "audio/tts/woerter-speichern-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-speichern-tipp.mp3"
+    },
+    {
+      "id": "faehig",
+      "term": "fähig",
+      "translation": "capable (zu etwas fähig sein)",
+      "example": "Ich weiß nicht, ob Zoom dazu fähig ist.",
+      "exampleTranslation": "I don't know whether Zoom is capable of that.",
+      "hint": "Etwas können, die Möglichkeit dazu haben.",
+      "audio": "audio/tts/woerter-faehig.mp3",
+      "exampleAudio": "audio/tts/woerter-faehig-satz.mp3",
+      "gapAudio": "audio/tts/woerter-faehig-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-faehig-tipp.mp3"
+    },
+    {
+      "id": "zugriff",
+      "term": "der Zugriff",
+      "translation": "access (to data)",
+      "example": "Ich habe keinen Zugriff auf diese Datei.",
+      "exampleTranslation": "I don't have access to this file.",
+      "hint": "Die Möglichkeit, Daten zu öffnen und zu benutzen.",
+      "audio": "audio/tts/woerter-zugriff.mp3",
+      "exampleAudio": "audio/tts/woerter-zugriff-satz.mp3",
+      "gapAudio": "audio/tts/woerter-zugriff-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-zugriff-tipp.mp3"
+    },
+    {
+      "id": "verfuegbar",
+      "term": "verfügbar",
+      "translation": "available",
+      "example": "Die App ist jetzt auch auf dem Handy verfügbar.",
+      "exampleTranslation": "The app is now also available on the phone.",
+      "hint": "Man kann es jetzt bekommen oder benutzen.",
+      "audio": "audio/tts/woerter-verfuegbar.mp3",
+      "exampleAudio": "audio/tts/woerter-verfuegbar-satz.mp3",
+      "gapAudio": "audio/tts/woerter-verfuegbar-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-verfuegbar-tipp.mp3"
+    },
+    {
+      "id": "wiederholen",
+      "term": "wiederholen",
+      "translation": "to repeat, to revise",
+      "alt": "Schweiz auch: repetieren",
+      "example": "Die App zeigt dir das Wort, sodass du es nach drei Tagen wiederholen kannst.",
+      "exampleTranslation": "The app shows you the word so that you can revise it after three days.",
+      "hint": "Noch einmal machen oder noch einmal lernen.",
+      "audio": "audio/tts/woerter-wiederholen.mp3",
+      "exampleAudio": "audio/tts/woerter-wiederholen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-wiederholen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-wiederholen-tipp.mp3"
+    },
+    {
+      "id": "mitteilung",
+      "term": "die Mitteilung",
+      "plural": "die Mitteilungen",
+      "translation": "message, notification",
+      "example": "Du bekommst eine Mitteilung auf dem Handy.",
+      "exampleTranslation": "You get a notification on your phone.",
+      "hint": "Eine kurze Nachricht, zum Beispiel vom Handy.",
+      "audio": "audio/tts/woerter-mitteilung.mp3",
+      "exampleAudio": "audio/tts/woerter-mitteilung-satz.mp3",
+      "gapAudio": "audio/tts/woerter-mitteilung-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-mitteilung-tipp.mp3"
+    },
+    {
+      "id": "zeichen",
+      "term": "das Zeichen",
+      "plural": "die Zeichen",
+      "translation": "sign",
+      "example": "Das ist ein gutes Zeichen.",
+      "exampleTranslation": "That's a good sign.",
+      "hint": "Etwas, das zeigt, was passieren wird.",
+      "audio": "audio/tts/woerter-zeichen.mp3",
+      "exampleAudio": "audio/tts/woerter-zeichen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-zeichen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-zeichen-tipp.mp3"
+    },
+    {
+      "id": "sparen",
+      "term": "sparen",
+      "translation": "to save (money, time)",
+      "example": "Ich möchte mehr Geld sparen.",
+      "exampleTranslation": "I want to save more money.",
+      "hint": "Nicht alles ausgeben, sondern Geld oder Zeit behalten.",
+      "audio": "audio/tts/woerter-sparen.mp3",
+      "exampleAudio": "audio/tts/woerter-sparen-satz.mp3",
+      "gapAudio": "audio/tts/woerter-sparen-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-sparen-tipp.mp3"
+    },
+    {
+      "id": "wettbewerb",
+      "term": "der Wettbewerb",
+      "plural": "die Wettbewerbe",
+      "translation": "competition",
+      "example": "Sie hat einen Wettbewerb gewonnen.",
+      "exampleTranslation": "She won a competition.",
+      "hint": "Viele machen mit, und am Ende gibt es einen Gewinner.",
+      "audio": "audio/tts/woerter-wettbewerb.mp3",
+      "exampleAudio": "audio/tts/woerter-wettbewerb-satz.mp3",
+      "gapAudio": "audio/tts/woerter-wettbewerb-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-wettbewerb-tipp.mp3"
+    },
+    {
+      "id": "nuetzlich",
+      "term": "nützlich",
+      "translation": "useful",
+      "example": "Diese App ist sehr nützlich.",
+      "exampleTranslation": "This app is very useful.",
+      "hint": "Es hilft dir, und du kannst es gut gebrauchen.",
+      "audio": "audio/tts/woerter-nuetzlich.mp3",
+      "exampleAudio": "audio/tts/woerter-nuetzlich-satz.mp3",
+      "gapAudio": "audio/tts/woerter-nuetzlich-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-nuetzlich-tipp.mp3"
+    },
+    {
+      "id": "schwiegertochter",
+      "term": "die Schwiegertochter",
+      "plural": "die Schwiegertöchter",
+      "translation": "daughter-in-law",
+      "example": "Meine Schwiegertochter ist Spanierin.",
+      "exampleTranslation": "My daughter-in-law is Spanish.",
+      "hint": "Die Frau von meinem Sohn.",
+      "audio": "audio/tts/woerter-schwiegertochter.mp3",
+      "exampleAudio": "audio/tts/woerter-schwiegertochter-satz.mp3",
+      "gapAudio": "audio/tts/woerter-schwiegertochter-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-schwiegertochter-tipp.mp3"
+    },
+    {
+      "id": "snowboard",
+      "term": "Snowboard fahren",
+      "translation": "to snowboard",
+      "example": "Kannst du Snowboard fahren?",
+      "exampleTranslation": "Can you snowboard?",
+      "hint": "Mit einem Brett im Schnee den Berg hinunterfahren.",
+      "audio": "audio/tts/woerter-snowboard.mp3",
+      "exampleAudio": "audio/tts/woerter-snowboard-satz.mp3",
+      "gapAudio": "audio/tts/woerter-snowboard-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-snowboard-tipp.mp3"
+    },
+    {
+      "id": "gebirge",
+      "term": "das Gebirge",
+      "plural": "die Gebirge",
+      "translation": "mountain range, mountains",
+      "example": "Die Berge dort sind nicht so hoch wie die Schweizer Berge, aber es ist auch ein hohes Gebirge.",
+      "exampleTranslation": "The mountains there aren't as high as the Swiss mountains, but it's a high range too.",
+      "hint": "Viele Berge zusammen, zum Beispiel die Alpen.",
+      "audio": "audio/tts/woerter-gebirge.mp3",
+      "exampleAudio": "audio/tts/woerter-gebirge-satz.mp3",
+      "gapAudio": "audio/tts/woerter-gebirge-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-gebirge-tipp.mp3"
+    },
+    {
+      "id": "langeher",
+      "term": "lange her",
+      "translation": "a long time ago (es ist lange her)",
+      "example": "Es ist schon lange her, dass ich Ski gefahren bin.",
+      "exampleTranslation": "It's been a long time since I went skiing.",
+      "hint": "Das war vor vielen Jahren.",
+      "audio": "audio/tts/woerter-langeher.mp3",
+      "exampleAudio": "audio/tts/woerter-langeher-satz.mp3",
+      "gapAudio": "audio/tts/woerter-langeher-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-langeher-tipp.mp3"
+    },
+    {
+      "id": "caquelon",
+      "term": "das Caquelon",
+      "plural": "die Caquelons",
+      "translation": "fondue pot",
+      "example": "Für das Fondue braucht man ein Caquelon.",
+      "exampleTranslation": "For fondue you need a fondue pot.",
+      "hint": "Ein Topf aus Keramik für Käsefondue.",
+      "audio": "audio/tts/woerter-caquelon.mp3",
+      "exampleAudio": "audio/tts/woerter-caquelon-satz.mp3",
+      "gapAudio": "audio/tts/woerter-caquelon-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-caquelon-tipp.mp3"
+    },
+    {
+      "id": "sack",
+      "term": "der Sack",
+      "plural": "die Säcke",
+      "translation": "sack, (large) bag",
+      "example": "Er trägt einen schweren Sack Kartoffeln.",
+      "exampleTranslation": "He's carrying a heavy sack of potatoes.",
+      "hint": "Eine große Tasche aus Stoff oder Plastik.",
+      "audio": "audio/tts/woerter-sack.mp3",
+      "exampleAudio": "audio/tts/woerter-sack-satz.mp3",
+      "gapAudio": "audio/tts/woerter-sack-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-sack-tipp.mp3"
+    },
+    {
+      "id": "tuete",
+      "term": "die Tüte",
+      "plural": "die Tüten",
+      "translation": "(plastic or paper) bag",
+      "example": "Brauchen Sie eine Tüte?",
+      "exampleTranslation": "Do you need a bag?",
+      "hint": "Eine Tasche aus Papier oder Plastik zum Einkaufen.",
+      "audio": "audio/tts/woerter-tuete.mp3",
+      "exampleAudio": "audio/tts/woerter-tuete-satz.mp3",
+      "gapAudio": "audio/tts/woerter-tuete-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-tuete-tipp.mp3"
+    },
+    {
+      "id": "redewendung",
+      "term": "die Redewendung",
+      "plural": "die Redewendungen",
+      "translation": "idiom, saying",
+      "example": "„Leichen im Keller haben“ ist eine Redewendung.",
+      "exampleTranslation": "'Leichen im Keller haben' is an idiom.",
+      "hint": "Ein fester Ausdruck, den man nicht wortwörtlich verstehen darf.",
+      "audio": "audio/tts/woerter-redewendung.mp3",
+      "exampleAudio": "audio/tts/woerter-redewendung-satz.mp3",
+      "gapAudio": "audio/tts/woerter-redewendung-luecke.mp3",
+      "hintAudio": "audio/tts/woerter-redewendung-tipp.mp3"
+    },
+    {
+      "id": "leichen",
+      "term": "Leichen im Keller haben",
+      "translation": "to have skeletons in the closet",
+      "example": "Er hat ein paar Leichen im Keller.",
+      "exampleTranslation": "He has a few skeletons in his closet.",
+      "hint": "Etwas Schlimmes aus der Vergangenheit verstecken.",
+      "audio": "audio/tts/woerter-leichen.mp3",
+      "exampleAudio": "audio/tts/woerter-leichen-satz.mp3",
+      "hintAudio": "audio/tts/woerter-leichen-tipp.mp3"
+    }
+  ],
+  "cloze": [
+    {
+      "id": "k01",
+      "text": "Wenn du noch Fragen hast, kannst du dich an mich ___.",
+      "answers": [
+        "wenden"
+      ],
+      "translation": "If you have any more questions, you can contact me.",
+      "hint": "Mit „sich an jemanden …“: jemanden um Hilfe bitten."
+    },
+    {
+      "id": "k02",
+      "text": "Joan ___ das neue Wort „notwendig“ an.",
+      "answers": [
+        "wendet"
+      ],
+      "options": [
+        "wendet",
+        "nimmt",
+        "ruft"
+      ],
+      "translation": "Joan uses the new word 'notwendig'.",
+      "hint": "Er benutzt das Wort."
+    },
+    {
+      "id": "k03",
+      "text": "Was würdest du gern machen, wenn du nicht zur Arbeit gehen ___?",
+      "answers": [
+        "müsstest"
+      ],
+      "options": [
+        "müsstest",
+        "musst",
+        "musstest"
+      ],
+      "translation": "What would you like to do if you didn't have to go to work?",
+      "hint": "Konjunktiv II von „müssen“, du-Form."
+    },
+    {
+      "id": "k04",
+      "text": "Was ___ du vor einem Jahr nicht gedacht, dass du heute kannst?",
+      "answers": [
+        "hättest"
+      ],
+      "options": [
+        "hättest",
+        "hast",
+        "hattest"
+      ],
+      "translation": "What wouldn't you have thought a year ago that you can do today?",
+      "hint": "Konjunktiv II von „haben“, du-Form."
+    },
+    {
+      "id": "k05",
+      "text": "Was würdest du ändern, ___ dir die Arbeit mehr Spaß macht?",
+      "answers": [
+        "damit"
+      ],
+      "options": [
+        "damit",
+        "dass",
+        "weil"
+      ],
+      "translation": "What would you change so that you enjoy your work more?",
+      "hint": "Dieses Wort zeigt ein Ziel: so, dass …"
+    },
+    {
+      "id": "k06",
+      "text": "Wenn dieser Stuhl frei ist, ___ ich ihn bitte haben?",
+      "answers": [
+        "dürfte"
+      ],
+      "options": [
+        "dürfte",
+        "durfte",
+        "dürfen"
+      ],
+      "translation": "If this chair is free, may I please have it?",
+      "hint": "Konjunktiv II von „dürfen“ – sehr höflich."
+    },
+    {
+      "id": "k07",
+      "text": "___ er sich nicht setzen wollte, nickte er und setzte sich auf den Stuhl.",
+      "answers": [
+        "Obwohl"
+      ],
+      "options": [
+        "Obwohl",
+        "Weil",
+        "Wenn"
+      ],
+      "translation": "Although he didn't want to sit down, he nodded and sat down on the chair.",
+      "hint": "Ein Gegensatz: Er wollte nicht, aber er hat es trotzdem gemacht."
+    },
+    {
+      "id": "k08",
+      "text": "Der Kellner kommt und fragt Michel, ___ er etwas trinken möchte.",
+      "answers": [
+        "ob"
+      ],
+      "options": [
+        "ob",
+        "wenn",
+        "dass"
+      ],
+      "translation": "The waiter comes and asks Michel whether he would like something to drink.",
+      "hint": "Eine indirekte Ja-Nein-Frage."
+    },
+    {
+      "id": "k09",
+      "text": "Wie ich damit umgehe, schlechten Umgang zu ___.",
+      "answers": [
+        "umgehen"
+      ],
+      "translation": "How I deal with avoiding bad company.",
+      "hint": "Hier heißt es: vermeiden."
+    },
+    {
+      "id": "k10",
+      "text": "___ hilfst du? – Ich helfe meinem Bruder.",
+      "answers": [
+        "Wem"
+      ],
+      "options": [
+        "Wem",
+        "Wen",
+        "Wer"
+      ],
+      "translation": "Who are you helping? – I am helping my brother.",
+      "hint": "„helfen“ braucht den Dativ."
+    },
+    {
+      "id": "k11",
+      "text": "___ besuchst du am Wochenende? – Meine Eltern.",
+      "answers": [
+        "Wen"
+      ],
+      "options": [
+        "Wen",
+        "Wem",
+        "Wessen"
+      ],
+      "translation": "Who are you visiting at the weekend? – My parents.",
+      "hint": "„besuchen“ braucht den Akkusativ."
+    },
+    {
+      "id": "k12",
+      "text": "___ Handy ist das? – Das ist Joans Handy.",
+      "answers": [
+        "Wessen"
+      ],
+      "options": [
+        "Wessen",
+        "Wem",
+        "Wer"
+      ],
+      "translation": "Whose phone is that? – That's Joan's phone.",
+      "hint": "Genitiv: Man fragt nach dem Besitzer."
+    },
+    {
+      "id": "k13",
+      "text": "An ___ bist du interessiert?",
+      "answers": [
+        "wem"
+      ],
+      "options": [
+        "wem",
+        "wen",
+        "wer"
+      ],
+      "translation": "Who are you interested in?",
+      "hint": "„interessiert an“ + Dativ."
+    },
+    {
+      "id": "k14",
+      "text": "Als ich das erste Mal in der Schweiz ___, habe ich noch kein Französisch gesprochen.",
+      "answers": [
+        "ankam"
+      ],
+      "options": [
+        "ankam",
+        "ankomme",
+        "ankommen"
+      ],
+      "translation": "When I first arrived in Switzerland, I didn't speak any French yet.",
+      "hint": "Präteritum von „ankommen“."
+    },
+    {
+      "id": "k15",
+      "text": "Ich hoffe, dass sich das in der Zukunft ___.",
+      "answers": [
+        "ändert"
+      ],
+      "translation": "I hope that this will change in the future.",
+      "hint": "Anders werden."
+    },
+    {
+      "id": "k16",
+      "text": "Ich war überrascht, als ich in der Schweiz angekommen bin, ___ die Kultur und die Sprache total anders waren.",
+      "answers": [
+        "weil"
+      ],
+      "options": [
+        "weil",
+        "obwohl",
+        "damit"
+      ],
+      "translation": "I was surprised when I arrived in Switzerland, because the culture and the language were totally different.",
+      "hint": "Hier kommt der Grund."
+    },
+    {
+      "id": "k17",
+      "text": "Schwierig war, dass man sich selbst organisieren muss, ___ Stress zu reduzieren.",
+      "answers": [
+        "um"
+      ],
+      "options": [
+        "um",
+        "für",
+        "damit"
+      ],
+      "translation": "What was difficult was that you have to organise yourself in order to reduce stress.",
+      "hint": "… zu + Infinitiv: ein Ziel."
+    },
+    {
+      "id": "k18",
+      "text": "Was ich an meinem besten Freund am meisten schätze, ist, ___ er für mich da ist.",
+      "answers": [
+        "dass"
+      ],
+      "options": [
+        "dass",
+        "ob",
+        "wenn"
+      ],
+      "translation": "What I value most about my best friend is that he is there for me.",
+      "hint": "Ein ganz normaler Nebensatz."
+    }
+  ],
+  "listening": [
+    {
+      "id": "h1",
+      "title": "Michel im Café",
+      "titleTranslation": "Michel in the café",
+      "text": "Samstagvormittag in einem Café in Schaffhausen. Alle Tische sind besetzt, nur bei einer Person ist noch ein Platz frei.\nMichel denkt darüber nach, die Frau zu fragen. Dann fragt er höflich: „Wenn dieser Stuhl frei ist, dürfte ich ihn bitte haben?“\nDie Frau lächelt und antwortet: „Natürlich, Sie können sich gerne setzen.“\nMichel ist verwirrt. Er wollte den Stuhl nur mitnehmen. Obwohl er sich nicht setzen will, nickt er und setzt sich.\nDer Kellner kommt und fragt Michel, ob er etwas trinken möchte. Michel ist nervös und beginnt zu stottern.",
+      "questions": [
+        {
+          "q": "Wo spielt die Geschichte?",
+          "options": [
+            "In einem Restaurant in Zürich",
+            "In einem Café in Schaffhausen",
+            "In einem Zug nach Bern"
+          ],
+          "answer": 1,
+          "translation": "Where does the story take place?"
+        },
+        {
+          "q": "Was wollte Michel eigentlich?",
+          "options": [
+            "Den Stuhl mitnehmen",
+            "Neben der Frau sitzen",
+            "Einen Kaffee bestellen"
+          ],
+          "answer": 0,
+          "translation": "What did Michel actually want?"
+        },
+        {
+          "q": "Was macht Michel, obwohl er sich nicht setzen will?",
+          "options": [
+            "Er geht wieder weg.",
+            "Er nickt und setzt sich.",
+            "Er ruft den Kellner."
+          ],
+          "answer": 1,
+          "translation": "What does Michel do, although he doesn't want to sit down?"
+        },
+        {
+          "q": "Warum stottert Michel?",
+          "options": [
+            "Weil er müde ist",
+            "Weil er nervös ist",
+            "Weil er kein Deutsch spricht"
+          ],
+          "answer": 1,
+          "translation": "Why does Michel stutter?"
+        }
+      ],
+      "audio": "audio/tts/woerter-h1.mp3"
+    },
+    {
+      "id": "h2",
+      "title": "Was würdest du ändern?",
+      "titleTranslation": "What would you change?",
+      "text": "Sara: Was macht dir an deiner Arbeit gerade am meisten Spaß?\nMarco: Ehrlich gesagt die Vorträge. Nächste Woche halte ich einen Vortrag, deshalb muss ich viel üben.\nSara: Und was würdest du ändern, damit dir die Arbeit mehr Spaß macht?\nMarco: Ich würde die Aufgaben besser planen. Und ich hätte gern Zugang zu allen Programmen, ohne jedes Mal um Erlaubnis zu fragen.\nSara: Was würdest du gern machen, wenn du nicht zur Arbeit gehen müsstest?\nMarco: Dann würde ich in den Urlaub fliegen und endlich wieder Snowboard fahren.",
+      "questions": [
+        {
+          "q": "Was macht Marco an seiner Arbeit am meisten Spaß?",
+          "options": [
+            "Die Sitzungen",
+            "Die Vorträge",
+            "Die E-Mails"
+          ],
+          "answer": 1,
+          "translation": "What does Marco enjoy most about his work?"
+        },
+        {
+          "q": "Warum muss Marco viel üben?",
+          "options": [
+            "Er hat bald eine Prüfung.",
+            "Er hält nächste Woche einen Vortrag.",
+            "Er lernt eine neue Sprache."
+          ],
+          "answer": 1,
+          "translation": "Why does Marco have to practise a lot?"
+        },
+        {
+          "q": "Was würde Marco an seiner Arbeit ändern?",
+          "options": [
+            "Er würde die Aufgaben besser planen.",
+            "Er würde weniger arbeiten.",
+            "Er würde eine neue Stelle suchen."
+          ],
+          "answer": 0,
+          "translation": "What would Marco change about his work?"
+        },
+        {
+          "q": "Was würde Marco machen, wenn er nicht zur Arbeit gehen müsste?",
+          "options": [
+            "Ein Buch schreiben",
+            "Einen Kurs besuchen",
+            "In den Urlaub fliegen und Snowboard fahren"
+          ],
+          "answer": 2,
+          "translation": "What would Marco do if he didn't have to go to work?"
+        }
+      ],
+      "audio": "audio/tts/woerter-h2.mp3"
+    },
+    {
+      "id": "h3",
+      "title": "Ein guter Freund",
+      "titleTranslation": "A good friend",
+      "text": "Lena: Was schätzt du an deinem besten Freund am meisten?\nTom: Die Gegenseitigkeit. Er hilft mir, und ich helfe ihm.\nLena: Er wohnt doch jetzt weit weg, oder?\nTom: Ja, aber ich glaube, dass Freundschaften auch mit Entfernung funktionieren. Das Wichtigste ist, dass er für mich da ist.\nLena: Und wenn du ein Problem hast?\nTom: Als ich jung war und ein Problem hatte, habe ich mich immer an ihn gewandt. Das mache ich heute noch.",
+      "questions": [
+        {
+          "q": "Was schätzt Tom an seinem besten Freund am meisten?",
+          "options": [
+            "Sein Geld",
+            "Die Gegenseitigkeit",
+            "Seine Aussprache"
+          ],
+          "answer": 1,
+          "translation": "What does Tom value most about his best friend?"
+        },
+        {
+          "q": "Wo wohnt der Freund jetzt?",
+          "options": [
+            "Im gleichen Haus",
+            "Weit weg",
+            "Bei Lena"
+          ],
+          "answer": 1,
+          "translation": "Where does the friend live now?"
+        },
+        {
+          "q": "Was ist für Tom das Wichtigste?",
+          "options": [
+            "Dass der Freund für ihn da ist",
+            "Dass sie jeden Tag telefonieren",
+            "Dass sie zusammen arbeiten"
+          ],
+          "answer": 0,
+          "translation": "What is most important for Tom?"
+        },
+        {
+          "q": "Was hat Tom gemacht, wenn er ein Problem hatte?",
+          "options": [
+            "Er hat niemandem etwas gesagt.",
+            "Er hat sich an seinen Freund gewandt.",
+            "Er ist in den Urlaub gefahren."
+          ],
+          "answer": 1,
+          "translation": "What did Tom do when he had a problem?"
+        }
+      ],
+      "audio": "audio/tts/woerter-h3.mp3"
+    },
+    {
+      "id": "h4",
+      "title": "Neu in der Schweiz",
+      "titleTranslation": "New in Switzerland",
+      "text": "Nina: Was war für dich am Anfang in der Schweiz schwierig?\nPaul: Als ich das erste Mal in der Schweiz ankam, habe ich noch kein Französisch gesprochen. Und mein Deutsch war auch nicht gut.\nNina: Warst du überrascht?\nPaul: Ja, sehr. Die Kultur und die Sprache waren total anders. An das kalte Wetter bin ich bis heute nicht gewöhnt.\nNina: Und was hat dir geholfen?\nPaul: Der öffentliche Verkehr ist super pünktlich. Und ich habe gelernt, dass man sich selbst organisieren muss, um Stress zu reduzieren.",
+      "questions": [
+        {
+          "q": "Welche Sprache hat Paul am Anfang noch nicht gesprochen?",
+          "options": [
+            "Englisch",
+            "Französisch",
+            "Italienisch"
+          ],
+          "answer": 1,
+          "translation": "Which language didn't Paul speak yet at the beginning?"
+        },
+        {
+          "q": "Warum war Paul überrascht?",
+          "options": [
+            "Weil alles so teuer war",
+            "Weil die Kultur und die Sprache total anders waren",
+            "Weil niemand Deutsch gesprochen hat"
+          ],
+          "answer": 1,
+          "translation": "Why was Paul surprised?"
+        },
+        {
+          "q": "Woran ist Paul bis heute nicht gewöhnt?",
+          "options": [
+            "An das kalte Wetter",
+            "An den Rosenkohl",
+            "An die Berge"
+          ],
+          "answer": 0,
+          "translation": "What is Paul still not used to?"
+        },
+        {
+          "q": "Was hat Paul gelernt?",
+          "options": [
+            "Dass man immer mit dem Auto fahren muss",
+            "Dass man sich selbst organisieren muss",
+            "Dass man keinen Stress haben kann"
+          ],
+          "answer": 1,
+          "translation": "What has Paul learnt?"
+        }
+      ],
+      "audio": "audio/tts/woerter-h4.mp3"
+    }
+  ]
+}

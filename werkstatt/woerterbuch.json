@@ -1,6 +1,8 @@
 {
   "hinweis": "Leonis Bündnerdütsch-Schreibweisen (nach Gehör). Claude verwendet immer zuerst diese Formen. Neue Wörter nur als Vorschlag mit \"verified\": false in die Sets schreiben.",
   "eintraege": [
-    { "de": "BEISPIEL – bitte ersetzen", "gsw": ["…"], "notiz": "Mehrere gültige Schreibweisen als Liste, die erste ist die bevorzugte." }
+    { "de": "BEISPIEL – bitte ersetzen", "gsw": ["…"], "notiz": "Mehrere gültige Schreibweisen als Liste, die erste ist die bevorzugte." },
+    { "de": "das Streichholz", "gsw": ["Züssi"], "notiz": "Von Leoni im Unterricht mit Joan geschrieben (20.10.2026)." },
+    { "de": "der Rosenkohl", "gsw": ["Rösliköhl"], "notiz": "Von Leoni im Unterricht mit Joan geschrieben (22.10.2026)." }
   ]
 }
