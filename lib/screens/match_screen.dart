@@ -13,6 +13,7 @@ import '../learn/hints.dart';
 import '../widgets/exercise_kit.dart';
 import '../widgets/kuma_helper.dart';
 import '../widgets/page_frame.dart';
+import '../widgets/word_fit_text.dart';
 
 /// Zuordnen: links deutsche Wörter, rechts Übersetzungen (gemischt).
 class MatchScreen extends StatefulWidget {
@@ -227,8 +228,9 @@ class _Tile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
         child: Row(
           children: [
+            // Lange Wörter („Immobilienmakler“) passen in die halbe Breite.
             Expanded(
-              child: Text(
+              child: WordFitText(
                 label,
                 style: style.copyWith(
                   color: done ? LeoColors.inkSoft : LeoColors.chocolate,

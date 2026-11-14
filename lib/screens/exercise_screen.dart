@@ -12,6 +12,7 @@ import '../widgets/exercise_kit.dart';
 import '../widgets/kuma_helper.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/student_loader.dart';
+import '../widgets/word_fit_text.dart';
 import 'crossword_screen.dart';
 import 'fide_screen.dart';
 import 'match_screen.dart';
@@ -253,7 +254,7 @@ class _QuizScreenState extends State<QuizScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (item.prompt != null)
-                Text(
+                WordFitText(
                   item.prompt!,
                   style: serif(widget.type == ExerciseType.choice ? 32 : 22),
                 ),

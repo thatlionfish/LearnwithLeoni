@@ -15,6 +15,7 @@ import '../widgets/exercise_kit.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/stats_line.dart';
 import '../widgets/student_loader.dart';
+import '../widgets/word_fit_text.dart';
 
 /// Alle Wörter eines Schülers an einem Ort: `#/s/<code>/woerter`.
 class WordsScreen extends StatelessWidget {
@@ -226,7 +227,10 @@ class _WordRowState extends State<_WordRow> {
                       spacing: 8,
                       crossAxisAlignment: WrapCrossAlignment.end,
                       children: [
-                        Text(card.term, style: text.titleMedium),
+                        WordFitText(
+                          card.term,
+                          style: text.titleMedium ?? const TextStyle(),
+                        ),
                         if (card.plural != null)
                           Text(card.plural!, style: text.bodySmall),
                       ],

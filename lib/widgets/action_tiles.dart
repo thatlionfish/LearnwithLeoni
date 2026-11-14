@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../ui/organic.dart';
+import 'word_fit_text.dart';
 
 /// Eine Kachel: Beschriftung, Symbol, Ziel.
 typedef ActionTile = ({String label, IconData icon, VoidCallback onTap});
@@ -36,34 +37,16 @@ class ActionTiles extends StatelessWidget {
   final double gap;
   final EdgeInsets padding;
 
-  /// Breite des längsten Worts aller Beschriftungen.
-  double _widestWord(BuildContext context, TextStyle? style) {
-    var widest = 0.0;
-    for (final tile in tiles) {
-      for (final word in tile.label.split(RegExp(r'\s+'))) {
-        if (word.isEmpty) continue;
-        final painter = TextPainter(
-          text: TextSpan(text: word, style: style),
-          textDirection: Directionality.of(context),
-          textScaler: MediaQuery.textScalerOf(context),
-          maxLines: 1,
-        )..layout();
-        widest = max(widest, painter.width);
-        painter.dispose();
-      }
-    }
-    return widest;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final style = Theme.of(context).textTheme.titleSmall;
+    final style = Theme.of(context).textTheme.titleSmall ?? const TextStyle();
+    final labels = [for (final tile in tiles) tile.label];
     // +2: Rundungsreserve, damit das längste Wort sicher auf eine Zeile passt.
     final need =
         padding.horizontal +
         iconSize +
         gap +
-        _widestWord(context, style).ceilToDouble() +
+        widestWord(context, labels, style).ceilToDouble() +
         2;
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -86,7 +69,8 @@ class ActionTiles extends StatelessWidget {
                     children: [
                       Icon(tile.icon, size: iconSize),
                       SizedBox(width: gap),
-                      Expanded(child: Text(tile.label, style: style)),
+                      // Reicht selbst der ganze Platz nicht, wird die Schrift kleiner.
+                      Expanded(child: WordFitText(tile.label, style: style)),
                     ],
                   ),
                 ),

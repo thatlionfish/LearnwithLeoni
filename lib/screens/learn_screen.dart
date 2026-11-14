@@ -21,6 +21,7 @@ import '../widgets/exercise_kit.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/student_loader.dart';
+import '../widgets/word_fit_text.dart';
 
 /// Lernsitzung mit Karteikarten unter `#/s/<code>/lernen` (optional `?set=<id>`).
 class LearnScreen extends StatelessWidget {
@@ -504,7 +505,7 @@ class _FlipCard extends StatelessWidget {
               const SizedBox(height: 22),
             ],
             if (germanFront) ...[
-              Text(
+              WordFitText(
                 c.term,
                 textAlign: TextAlign.center,
                 style: serif(36, weight: 420),
@@ -514,7 +515,7 @@ class _FlipCard extends StatelessWidget {
                 Text(c.plural!, style: text.bodyMedium),
               ],
             ] else
-              Text(
+              WordFitText(
                 c.translation,
                 textAlign: TextAlign.center,
                 style: serif(32, weight: 420),
@@ -543,7 +544,7 @@ class _FlipCard extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
-              Text(
+              WordFitText(
                 c.translation,
                 textAlign: TextAlign.center,
                 style: serif(30, weight: 420),
@@ -552,7 +553,7 @@ class _FlipCard extends StatelessWidget {
               // Deutsch hinten: das deutsche Wort ist die Lösung, also gross.
               Text(c.translation, style: text.titleMedium),
               const SizedBox(height: 10),
-              Text(
+              WordFitText(
                 c.term,
                 textAlign: TextAlign.center,
                 style: serif(34, weight: 420),
