@@ -10,6 +10,7 @@ import '../l10n/app_localizations.dart';
 import '../l10n/gloss.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
+import '../widgets/action_tiles.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
@@ -174,19 +175,22 @@ class _HomeViewState extends State<_HomeView> {
           style: text.headlineSmall,
         ),
         const SizedBox(height: 12),
-        Wrap(
+        ActionTiles(
+          seed: 40,
+          minWidth: 172,
           spacing: 12,
-          runSpacing: 12,
-          children: [
-            for (final (i, (label, icon, slug)) in [
+          iconSize: 24,
+          gap: 12,
+          padding: const EdgeInsets.all(18),
+          tiles: [
+            for (final (label, icon, slug) in [
               (t.gameHangman, Icons.gesture_rounded, 'hangman'),
               (t.gameAbcRadio, Icons.radio_outlined, 'abc-radio'),
               (t.gameCrossword, Icons.grid_view_rounded, 'kreuzwort'),
-            ].indexed)
-              _GameTile(
+            ])
+              (
                 label: label,
                 icon: icon,
-                seed: 40 + i,
                 onTap: () => _open(switch (slug) {
                   'kreuzwort' => '/s/$code/ueben/kreuzwort',
                   _ => '/s/$code/spiel/$slug',
@@ -287,41 +291,6 @@ class _SetTile extends StatelessWidget {
           const SizedBox(height: 8),
           Text(statsLine(t, stats), style: text.bodySmall),
         ],
-      ),
-    );
-  }
-}
-
-class _GameTile extends StatelessWidget {
-  const _GameTile({
-    required this.label,
-    required this.icon,
-    required this.seed,
-    required this.onTap,
-  });
-
-  final String label;
-  final IconData icon;
-  final int seed;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 172,
-      child: OrganicCard(
-        seed: seed,
-        onTap: onTap,
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
-        child: Row(
-          children: [
-            Icon(icon, size: 24),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Text(label, style: Theme.of(context).textTheme.titleSmall),
-            ),
-          ],
-        ),
       ),
     );
   }

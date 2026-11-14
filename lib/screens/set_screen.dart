@@ -6,6 +6,7 @@ import '../data/models.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/gloss.dart';
 import '../learn/exercises.dart';
+import '../widgets/action_tiles.dart';
 import '../widgets/exercise_kit.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
@@ -100,11 +101,9 @@ class _SetViewState extends State<_SetView> {
           style: text.headlineSmall,
         ),
         const SizedBox(height: 12),
-        Wrap(
-          spacing: 10,
-          runSpacing: 10,
-          children: [
-            for (final (i, (type, label, query)) in [
+        ActionTiles(
+          tiles: [
+            for (final (type, label, query) in [
               for (final type in availableExercises(set))
                 if (type == ExerciseType.listening)
                   for (final l in set.listening)
@@ -117,29 +116,16 @@ class _SetViewState extends State<_SetView> {
                     )
                 else
                   (type, exerciseLabel(t, type), ''),
-            ].indexed)
-              SizedBox(
-                width: 176,
-                child: OrganicCard(
-                  seed: 80 + i,
-                  onTap: () async {
-                    await context.push(
-                      '/s/${widget.code}/ueben/${type.slug}?set=${set.id}$query',
-                    );
-                    if (mounted) setState(() {});
-                  },
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 16,
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(exerciseIcon(type), size: 22),
-                      const SizedBox(width: 10),
-                      Expanded(child: Text(label, style: text.titleSmall)),
-                    ],
-                  ),
-                ),
+            ])
+              (
+                label: label,
+                icon: exerciseIcon(type),
+                onTap: () async {
+                  await context.push(
+                    '/s/${widget.code}/ueben/${type.slug}?set=${set.id}$query',
+                  );
+                  if (mounted) setState(() {});
+                },
               ),
           ],
         ),
