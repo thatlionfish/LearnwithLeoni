@@ -365,7 +365,7 @@
       "id": "h1",
       "title": "Die neue Wohnung",
       "titleTranslation": "新しい住まい",
-      "text": "Sandra: Hallo Reika! Wohnst du immer noch in Zürich?\nReika: Nein, ich bin im Sommer weggezogen. Jetzt wohne ich auf dem Land, neben einem Bauernhof.\nSandra: Wie schön! War es schwierig, eine Wohnung zu finden?\nReika: Ein bisschen. Ein Immobilienmakler hat mir geholfen. Bei der Besichtigung waren nur zwei andere Leute da.\nSandra: Da hattest du Glück! Und wie ist die Wohnung?\nReika: Hell und ruhig. Aber im Bad gibt es Schimmel. Der Hauswart bringt mir morgen einen Luftentfeuchter. Bis dahin lüfte ich jeden Tag.",
+      "text": "Marco: Hallo Reika! Wohnst du immer noch in Zürich?\nReika: Nein, ich bin im Sommer weggezogen. Jetzt wohne ich auf dem Land, neben einem Bauernhof.\nMarco: Wie schön! War es schwierig, eine Wohnung zu finden?\nReika: Ein bisschen. Ein Immobilienmakler hat mir geholfen. Bei der Besichtigung waren nur zwei andere Leute da.\nMarco: Da hattest du Glück! Und wie ist die Wohnung?\nReika: Hell und ruhig. Aber im Bad gibt es Schimmel. Der Hauswart bringt mir morgen einen Luftentfeuchter. Bis dahin lüfte ich jeden Tag.",
       "questions": [
         {
           "q": "Wo wohnt Reika jetzt?",
@@ -380,7 +380,7 @@
         {
           "q": "Wer hat Reika bei der Suche geholfen?",
           "options": [
-            "Sandra",
+            "Marco",
             "Ein Immobilienmakler",
             "Der Hauswart"
           ],

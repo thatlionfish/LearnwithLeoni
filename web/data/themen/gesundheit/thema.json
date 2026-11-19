@@ -530,7 +530,7 @@
         "en": "At the GP's",
         "ja": "かかりつけ医で"
       },
-      "text": "Ärztin: Guten Tag, Frau Meier. Was fehlt Ihnen?\nPatientin: Ich habe seit drei Tagen Husten und Halsschmerzen. Und gestern Abend hatte ich Fieber.\nÄrztin: Wie hoch war das Fieber?\nPatientin: Achtunddreissig Komma fünf. Heute Morgen war es schon etwas besser.\nÄrztin: Ich untersuche Sie kurz. Sie sind stark erkältet, aber es ist nichts Schlimmes. Ich gebe Ihnen ein Rezept für einen Hustensirup.\nPatientin: Brauche ich auch ein Arztzeugnis für die Arbeit?\nÄrztin: Ja, ich schreibe Sie bis Freitag krank. Ruhen Sie sich gut aus. Gute Besserung!",
+      "text": "Arzt: Guten Tag, Frau Meier. Was fehlt Ihnen?\nPatientin: Ich habe seit drei Tagen Husten und Halsschmerzen. Und gestern Abend hatte ich Fieber.\nArzt: Wie hoch war das Fieber?\nPatientin: Achtunddreissig Komma fünf. Heute Morgen war es schon etwas besser.\nArzt: Ich untersuche Sie kurz. Sie sind stark erkältet, aber es ist nichts Schlimmes. Ich gebe Ihnen ein Rezept für einen Hustensirup.\nPatientin: Brauche ich auch ein Arztzeugnis für die Arbeit?\nArzt: Ja, ich schreibe Sie bis Freitag krank. Ruhen Sie sich gut aus. Gute Besserung!",
       "questions": [
         {
           "q": "Seit wann hat Frau Meier Husten?",
@@ -559,7 +559,7 @@
           }
         },
         {
-          "q": "Was bekommt Frau Meier von der Ärztin?",
+          "q": "Was bekommt Frau Meier vom Arzt?",
           "options": [
             "Ein Rezept für einen Hustensirup",
             "Eine Spritze",

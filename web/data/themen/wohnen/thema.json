@@ -521,7 +521,7 @@
         "en": "The new flat",
         "ja": "新しい住まい"
       },
-      "text": "Sandra: Hallo Lea! Wohnst du immer noch in Zürich?\nLea: Nein, ich bin im Sommer weggezogen. Jetzt wohne ich auf dem Land, neben einem Bauernhof.\nSandra: Wie schön! War es schwierig, eine Wohnung zu finden?\nLea: Ein bisschen. Ein Immobilienmakler hat mir geholfen. Bei der Besichtigung waren nur zwei andere Leute da.\nSandra: Da hattest du Glück! Und wie ist die Wohnung?\nLea: Hell und ruhig. Aber im Bad gibt es Schimmel. Der Hauswart bringt mir morgen einen Luftentfeuchter. Bis dahin lüfte ich jeden Tag.",
+      "text": "Marco: Hallo Lea! Wohnst du immer noch in Zürich?\nLea: Nein, ich bin im Sommer weggezogen. Jetzt wohne ich auf dem Land, neben einem Bauernhof.\nMarco: Wie schön! War es schwierig, eine Wohnung zu finden?\nLea: Ein bisschen. Ein Immobilienmakler hat mir geholfen. Bei der Besichtigung waren nur zwei andere Leute da.\nMarco: Da hattest du Glück! Und wie ist die Wohnung?\nLea: Hell und ruhig. Aber im Bad gibt es Schimmel. Der Hauswart bringt mir morgen einen Luftentfeuchter. Bis dahin lüfte ich jeden Tag.",
       "questions": [
         {
           "q": "Wo wohnt Lea jetzt?",
@@ -539,7 +539,7 @@
         {
           "q": "Wer hat Lea bei der Suche geholfen?",
           "options": [
-            "Sandra",
+            "Marco",
             "Ein Immobilienmakler",
             "Der Hauswart"
           ],
