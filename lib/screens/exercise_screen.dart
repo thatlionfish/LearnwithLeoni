@@ -27,7 +27,11 @@ class ExerciseScreen extends StatelessWidget {
     this.setId,
     this.textId,
     this.mode,
+    this.level,
   });
+
+  /// fide: nur eine Stufe, `A2` oder `B1`.
+  final String? level;
 
   /// fide: gleich mit „practice“ oder „exam“ beginnen.
   final String? mode;
@@ -76,6 +80,10 @@ class ExerciseScreen extends StatelessWidget {
                 ],
           title: set?.title ?? t.fideAllTopics,
           startMode: mode,
+          level: switch (level) {
+            'A2' || 'B1' => level,
+            _ => null,
+          },
         ),
         ExerciseType.listening => _ListeningScreen(
           code: code,

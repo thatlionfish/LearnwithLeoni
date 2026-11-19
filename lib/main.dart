@@ -116,6 +116,7 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
             setId: state.uri.queryParameters['set'],
             textId: state.uri.queryParameters['text'],
             mode: state.uri.queryParameters['mode'],
+            level: state.uri.queryParameters['level'],
           ),
         ),
         GoRoute(

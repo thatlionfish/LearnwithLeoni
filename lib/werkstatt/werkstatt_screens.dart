@@ -172,25 +172,40 @@ class _StudentCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 6),
+          // Nur die eigenen Sets lassen sich hier bearbeiten; Themen aus der
+          // Bibliothek (web/data/themen) liegen nicht im Ordner des Schülers.
           for (final set in content.sets)
-            InkWell(
-              borderRadius: organicRadius(set.id.hashCode, base: 12),
-              onTap: () async {
-                await context.push('/werkstatt/${st.code}/${set.id}');
-                onChanged();
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-                child: Row(
-                  children: [
-                    _StatusDot(published: set.published),
-                    const SizedBox(width: 10),
-                    Expanded(child: Text(set.title, style: text.titleMedium)),
-                    Text(_audioSummary(set), style: text.labelMedium),
-                    const SizedBox(width: 8),
-                    const Icon(Icons.chevron_right_rounded),
-                  ],
+            if (st.setIds.contains(set.id))
+              InkWell(
+                borderRadius: organicRadius(set.id.hashCode, base: 12),
+                onTap: () async {
+                  await context.push('/werkstatt/${st.code}/${set.id}');
+                  onChanged();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 4,
+                  ),
+                  child: Row(
+                    children: [
+                      _StatusDot(published: set.published),
+                      const SizedBox(width: 10),
+                      Expanded(child: Text(set.title, style: text.titleMedium)),
+                      Text(_audioSummary(set), style: text.labelMedium),
+                      const SizedBox(width: 8),
+                      const Icon(Icons.chevron_right_rounded),
+                    ],
+                  ),
                 ),
+              ),
+          if (st.themeIds.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(4, 8, 4, 0),
+              child: Text(
+                'Aus der Themen-Bibliothek: ${[for (final s in content.sets)
+                  if (st.themeIds.contains(s.id)) s.title].join(', ')}',
+                style: text.bodySmall,
               ),
             ),
           const SizedBox(height: 8),

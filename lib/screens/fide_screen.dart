@@ -13,6 +13,7 @@ import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../ui/theme.dart';
 import '../widgets/exercise_kit.dart';
+import '../widgets/fide_level_chips.dart';
 import '../widgets/fide_picture.dart';
 import '../widgets/kuma_helper.dart';
 import '../widgets/leoni.dart';
@@ -28,7 +29,11 @@ class FideScreen extends StatefulWidget {
     required this.sets,
     required this.title,
     this.startMode,
+    this.level,
   });
+
+  /// Nur eine Stufe üben: `A2` oder `B1` (`null` = beide).
+  final String? level;
 
   final String code;
 
@@ -83,7 +88,11 @@ class _FideScreenState extends State<FideScreen> {
   /// Im Test darf man jeden Text höchstens zweimal hören.
   static const maxPlays = 2;
 
-  late final List<_Step> _steps = () {
+  /// Gewählte Stufe (`null` = A2 und B1).
+  late String? _level = widget.level;
+  late List<_Step> _steps = _buildSteps();
+
+  List<_Step> _buildSteps() {
     final out = <_Step>[];
     for (final s in _situations()) {
       for (final (i, item) in s.items.indexed) {
@@ -91,18 +100,38 @@ class _FideScreenState extends State<FideScreen> {
       }
     }
     return out;
-  }();
+  }
 
   /// Ein Thema: alle Situationen der Reihe nach. Alle Themen: zufällig je
   /// [FideScreen.mixedPerLevel] Situationen A2 und B1, A2 zuerst – wie im Test.
+  /// Mit nur einer Stufe: doppelt so viele Situationen dieser Stufe.
   List<FideSituation> _situations() {
-    final all = [for (final s in widget.sets) ...s.fide];
+    final all = [
+      for (final set in widget.sets)
+        for (final s in set.fide)
+          if (_level == null || s.level == _level) s,
+    ];
     if (widget.sets.length < 2) return all;
     all.shuffle(_random);
+    if (_level != null) return all.take(FideScreen.mixedPerLevel * 2).toList();
     final a2 = all.where((s) => s.level == 'A2').take(FideScreen.mixedPerLevel);
     final b1 = all.where((s) => s.level != 'A2').take(FideScreen.mixedPerLevel);
     return [...a2, ...b1];
   }
+
+  /// Gibt es überhaupt beide Stufen? Sonst braucht es keine Auswahl.
+  bool get _hasBothLevels {
+    final levels = {
+      for (final set in widget.sets)
+        for (final s in set.fide) s.level == 'A2' ? 'A2' : 'B1',
+    };
+    return levels.length > 1;
+  }
+
+  void _setLevel(String? level) => setState(() {
+    _level = level;
+    _steps = _buildSteps();
+  });
 
   final _random = Random();
 
@@ -142,6 +171,8 @@ class _FideScreenState extends State<FideScreen> {
 
   void _start(_Mode mode) {
     setState(() {
+      // Gemischt aus allen Themen: bei jedem Start eine neue Auswahl.
+      if (widget.sets.length > 1) _steps = _buildSteps();
       _mode = mode;
       _index = 0;
       _answers.clear();
@@ -281,6 +312,10 @@ class _FideScreenState extends State<FideScreen> {
         ),
         const SizedBox(height: 8),
         Glossed(t.fideIntro, gloss: g?.fideIntro, style: text.bodyMedium),
+        if (_hasBothLevels) ...[
+          const SizedBox(height: 14),
+          FideLevelChips(level: _level, onChanged: _setLevel),
+        ],
         const SizedBox(height: 18),
         mode(
           _Mode.practice,

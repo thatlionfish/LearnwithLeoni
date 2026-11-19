@@ -87,7 +87,13 @@ dart run tool/tts.dart         # erzeugt MP3s unter <schüler>/audio/tts/
 - Bündnerdütsch-Sets werden übersprungen.
 - `"voice": "de-CH"` im Schülerprofil → Schweizer Standardstimme.
 - fide-Aufgaben: eine Aufnahme pro Frage – Prüferin (Situation, Frage),
-  Hörtext mit anderen deutschen Stimmen, Frage nochmals. Der fide-Test prüft
+  Hörtext mit anderen deutschen Stimmen, Frage nochmals. Spricht im Hörtext eine
+  Frau, liest ein Prüfer mit Männerstimme – sonst klingt alles nach einer Person.
+- Dialoge: jede Person eigene Stimme; Gesprächspartner möglichst Mann und Frau
+  (zwei Frauenstimmen klingen zu ähnlich). Erzählte Geschichten mit wörtlicher Rede
+  als Rollen schreiben („Erzählerin:“, „Michel:“, „Frau:“).
+- fide üben nach Stufe: „A2 und B1 · Nur A2 · Nur B1“ (Startseite und Themenseite,
+  `?level=A2|B1`). Es gibt nur A2- und B1-Aufgaben. Der fide-Test prüft
   Hochdeutsch: keine Schweizer Stimmen für fide-Schüler.
 - Kumachans Satzsammlung `web/data/kuma/` (für alle Schüler): jeder Tipp, den
   sie geben kann (`kumaPhrases` in `lib/learn/kuma_phrases.dart`), mit ihrer

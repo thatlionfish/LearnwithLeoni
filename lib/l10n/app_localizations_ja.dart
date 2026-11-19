@@ -671,4 +671,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get extra => 'おまけ';
+
+  @override
+  String get fideLevelAll => 'A2とB1';
+
+  @override
+  String fideLevelOnly(String level) {
+    return '$levelのみ';
+  }
 }

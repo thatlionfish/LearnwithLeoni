@@ -177,5 +177,7 @@
   "fideTrainingInfo": "全テーマをまぜて、本番と同じ形式で。",
   "fideAllTopics": "全テーマ",
   "blanketShort": "ブランケット",
-  "extra": "おまけ"
+  "extra": "おまけ",
+  "fideLevelAll": "A2とB1",
+  "fideLevelOnly": "{level}のみ"
 }

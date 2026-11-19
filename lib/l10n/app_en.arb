@@ -177,5 +177,7 @@
   "fideTrainingInfo": "All topics mixed – just like the test.",
   "fideAllTopics": "All topics",
   "blanketShort": "Blanket",
-  "extra": "Extra"
+  "extra": "Extra",
+  "fideLevelAll": "A2 and B1",
+  "fideLevelOnly": "Only {level}"
 }

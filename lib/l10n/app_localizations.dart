@@ -1167,6 +1167,18 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Zusatz'**
   String get extra;
+
+  /// fide: beide Stufen üben
+  ///
+  /// In de, this message translates to:
+  /// **'A2 und B1'**
+  String get fideLevelAll;
+
+  /// fide: nur eine Stufe üben, z. B. „Nur A2“
+  ///
+  /// In de, this message translates to:
+  /// **'Nur {level}'**
+  String fideLevelOnly(String level);
 }
 
 class _AppLocalizationsDelegate

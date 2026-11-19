@@ -404,6 +404,31 @@ void main() {
     expect(find.text('Wie in der Prüfung'), findsNothing);
   });
 
+  testWidgets('fide-Training nur B1: nur die B1-Aufgaben aus allen Themen', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/vane1');
+    await tester.ensureVisible(find.text('Nur B1'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Nur B1'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.widgetWithText(FilledButton, 'Üben'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(FilledButton, 'Üben'));
+    await tester.pumpAndSettle();
+    // Zwei B1-Situationen gibt es (Gesundheit und Essen), keine A2-Bilder.
+    expect(find.textContaining('1 von 2'), findsOneWidget);
+    expect(find.text('a)'), findsNothing);
+  });
+
+  testWidgets('fide in einem Thema: Stufe wählen', (tester) async {
+    await pumpApp(tester, '/s/vane1/ueben/fide?set=gesund');
+    expect(find.text('1 × A2 · 1 × B1'), findsOneWidget);
+    await tester.tap(find.text('Nur A2'));
+    await tester.pumpAndSettle();
+    expect(find.text('1 × A2'), findsOneWidget);
+  });
+
   testWidgets('Startseite passt auf ein schmales Handy', (tester) async {
     tester.view.physicalSize = const Size(320, 700);
     tester.view.devicePixelRatio = 1;

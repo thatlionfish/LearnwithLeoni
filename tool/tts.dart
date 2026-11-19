@@ -56,6 +56,10 @@ const kumaPitch = '+22%';
 /// fide: Die Prüferin liest Situation und Frage, die Hörtexte sprechen andere
 /// Stimmen. Der fide-Test prüft Hochdeutsch – deshalb nur deutsche Stimmen.
 const fideExaminer = 'de-DE-SeraphinaMultilingualNeural';
+
+/// Prüfer, wenn im Hörtext eine Frau spricht – sonst klingt alles nach
+/// einer einzigen Person.
+const fideExaminerMale = 'de-DE-RalfNeural';
 const fideFemale = [
   'de-DE-KatjaNeural',
   'de-DE-AmalaNeural',
@@ -317,8 +321,7 @@ String _dialog(String text) {
         ? voiceDe
         : voices.putIfAbsent(name, () {
             if (name.toLowerCase() == 'leoni') return leoniVoice;
-            final female = RegExp(r'(a|e|in|i)$').hasMatch(name.toLowerCase());
-            return female
+            return _isFemale(name)
                 ? femaleVoices[f++ % femaleVoices.length]
                 : maleVoices[m++ % maleVoices.length];
           });
@@ -395,6 +398,15 @@ Future<void> _kumaBank(List<Map<String, dynamic>> sets) async {
   );
 }
 
+/// Frauenname oder weibliche Rolle („Sandra“, „Ärztin“, „Frau Silva“,
+/// „Erzählerin“) – sonst männlich („Marco“, „Arzt“, „Herr Keller“).
+bool _isFemale(String name) {
+  final n = name.trim().toLowerCase();
+  if (n.startsWith('frau')) return true;
+  if (n.startsWith('herr')) return false;
+  return RegExp(r'(a|e|in|i)$').hasMatch(n);
+}
+
 /// fide-Aufnahme: Prüferin (Situation, Frage) → Hörtext → Frage nochmals.
 String _fide({
   String? situation,
@@ -403,33 +415,41 @@ String _fide({
 }) {
   String block(String voice, String body) =>
       '<voice name="$voice"><prosody rate="$rate">$body</prosody></voice>';
+  final voices = <String, String>{};
+  var f = 0, m = 0;
+  var anyFemale = false;
+  final spoken = <(String, String)>[];
+  for (final line in text.split('\n')) {
+    final match = RegExp(r'^([^:]{1,30}):\s*(.*)$').firstMatch(line.trim());
+    final name = (match?.group(1) ?? '').trim();
+    final said = (match?.group(2) ?? line).trim();
+    if (said.isEmpty) continue;
+    final female = _isFemale(name);
+    anyFemale = anyFemale || female;
+    final v = voices.putIfAbsent(
+      name.toLowerCase(),
+      () => female
+          ? fideFemale[f++ % fideFemale.length]
+          : fideMale[m++ % fideMale.length],
+    );
+    spoken.add((v, said));
+  }
+  // Prüferin und Person im Hörtext klar unterscheidbar: Spricht eine Frau,
+  // liest ein Prüfer mit Männerstimme Situation und Frage.
+  final examiner = anyFemale ? fideExaminerMale : fideExaminer;
   final out = StringBuffer(
     block(
-      fideExaminer,
+      examiner,
       '${situation == null ? '' : 'Situation: ${_say(situation)}<break time="700ms"/>'}'
       'Frage: ${_say(question)}<break time="1200ms"/>',
     ),
   );
-  final voices = <String, String>{};
-  var f = 0, m = 0;
-  for (final line in text.split('\n')) {
-    final match = RegExp(r'^([^:]{1,30}):\s*(.*)$').firstMatch(line.trim());
-    final name = (match?.group(1) ?? '').trim().toLowerCase();
-    final said = (match?.group(2) ?? line).trim();
-    if (said.isEmpty) continue;
-    final v = voices.putIfAbsent(name, () {
-      final female =
-          name.startsWith('frau') ||
-          (!name.startsWith('herr') && RegExp(r'(a|e|in|i)$').hasMatch(name));
-      return female
-          ? fideFemale[f++ % fideFemale.length]
-          : fideMale[m++ % fideMale.length];
-    });
+  for (final (v, said) in spoken) {
     out.write(block(v, '${_say(said)}<break time="400ms"/>'));
   }
   out.write(
     block(
-      fideExaminer,
+      examiner,
       '<break time="900ms"/>Noch einmal die Frage: ${_say(question)}',
     ),
   );

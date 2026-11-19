@@ -697,4 +697,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get extra => 'Zusatz';
+
+  @override
+  String get fideLevelAll => 'A2 und B1';
+
+  @override
+  String fideLevelOnly(String level) {
+    return 'Nur $level';
+  }
 }

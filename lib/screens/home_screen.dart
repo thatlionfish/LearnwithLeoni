@@ -11,6 +11,7 @@ import '../l10n/gloss.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
 import '../widgets/app_logo.dart';
+import '../widgets/fide_level_chips.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/settings_sheet.dart';
@@ -145,8 +146,15 @@ class _HomeViewState extends State<_HomeView> {
         if (sets.any((s) => s.fide.isNotEmpty)) ...[
           const SizedBox(height: 12),
           _FideCard(
-            onPractice: () => _open('/s/$code/ueben/fide?mode=practice'),
-            onExam: () => _open('/s/$code/ueben/fide?mode=exam'),
+            showLevels:
+                {
+                  for (final s in sets)
+                    for (final f in s.fide) f.level == 'A2' ? 'A2' : 'B1',
+                }.length >
+                1,
+            onStart: (mode, level) => _open(
+              '/s/$code/ueben/fide?mode=$mode${level == null ? '' : '&level=$level'}',
+            ),
           ),
         ],
 
@@ -211,12 +219,23 @@ class _HomeViewState extends State<_HomeView> {
   }
 }
 
-/// fide-Hörverstehen über alle Themen: gleich üben oder wie in der Prüfung.
-class _FideCard extends StatelessWidget {
-  const _FideCard({required this.onPractice, required this.onExam});
+/// fide-Hörverstehen über alle Themen: Stufe wählen, dann gleich üben oder
+/// wie in der Prüfung.
+class _FideCard extends StatefulWidget {
+  const _FideCard({required this.showLevels, required this.onStart});
 
-  final VoidCallback onPractice;
-  final VoidCallback onExam;
+  /// Nur wenn es Aufgaben für A2 und für B1 gibt.
+  final bool showLevels;
+
+  /// `mode`: `practice` oder `exam`; `level`: `A2`, `B1` oder `null` (beide).
+  final void Function(String mode, String? level) onStart;
+
+  @override
+  State<_FideCard> createState() => _FideCardState();
+}
+
+class _FideCardState extends State<_FideCard> {
+  String? _level;
 
   @override
   Widget build(BuildContext context) {
@@ -248,16 +267,26 @@ class _FideCard extends StatelessWidget {
             gloss: g?.fideTrainingInfo,
             style: text.bodyMedium,
           ),
+          if (widget.showLevels) ...[
+            const SizedBox(height: 12),
+            FideLevelChips(
+              level: _level,
+              onChanged: (l) => setState(() => _level = l),
+            ),
+          ],
           const SizedBox(height: 14),
           Wrap(
             spacing: 10,
             runSpacing: 10,
             children: [
               FilledButton(
-                onPressed: onPractice,
+                onPressed: () => widget.onStart('practice', _level),
                 child: Text(t.fideModePractice),
               ),
-              OutlinedButton(onPressed: onExam, child: Text(t.fideModeExam)),
+              OutlinedButton(
+                onPressed: () => widget.onStart('exam', _level),
+                child: Text(t.fideModeExam),
+              ),
             ],
           ),
         ],

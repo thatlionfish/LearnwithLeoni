@@ -425,5 +425,18 @@
   "extra": "Zusatz",
   "@extra": {
     "description": "Kennzeichen für einen Zusatz zu einem Thema, z. B. Zürichdeutsch"
+  },
+  "fideLevelAll": "A2 und B1",
+  "fideLevelOnly": "Nur {level}",
+  "@fideLevelAll": {
+    "description": "fide: beide Stufen üben"
+  },
+  "@fideLevelOnly": {
+    "description": "fide: nur eine Stufe üben, z. B. „Nur A2“",
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
   }
 }
