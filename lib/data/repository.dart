@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+import 'library.dart';
 import 'models.dart';
 
 class StudentNotFound implements Exception {
@@ -82,13 +83,31 @@ class ContentRepository {
     final json = await _source.load('students/$code/student.json');
     if (json == null) throw StudentNotFound(code);
     final student = Student.fromJson(code, json);
-    final sets = await Future.wait([
-      for (final id in student.setIds)
-        _source.load('students/$code/sets/$id.json'),
-    ]);
+    final (themes, sets) = await (
+      Future.wait([
+        for (final id in student.themeIds)
+          _source.load('${themeDir(id)}/thema.json'),
+      ]),
+      Future.wait([
+        for (final id in student.setIds)
+          _source.load('students/$code/sets/$id.json'),
+      ]),
+    ).wait;
     return StudentContent(
       student: student,
       sets: [
+        // Zuerst die Themen aus der Bibliothek, in der Hilfesprache des Schülers.
+        for (final (i, t) in themes.indexed)
+          if (t != null)
+            if (VocabSet.fromJson(
+                  localizeTheme(
+                    t,
+                    student.explainLanguage,
+                    audioPrefix: themeDir(student.themeIds[i]),
+                  ),
+                )
+                case final set when set.published || includeDrafts)
+              set,
         for (final s in sets)
           if (s != null)
             if (VocabSet.fromJson(s) case final set
@@ -105,10 +124,23 @@ class StudentContent {
   final Student student;
   final List<VocabSet> sets;
 
-  /// Die Themen aus dem Unterricht: das, was unter „Deine Sets“ steht.
+  /// Die Themen aus dem Unterricht: das, was unter „Themen“ steht.
   List<VocabSet> get topics => [
     for (final s in sets)
-      if (!s.isCollection) s,
+      if (!s.isCollection && !s.isExtra) s,
+  ];
+
+  /// Alles ausser den Zusätzen zu einem Thema: zählt für „Heute“, die
+  /// Lernrunde und „Alle Wörter“.
+  List<VocabSet> get mainSets => [
+    for (final s in sets)
+      if (!s.isExtra) s,
+  ];
+
+  /// Zusätze zum Thema [topicId], z. B. der Zürichdeutsch-Trainer.
+  List<VocabSet> extrasOf(String topicId) => [
+    for (final s in sets)
+      if (s.topic == topicId) s,
   ];
 
   /// Die einzelnen Wörter ohne Thema, falls es welche gibt.

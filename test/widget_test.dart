@@ -8,6 +8,7 @@ import 'package:learnwithleoni/data/leitner.dart';
 import 'package:learnwithleoni/data/repository.dart';
 import 'package:learnwithleoni/main.dart';
 import 'package:learnwithleoni/screens/home_screen.dart';
+import 'package:learnwithleoni/widgets/exercise_kit.dart' show audioUrl;
 import 'package:learnwithleoni/widgets/leoni.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -176,6 +177,113 @@ FakeSource demoSource() => FakeSource({
     'status': 'draft',
     'cards': <Object>[],
   },
+  // Gemeinsame Bibliothek: Übersetzungen je Sprache, Audio im Themenordner.
+  'themen/gesund/thema.json': {
+    'id': 'gesund',
+    'title': 'Gesundheit',
+    'titleTranslation': {'en': 'Health', 'ja': '健康'},
+    'status': 'published',
+    'cards': [
+      {
+        'id': 'arzt',
+        'term': 'der Arzt',
+        'translation': {'en': 'doctor', 'ja': '医者'},
+        'audio': 'audio/tts/gesund-arzt.mp3',
+      },
+      {
+        'id': 'fieber',
+        'term': 'das Fieber',
+        'translation': {'en': 'fever', 'ja': '熱'},
+      },
+    ],
+    'fide': [
+      {
+        'id': 'praxis',
+        'level': 'A2',
+        'situation': 'Frau Silva ruft in der Praxis an.',
+        'situationTranslation': {'en': 'Ms Silva calls.', 'ja': '電話します。'},
+        'items': [
+          {
+            'id': 'p1',
+            'question': 'Wann ist der Termin?',
+            'text': 'Assistentin: Am Dienstag um zehn Uhr.',
+            'pictures': ['week:Mo', 'week:Di', 'week:Fr'],
+            'answer': 1,
+          },
+        ],
+      },
+      {
+        'id': 'chefin',
+        'level': 'B1',
+        'situation': 'Herr Keller ist krank.',
+        'items': [
+          {
+            'id': 'c1',
+            'question': 'Was braucht die Chefin?',
+            'text': 'Chefin: Ab Donnerstag ein Arztzeugnis, bitte.',
+            'keywords': ['Zeugnis'],
+            'model': 'ein Arztzeugnis',
+          },
+        ],
+      },
+    ],
+  },
+  'students/vane1/student.json': {
+    'name': 'Vanessa',
+    'explainLanguage': 'en',
+    'themen': ['gesund'],
+    'sets': ['essen', 'gesund-zh'],
+  },
+  'students/vane1/sets/essen.json': {
+    'id': 'essen',
+    'title': 'Essen',
+    'status': 'published',
+    'cards': [
+      {'id': 'brot', 'term': 'das Brot', 'translation': 'bread'},
+      {'id': 'kaese', 'term': 'der Käse', 'translation': 'cheese'},
+    ],
+    'fide': [
+      {
+        'id': 'markt',
+        'level': 'A2',
+        'situation': 'Frau Nakamura ist auf dem Markt.',
+        'items': [
+          {
+            'id': 'm1',
+            'question': 'Was kostet ein Kilo Tomaten?',
+            'text': 'Verkäuferin: Heute nur vier Franken fünfzig.',
+            'pictures': ['price:6.00', 'price:4.50', 'price:5.40'],
+            'answer': 1,
+          },
+        ],
+      },
+      {
+        'id': 'einladung',
+        'level': 'B1',
+        'situation': 'Frau Silva ist eingeladen.',
+        'items': [
+          {
+            'id': 'e1',
+            'question': 'Was soll Frau Silva mitbringen?',
+            'text': 'Nachbarin: Bring doch ein Dessert mit!',
+            'keywords': ['Dessert|Kuchen'],
+            'model': 'ein Dessert',
+          },
+        ],
+      },
+    ],
+  },
+  // Zusatz zum Thema: nur auf der Themenseite, nicht bei „Heute“.
+  'students/vane1/sets/gesund-zh.json': {
+    'id': 'gesund-zh',
+    'title': 'Gesundheit auf Züritüütsch',
+    'variety': 'gsw',
+    'status': 'published',
+    'topic': 'gesund',
+    'cards': [
+      {'id': 'dokter', 'term': 'de Dokter', 'translation': 'doctor'},
+    ],
+  },
 });
 
 Future<void> pumpApp(
@@ -206,23 +314,94 @@ Future<void> pumpApp(
 }
 
 void main() {
-  testWidgets('Startseite zeigt Begrüßung, Sets und Spiele', (tester) async {
+  testWidgets('Startseite zeigt Begrüßung, Themen und den Weg zu den Spielen', (
+    tester,
+  ) async {
     await pumpApp(tester, '/s/anna1');
     expect(
       find.text('Hallo Anna!'),
       findsOneWidget,
     ); // Oberfläche immer Deutsch
-    expect(
-      find.text('Your sets'),
-      findsOneWidget,
-    ); // Hilfesprache klein daneben
+    expect(find.text('Topics'), findsOneWidget); // Hilfesprache klein daneben
     expect(find.text('Beim Arzt'), findsOneWidget);
     expect(
       find.text('Geheimer Entwurf'),
       findsNothing,
     ); // Entwürfe nie beim Schüler
     expect(find.text('2 neue Karten'), findsOneWidget);
+    // Ohne fide-Aufgaben gibt es keine fide-Karte.
+    expect(find.text('fide-Training'), findsNothing);
+    // Die Spiele haben eine eigene kleine Seite.
+    expect(find.text('Hangman'), findsNothing);
+    await tester.ensureVisible(find.text('Spiele'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Spiele'));
+    await tester.pumpAndSettle();
     expect(find.text('Hangman'), findsOneWidget);
+    expect(find.text('Kreuzworträtsel'), findsOneWidget);
+  });
+
+  test(
+    'Bibliothek: Übersetzung in der Hilfesprache, Audio im Themenordner',
+    () async {
+      final repo = ContentRepository(demoSource());
+      final content = await repo.student('vane1');
+      final theme = content.set('gesund')!;
+      expect(theme.titleTranslation, 'Health');
+      expect(theme.cards.first.translation, 'doctor');
+      expect(
+        theme.cards.first.audio,
+        'themen/gesund/audio/tts/gesund-arzt.mp3',
+      );
+      expect(
+        audioUrl('vane1', theme.cards.first.audio),
+        'data/themen/gesund/audio/tts/gesund-arzt.mp3',
+      );
+      expect(
+        audioUrl('vane1', 'audio/tts/essen-brot.mp3'),
+        'data/students/vane1/audio/tts/essen-brot.mp3',
+      );
+      // Der Zusatz ist kein eigenes Thema und zählt nicht für „Heute“.
+      expect(content.topics.map((s) => s.id), ['gesund', 'essen']);
+      expect(content.mainSets.map((s) => s.id), isNot(contains('gesund-zh')));
+      expect(content.extrasOf('gesund').single.id, 'gesund-zh');
+    },
+  );
+
+  testWidgets('Zusatz auf Züritüütsch steht nur auf der Themenseite', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/vane1');
+    expect(find.text('Gesundheit'), findsOneWidget);
+    expect(find.text('Health'), findsOneWidget);
+    expect(find.text('Gesundheit auf Züritüütsch'), findsNothing);
+    // 2 Wörter Gesundheit + 2 Wörter Essen, der Zusatz nicht.
+    expect(find.text('4 neue Karten'), findsOneWidget);
+
+    await tester.ensureVisible(find.text('Gesundheit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Gesundheit'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Gesundheit auf Züritüütsch'));
+    await tester.pumpAndSettle();
+    expect(find.text('Gesundheit auf Züritüütsch'), findsOneWidget);
+    expect(find.text('Zusatz'), findsOneWidget);
+    expect(find.text('doctor'), findsOneWidget);
+    expect(find.text('医者'), findsNothing);
+  });
+
+  testWidgets('fide-Training auf der Startseite mischt alle Themen', (
+    tester,
+  ) async {
+    await pumpApp(tester, '/s/vane1');
+    expect(find.text('fide-Training'), findsOneWidget);
+    await tester.ensureVisible(find.widgetWithText(FilledButton, 'Üben'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(FilledButton, 'Üben'));
+    await tester.pumpAndSettle();
+    // Gleich im Übungsmodus: je zwei Situationen A2 und B1 aus beiden Themen.
+    expect(find.textContaining('1 von 4'), findsOneWidget);
+    expect(find.text('Wie in der Prüfung'), findsNothing);
   });
 
   testWidgets('Startseite passt auf ein schmales Handy', (tester) async {
@@ -526,11 +705,12 @@ void main() {
     tester,
   ) async {
     await pumpApp(tester, '/s/samm1');
-    // Unter „Deine Sets“ steht nur das Thema.
+    // Unter „Themen“ steht nur das Thema.
     expect(find.text('Beim Arzt'), findsOneWidget);
     expect(find.text('Wörter ohne Thema'), findsNothing);
-    expect(find.text('5 Wörter'), findsOneWidget);
 
+    await tester.ensureVisible(find.text('Alle Wörter'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Alle Wörter'));
     await tester.pumpAndSettle();
 

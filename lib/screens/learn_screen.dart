@@ -35,7 +35,7 @@ class LearnScreen extends StatelessWidget {
     code: code,
     builder: (context, data) {
       final sets = setId == null
-          ? data.content.sets
+          ? data.content.mainSets
           : [?data.content.set(setId!)];
       return _LearnView(code: code, data: data, sets: sets);
     },

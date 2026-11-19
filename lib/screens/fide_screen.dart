@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,10 +22,25 @@ import '../widgets/page_frame.dart';
 /// Situation und Frage hören, Hörtext hören, Frage nochmals – dann auf ein
 /// Bild zeigen (A2) oder kurz frei antworten (B1).
 class FideScreen extends StatefulWidget {
-  const FideScreen({super.key, required this.code, required this.set});
+  const FideScreen({
+    super.key,
+    required this.code,
+    required this.sets,
+    required this.title,
+    this.startMode,
+  });
 
   final String code;
-  final VocabSet set;
+
+  /// Ein Thema – oder alle Themen gemischt (fide-Training auf der Startseite).
+  final List<VocabSet> sets;
+  final String title;
+
+  /// `practice` oder `exam`: gleich mit diesem Modus beginnen.
+  final String? startMode;
+
+  /// Gemischt aus allen Themen: so viele Situationen pro Stufe wie im Test.
+  static const mixedPerLevel = 2;
 
   @override
   State<FideScreen> createState() => _FideScreenState();
@@ -68,13 +85,26 @@ class _FideScreenState extends State<FideScreen> {
 
   late final List<_Step> _steps = () {
     final out = <_Step>[];
-    for (final s in widget.set.fide) {
+    for (final s in _situations()) {
       for (final (i, item) in s.items.indexed) {
         out.add(_Step(s, item, first: i == 0, number: out.length + 1));
       }
     }
     return out;
   }();
+
+  /// Ein Thema: alle Situationen der Reihe nach. Alle Themen: zufällig je
+  /// [FideScreen.mixedPerLevel] Situationen A2 und B1, A2 zuerst – wie im Test.
+  List<FideSituation> _situations() {
+    final all = [for (final s in widget.sets) ...s.fide];
+    if (widget.sets.length < 2) return all;
+    all.shuffle(_random);
+    final a2 = all.where((s) => s.level == 'A2').take(FideScreen.mixedPerLevel);
+    final b1 = all.where((s) => s.level != 'A2').take(FideScreen.mixedPerLevel);
+    return [...a2, ...b1];
+  }
+
+  final _random = Random();
 
   _Mode? _mode;
   int _index = 0;
@@ -87,6 +117,21 @@ class _FideScreenState extends State<FideScreen> {
 
   bool get _exam => _mode == _Mode.exam;
   _Step get _step => _steps[_index];
+
+  @override
+  void initState() {
+    super.initState();
+    final start = switch (widget.startMode) {
+      'practice' => _Mode.practice,
+      'exam' => _Mode.exam,
+      _ => null,
+    };
+    if (start != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _start(start);
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -230,7 +275,7 @@ class _FideScreenState extends State<FideScreen> {
         LeoniSays(
           pose: LeoniPose.read,
           companion: KumaPose.wave,
-          headline: widget.set.title,
+          headline: widget.title,
           subline: [if (a2 > 0) '$a2 × A2', if (b1 > 0) '$b1 × B1'].join(' · '),
           figureHeight: 140,
         ),

@@ -23,6 +23,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:learnwithleoni/data/library.dart' show localizeTheme;
 import 'package:learnwithleoni/data/models.dart';
 import 'package:learnwithleoni/games/abc/abc_game.dart' show AbcHint;
 import 'package:learnwithleoni/learn/exercises.dart' show gapInExample;
@@ -105,152 +106,44 @@ Future<void> main(List<String> args) async {
     ) as Map<String, dynamic>;
     final voice = student['voice'] == 'de-CH' ? voiceCh : voiceDe;
     final manifestFile = File('${dir.path}/$ttsDir/index.json');
-    final manifest = manifestFile.existsSync()
-        ? (jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>)
-        : <String, dynamic>{};
+    final manifest = _readManifest(manifestFile);
 
-    for (final setId in (student['sets'] as List).cast<String>()) {
+    for (final setId
+        in ((student['sets'] as List?) ?? const []).cast<String>()) {
       final setFile = File('${dir.path}/sets/$setId.json');
       final set =
           jsonDecode(setFile.readAsStringSync()) as Map<String, dynamic>;
-      // Kumachan hilft auch bei Bündnerdütsch – auf Hochdeutsch.
+      // Kumachan hilft auch beim Dialekt – auf Hochdeutsch.
       allSets.add(set);
-      if (set['variety'] == 'gsw') continue; // Bündnerdütsch spricht nur Leoni.
-      var changed = false;
-
-      Future<String?> make(
-        String name,
-        String ssmlBody, {
-        String v = voiceDe,
-        bool fullSsml = false,
-      }) async {
-        final rel = '$ttsDir/$setId-$name.mp3';
-        final ssml = fullSsml ? _speak(ssmlBody) : _ssml(ssmlBody, voice: v);
-        final hash = _hash(ssml);
-        final file = File('${dir.path}/$rel');
-        if (!force && manifest[rel] == hash && file.existsSync()) {
-          skipped++;
-          return rel;
-        }
-        chars += ssmlBody.length;
-        if (dry.isNotEmpty) {
-          stdout.writeln('  würde erzeugen: $rel');
-          if (showSsml) stdout.writeln('    $ssml');
-          return file.existsSync() ? rel : null;
-        }
-        await _synthesize(ssml, file);
-        manifest[rel] = hash;
-        made++;
-        stdout.writeln('  erzeugt: $rel');
-        return rel;
-      }
-
-      for (final card in (set['cards'] as List).cast<Map<String, dynamic>>()) {
-        final id = card['id'] as String;
-        final term = card['term'] as String;
-
-        // Wort – nie über Leonis eigene Aufnahme schreiben.
-        final own = card['audio'] as String?;
-        if (own == null || own.startsWith('$ttsDir/')) {
-          final rel = await make(id, _say(term), v: voice);
-          if (rel != null && card['audio'] != rel) {
-            card['audio'] = rel;
-            changed = true;
-          }
-        }
-
-        final example = card['example'] as String?;
-        if (example != null) {
-          final rel = await make('$id-satz', _say(example), v: voice);
-          if (rel != null && card['exampleAudio'] != rel) {
-            card['exampleAudio'] = rel;
-            changed = true;
-          }
-          final gap = gapInExample(VocabCard.fromJson(card));
-          if (gap != null) {
-            final parts = gap.sentence.split('___');
-            final body =
-                '${_say(parts[0])}<break time="250ms"/>'
-                '<prosody pitch="+8%" rate="-10%">hm, hm, hm</prosody>'
-                '<break time="250ms"/>${_say(parts.length > 1 ? parts[1] : '')}';
-            final relGap = await make('$id-luecke', body, v: voice);
-            if (relGap != null && card['gapAudio'] != relGap) {
-              card['gapAudio'] = relGap;
-              changed = true;
-            }
-          }
-        }
-
-        final hint = card['hint'] as String?;
-        if (hint != null) {
-          // Kumachan liest ihre Tipps selbst – mit süsser, quietschiger Stimme.
-          final rel = await make(
-            '$id-tipp',
-            '<prosody pitch="$kumaPitch" rate="+4%">${_say(hint)}</prosody>',
-            v: kumaVoice,
-          );
-          if (rel != null && card['hintAudio'] != rel) {
-            card['hintAudio'] = rel;
-            changed = true;
-          }
-        }
-      }
-
-      for (final l
-          in ((set['listening'] as List?) ?? const [])
-              .cast<Map<String, dynamic>>()) {
-        final own = l['audio'] as String?;
-        if (own != null && !own.startsWith('$ttsDir/')) continue;
-        final rel = await make(
-          l['id'] as String,
-          _dialog(l['text'] as String),
-          v: voice,
-        );
-        if (rel != null && l['audio'] != rel) {
-          l['audio'] = rel;
-          changed = true;
-        }
-      }
-
-      // fide: eine Aufnahme pro Frage, aufgebaut wie im Test.
-      for (final s
-          in ((set['fide'] as List?) ?? const [])
-              .cast<Map<String, dynamic>>()) {
-        final items = ((s['items'] as List?) ?? const [])
-            .cast<Map<String, dynamic>>();
-        for (final (i, item) in items.indexed) {
-          final own = item['audio'] as String?;
-          if (own != null && !own.startsWith('$ttsDir/')) continue;
-          final rel = await make(
-            'fide-${item['id']}',
-            _fide(
-              situation: i == 0 ? s['situation'] as String : null,
-              question: item['question'] as String,
-              text: item['text'] as String,
-            ),
-            fullSsml: true,
-          );
-          if (rel != null && item['audio'] != rel) {
-            item['audio'] = rel;
-            changed = true;
-          }
-        }
-      }
-
-      if (changed && dry.isEmpty) {
-        setFile.writeAsStringSync(
-          '${const JsonEncoder.withIndent('  ').convert(set)}\n',
-        );
+      if (set['variety'] == 'gsw') continue; // Dialekt spricht nur Leoni.
+      if (await _processSet(dir.path, setId, set, manifest, voice)) {
+        _writeJson(setFile, set);
         stdout.writeln(
           '${dir.uri.pathSegments.where((s) => s.isNotEmpty).last}/$setId aktualisiert',
         );
       }
     }
-    if (dry.isEmpty && manifest.isNotEmpty) {
-      manifestFile.parent.createSync(recursive: true);
-      manifestFile.writeAsStringSync(
-        '${const JsonEncoder.withIndent('  ').convert(manifest)}\n',
-      );
+    _writeManifest(manifestFile, manifest);
+  }
+
+  // Gemeinsame Themen-Bibliothek: eine Aufnahme für alle Schüler.
+  final library = Directory('web/data/themen');
+  if (library.existsSync()) {
+    for (final dir in library.listSync().whereType<Directory>()) {
+      final themeFile = File('${dir.path}/thema.json');
+      if (!themeFile.existsSync()) continue;
+      final theme =
+          jsonDecode(themeFile.readAsStringSync()) as Map<String, dynamic>;
+      final id = theme['id'] as String;
+      allSets.add(localizeTheme(theme, 'en'));
+      if (theme['variety'] == 'gsw') continue;
+      final manifestFile = File('${dir.path}/$ttsDir/index.json');
+      final manifest = _readManifest(manifestFile);
+      if (await _processSet(dir.path, id, theme, manifest, voiceDe)) {
+        _writeJson(themeFile, theme);
+        stdout.writeln('themen/$id aktualisiert');
+      }
+      _writeManifest(manifestFile, manifest);
     }
   }
   await _kumaBank(allSets);
@@ -258,6 +151,156 @@ Future<void> main(List<String> args) async {
     '${dry.isNotEmpty ? 'Probelauf' : 'Fertig'}: $made erzeugt, $skipped unverändert, '
     'ca. $chars Zeichen${dry.isNotEmpty ? ' würden gesendet' : ''}.',
   );
+}
+
+Map<String, dynamic> _readManifest(File file) => file.existsSync()
+    ? (jsonDecode(file.readAsStringSync()) as Map<String, dynamic>)
+    : <String, dynamic>{};
+
+void _writeManifest(File file, Map<String, dynamic> manifest) {
+  if (dry.isNotEmpty || manifest.isEmpty) return;
+  file.parent.createSync(recursive: true);
+  _writeJson(file, manifest);
+}
+
+void _writeJson(File file, Map<String, dynamic> json) {
+  if (dry.isNotEmpty) return;
+  file.writeAsStringSync(
+    '${const JsonEncoder.withIndent('  ').convert(json)}\n',
+  );
+}
+
+/// Erzeugt die Aufnahmen eines Sets (oder Bibliotheksthemas) im Ordner
+/// [baseDir] und trägt die Pfade ins [set] ein. `true`, wenn sich etwas
+/// geändert hat.
+Future<bool> _processSet(
+  String baseDir,
+  String setId,
+  Map<String, dynamic> set,
+  Map<String, dynamic> manifest,
+  String voice,
+) async {
+  var changed = false;
+
+  Future<String?> make(
+    String name,
+    String ssmlBody, {
+    String v = voiceDe,
+    bool fullSsml = false,
+  }) async {
+    final rel = '$ttsDir/$setId-$name.mp3';
+    final ssml = fullSsml ? _speak(ssmlBody) : _ssml(ssmlBody, voice: v);
+    final hash = _hash(ssml);
+    final file = File('$baseDir/$rel');
+    if (!force && manifest[rel] == hash && file.existsSync()) {
+      skipped++;
+      return rel;
+    }
+    chars += ssmlBody.length;
+    if (dry.isNotEmpty) {
+      stdout.writeln('  würde erzeugen: $rel');
+      if (showSsml) stdout.writeln('    $ssml');
+      return file.existsSync() ? rel : null;
+    }
+    await _synthesize(ssml, file);
+    manifest[rel] = hash;
+    made++;
+    stdout.writeln('  erzeugt: $rel');
+    return rel;
+  }
+
+  for (final card in (set['cards'] as List).cast<Map<String, dynamic>>()) {
+    final id = card['id'] as String;
+    final term = card['term'] as String;
+
+    // Wort – nie über Leonis eigene Aufnahme schreiben.
+    final own = card['audio'] as String?;
+    if (own == null || own.startsWith('$ttsDir/')) {
+      final rel = await make(id, _say(term), v: voice);
+      if (rel != null && card['audio'] != rel) {
+        card['audio'] = rel;
+        changed = true;
+      }
+    }
+
+    final example = card['example'] as String?;
+    if (example != null) {
+      final rel = await make('$id-satz', _say(example), v: voice);
+      if (rel != null && card['exampleAudio'] != rel) {
+        card['exampleAudio'] = rel;
+        changed = true;
+      }
+      // Bibliothek: Übersetzungen je Sprache – fürs Modell eine auswählen.
+      final gap = gapInExample(VocabCard.fromJson(localizeTheme(card, 'en')));
+      if (gap != null) {
+        final parts = gap.sentence.split('___');
+        final body =
+            '${_say(parts[0])}<break time="250ms"/>'
+            '<prosody pitch="+8%" rate="-10%">hm, hm, hm</prosody>'
+            '<break time="250ms"/>${_say(parts.length > 1 ? parts[1] : '')}';
+        final relGap = await make('$id-luecke', body, v: voice);
+        if (relGap != null && card['gapAudio'] != relGap) {
+          card['gapAudio'] = relGap;
+          changed = true;
+        }
+      }
+    }
+
+    final hint = card['hint'] as String?;
+    if (hint != null) {
+      // Kumachan liest ihre Tipps selbst – mit süsser, quietschiger Stimme.
+      final rel = await make(
+        '$id-tipp',
+        '<prosody pitch="$kumaPitch" rate="+4%">${_say(hint)}</prosody>',
+        v: kumaVoice,
+      );
+      if (rel != null && card['hintAudio'] != rel) {
+        card['hintAudio'] = rel;
+        changed = true;
+      }
+    }
+  }
+
+  for (final l
+      in ((set['listening'] as List?) ?? const [])
+          .cast<Map<String, dynamic>>()) {
+    final own = l['audio'] as String?;
+    if (own != null && !own.startsWith('$ttsDir/')) continue;
+    final rel = await make(
+      l['id'] as String,
+      _dialog(l['text'] as String),
+      v: voice,
+    );
+    if (rel != null && l['audio'] != rel) {
+      l['audio'] = rel;
+      changed = true;
+    }
+  }
+
+  // fide: eine Aufnahme pro Frage, aufgebaut wie im Test.
+  for (final s
+      in ((set['fide'] as List?) ?? const []).cast<Map<String, dynamic>>()) {
+    final items = ((s['items'] as List?) ?? const [])
+        .cast<Map<String, dynamic>>();
+    for (final (i, item) in items.indexed) {
+      final own = item['audio'] as String?;
+      if (own != null && !own.startsWith('$ttsDir/')) continue;
+      final rel = await make(
+        'fide-${item['id']}',
+        _fide(
+          situation: i == 0 ? s['situation'] as String : null,
+          question: item['question'] as String,
+          text: item['text'] as String,
+        ),
+        fullSsml: true,
+      );
+      if (rel != null && item['audio'] != rel) {
+        item['audio'] = rel;
+        changed = true;
+      }
+    }
+  }
+  return changed;
 }
 
 /// Dialog: Zeilen „Name: Text“ bekommen je eine eigene Stimme.

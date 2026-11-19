@@ -142,12 +142,6 @@ abstract class AppLocalizations {
   /// **'Für heute ist alles erledigt.'**
   String get allDoneToday;
 
-  /// No description provided for @yourSets.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine Sets'**
-  String get yourSets;
-
   /// No description provided for @cardCount.
   ///
   /// In de, this message translates to:
@@ -1137,6 +1131,42 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'LearnwithLeoni sammelt keine Daten. Es gibt kein Konto, kein Tracking und keine Cookies.\n\nDein Lernstand wird nur auf deinem Gerät gespeichert (im Browser). Leoni sieht ihn nicht. Wenn du die Browserdaten löschst oder das Gerät wechselst, beginnt dein Lernstand neu – deine Inhalte bleiben erhalten.\n\nOnline gespeichert sind nur dein Vorname oder Spitzname, deine Sprache, dein Niveau und deine Lerninhalte.'**
   String get privacyBody;
+
+  /// Überschrift der Themenliste auf der Startseite
+  ///
+  /// In de, this message translates to:
+  /// **'Themen'**
+  String get topics;
+
+  /// Karte auf der Startseite: fide-Hörverstehen über alle Themen
+  ///
+  /// In de, this message translates to:
+  /// **'fide-Training'**
+  String get fideTraining;
+
+  /// Untertitel der fide-Karte
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Themen gemischt – wie im Test.'**
+  String get fideTrainingInfo;
+
+  /// Titel des gemischten fide-Trainings
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Themen'**
+  String get fideAllTopics;
+
+  /// Kurzer Name für Kumachans Decke (kleine Kachel)
+  ///
+  /// In de, this message translates to:
+  /// **'Decke'**
+  String get blanketShort;
+
+  /// Kennzeichen für einen Zusatz zu einem Thema, z. B. Zürichdeutsch
+  ///
+  /// In de, this message translates to:
+  /// **'Zusatz'**
+  String get extra;
 }
 
 class _AppLocalizationsDelegate

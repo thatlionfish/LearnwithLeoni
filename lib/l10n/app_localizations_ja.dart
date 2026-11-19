@@ -49,9 +49,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get allDoneToday => '今日の分はすべて終わりました。';
 
   @override
-  String get yourSets => 'あなたのセット';
-
-  @override
   String cardCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -656,4 +653,22 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get privacyBody =>
       'LearnwithLeoniはデータを集めません。アカウントも、トラッキングも、クッキーもありません。\n\n学習の進み具合はあなたの端末（ブラウザ）にだけ保存されます。レオニには見えません。ブラウザのデータを消したり端末を変えたりすると、進み具合は最初からになりますが、学習内容はそのまま残ります。\n\nオンラインに保存されているのは、あなたの名前（またはニックネーム）、言語、レベル、学習内容だけです。';
+
+  @override
+  String get topics => 'テーマ';
+
+  @override
+  String get fideTraining => 'fide対策';
+
+  @override
+  String get fideTrainingInfo => '全テーマをまぜて、本番と同じ形式で。';
+
+  @override
+  String get fideAllTopics => '全テーマ';
+
+  @override
+  String get blanketShort => 'ブランケット';
+
+  @override
+  String get extra => 'おまけ';
 }

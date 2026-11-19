@@ -26,7 +26,11 @@ class ExerciseScreen extends StatelessWidget {
     required this.typeSlug,
     this.setId,
     this.textId,
+    this.mode,
   });
+
+  /// fide: gleich mit „practice“ oder „exam“ beginnen.
+  final String? mode;
 
   /// Hörverstehen: welcher Hörtext (sonst der erste).
   final String? textId;
@@ -41,7 +45,7 @@ class ExerciseScreen extends StatelessWidget {
     builder: (context, data) {
       final t = AppLocalizations.of(context);
       final type = ExerciseType.fromSlug(typeSlug);
-      final sets = data.content.sets;
+      final sets = data.content.mainSets;
       final set = setId == null ? null : data.content.set(setId!);
       if (type == null || (setId != null && set == null) || sets.isEmpty) {
         return MessageScreen(
@@ -61,7 +65,18 @@ class ExerciseScreen extends StatelessWidget {
       final s = set ?? sets.first;
       return switch (type) {
         ExerciseType.match => MatchScreen(code: code, set: s),
-        ExerciseType.fide => FideScreen(code: code, set: s),
+        // Ohne Set: fide-Training über alle Themen gemischt.
+        ExerciseType.fide => FideScreen(
+          code: code,
+          sets: set != null
+              ? [set]
+              : [
+                  for (final x in sets)
+                    if (x.fide.isNotEmpty) x,
+                ],
+          title: set?.title ?? t.fideAllTopics,
+          startMode: mode,
+        ),
         ExerciseType.listening => _ListeningScreen(
           code: code,
           set: s,

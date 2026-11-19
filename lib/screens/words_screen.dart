@@ -45,7 +45,7 @@ class _WordsViewState extends State<_WordsView> {
 
   SetStats _sum() {
     var total = 0, secure = 0, learned = 0, learning = 0, due = 0;
-    for (final set in widget.data.content.sets) {
+    for (final set in widget.data.content.mainSets) {
       final s = widget.data.progress.stats(set);
       total += s.total;
       secure += s.secure;
@@ -72,7 +72,7 @@ class _WordsViewState extends State<_WordsView> {
     final stats = _sum();
     final loose = content.collection;
     final shown = [
-      for (final w in allWords(content.sets))
+      for (final w in allWords(content.mainSets))
         if (wordMatches(w, _query)) w,
     ];
 

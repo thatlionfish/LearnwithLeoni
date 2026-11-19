@@ -2,17 +2,40 @@
   "@@locale": "de",
   "appTitle": "LearnwithLeoni",
   "greeting": "Hallo {name}!",
-  "@greeting": { "placeholders": { "name": { "type": "String" } } },
+  "@greeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "todayTitle": "Heute",
   "dueCount": "{count, plural, =0{Keine Karten zu wiederholen} =1{1 Karte zu wiederholen} other{{count} Karten zu wiederholen}}",
-  "@dueCount": { "placeholders": { "count": { "type": "int" } } },
+  "@dueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "newCount": "{count, plural, =0{keine neuen Karten} =1{1 neue Karte} other{{count} neue Karten}}",
-  "@newCount": { "placeholders": { "count": { "type": "int" } } },
+  "@newCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "startLearning": "Jetzt lernen",
   "allDoneToday": "Für heute ist alles erledigt.",
-  "yourSets": "Deine Sets",
   "cardCount": "{count, plural, =1{1 Karte} other{{count} Karten}}",
-  "@cardCount": { "placeholders": { "count": { "type": "int" } } },
+  "@cardCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "statLearned": "gelernt",
   "statLearning": "im Lernen",
   "statNew": "neu",
@@ -40,20 +63,53 @@
   "gradeAlmost": "Fast",
   "gradeNotKnown": "Nicht gewusst",
   "progressOf": "{current} von {total}",
-  "@progressOf": { "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+  "@progressOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "sessionDoneTitle": "Geschafft!",
   "sessionDoneStats": "{knew} gewusst · {almost} fast · {notKnown} noch üben",
-  "@sessionDoneStats": { "placeholders": { "knew": { "type": "int" }, "almost": { "type": "int" }, "notKnown": { "type": "int" } } },
+  "@sessionDoneStats": {
+    "placeholders": {
+      "knew": {
+        "type": "int"
+      },
+      "almost": {
+        "type": "int"
+      },
+      "notKnown": {
+        "type": "int"
+      }
+    }
+  },
   "backHome": "Zur Startseite",
   "nothingToLearn": "Gerade gibt es hier nichts zu wiederholen. Komm morgen wieder!",
   "streakDays": "{count, plural, =1{1 Tag in Folge} other{{count} Tage in Folge}}",
-  "@streakDays": { "placeholders": { "count": { "type": "int" } } },
+  "@streakDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "exampleLabel": "Beispiel",
   "close": "Schließen",
   "allCards": "Alle Karten",
   "allWords": "Alle Wörter",
   "wordCount": "{count, plural, =1{1 Wort} other{{count} Wörter}}",
-  "@wordCount": { "placeholders": { "count": { "type": "int" } } },
+  "@wordCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "wordSearch": "Wort suchen",
   "wordsNoMatch": "Kein Wort gefunden.",
   "looseWordsPractice": "Wörter ohne Thema üben",
@@ -81,7 +137,16 @@
   "listenFirst": "Hör dir zuerst den Text an, dann beantworte die Fragen.",
   "exerciseDone": "Übung geschafft!",
   "scoreOf": "{correct} von {total} richtig",
-  "@scoreOf": { "placeholders": { "correct": { "type": "int" }, "total": { "type": "int" } } },
+  "@scoreOf": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "again": "Nochmal",
   "revealLetter": "Buchstabe aufdecken",
   "across": "Waagrecht",
@@ -90,7 +155,6 @@
   "voiceNote": "Computerstimme – Leonis Aufnahme folgt.",
   "audioMissing": "Für diesen Text gibt es noch keine Aufnahme.",
   "chooseSet": "Welches Set?",
-  
   "listenSentence": "Satz anhören",
   "caseHint": "Achte auf die Groß- und Kleinschreibung:",
   "dictationAlmost": "Fast – schau dir die markierten Wörter an:",
@@ -100,24 +164,57 @@
   "crosswordListenHint": "Hör dir den Satz an. Bei der Pause fehlt ein Wort – schreib es so ins Rätsel, wie es in den Satz passt.",
   "hangmanAll": "Alle",
   "hangmanCategory": "Kategorie: {name}",
-  "@hangmanCategory": { "placeholders": { "name": { "type": "String" } } },
+  "@hangmanCategory": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "hangmanHint": "Tipp (kostet 1 Leben)",
   "hangmanShowClue": "Übersetzung als Hinweis",
   "hangmanWon": "Gewonnen!",
   "hangmanLost": "Leider verloren",
   "hangmanSolvedWith": "{count, plural, =0{Ohne Fehler gelöst!} =1{Mit 1 Fehler gelöst.} other{Mit {count} Fehlern gelöst.}}",
-  "@hangmanSolvedWith": { "placeholders": { "count": { "type": "int" } } },
+  "@hangmanSolvedWith": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "hangmanWordWas": "Das Wort war:",
   "newGame": "Neues Spiel",
   "orPressEnter": "oder Enter drücken",
   "statWins": "Siege",
   "statLosses": "Niederlagen",
   "statStreak": "Serie (Rekord: {best})",
-  "@statStreak": { "placeholders": { "best": { "type": "int" } } },
+  "@statStreak": {
+    "placeholders": {
+      "best": {
+        "type": "int"
+      }
+    }
+  },
   "livesLeft": "Noch {count} von {max} Versuchen",
-  "@livesLeft": { "placeholders": { "count": { "type": "int" }, "max": { "type": "int" } } },
+  "@livesLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
   "letterKey": "Buchstabe {letter}",
-  "@letterKey": { "placeholders": { "letter": { "type": "String" } } },
+  "@letterKey": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
   "abcTitle": "ABC-Radio",
   "abcIntro": "Ein Buchstabe, eine Minute Sendezeit: Finde so viele Wörter wie möglich, die mit dem Buchstaben anfangen. Weisst du eines nicht, sag einfach „weiter“.",
   "abcTopics": "Themen",
@@ -129,17 +226,44 @@
   "abcTopicTraditions": "Traditionen",
   "abcTime": "Sendezeit",
   "abcSeconds": "{count} Sekunden",
-  "@abcSeconds": { "placeholders": { "count": { "type": "int" } } },
+  "@abcSeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "abcStart": "Auf Sendung!",
   "abcSkip": "Weiter",
   "abcOk": "OK",
   "abcLetter": "Buchstabe",
   "abcGoal": "Ziel: {count} richtige",
-  "@abcGoal": { "placeholders": { "count": { "type": "int" } } },
+  "@abcGoal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "abcScore": "{count} richtig",
-  "@abcScore": { "placeholders": { "count": { "type": "int" } } },
+  "@abcScore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "abcRecord": "Dein Rekord mit {letter}: {count}",
-  "@abcRecord": { "placeholders": { "letter": { "type": "String" }, "count": { "type": "int" } } },
+  "@abcRecord": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "abcTimeUp": "Sendeschluss!",
   "abcGoalReached": "Ziel erreicht – stark!",
   "abcReview": "Alle Hinweise",
@@ -148,35 +272,86 @@
   "germanFront": "Deutsch vorne",
   "germanBack": "Deutsch hinten",
   "reviewIn": "{count, plural, =0{kommt heute nochmal} =1{kommt morgen wieder} other{kommt in {count} Tagen wieder}}",
-  "@reviewIn": { "placeholders": { "count": { "type": "int" } } },
+  "@reviewIn": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "reviewAgainNow": "kommt gleich nochmal",
   "reviewSecure": "jetzt sicher – kommt nicht mehr von selbst",
   "securedCount": "{count, plural, =1{1 Wort kannst du jetzt sicher!} other{{count} Wörter kannst du jetzt sicher!}}",
-  "@securedCount": { "placeholders": { "count": { "type": "int" } } },
+  "@securedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "cardBox": "Fach {box} von 5",
-  "@cardBox": { "placeholders": { "box": { "type": "int" } } },
+  "@cardBox": {
+    "placeholders": {
+      "box": {
+        "type": "int"
+      }
+    }
+  },
   "spacedInfo": "Was du weisst, kommt erst nach 1, 2, 4, 8 und 16 Tagen wieder. Weisst du es dann noch, kannst du es sicher.",
   "blanketUnroll": "Decke ausrollen",
   "blanketRollUp": "Wieder einrollen",
   "blanketAsk": "Willst du deine Decke sehen?",
   "blanketTapKuma": "Kumachans Decke ansehen",
   "blanketSquares": "{count, plural, =1{1 Quadrat in der Decke} other{{count} Quadrate in der Decke}}",
-  "@blanketSquares": { "placeholders": { "count": { "type": "int" } } },
+  "@blanketSquares": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "blanketTitle": "Kumachans Decke",
   "blanketIntro": "Jedes Wort ist ein Häkelquadrat. Immer wenn du ein Wort weisst, häkelt Kumachan eine Runde dazu. Ist das Wort sicher, häkelt sie das Quadrat an ihre grosse Decke und wickelt sich darin ein – je mehr du kannst, desto dicker wird die Rolle. Roll die Decke aus, um zu sehen, wie viel du schon gelernt hast.",
   "blanketSummary": "{attached} an der Decke · {onHook} am Haken",
-  "@blanketSummary": { "placeholders": { "attached": { "type": "int" }, "onHook": { "type": "int" } } },
+  "@blanketSummary": {
+    "placeholders": {
+      "attached": {
+        "type": "int"
+      },
+      "onHook": {
+        "type": "int"
+      }
+    }
+  },
   "blanketOnHook": "Am Haken",
   "blanketAttached": "An der Decke",
   "blanketWaiting": "{count, plural, =1{1 Wort wartet noch auf Kumachans Haken.} other{{count} Wörter warten noch auf Kumachans Haken.}}",
-  "@blanketWaiting": { "placeholders": { "count": { "type": "int" } } },
+  "@blanketWaiting": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "blanketRounds": "{count} von 5 Runden",
-  "@blanketRounds": { "placeholders": { "count": { "type": "int" } } },
+  "@blanketRounds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "blanketEmpty": "Lern deine ersten Wörter – dann beginnt Kumachan zu häkeln.",
   "blanketOpen": "Zur Decke",
   "blanketToday": "Heute gehäkelt",
   "blanketNewRounds": "{count, plural, =1{Kumachan hat 1 Runde gehäkelt.} other{Kumachan hat {count} Runden gehäkelt.}}",
-  "@blanketNewRounds": { "placeholders": { "count": { "type": "int" } } },
+  "@blanketNewRounds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "blanketJoined": "an die Decke!",
   "helpLanguage": "Hilfesprache",
   "helpLanguageInfo": "Die App bleibt auf Deutsch. Die Hilfesprache steht nur klein daneben.",
@@ -190,17 +365,65 @@
   "fideStart": "Los geht's",
   "fideSituation": "Situation",
   "fideQuestion": "Frage {number}",
-  "@fideQuestion": { "placeholders": { "number": { "type": "int" } } },
+  "@fideQuestion": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "fidePlay": "Anhören",
   "fidePlaysLeft": "{count, plural, =0{Du hast zweimal gehört.} =1{Du darfst noch einmal hören.} other{Du darfst {count}-mal hören.}}",
-  "@fidePlaysLeft": { "placeholders": { "count": { "type": "int" } } },
+  "@fidePlaysLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "fidePictureTask": "Welches Bild passt? Tippe auf a, b oder c.",
   "fideOpenTask": "Beantworte die Frage kurz – zwei, drei Wörter genügen.",
   "fideModelAnswer": "Mögliche Antwort:",
   "fideSelfCheck": "Meine Antwort bedeutet dasselbe",
   "fideTranscript": "Das hast du gehört:",
   "fidePoints": "{level}: {points} von {max} Punkten",
-  "@fidePoints": { "placeholders": { "level": { "type": "String" }, "points": { "type": "int" }, "max": { "type": "int" } } },
+  "@fidePoints": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
   "fideResultNote": "Im echten Test zählen die Punkte aus «Verstehen» und «Sprechen» zusammen.",
-  "privacyBody":"LearnwithLeoni sammelt keine Daten. Es gibt kein Konto, kein Tracking und keine Cookies.\n\nDein Lernstand wird nur auf deinem Gerät gespeichert (im Browser). Leoni sieht ihn nicht. Wenn du die Browserdaten löschst oder das Gerät wechselst, beginnt dein Lernstand neu – deine Inhalte bleiben erhalten.\n\nOnline gespeichert sind nur dein Vorname oder Spitzname, deine Sprache, dein Niveau und deine Lerninhalte."
+  "privacyBody": "LearnwithLeoni sammelt keine Daten. Es gibt kein Konto, kein Tracking und keine Cookies.\n\nDein Lernstand wird nur auf deinem Gerät gespeichert (im Browser). Leoni sieht ihn nicht. Wenn du die Browserdaten löschst oder das Gerät wechselst, beginnt dein Lernstand neu – deine Inhalte bleiben erhalten.\n\nOnline gespeichert sind nur dein Vorname oder Spitzname, deine Sprache, dein Niveau und deine Lerninhalte.",
+  "topics": "Themen",
+  "@topics": {
+    "description": "Überschrift der Themenliste auf der Startseite"
+  },
+  "fideTraining": "fide-Training",
+  "@fideTraining": {
+    "description": "Karte auf der Startseite: fide-Hörverstehen über alle Themen"
+  },
+  "fideTrainingInfo": "Alle Themen gemischt – wie im Test.",
+  "@fideTrainingInfo": {
+    "description": "Untertitel der fide-Karte"
+  },
+  "fideAllTopics": "Alle Themen",
+  "@fideAllTopics": {
+    "description": "Titel des gemischten fide-Trainings"
+  },
+  "blanketShort": "Decke",
+  "@blanketShort": {
+    "description": "Kurzer Name für Kumachans Decke (kleine Kachel)"
+  },
+  "extra": "Zusatz",
+  "@extra": {
+    "description": "Kennzeichen für einen Zusatz zu einem Thema, z. B. Zürichdeutsch"
+  }
 }

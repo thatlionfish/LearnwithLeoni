@@ -41,6 +41,26 @@ für neue Inhalte ist keine Code-Änderung nötig.
       vorkommen (`["sieben|7|19"]`); `"model"` (Musterantwort), `"modelTranslation"`?
     - Typisch fide: Im Hörtext kommen auch die falschen Antworten vor.
     - Eigene Texte schreiben – die fide-Modellversion ist urheberrechtlich geschützt.
+- **Themen-Bibliothek** (fide-Themen für mehrere Schüler): `web/data/themen/<id>/thema.json`,
+  Schüler wählen sie mit `"themen": ["gesundheit", …]` in `student.json`.
+  - Übersetzungen je Hilfesprache im selben Feld: `"translation": {"en": …, "ja": …}`
+    (alle Sprachen aus `libraryLanguages` in `lib/data/library.dart` – ein Test prüft das).
+  - Audio relativ zum Themenordner (`audio/tts/…`); `tool/tts.dart` erzeugt es dort einmal für alle.
+  - Schweizer Schreibweise (ss, kein ß), Personen neutral (z. B. „Lea“, „Frau Nakamura“),
+    nie der Name eines bestimmten Schülers.
+  - fide-Aufgaben sind **immer Hochdeutsch**.
+  - Fertig: Gesundheit, Essen, Wohnen. Weitere fide-Themen erst, wenn sie im Unterricht drankommen
+    (Arbeit, Kinder, Einkaufen, Post/Bank/Versicherungen, Mobilität, Medien und Freizeit,
+    Ausbildung, Jobsuche, Verwaltung, Reise, Feier, Kleidung, Wetter).
+  - Reika hat Essen/Wohnen noch als eigene Sets (gleiche IDs und Karten-IDs wie in der
+    Bibliothek – ein späterer Wechsel behält ihren Lernstand). Bibliotheksthemen bei Reika
+    erst einfügen, wenn Leoni es sagt.
+- **Zusatz zu einem Thema** (z. B. Zürichdeutsch-Trainer): eigenes Set des Schülers mit
+  `"topic": "<themen-id>"`, `"variety": "gsw"`, klein halten (etwa 10 Wörter). Steht nur auf der
+  Themenseite, nicht unter „Themen“, nicht bei „Heute“/„Alle Wörter“. Dialektformen sind
+  Vorschläge (`"verified": false`, Status `draft`), bis Leoni sie in der Werkstatt prüft und aufnimmt.
+- Links aller Schüler: `dart run tool/links.dart` schreibt `werkstatt/notizen/links.md` (privat).
+  Nach jedem neuen Schüler laufen lassen.
 - Die Oberfläche ist immer Deutsch. Die Erklärsprache (`explainLanguage`) ist nur
   „Hilfesprache“: klein daneben (`Glossed`) oder auf Tippen (`HelpReveal`).
   Sprachen mit Hilfetexten: `lib/l10n/app_*.arb` (de, en, ja).
@@ -107,6 +127,11 @@ dart run tool/gen_kuma.dart    # Posen von Kumachan neu erzeugen
   und `snugSleepy`); die Rolle wird immer dicker. Man kann sie
   ausrollen (`UnrolledBlanket`). Pro Schüler über alle Sets; Seite `#/s/<code>/decke`,
   erreichbar über Kumachan auf der Startseite und am Ende der Lernrunde.
+- Startseite in Bereichen: Heute · fide-Training (nur mit fide-Aufgaben; alle Themen gemischt,
+  je 2 Situationen A2 und B1, `#/s/<code>/ueben/fide?mode=practice|exam`) · Themen (schlanke
+  Zeilen) · unten drei kleine Kacheln Alle Wörter · Spiele (`#/s/<code>/spiele`) · Decke.
+- Lange Wörter nie mitten im Wort trennen: `WordFitText` (`lib/widgets/word_fit_text.dart`)
+  macht die Schrift kleiner, `ActionTiles` macht Kacheln breiter.
 - Texte der Oberfläche: `lib/l10n/app_*.arb` (de, en, ja). Neue Sprache = neue ARB-Datei.
 - Hangman stammt aus `C:\dev\Apps\Hangman` – Szene und Farben bleiben 1:1.
 - Commit/Push nur, wenn Leoni es sagt.

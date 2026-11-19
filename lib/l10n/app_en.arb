@@ -7,7 +7,6 @@
   "newCount": "{count, plural, =0{no new cards} =1{1 new card} other{{count} new cards}}",
   "startLearning": "Start learning",
   "allDoneToday": "You're all done for today.",
-  "yourSets": "Your sets",
   "cardCount": "{count, plural, =1{1 card} other{{count} cards}}",
   "statLearned": "learned",
   "statLearning": "learning",
@@ -81,7 +80,6 @@
   "voiceNote": "Computer voice – Leoni's recording is coming.",
   "audioMissing": "There's no recording for this text yet.",
   "chooseSet": "Which set?",
-  
   "listenSentence": "Listen to the sentence",
   "caseHint": "Watch the capital and small letters:",
   "dictationAlmost": "Almost – look at the marked words:",
@@ -173,5 +171,11 @@
   "fideTranscript": "This is what you heard:",
   "fidePoints": "{level}: {points} of {max} points",
   "fideResultNote": "In the real test, the points from “Listening” and “Speaking” are combined.",
-  "privacyBody":"LearnwithLeoni doesn't collect any data. There's no account, no tracking and no cookies.\n\nYour progress is stored only on your device (in your browser). Leoni can't see it. If you clear your browser data or switch devices, your progress starts over – your content stays.\n\nThe only things stored online are your first name or nickname, your language, your level and your learning content."
+  "privacyBody": "LearnwithLeoni doesn't collect any data. There's no account, no tracking and no cookies.\n\nYour progress is stored only on your device (in your browser). Leoni can't see it. If you clear your browser data or switch devices, your progress starts over – your content stays.\n\nThe only things stored online are your first name or nickname, your language, your level and your learning content.",
+  "topics": "Topics",
+  "fideTraining": "fide training",
+  "fideTrainingInfo": "All topics mixed – just like the test.",
+  "fideAllTopics": "All topics",
+  "blanketShort": "Blanket",
+  "extra": "Extra"
 }

@@ -10,13 +10,12 @@ import '../l10n/app_localizations.dart';
 import '../l10n/gloss.dart';
 import '../ui/colors.dart';
 import '../ui/organic.dart';
-import '../widgets/action_tiles.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/leoni.dart';
 import '../widgets/page_frame.dart';
 import '../widgets/settings_sheet.dart';
-import '../widgets/stats_line.dart';
 import '../widgets/student_loader.dart';
+import '../widgets/word_fit_text.dart';
 
 /// Persönliche Startseite unter `#/s/<code>`.
 class HomeScreen extends StatelessWidget {
@@ -68,7 +67,7 @@ class _HomeViewState extends State<_HomeView> {
     final text = Theme.of(context).textTheme;
     final code = widget.code;
     final data = widget.data;
-    final sets = data.content.sets;
+    final sets = data.content.mainSets;
     final stats = {for (final s in sets) s.id: data.progress.stats(s)};
     final due = stats.values.fold(0, (a, s) => a + s.due);
     final fresh = stats.values.fold(0, (a, s) => a + s.fresh);
@@ -142,60 +141,69 @@ class _HomeViewState extends State<_HomeView> {
           ),
         ),
 
-        const SizedBox(height: 12),
-        _WordsTile(
-          count: stats.values.fold(0, (a, s) => a + s.total),
-          onTap: () => _open('/s/$code/woerter'),
-        ),
+        // fide-Training: alle Themen gemischt, direkt von hier.
+        if (sets.any((s) => s.fide.isNotEmpty)) ...[
+          const SizedBox(height: 12),
+          _FideCard(
+            onPractice: () => _open('/s/$code/ueben/fide?mode=practice'),
+            onExam: () => _open('/s/$code/ueben/fide?mode=exam'),
+          ),
+        ],
 
-        // Unter „Deine Sets“ stehen nur die Themen aus dem Unterricht.
+        // Themen: schlank, ein Tipp führt zu allem, was dazugehört.
         if (data.content.topics.isNotEmpty) ...[
-          const SizedBox(height: 32),
+          const SizedBox(height: 28),
           Glossed(
-            t.yourSets,
-            gloss: glossOf(context)?.yourSets,
+            t.topics,
+            gloss: glossOf(context)?.topics,
             style: text.headlineSmall,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
           for (final (i, set) in data.content.topics.indexed) ...[
-            _SetTile(
+            _TopicRow(
               set: set,
               stats: stats[set.id]!,
               seed: 20 + i,
               onTap: () => _open('/s/$code/set/${set.id}'),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 8),
           ],
         ],
 
-        const SizedBox(height: 20),
-        Glossed(
-          t.games,
-          gloss: glossOf(context)?.games,
-          style: text.headlineSmall,
-        ),
-        const SizedBox(height: 12),
-        ActionTiles(
-          seed: 40,
-          minWidth: 172,
-          spacing: 12,
-          iconSize: 24,
-          gap: 12,
-          padding: const EdgeInsets.all(18),
-          tiles: [
-            for (final (label, icon, slug) in [
-              (t.gameHangman, Icons.gesture_rounded, 'hangman'),
-              (t.gameAbcRadio, Icons.radio_outlined, 'abc-radio'),
-              (t.gameCrossword, Icons.grid_view_rounded, 'kreuzwort'),
-            ])
+        const SizedBox(height: 24),
+        Row(
+          children: [
+            for (final (i, (label, gloss, icon, location)) in [
               (
-                label: label,
-                icon: icon,
-                onTap: () => _open(switch (slug) {
-                  'kreuzwort' => '/s/$code/ueben/kreuzwort',
-                  _ => '/s/$code/spiel/$slug',
-                }),
+                t.allWords,
+                glossOf(context)?.allWords,
+                Icons.menu_book_rounded,
+                '/s/$code/woerter',
               ),
+              (
+                t.games,
+                glossOf(context)?.games,
+                Icons.extension_rounded,
+                '/s/$code/spiele',
+              ),
+              (
+                t.blanketShort,
+                glossOf(context)?.blanketShort,
+                Icons.bed_rounded,
+                '/s/$code/decke',
+              ),
+            ].indexed) ...[
+              if (i > 0) const SizedBox(width: 10),
+              Expanded(
+                child: _SmallTile(
+                  label: label,
+                  gloss: gloss,
+                  icon: icon,
+                  seed: 16 + i,
+                  onTap: () => _open(location),
+                ),
+              ),
+            ],
           ],
         ),
       ],
@@ -203,43 +211,64 @@ class _HomeViewState extends State<_HomeView> {
   }
 }
 
-/// Klein und schmal: der Weg zu allen Wörtern.
-class _WordsTile extends StatelessWidget {
-  const _WordsTile({required this.count, required this.onTap});
+/// fide-Hörverstehen über alle Themen: gleich üben oder wie in der Prüfung.
+class _FideCard extends StatelessWidget {
+  const _FideCard({required this.onPractice, required this.onExam});
 
-  final int count;
-  final VoidCallback onTap;
+  final VoidCallback onPractice;
+  final VoidCallback onExam;
 
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context);
+    final g = glossOf(context);
     final text = Theme.of(context).textTheme;
     return OrganicCard(
-      seed: 16,
-      onTap: onTap,
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-      child: Row(
+      seed: 13,
+      padding: const EdgeInsets.fromLTRB(22, 18, 22, 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.menu_book_rounded, size: 22),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Glossed(
-              t.allWords,
-              gloss: glossOf(context)?.allWords,
-              style: text.titleSmall,
-            ),
+          Row(
+            children: [
+              const Icon(Icons.headphones_rounded, size: 22),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Glossed(
+                  t.fideTraining,
+                  gloss: g?.fideTraining,
+                  style: text.titleLarge,
+                ),
+              ),
+            ],
           ),
-          Text(t.wordCount(count), style: text.bodySmall),
-          const SizedBox(width: 4),
-          const Icon(Icons.chevron_right_rounded, size: 22),
+          const SizedBox(height: 6),
+          Glossed(
+            t.fideTrainingInfo,
+            gloss: g?.fideTrainingInfo,
+            style: text.bodyMedium,
+          ),
+          const SizedBox(height: 14),
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: [
+              FilledButton(
+                onPressed: onPractice,
+                child: Text(t.fideModePractice),
+              ),
+              OutlinedButton(onPressed: onExam, child: Text(t.fideModeExam)),
+            ],
+          ),
         ],
       ),
     );
   }
 }
 
-class _SetTile extends StatelessWidget {
-  const _SetTile({
+/// Eine Zeile pro Thema: Titel, Fortschritt, Pfeil.
+class _TopicRow extends StatelessWidget {
+  const _TopicRow({
     required this.set,
     required this.stats,
     required this.seed,
@@ -253,43 +282,77 @@ class _SetTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppLocalizations.of(context);
     final text = Theme.of(context).textTheme;
     return OrganicCard(
       seed: seed,
       onTap: onTap,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      padding: const EdgeInsets.fromLTRB(18, 12, 10, 12),
+      child: Row(
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(set.title, style: text.titleLarge),
-                    if (set.titleTranslation.isNotEmpty)
-                      Text(set.titleTranslation, style: text.bodySmall),
-                  ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(set.title, style: text.titleMedium),
+                if (set.titleTranslation.isNotEmpty)
+                  Text(set.titleTranslation, style: text.bodySmall),
+                const SizedBox(height: 8),
+                StackedProgress(
+                  secure: stats.secure,
+                  learned: stats.learned,
+                  learning: stats.learning,
+                  total: stats.total,
                 ),
-              ),
-              if (set.variety == Variety.gsw)
-                Padding(
-                  padding: const EdgeInsets.only(left: 8),
-                  child: Text('Bündnerdütsch', style: text.labelMedium),
-                ),
-            ],
+              ],
+            ),
           ),
-          const SizedBox(height: 14),
-          StackedProgress(
-            secure: stats.secure,
-            learned: stats.learned,
-            learning: stats.learning,
-            total: stats.total,
+          const SizedBox(width: 12),
+          Text(
+            '${stats.secure + stats.learned}/${stats.total}',
+            style: text.labelMedium,
           ),
-          const SizedBox(height: 8),
-          Text(statsLine(t, stats), style: text.bodySmall),
+          const Icon(Icons.chevron_right_rounded, size: 22),
+        ],
+      ),
+    );
+  }
+}
+
+/// Kleine Kachel unten: Alle Wörter, Spiele, Decke.
+class _SmallTile extends StatelessWidget {
+  const _SmallTile({
+    required this.label,
+    required this.gloss,
+    required this.icon,
+    required this.seed,
+    required this.onTap,
+  });
+
+  final String label;
+  final String? gloss;
+  final IconData icon;
+  final int seed;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+    return OrganicCard(
+      seed: seed,
+      onTap: onTap,
+      semanticLabel: label,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 14),
+      child: Column(
+        children: [
+          Icon(icon, size: 24),
+          const SizedBox(height: 6),
+          WordFitText(
+            label,
+            textAlign: TextAlign.center,
+            style: text.titleSmall ?? const TextStyle(),
+          ),
+          if (gloss != null && gloss != label)
+            Text(gloss!, textAlign: TextAlign.center, style: glossStyle(11)),
         ],
       ),
     );

@@ -34,9 +34,13 @@ IconData exerciseIcon(ExerciseType type) => switch (type) {
   ExerciseType.fide => Icons.headphones_rounded,
 };
 
-/// Adresse einer Audiodatei im Ordner des Schülers.
-String? audioUrl(String code, String? file) =>
-    file == null ? null : 'data/students/$code/$file';
+/// Adresse einer Audiodatei im Ordner des Schülers – oder in der
+/// Themen-Bibliothek (`themen/<id>/…`, siehe `lib/data/library.dart`).
+String? audioUrl(String code, String? file) => file == null
+    ? null
+    : file.startsWith('themen/')
+    ? 'data/$file'
+    : 'data/students/$code/$file';
 
 /// Sprachcode für die Computerstimme.
 String voiceLang(VocabSet set) =>

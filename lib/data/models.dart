@@ -18,6 +18,7 @@ class Student {
     required this.level,
     required this.targets,
     required this.setIds,
+    this.themeIds = const [],
     this.crosswordAudio = false,
   });
 
@@ -30,6 +31,7 @@ class Student {
       for (final t in (j['targets'] as List?) ?? const ['de']) Variety.parse(t),
     ],
     setIds: [for (final s in (j['sets'] as List?) ?? const []) s as String],
+    themeIds: [for (final s in (j['themen'] as List?) ?? const []) s as String],
     crosswordAudio: j['crossword'] == 'audio',
   );
 
@@ -40,7 +42,12 @@ class Student {
   final String explainLanguage;
   final String level;
   final List<Variety> targets;
+
+  /// Eigene Sets unter `students/<code>/sets/`.
   final List<String> setIds;
+
+  /// Themen aus der gemeinsamen Bibliothek (`themen/<id>/thema.json`).
+  final List<String> themeIds;
 
   /// Kreuzworträtsel mit gesprochenen statt geschriebenen Hinweisen
   /// ("crossword": "audio" in student.json).
@@ -60,6 +67,7 @@ class VocabSet {
     this.listening = const [],
     this.fide = const [],
     this.isCollection = false,
+    this.topic,
   });
 
   factory VocabSet.fromJson(Map<String, dynamic> j) => VocabSet(
@@ -69,6 +77,7 @@ class VocabSet {
     variety: Variety.parse(j['variety']),
     published: j['status'] == 'published',
     isCollection: j['collection'] == true,
+    topic: j['topic'] as String?,
     cards: [
       for (final c in (j['cards'] as List?) ?? const [])
         VocabCard.fromJson(c as Map<String, dynamic>),
@@ -98,6 +107,14 @@ class VocabSet {
   /// Sammlung einzelner Wörter ohne Thema: kein eigenes Set auf der
   /// Startseite, die Wörter stehen unter „Alle Wörter“ und kommen beim Lernen.
   final bool isCollection;
+
+  /// Zusatz zu einem Thema, z. B. „Gesundheit auf Züritüütsch“ zu
+  /// `gesundheit`: kein eigenes Thema auf der Startseite und nicht in der
+  /// Lernrunde von „Heute“ – man findet es auf der Seite des Themas.
+  final String? topic;
+
+  /// Zusatz zu einem Thema (siehe [topic]).
+  bool get isExtra => topic != null;
   final List<VocabCard> cards;
 
   /// Von Leoni geschriebene Lückensätze.

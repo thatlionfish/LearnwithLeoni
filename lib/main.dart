@@ -11,6 +11,7 @@ import 'games/abc/abc_screen.dart';
 import 'games/hangman/hangman_screen.dart';
 import 'screens/blanket_screen.dart';
 import 'screens/exercise_screen.dart';
+import 'screens/games_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/learn_screen.dart';
 import 'screens/message_screen.dart';
@@ -114,6 +115,7 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
             typeSlug: state.pathParameters['type']!,
             setId: state.uri.queryParameters['set'],
             textId: state.uri.queryParameters['text'],
+            mode: state.uri.queryParameters['mode'],
           ),
         ),
         GoRoute(
@@ -123,7 +125,7 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
             return StudentLoader(
               code: code,
               builder: (_, data) =>
-                  HangmanScreen(code: code, sets: data.content.sets),
+                  HangmanScreen(code: code, sets: data.content.mainSets),
             );
           },
         ),
@@ -136,10 +138,15 @@ GoRouter buildRouter({String initialLocation = '/'}) => GoRouter(
               builder: (_, data) => AbcRadioScreen(
                 code: code,
                 student: data.content.student,
-                sets: data.content.sets,
+                sets: data.content.mainSets,
               ),
             );
           },
+        ),
+        GoRoute(
+          path: 'spiele',
+          builder: (_, state) =>
+              GamesScreen(code: state.pathParameters['code']!),
         ),
         GoRoute(
           path: 'decke',

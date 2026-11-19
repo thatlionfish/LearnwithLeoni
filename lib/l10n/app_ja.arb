@@ -7,7 +7,6 @@
   "newCount": "{count, plural, =0{新しいカードはありません} other{新しいカード：{count}枚}}",
   "startLearning": "学習を始める",
   "allDoneToday": "今日の分はすべて終わりました。",
-  "yourSets": "あなたのセット",
   "cardCount": "{count, plural, other{カード{count}枚}}",
   "statLearned": "覚えた",
   "statLearning": "学習中",
@@ -172,5 +171,11 @@
   "fideTranscript": "聞いたテキスト：",
   "fidePoints": "{level}：{max}点中{points}点",
   "fideResultNote": "本番では「聞き取り」と「会話」の点数を合わせて評価します。",
-  "privacyBody": "LearnwithLeoniはデータを集めません。アカウントも、トラッキングも、クッキーもありません。\n\n学習の進み具合はあなたの端末（ブラウザ）にだけ保存されます。レオニには見えません。ブラウザのデータを消したり端末を変えたりすると、進み具合は最初からになりますが、学習内容はそのまま残ります。\n\nオンラインに保存されているのは、あなたの名前（またはニックネーム）、言語、レベル、学習内容だけです。"
+  "privacyBody": "LearnwithLeoniはデータを集めません。アカウントも、トラッキングも、クッキーもありません。\n\n学習の進み具合はあなたの端末（ブラウザ）にだけ保存されます。レオニには見えません。ブラウザのデータを消したり端末を変えたりすると、進み具合は最初からになりますが、学習内容はそのまま残ります。\n\nオンラインに保存されているのは、あなたの名前（またはニックネーム）、言語、レベル、学習内容だけです。",
+  "topics": "テーマ",
+  "fideTraining": "fide対策",
+  "fideTrainingInfo": "全テーマをまぜて、本番と同じ形式で。",
+  "fideAllTopics": "全テーマ",
+  "blanketShort": "ブランケット",
+  "extra": "おまけ"
 }

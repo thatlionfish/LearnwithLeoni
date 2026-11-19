@@ -51,9 +51,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allDoneToday => 'You\'re all done for today.';
 
   @override
-  String get yourSets => 'Your sets';
-
-  @override
   String cardCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -681,4 +678,22 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get privacyBody =>
       'LearnwithLeoni doesn\'t collect any data. There\'s no account, no tracking and no cookies.\n\nYour progress is stored only on your device (in your browser). Leoni can\'t see it. If you clear your browser data or switch devices, your progress starts over – your content stays.\n\nThe only things stored online are your first name or nickname, your language, your level and your learning content.';
+
+  @override
+  String get topics => 'Topics';
+
+  @override
+  String get fideTraining => 'fide training';
+
+  @override
+  String get fideTrainingInfo => 'All topics mixed – just like the test.';
+
+  @override
+  String get fideAllTopics => 'All topics';
+
+  @override
+  String get blanketShort => 'Blanket';
+
+  @override
+  String get extra => 'Extra';
 }

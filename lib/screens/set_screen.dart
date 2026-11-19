@@ -129,6 +129,36 @@ class _SetViewState extends State<_SetView> {
               ),
           ],
         ),
+        // Zusätze zum Thema, z. B. die wichtigsten Wörter auf Züritüütsch.
+        for (final (i, extra)
+            in widget.data.content.extrasOf(set.id).indexed) ...[
+          const SizedBox(height: 18),
+          OrganicCard(
+            seed: 95 + i,
+            onTap: () async {
+              await context.push('/s/${widget.code}/set/${extra.id}');
+              if (mounted) setState(() {});
+            },
+            padding: const EdgeInsets.fromLTRB(18, 12, 10, 12),
+            child: Row(
+              children: [
+                const Icon(Icons.record_voice_over_rounded, size: 22),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Glossed(
+                    extra.title,
+                    gloss: extra.titleTranslation.isEmpty
+                        ? null
+                        : extra.titleTranslation,
+                    style: text.titleSmall,
+                  ),
+                ),
+                Text(t.extra, style: text.labelMedium),
+                const Icon(Icons.chevron_right_rounded, size: 22),
+              ],
+            ),
+          ),
+        ],
         const SizedBox(height: 30),
         Glossed(
           t.allCards,
