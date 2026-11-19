@@ -1,0 +1,110 @@
+{
+  "id": "gesundheit-zh",
+  "title": "Gesundheit auf Züritüütsch",
+  "titleTranslation": "Health in Zurich German",
+  "variety": "gsw",
+  "status": "draft",
+  "topic": "gesundheit",
+  "cards": [
+    {
+      "id": "dokter",
+      "term": "de Dokter",
+      "translation": "doctor",
+      "alt": "Hochdeutsch: der Arzt",
+      "example": "Ich muess zum Dokter.",
+      "exampleTranslation": "I have to go to the doctor.",
+      "hint": "Er untersucht kranke Menschen.",
+      "verified": false
+    },
+    {
+      "id": "chopfweh",
+      "term": "s Chopfweh",
+      "translation": "headache",
+      "alt": "Hochdeutsch: die Kopfschmerzen",
+      "example": "Ich han Chopfweh.",
+      "exampleTranslation": "I have a headache.",
+      "hint": "Der Kopf tut weh.",
+      "verified": false
+    },
+    {
+      "id": "halsweh",
+      "term": "s Halsweh",
+      "translation": "sore throat",
+      "alt": "Hochdeutsch: die Halsschmerzen",
+      "example": "Sit geschter han ich Halsweh.",
+      "exampleTranslation": "I've had a sore throat since yesterday.",
+      "hint": "Der Hals tut weh, vor allem beim Schlucken.",
+      "verified": false
+    },
+    {
+      "id": "buuchweh",
+      "term": "s Buuchweh",
+      "translation": "stomach ache",
+      "alt": "Hochdeutsch: die Bauchschmerzen",
+      "example": "S Chind hät Buuchweh.",
+      "exampleTranslation": "The child has a stomach ache.",
+      "hint": "Der Bauch tut weh.",
+      "verified": false
+    },
+    {
+      "id": "chrank",
+      "term": "chrank",
+      "translation": "ill, sick",
+      "alt": "Hochdeutsch: krank",
+      "example": "Ich bi hüt chrank.",
+      "exampleTranslation": "I'm ill today.",
+      "hint": "Man fühlt sich nicht gut und bleibt im Bett.",
+      "verified": false
+    },
+    {
+      "id": "verchaeltet",
+      "term": "verchältet",
+      "translation": "having a cold",
+      "alt": "Hochdeutsch: erkältet",
+      "example": "Ich bi verchältet.",
+      "exampleTranslation": "I have a cold.",
+      "hint": "Man hat Schnupfen und Husten.",
+      "verified": false
+    },
+    {
+      "id": "spital",
+      "term": "s Spital",
+      "translation": "hospital",
+      "alt": "Hochdeutsch: das Spital, das Krankenhaus",
+      "example": "Er isch im Spital.",
+      "exampleTranslation": "He's in hospital.",
+      "hint": "Dort bleiben kranke Menschen auch in der Nacht.",
+      "verified": false
+    },
+    {
+      "id": "apiteegg",
+      "term": "d Apiteegg",
+      "translation": "pharmacy",
+      "alt": "Hochdeutsch: die Apotheke",
+      "example": "D Apiteegg isch am Sunntig zue.",
+      "exampleTranslation": "The pharmacy is closed on Sunday.",
+      "hint": "Dort kauft man Medikamente.",
+      "verified": false
+    },
+    {
+      "id": "wehtue",
+      "term": "weh tue",
+      "translation": "to hurt",
+      "alt": "Hochdeutsch: wehtun",
+      "example": "Wo tuets weh?",
+      "exampleTranslation": "Where does it hurt?",
+      "hint": "An einer Stelle vom Körper hat man Schmerzen.",
+      "verified": false
+    },
+    {
+      "id": "besserig",
+      "term": "Gueti Besserig!",
+      "translation": "Get well soon!",
+      "alt": "Hochdeutsch: Gute Besserung!",
+      "example": "Gueti Besserig und blib im Bett!",
+      "exampleTranslation": "Get well soon and stay in bed!",
+      "hint": "Das sagt man zu einem kranken Menschen.",
+      "verified": false
+    }
+  ]
+}

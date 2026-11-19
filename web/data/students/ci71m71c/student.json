@@ -1,0 +1,8 @@
+{
+  "name": "Vanessa",
+  "explainLanguage": "en",
+  "level": "B1",
+  "targets": ["de", "gsw"],
+  "themen": ["gesundheit", "wohnen", "essen"],
+  "sets": ["gesundheit-zh"]
+}

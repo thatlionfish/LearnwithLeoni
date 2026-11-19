@@ -1,0 +1,905 @@
+{
+  "id": "gesundheit",
+  "title": "Gesundheit",
+  "titleTranslation": {
+    "en": "Health",
+    "ja": "健康"
+  },
+  "variety": "de",
+  "status": "published",
+  "cards": [
+    {
+      "id": "arzt",
+      "term": "der Arzt",
+      "plural": "die Ärzte",
+      "translation": {
+        "en": "doctor",
+        "ja": "医者"
+      },
+      "alt": "weiblich: die Ärztin",
+      "example": "Ich habe morgen einen Termin beim Arzt.",
+      "exampleTranslation": {
+        "en": "I have a doctor's appointment tomorrow.",
+        "ja": "明日、医者の予約があります。"
+      },
+      "hint": "Er untersucht kranke Menschen und hilft ihnen.",
+      "audio": "audio/tts/gesundheit-arzt.mp3",
+      "exampleAudio": "audio/tts/gesundheit-arzt-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-arzt-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-arzt-tipp.mp3"
+    },
+    {
+      "id": "arztpraxis",
+      "term": "die Arztpraxis",
+      "plural": "die Arztpraxen",
+      "translation": {
+        "en": "doctor's surgery",
+        "ja": "診療所"
+      },
+      "example": "Die Arztpraxis ist am Mittwochnachmittag geschlossen.",
+      "exampleTranslation": {
+        "en": "The doctor's surgery is closed on Wednesday afternoons.",
+        "ja": "診療所は水曜日の午後は休みです。"
+      },
+      "hint": "Dort arbeitet der Hausarzt, und dort wartet man im Wartezimmer.",
+      "audio": "audio/tts/gesundheit-arztpraxis.mp3",
+      "exampleAudio": "audio/tts/gesundheit-arztpraxis-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-arztpraxis-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-arztpraxis-tipp.mp3"
+    },
+    {
+      "id": "termin",
+      "term": "der Termin",
+      "plural": "die Termine",
+      "translation": {
+        "en": "appointment",
+        "ja": "予約"
+      },
+      "example": "Ich möchte gern einen Termin für nächste Woche.",
+      "exampleTranslation": {
+        "en": "I'd like an appointment for next week, please.",
+        "ja": "来週の予約をお願いしたいです。"
+      },
+      "hint": "Eine feste Zeit, zum Beispiel beim Arzt oder beim Coiffeur.",
+      "audio": "audio/tts/gesundheit-termin.mp3",
+      "exampleAudio": "audio/tts/gesundheit-termin-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-termin-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-termin-tipp.mp3"
+    },
+    {
+      "id": "krank",
+      "term": "krank",
+      "translation": {
+        "en": "ill, sick",
+        "ja": "病気の"
+      },
+      "example": "Ich bin krank und kann heute nicht arbeiten.",
+      "exampleTranslation": {
+        "en": "I'm ill and can't work today.",
+        "ja": "病気なので、今日は働けません。"
+      },
+      "hint": "Man fühlt sich nicht gut und muss vielleicht im Bett bleiben.",
+      "audio": "audio/tts/gesundheit-krank.mp3",
+      "exampleAudio": "audio/tts/gesundheit-krank-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-krank-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-krank-tipp.mp3"
+    },
+    {
+      "id": "fieber",
+      "term": "das Fieber",
+      "translation": {
+        "en": "fever, temperature",
+        "ja": "熱"
+      },
+      "example": "Das Kind hat seit gestern hohes Fieber.",
+      "exampleTranslation": {
+        "en": "The child has had a high temperature since yesterday.",
+        "ja": "子どもは昨日から高い熱があります。"
+      },
+      "hint": "Die Temperatur vom Körper ist höher als 38 Grad.",
+      "audio": "audio/tts/gesundheit-fieber.mp3",
+      "exampleAudio": "audio/tts/gesundheit-fieber-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-fieber-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-fieber-tipp.mp3"
+    },
+    {
+      "id": "kopfschmerzen",
+      "term": "die Kopfschmerzen",
+      "translation": {
+        "en": "headache",
+        "ja": "頭痛"
+      },
+      "example": "Ich habe starke Kopfschmerzen.",
+      "exampleTranslation": {
+        "en": "I have a bad headache.",
+        "ja": "ひどい頭痛がします。"
+      },
+      "hint": "Der Kopf tut weh.",
+      "audio": "audio/tts/gesundheit-kopfschmerzen.mp3",
+      "exampleAudio": "audio/tts/gesundheit-kopfschmerzen-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-kopfschmerzen-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-kopfschmerzen-tipp.mp3"
+    },
+    {
+      "id": "husten",
+      "term": "der Husten",
+      "translation": {
+        "en": "cough",
+        "ja": "咳"
+      },
+      "example": "Gegen den Husten trinke ich warmen Tee mit Honig.",
+      "exampleTranslation": {
+        "en": "For my cough I drink warm tea with honey.",
+        "ja": "咳には、はちみつ入りの温かいお茶を飲みます。"
+      },
+      "hint": "Wenn man erkältet ist, kommt aus dem Hals ein lautes Geräusch.",
+      "audio": "audio/tts/gesundheit-husten.mp3",
+      "exampleAudio": "audio/tts/gesundheit-husten-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-husten-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-husten-tipp.mp3"
+    },
+    {
+      "id": "erkaeltet",
+      "term": "erkältet",
+      "translation": {
+        "en": "having a cold (erkältet sein)",
+        "ja": "風邪をひいている"
+      },
+      "example": "Ich bin erkältet und habe eine laufende Nase.",
+      "exampleTranslation": {
+        "en": "I have a cold and a runny nose.",
+        "ja": "風邪をひいていて、鼻水が出ます。"
+      },
+      "hint": "Man hat Schnupfen und Halsweh, aber es ist nicht schlimm.",
+      "audio": "audio/tts/gesundheit-erkaeltet.mp3",
+      "exampleAudio": "audio/tts/gesundheit-erkaeltet-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-erkaeltet-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-erkaeltet-tipp.mp3"
+    },
+    {
+      "id": "wehtun",
+      "term": "wehtun",
+      "translation": {
+        "en": "to hurt",
+        "ja": "痛む"
+      },
+      "example": "Mein Rücken tut seit gestern weh.",
+      "exampleTranslation": {
+        "en": "My back has been hurting since yesterday.",
+        "ja": "昨日から背中が痛いです。"
+      },
+      "hint": "An einer Stelle vom Körper hat man Schmerzen.",
+      "audio": "audio/tts/gesundheit-wehtun.mp3",
+      "exampleAudio": "audio/tts/gesundheit-wehtun-satz.mp3",
+      "hintAudio": "audio/tts/gesundheit-wehtun-tipp.mp3"
+    },
+    {
+      "id": "schmerzen",
+      "term": "die Schmerzen",
+      "translation": {
+        "en": "pain",
+        "ja": "痛み"
+      },
+      "alt": "Einzahl: der Schmerz",
+      "example": "Haben Sie Schmerzen im Bauch?",
+      "exampleTranslation": {
+        "en": "Do you have pain in your stomach?",
+        "ja": "お腹に痛みがありますか？"
+      },
+      "hint": "Das Gefühl, wenn etwas am Körper wehtut.",
+      "audio": "audio/tts/gesundheit-schmerzen.mp3",
+      "exampleAudio": "audio/tts/gesundheit-schmerzen-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-schmerzen-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-schmerzen-tipp.mp3"
+    },
+    {
+      "id": "apotheke",
+      "term": "die Apotheke",
+      "plural": "die Apotheken",
+      "translation": {
+        "en": "pharmacy",
+        "ja": "薬局"
+      },
+      "example": "Das Medikament bekommst du in der Apotheke.",
+      "exampleTranslation": {
+        "en": "You can get the medicine at the pharmacy.",
+        "ja": "その薬は薬局でもらえます。"
+      },
+      "hint": "Dort kauft man Medikamente, auch ohne Arzt.",
+      "audio": "audio/tts/gesundheit-apotheke.mp3",
+      "exampleAudio": "audio/tts/gesundheit-apotheke-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-apotheke-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-apotheke-tipp.mp3"
+    },
+    {
+      "id": "medikament",
+      "term": "das Medikament",
+      "plural": "die Medikamente",
+      "translation": {
+        "en": "medicine, medication",
+        "ja": "薬"
+      },
+      "example": "Nehmen Sie das Medikament dreimal am Tag.",
+      "exampleTranslation": {
+        "en": "Take the medicine three times a day.",
+        "ja": "この薬を1日3回飲んでください。"
+      },
+      "hint": "Tabletten oder Tropfen, die einem kranken Menschen helfen.",
+      "audio": "audio/tts/gesundheit-medikament.mp3",
+      "exampleAudio": "audio/tts/gesundheit-medikament-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-medikament-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-medikament-tipp.mp3"
+    },
+    {
+      "id": "tablette",
+      "term": "die Tablette",
+      "plural": "die Tabletten",
+      "translation": {
+        "en": "tablet, pill",
+        "ja": "錠剤"
+      },
+      "example": "Nehmen Sie eine Tablette nach dem Essen.",
+      "exampleTranslation": {
+        "en": "Take one tablet after meals.",
+        "ja": "食後に1錠飲んでください。"
+      },
+      "hint": "Ein kleines, rundes Medikament, das man mit Wasser schluckt.",
+      "audio": "audio/tts/gesundheit-tablette.mp3",
+      "exampleAudio": "audio/tts/gesundheit-tablette-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-tablette-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-tablette-tipp.mp3"
+    },
+    {
+      "id": "rezept",
+      "term": "das Rezept",
+      "plural": "die Rezepte",
+      "translation": {
+        "en": "prescription (also: recipe)",
+        "ja": "処方箋（料理のレシピという意味も）"
+      },
+      "example": "Für dieses Medikament brauchen Sie ein Rezept vom Arzt.",
+      "exampleTranslation": {
+        "en": "You need a prescription from the doctor for this medicine.",
+        "ja": "この薬には医者の処方箋が必要です。"
+      },
+      "hint": "Ein Papier vom Arzt, damit man in der Apotheke ein Medikament bekommt.",
+      "audio": "audio/tts/gesundheit-rezept.mp3",
+      "exampleAudio": "audio/tts/gesundheit-rezept-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-rezept-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-rezept-tipp.mp3"
+    },
+    {
+      "id": "untersuchen",
+      "term": "untersuchen",
+      "translation": {
+        "en": "to examine",
+        "ja": "診察する"
+      },
+      "example": "Die Ärztin muss Sie zuerst untersuchen.",
+      "exampleTranslation": {
+        "en": "The doctor has to examine you first.",
+        "ja": "医者はまずあなたを診察しなければなりません。"
+      },
+      "hint": "Genau anschauen und prüfen, was einem Patienten fehlt.",
+      "audio": "audio/tts/gesundheit-untersuchen.mp3",
+      "exampleAudio": "audio/tts/gesundheit-untersuchen-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-untersuchen-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-untersuchen-tipp.mp3"
+    },
+    {
+      "id": "ausruhen",
+      "term": "sich ausruhen",
+      "translation": {
+        "en": "to rest",
+        "ja": "休む"
+      },
+      "example": "Bleiben Sie zu Hause und ruhen Sie sich aus.",
+      "exampleTranslation": {
+        "en": "Stay at home and rest.",
+        "ja": "家にいて、休んでください。"
+      },
+      "hint": "Nicht arbeiten, sondern liegen oder sitzen, damit man wieder Kraft hat.",
+      "audio": "audio/tts/gesundheit-ausruhen.mp3",
+      "exampleAudio": "audio/tts/gesundheit-ausruhen-satz.mp3",
+      "hintAudio": "audio/tts/gesundheit-ausruhen-tipp.mp3"
+    },
+    {
+      "id": "notfall",
+      "term": "der Notfall",
+      "plural": "die Notfälle",
+      "translation": {
+        "en": "emergency",
+        "ja": "緊急（事態）"
+      },
+      "example": "Im Notfall rufen Sie die Nummer 144 an.",
+      "exampleTranslation": {
+        "en": "In an emergency, call 144.",
+        "ja": "緊急のときは144番に電話してください。"
+      },
+      "hint": "Eine gefährliche Situation, man braucht sofort Hilfe.",
+      "audio": "audio/tts/gesundheit-notfall.mp3",
+      "exampleAudio": "audio/tts/gesundheit-notfall-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-notfall-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-notfall-tipp.mp3"
+    },
+    {
+      "id": "spital",
+      "term": "das Spital",
+      "plural": "die Spitäler",
+      "translation": {
+        "en": "hospital (Swiss word)",
+        "ja": "病院（スイスでの言い方）"
+      },
+      "alt": "Deutschland: das Krankenhaus",
+      "example": "Nach dem Unfall musste er ins Spital.",
+      "exampleTranslation": {
+        "en": "After the accident he had to go to hospital.",
+        "ja": "事故のあと、彼は病院に行かなければなりませんでした。"
+      },
+      "hint": "Dort bleiben kranke Menschen auch in der Nacht, und Ärzte operieren.",
+      "audio": "audio/tts/gesundheit-spital.mp3",
+      "exampleAudio": "audio/tts/gesundheit-spital-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-spital-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-spital-tipp.mp3"
+    },
+    {
+      "id": "krankenkasse",
+      "term": "die Krankenkasse",
+      "plural": "die Krankenkassen",
+      "translation": {
+        "en": "health insurance (company)",
+        "ja": "健康保険（会社）"
+      },
+      "example": "In der Schweiz muss jede Person eine Krankenkasse haben.",
+      "exampleTranslation": {
+        "en": "In Switzerland everyone has to have health insurance.",
+        "ja": "スイスでは全員が健康保険に入らなければなりません。"
+      },
+      "hint": "Sie bezahlt den Arzt und die Medikamente, wenn man krank ist.",
+      "audio": "audio/tts/gesundheit-krankenkasse.mp3",
+      "exampleAudio": "audio/tts/gesundheit-krankenkasse-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-krankenkasse-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-krankenkasse-tipp.mp3"
+    },
+    {
+      "id": "versichertenkarte",
+      "term": "die Versichertenkarte",
+      "plural": "die Versichertenkarten",
+      "translation": {
+        "en": "health insurance card",
+        "ja": "保険証"
+      },
+      "example": "Bitte bringen Sie Ihre Versichertenkarte mit.",
+      "exampleTranslation": {
+        "en": "Please bring your health insurance card.",
+        "ja": "保険証を持ってきてください。"
+      },
+      "hint": "Diese Karte von der Krankenkasse zeigt man beim Arzt.",
+      "audio": "audio/tts/gesundheit-versichertenkarte.mp3",
+      "exampleAudio": "audio/tts/gesundheit-versichertenkarte-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-versichertenkarte-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-versichertenkarte-tipp.mp3"
+    },
+    {
+      "id": "arztzeugnis",
+      "term": "das Arztzeugnis",
+      "plural": "die Arztzeugnisse",
+      "translation": {
+        "en": "doctor's certificate, sick note (Swiss word)",
+        "ja": "診断書（スイスでの言い方）"
+      },
+      "example": "Ab dem dritten Tag braucht die Chefin ein Arztzeugnis.",
+      "exampleTranslation": {
+        "en": "From the third day the boss needs a doctor's certificate.",
+        "ja": "3日目からは上司に診断書が必要です。"
+      },
+      "hint": "Ein Papier vom Arzt für den Arbeitgeber, wenn man krank ist.",
+      "audio": "audio/tts/gesundheit-arztzeugnis.mp3",
+      "exampleAudio": "audio/tts/gesundheit-arztzeugnis-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-arztzeugnis-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-arztzeugnis-tipp.mp3"
+    },
+    {
+      "id": "besserung",
+      "term": "gute Besserung",
+      "translation": {
+        "en": "get well soon",
+        "ja": "お大事に"
+      },
+      "example": "Gute Besserung! Ich hoffe, es geht dir bald besser.",
+      "exampleTranslation": {
+        "en": "Get well soon! I hope you feel better soon.",
+        "ja": "お大事に！早く良くなるといいね。"
+      },
+      "hint": "Das sagt man zu einem kranken Menschen.",
+      "audio": "audio/tts/gesundheit-besserung.mp3",
+      "exampleAudio": "audio/tts/gesundheit-besserung-satz.mp3",
+      "gapAudio": "audio/tts/gesundheit-besserung-luecke.mp3",
+      "hintAudio": "audio/tts/gesundheit-besserung-tipp.mp3"
+    }
+  ],
+  "cloze": [
+    {
+      "id": "c-tut",
+      "text": "Mein Kopf ___ weh.",
+      "answers": [
+        "tut"
+      ],
+      "options": [
+        "tut",
+        "macht",
+        "hat"
+      ],
+      "translation": {
+        "en": "My head hurts.",
+        "ja": "頭が痛いです。"
+      },
+      "hint": "Von „wehtun“: Es … weh."
+    },
+    {
+      "id": "c-rezept",
+      "text": "Ohne ___ bekommen Sie dieses Medikament nicht.",
+      "answers": [
+        "Rezept"
+      ],
+      "options": [
+        "Rezept",
+        "Termin",
+        "Fieber"
+      ],
+      "translation": {
+        "en": "You won't get this medicine without a prescription.",
+        "ja": "処方箋がないと、この薬はもらえません。"
+      },
+      "hint": "Ein Papier vom Arzt für die Apotheke."
+    },
+    {
+      "id": "c-termin",
+      "text": "Ich möchte bitte einen ___ beim Hausarzt vereinbaren.",
+      "answers": [
+        "Termin"
+      ],
+      "options": [
+        "Termin",
+        "Notfall",
+        "Spital"
+      ],
+      "translation": {
+        "en": "I'd like to make an appointment with my GP, please.",
+        "ja": "かかりつけ医の予約を取りたいのですが。"
+      },
+      "hint": "Eine feste Zeit beim Arzt."
+    },
+    {
+      "id": "c-fieber",
+      "text": "Das Kind hat 39 Grad ___.",
+      "answers": [
+        "Fieber"
+      ],
+      "options": [
+        "Fieber",
+        "Husten",
+        "Schmerzen"
+      ],
+      "translation": {
+        "en": "The child has a temperature of 39 degrees.",
+        "ja": "子どもは39度の熱があります。"
+      },
+      "hint": "Die Temperatur vom Körper ist zu hoch."
+    },
+    {
+      "id": "c-aus",
+      "text": "Bleiben Sie im Bett und ruhen Sie sich gut ___.",
+      "answers": [
+        "aus"
+      ],
+      "options": [
+        "aus",
+        "an",
+        "ab"
+      ],
+      "translation": {
+        "en": "Stay in bed and get plenty of rest.",
+        "ja": "ベッドでゆっくり休んでください。"
+      },
+      "hint": "Von „sich ausruhen“."
+    },
+    {
+      "id": "c-notfall",
+      "text": "Bei einem ___ rufen Sie sofort die Nummer 144 an.",
+      "answers": [
+        "Notfall"
+      ],
+      "options": [
+        "Notfall",
+        "Termin",
+        "Rezept"
+      ],
+      "translation": {
+        "en": "In an emergency, call 144 immediately.",
+        "ja": "緊急のときは、すぐに144番に電話してください。"
+      },
+      "hint": "Eine gefährliche Situation."
+    }
+  ],
+  "listening": [
+    {
+      "id": "h1",
+      "title": "Beim Hausarzt",
+      "titleTranslation": {
+        "en": "At the GP's",
+        "ja": "かかりつけ医で"
+      },
+      "text": "Ärztin: Guten Tag, Frau Meier. Was fehlt Ihnen?\nPatientin: Ich habe seit drei Tagen Husten und Halsschmerzen. Und gestern Abend hatte ich Fieber.\nÄrztin: Wie hoch war das Fieber?\nPatientin: Achtunddreissig Komma fünf. Heute Morgen war es schon etwas besser.\nÄrztin: Ich untersuche Sie kurz. Sie sind stark erkältet, aber es ist nichts Schlimmes. Ich gebe Ihnen ein Rezept für einen Hustensirup.\nPatientin: Brauche ich auch ein Arztzeugnis für die Arbeit?\nÄrztin: Ja, ich schreibe Sie bis Freitag krank. Ruhen Sie sich gut aus. Gute Besserung!",
+      "questions": [
+        {
+          "q": "Seit wann hat Frau Meier Husten?",
+          "options": [
+            "Seit gestern",
+            "Seit drei Tagen",
+            "Seit einer Woche"
+          ],
+          "answer": 1,
+          "translation": {
+            "en": "How long has Ms Meier had a cough?",
+            "ja": "マイヤーさんはいつから咳がありますか？"
+          }
+        },
+        {
+          "q": "Wie hoch war das Fieber?",
+          "options": [
+            "37,5 Grad",
+            "38,5 Grad",
+            "39,5 Grad"
+          ],
+          "answer": 1,
+          "translation": {
+            "en": "How high was the fever?",
+            "ja": "熱は何度でしたか？"
+          }
+        },
+        {
+          "q": "Was bekommt Frau Meier von der Ärztin?",
+          "options": [
+            "Ein Rezept für einen Hustensirup",
+            "Eine Spritze",
+            "Einen Termin im Spital"
+          ],
+          "answer": 0,
+          "translation": {
+            "en": "What does Ms Meier get from the doctor?",
+            "ja": "マイヤーさんは医者から何をもらいますか？"
+          }
+        },
+        {
+          "q": "Bis wann ist Frau Meier krankgeschrieben?",
+          "options": [
+            "Bis Mittwoch",
+            "Bis Freitag",
+            "Bis Montag"
+          ],
+          "answer": 1,
+          "translation": {
+            "en": "Until when is Ms Meier signed off sick?",
+            "ja": "マイヤーさんはいつまで病気休暇ですか？"
+          }
+        }
+      ],
+      "audio": "audio/tts/gesundheit-h1.mp3"
+    }
+  ],
+  "fide": [
+    {
+      "id": "praxis",
+      "level": "A2",
+      "situation": "Frau Silva ruft in der Arztpraxis an. Sie möchte einen Termin. Die Praxisassistentin antwortet.",
+      "situationTranslation": {
+        "en": "Ms Silva phones the doctor's surgery. She wants an appointment. The medical assistant answers.",
+        "ja": "シルヴァさんは診療所に電話します。予約を取りたいです。受付の人が答えます。"
+      },
+      "items": [
+        {
+          "id": "praxis-1",
+          "question": "An welchem Tag hat Frau Silva einen Termin?",
+          "questionTranslation": {
+            "en": "On which day does Ms Silva have an appointment?",
+            "ja": "シルヴァさんの予約は何曜日ですか？"
+          },
+          "text": "Praxisassistentin: Praxis Doktor Huber, guten Tag. Diese Woche ist bis Freitag leider schon alles voll. Am Montag geht es auch nicht, da ist die Praxis geschlossen. Ich kann Ihnen aber am Dienstag um halb elf einen Termin geben. Passt Ihnen das?",
+          "pictures": [
+            {
+              "pic": "week:Fr",
+              "label": "Freitag"
+            },
+            {
+              "pic": "week:Mo",
+              "label": "Montag"
+            },
+            {
+              "pic": "week:Di",
+              "label": "Dienstag"
+            }
+          ],
+          "answer": 2,
+          "hint": "Zwei Tage gehen nicht. Welcher Tag bleibt?",
+          "audio": "audio/tts/gesundheit-fide-praxis-1.mp3"
+        },
+        {
+          "id": "praxis-2",
+          "question": "Was soll Frau Silva mitbringen?",
+          "questionTranslation": {
+            "en": "What should Ms Silva bring?",
+            "ja": "シルヴァさんは何を持っていけばいいですか？"
+          },
+          "text": "Praxisassistentin: Bitte bringen Sie Ihre Versichertenkarte mit. Ein Rezept brauchen Sie nicht. Und die Medikamente, die Sie im Moment nehmen, müssen Sie auch nicht mitnehmen, die schreiben wir einfach auf. Bis Dienstag!",
+          "pictures": [
+            {
+              "pic": "icon:card",
+              "label": "die Versichertenkarte"
+            },
+            {
+              "pic": "text:Rezept",
+              "label": "ein Rezept"
+            },
+            {
+              "pic": "icon:pharmacy",
+              "label": "die Medikamente"
+            }
+          ],
+          "answer": 0,
+          "hint": "Zwei Sachen braucht sie nicht.",
+          "audio": "audio/tts/gesundheit-fide-praxis-2.mp3"
+        },
+        {
+          "id": "praxis-3",
+          "question": "Wohin soll Frau Silva am Wochenende bei hohem Fieber gehen?",
+          "questionTranslation": {
+            "en": "Where should Ms Silva go at the weekend if she has a high fever?",
+            "ja": "週末に高い熱が出たら、シルヴァさんはどこへ行けばいいですか？"
+          },
+          "text": "Praxisassistentin: Am Wochenende ist die Praxis zu, rufen Sie dann bitte nicht hier an. Die Apotheke hilft bei kleinen Problemen. Aber wenn Sie hohes Fieber bekommen, gehen Sie direkt in den Notfall im Spital.",
+          "pictures": [
+            {
+              "pic": "icon:doctor",
+              "label": "in die Praxis"
+            },
+            {
+              "pic": "icon:pharmacy",
+              "label": "in die Apotheke"
+            },
+            {
+              "pic": "text:Notfall",
+              "label": "in den Notfall im Spital"
+            }
+          ],
+          "answer": 2,
+          "hint": "Die Apotheke hilft nur bei kleinen Problemen.",
+          "audio": "audio/tts/gesundheit-fide-praxis-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "apotheke",
+      "level": "A2",
+      "situation": "Herr Keller ist in der Apotheke. Er hat Kopfschmerzen. Die Apothekerin erklärt ihm das Medikament.",
+      "situationTranslation": {
+        "en": "Mr Keller is at the pharmacy. He has a headache. The pharmacist explains the medicine to him.",
+        "ja": "ケラーさんは薬局にいます。頭痛がします。薬剤師が薬について説明します。"
+      },
+      "items": [
+        {
+          "id": "apotheke-1",
+          "question": "Wie viele Tabletten darf Herr Keller pro Tag nehmen?",
+          "questionTranslation": {
+            "en": "How many tablets may Mr Keller take per day?",
+            "ja": "ケラーさんは1日に何錠まで飲めますか？"
+          },
+          "text": "Apothekerin: Diese Tabletten sind gut gegen Kopfschmerzen. Nehmen Sie eine Tablette, wenn es wehtut. Aber nicht mehr als drei Tabletten pro Tag. Und zwischen zwei Tabletten müssen mindestens sechs Stunden sein.",
+          "pictures": [
+            {
+              "pic": "text:1 Tablette",
+              "label": "eine Tablette"
+            },
+            {
+              "pic": "text:3 Tabletten",
+              "label": "drei Tabletten"
+            },
+            {
+              "pic": "text:6 Tabletten",
+              "label": "sechs Tabletten"
+            }
+          ],
+          "answer": 1,
+          "hint": "Hör auf „nicht mehr als“.",
+          "audio": "audio/tts/gesundheit-fide-apotheke-1.mp3"
+        },
+        {
+          "id": "apotheke-2",
+          "question": "Wie viel bezahlt Herr Keller?",
+          "questionTranslation": {
+            "en": "How much does Mr Keller pay?",
+            "ja": "ケラーさんはいくら払いますか？"
+          },
+          "text": "Apothekerin: Die grosse Packung kostet zwölf Franken achtzig. Für Sie reicht aber die kleine Packung, sie kostet nur sieben Franken fünfzig. So sparen Sie fünf Franken dreissig. Ich gebe Ihnen also die kleine.",
+          "pictures": [
+            {
+              "pic": "price:12.80",
+              "label": "zwölf Franken achtzig"
+            },
+            {
+              "pic": "price:7.50",
+              "label": "sieben Franken fünfzig"
+            },
+            {
+              "pic": "price:5.30",
+              "label": "fünf Franken dreissig"
+            }
+          ],
+          "answer": 1,
+          "hint": "Welche Packung nimmt er?",
+          "audio": "audio/tts/gesundheit-fide-apotheke-2.mp3"
+        },
+        {
+          "id": "apotheke-3",
+          "question": "Was soll Herr Keller mehr trinken?",
+          "questionTranslation": {
+            "en": "What should Mr Keller drink more of?",
+            "ja": "ケラーさんは何をもっと飲むべきですか？"
+          },
+          "text": "Apothekerin: Trinken Sie auch genug, mindestens zwei Liter am Tag, am besten Wasser. Kaffee hilft nicht gegen Kopfschmerzen, und Schwarztee auch nicht. Und machen Sie öfter eine kurze Pause vom Bildschirm, das hilft auch.",
+          "pictures": [
+            {
+              "pic": "icon:water",
+              "label": "Wasser"
+            },
+            {
+              "pic": "icon:coffee",
+              "label": "Kaffee"
+            },
+            {
+              "pic": "icon:tea",
+              "label": "Tee"
+            }
+          ],
+          "answer": 0,
+          "audio": "audio/tts/gesundheit-fide-apotheke-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "spital",
+      "level": "B1",
+      "situation": "Frau Rossi war im Spital. Bevor sie nach Hause geht, erklärt ihr der Arzt, was sie beachten muss.",
+      "situationTranslation": {
+        "en": "Ms Rossi has been in hospital. Before she goes home, the doctor explains what she has to keep in mind.",
+        "ja": "ロッシさんは入院していました。帰宅する前に、医者が注意することを説明します。"
+      },
+      "items": [
+        {
+          "id": "spital-1",
+          "question": "Was darf Frau Rossi in den nächsten zwei Wochen nicht machen?",
+          "questionTranslation": {
+            "en": "What isn't Ms Rossi allowed to do in the next two weeks?",
+            "ja": "ロッシさんはこれからの2週間、何をしてはいけませんか？"
+          },
+          "text": "Arzt: Die Operation ist gut gegangen, Frau Rossi, Sie dürfen heute nach Hause. Spazieren ist gut für Sie, gehen Sie jeden Tag ein bisschen. Aber in den nächsten zwei Wochen dürfen Sie nichts Schweres tragen, auch keine vollen Einkaufstaschen. Das ist wichtig.",
+          "keywords": [
+            "trag|heb|schwer|Einkauf"
+          ],
+          "model": "nichts Schweres tragen",
+          "modelTranslation": {
+            "en": "not carry anything heavy",
+            "ja": "重いものを運ばない"
+          },
+          "hint": "Spazieren ist erlaubt. Was nicht?",
+          "audio": "audio/tts/gesundheit-fide-spital-1.mp3"
+        },
+        {
+          "id": "spital-2",
+          "question": "Wer nimmt die Fäden heraus?",
+          "questionTranslation": {
+            "en": "Who takes out the stitches?",
+            "ja": "誰が抜糸をしますか？"
+          },
+          "text": "Arzt: In zehn Tagen müssen die Fäden weg. Das macht Ihr Hausarzt, Sie müssen dafür nicht mehr ins Spital kommen. Rufen Sie ihn bitte schon morgen an und machen Sie einen Termin. Bis dahin darf die Wunde nicht nass werden.",
+          "keywords": [
+            "Hausarzt|Hausärztin"
+          ],
+          "model": "der Hausarzt, in zehn Tagen",
+          "modelTranslation": {
+            "en": "her GP, in ten days",
+            "ja": "かかりつけ医（10日後）"
+          },
+          "hint": "Sie muss nicht mehr ins Spital.",
+          "audio": "audio/tts/gesundheit-fide-spital-2.mp3"
+        },
+        {
+          "id": "spital-3",
+          "question": "Wann soll Frau Rossi sofort anrufen?",
+          "questionTranslation": {
+            "en": "When should Ms Rossi call immediately?",
+            "ja": "ロッシさんはどんなとき、すぐに電話すべきですか？"
+          },
+          "text": "Arzt: Leichte Schmerzen sind in den ersten Tagen normal, dafür haben Sie die Tabletten. Aber wenn die Wunde rot wird oder wenn Sie wieder Fieber bekommen, warten Sie nicht. Dann rufen Sie sofort hier auf der Station an, auch in der Nacht.",
+          "keywords": [
+            "rot|Fieber"
+          ],
+          "model": "wenn die Wunde rot wird oder wenn sie wieder Fieber bekommt",
+          "modelTranslation": {
+            "en": "if the wound turns red or if she gets a fever again",
+            "ja": "傷が赤くなったときや、また熱が出たとき"
+          },
+          "hint": "Leichte Schmerzen sind normal.",
+          "audio": "audio/tts/gesundheit-fide-spital-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "krankmeldung",
+      "level": "B1",
+      "situation": "Herr Keller ist krank. Er ruft seine Chefin an. Die Chefin erklärt ihm, was er machen muss.",
+      "situationTranslation": {
+        "en": "Mr Keller is ill. He phones his boss. His boss explains what he has to do.",
+        "ja": "ケラーさんは病気です。上司に電話します。上司がすべきことを説明します。"
+      },
+      "items": [
+        {
+          "id": "krankmeldung-1",
+          "question": "Wann braucht die Chefin ein Arztzeugnis?",
+          "questionTranslation": {
+            "en": "When does the boss need a doctor's certificate?",
+            "ja": "上司はいつ診断書が必要ですか？"
+          },
+          "text": "Chefin: Gute Besserung, Herr Keller! Bleiben Sie zu Hause, bis es Ihnen besser geht. Für die ersten zwei Tage brauche ich kein Arztzeugnis. Wenn Sie aber am Donnerstag immer noch krank sind, schicken Sie mir bitte ein Zeugnis vom Arzt.",
+          "keywords": [
+            "Donnerstag|drei|dritt|länger"
+          ],
+          "model": "wenn er am Donnerstag immer noch krank ist",
+          "modelTranslation": {
+            "en": "if he is still ill on Thursday",
+            "ja": "木曜日になってもまだ病気なら"
+          },
+          "hint": "Für zwei Tage braucht sie keins.",
+          "audio": "audio/tts/gesundheit-fide-krankmeldung-1.mp3"
+        },
+        {
+          "id": "krankmeldung-2",
+          "question": "Was soll Herr Keller wegen seiner Termine machen?",
+          "questionTranslation": {
+            "en": "What should Mr Keller do about his appointments?",
+            "ja": "ケラーさんは予定についてどうすればいいですか？"
+          },
+          "text": "Chefin: Wegen Ihrer Termine müssen Sie sich keine Sorgen machen. Den Kunden in Basel rufe ich selbst an, und die Sitzung am Mittwoch verschieben wir. Bitte schreiben Sie nur Frau Brunner eine kurze E-Mail, sie wartet auf Ihre Offerte.",
+          "keywords": [
+            "Brunner|E-Mail|Mail|schreib"
+          ],
+          "model": "Frau Brunner eine kurze E-Mail schreiben",
+          "modelTranslation": {
+            "en": "write a short email to Ms Brunner",
+            "ja": "ブルンナーさんに短いメールを書く"
+          },
+          "hint": "Zwei Sachen macht die Chefin. Was bleibt für ihn?",
+          "audio": "audio/tts/gesundheit-fide-krankmeldung-2.mp3"
+        },
+        {
+          "id": "krankmeldung-3",
+          "question": "Was soll Herr Keller nicht machen?",
+          "questionTranslation": {
+            "en": "What shouldn't Mr Keller do?",
+            "ja": "ケラーさんがしてはいけないことは何ですか？"
+          },
+          "text": "Chefin: Und noch etwas: Bitte arbeiten Sie nicht von zu Hause aus, auch wenn Sie sich am Nachmittag besser fühlen. Sie sollen sich wirklich ausruhen. Ihr Kollege Marco übernimmt Ihre Arbeit, er hat schon alle Unterlagen.",
+          "keywords": [
+            "arbeit|Homeoffice|Laptop|von zu Hause"
+          ],
+          "model": "nicht von zu Hause aus arbeiten",
+          "modelTranslation": {
+            "en": "not work from home",
+            "ja": "在宅で仕事をしない"
+          },
+          "audio": "audio/tts/gesundheit-fide-krankmeldung-3.mp3"
+        }
+      ]
+    }
+  ]
+}

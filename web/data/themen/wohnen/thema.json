@@ -1,0 +1,897 @@
+{
+  "id": "wohnen",
+  "title": "Wohnen",
+  "titleTranslation": {
+    "en": "Housing",
+    "ja": "住まい"
+  },
+  "variety": "de",
+  "status": "published",
+  "cards": [
+    {
+      "id": "wegziehen",
+      "term": "wegziehen",
+      "translation": {
+        "en": "to move away",
+        "ja": "引っ越していく、よそへ移る"
+      },
+      "example": "Ich bin letztes Jahr aus der Stadt weggezogen.",
+      "exampleTranslation": {
+        "en": "I moved away from the city last year.",
+        "ja": "去年、私は町から引っ越しました。"
+      },
+      "hint": "Den alten Wohnort verlassen und an einem anderen Ort wohnen.",
+      "audio": "audio/tts/wohnen-wegziehen.mp3",
+      "exampleAudio": "audio/tts/wohnen-wegziehen-satz.mp3",
+      "hintAudio": "audio/tts/wohnen-wegziehen-tipp.mp3"
+    },
+    {
+      "id": "bauernhof",
+      "term": "der Bauernhof",
+      "plural": "die Bauernhöfe",
+      "translation": {
+        "en": "farm",
+        "ja": "農場、農家"
+      },
+      "example": "Wir wohnen jetzt neben einem Bauernhof.",
+      "exampleTranslation": {
+        "en": "We now live next to a farm.",
+        "ja": "私たちは今、農場の隣に住んでいます。"
+      },
+      "hint": "Dort leben Kühe und Hühner, und man baut Gemüse an.",
+      "audio": "audio/tts/wohnen-bauernhof.mp3",
+      "exampleAudio": "audio/tts/wohnen-bauernhof-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-bauernhof-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-bauernhof-tipp.mp3"
+    },
+    {
+      "id": "immobilienmakler",
+      "term": "der Immobilienmakler",
+      "plural": "die Immobilienmakler",
+      "translation": {
+        "en": "estate agent",
+        "ja": "不動産業者"
+      },
+      "example": "Der Immobilienmakler zeigt uns die Wohnung.",
+      "exampleTranslation": {
+        "en": "The estate agent shows us the flat.",
+        "ja": "不動産業者が私たちに部屋を案内してくれます。"
+      },
+      "hint": "Er hilft beim Mieten oder Kaufen von Wohnungen und bekommt dafür Geld.",
+      "audio": "audio/tts/wohnen-immobilienmakler.mp3",
+      "exampleAudio": "audio/tts/wohnen-immobilienmakler-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-immobilienmakler-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-immobilienmakler-tipp.mp3"
+    },
+    {
+      "id": "streng",
+      "term": "streng",
+      "translation": {
+        "en": "strict",
+        "ja": "厳しい"
+      },
+      "example": "In unserem Haus gibt es sehr strenge Regeln.",
+      "exampleTranslation": {
+        "en": "There are very strict rules in our building.",
+        "ja": "私たちの建物にはとても厳しいルールがあります。"
+      },
+      "hint": "Man muss alles ganz genau so machen, wie es gesagt wird.",
+      "audio": "audio/tts/wohnen-streng.mp3",
+      "exampleAudio": "audio/tts/wohnen-streng-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-streng-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-streng-tipp.mp3"
+    },
+    {
+      "id": "regel",
+      "term": "die Regel",
+      "plural": "die Regeln",
+      "translation": {
+        "en": "rule",
+        "ja": "規則、ルール"
+      },
+      "example": "Nach 22 Uhr muss es im Haus ruhig sein. Das ist eine Regel.",
+      "exampleTranslation": {
+        "en": "After 10 pm it has to be quiet in the building. That's a rule.",
+        "ja": "22時以降、建物の中では静かにしなければなりません。それがルールです。"
+      },
+      "hint": "Das muss man machen oder darf man nicht machen, zum Beispiel im Verkehr.",
+      "audio": "audio/tts/wohnen-regel.mp3",
+      "exampleAudio": "audio/tts/wohnen-regel-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-regel-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-regel-tipp.mp3"
+    },
+    {
+      "id": "glueck",
+      "term": "Glück haben",
+      "translation": {
+        "en": "to be lucky",
+        "ja": "運がいい"
+      },
+      "example": "Du hattest Glück: Die Wohnung ist noch frei.",
+      "exampleTranslation": {
+        "en": "You were lucky: the flat is still available.",
+        "ja": "運がよかったね。部屋はまだ空いているよ。"
+      },
+      "hint": "Etwas Gutes passiert dir, ohne dass du viel dafür tun musst.",
+      "audio": "audio/tts/wohnen-glueck.mp3",
+      "exampleAudio": "audio/tts/wohnen-glueck-satz.mp3",
+      "hintAudio": "audio/tts/wohnen-glueck-tipp.mp3"
+    },
+    {
+      "id": "abschluss",
+      "term": "der Abschluss",
+      "plural": "die Abschlüsse",
+      "translation": {
+        "en": "signing (of a contract); graduation",
+        "ja": "（契約の）締結；修了、卒業"
+      },
+      "example": "Nach dem Abschluss des Mietvertrags bekommst du die Schlüssel.",
+      "exampleTranslation": {
+        "en": "After signing the tenancy agreement you get the keys.",
+        "ja": "賃貸契約を結んだあと、鍵がもらえます。"
+      },
+      "hint": "Das Ende von etwas, zum Beispiel wenn ein Vertrag fertig unterschrieben ist.",
+      "audio": "audio/tts/wohnen-abschluss.mp3",
+      "exampleAudio": "audio/tts/wohnen-abschluss-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-abschluss-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-abschluss-tipp.mp3"
+    },
+    {
+      "id": "besichtigen",
+      "term": "besichtigen",
+      "translation": {
+        "en": "to view (a flat), to visit",
+        "ja": "見学する、（部屋を）内見する"
+      },
+      "example": "Am Samstag können wir die Wohnung besichtigen.",
+      "exampleTranslation": {
+        "en": "We can view the flat on Saturday.",
+        "ja": "土曜日に部屋を内見できます。"
+      },
+      "hint": "Etwas genau anschauen, zum Beispiel eine Wohnung, bevor man sie mietet.",
+      "audio": "audio/tts/wohnen-besichtigen.mp3",
+      "exampleAudio": "audio/tts/wohnen-besichtigen-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-besichtigen-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-besichtigen-tipp.mp3"
+    },
+    {
+      "id": "heizung",
+      "term": "die Heizung",
+      "plural": "die Heizungen",
+      "translation": {
+        "en": "heating",
+        "ja": "暖房"
+      },
+      "example": "Im Winter läuft die Heizung den ganzen Tag.",
+      "exampleTranslation": {
+        "en": "In winter the heating is on all day.",
+        "ja": "冬は暖房が一日中ついています。"
+      },
+      "hint": "Sie macht die Wohnung im Winter warm.",
+      "audio": "audio/tts/wohnen-heizung.mp3",
+      "exampleAudio": "audio/tts/wohnen-heizung-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-heizung-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-heizung-tipp.mp3"
+    },
+    {
+      "id": "schimmel",
+      "term": "der Schimmel",
+      "translation": {
+        "en": "mould",
+        "ja": "カビ"
+      },
+      "example": "Im Badezimmer ist Schimmel an der Wand.",
+      "exampleTranslation": {
+        "en": "There is mould on the bathroom wall.",
+        "ja": "浴室の壁にカビが生えています。"
+      },
+      "hint": "Schwarze oder grüne Flecken an einer feuchten Wand.",
+      "audio": "audio/tts/wohnen-schimmel.mp3",
+      "exampleAudio": "audio/tts/wohnen-schimmel-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-schimmel-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-schimmel-tipp.mp3"
+    },
+    {
+      "id": "bisdahin",
+      "term": "bis dahin",
+      "translation": {
+        "en": "until then, by then",
+        "ja": "それまで（に）"
+      },
+      "example": "Der Hauswart kommt am Montag. Bis dahin musst du jeden Tag lüften.",
+      "exampleTranslation": {
+        "en": "The caretaker is coming on Monday. Until then you have to air the flat every day.",
+        "ja": "管理人は月曜日に来ます。それまで毎日換気しなければなりません。"
+      },
+      "hint": "Bis zu diesem Zeitpunkt – dann ist es so weit.",
+      "audio": "audio/tts/wohnen-bisdahin.mp3",
+      "exampleAudio": "audio/tts/wohnen-bisdahin-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-bisdahin-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-bisdahin-tipp.mp3"
+    },
+    {
+      "id": "sonst",
+      "term": "sonst",
+      "translation": {
+        "en": "otherwise",
+        "ja": "さもないと、そうしないと"
+      },
+      "example": "Lüfte jeden Tag, sonst kommt der Schimmel wieder.",
+      "exampleTranslation": {
+        "en": "Air the flat every day, otherwise the mould will come back.",
+        "ja": "毎日換気してね。そうしないとまたカビが生えるよ。"
+      },
+      "hint": "Wenn man das nicht macht, passiert etwas anderes, meistens etwas Schlechtes.",
+      "audio": "audio/tts/wohnen-sonst.mp3",
+      "exampleAudio": "audio/tts/wohnen-sonst-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-sonst-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-sonst-tipp.mp3"
+    },
+    {
+      "id": "sofort",
+      "term": "sofort",
+      "translation": {
+        "en": "immediately, right away",
+        "ja": "すぐに"
+      },
+      "example": "Wenn die Heizung kaputt ist, ruf bitte sofort den Hauswart an.",
+      "exampleTranslation": {
+        "en": "If the heating breaks down, please call the caretaker right away.",
+        "ja": "暖房が壊れたら、すぐに管理人に電話してね。"
+      },
+      "hint": "Jetzt gleich, ohne zu warten.",
+      "audio": "audio/tts/wohnen-sofort.mp3",
+      "exampleAudio": "audio/tts/wohnen-sofort-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-sofort-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-sofort-tipp.mp3"
+    },
+    {
+      "id": "luftentfeuchter",
+      "term": "der Luftentfeuchter",
+      "plural": "die Luftentfeuchter",
+      "translation": {
+        "en": "dehumidifier",
+        "ja": "除湿機"
+      },
+      "example": "Der Luftentfeuchter nimmt das Wasser aus der Luft.",
+      "exampleTranslation": {
+        "en": "The dehumidifier takes the water out of the air.",
+        "ja": "除湿機は空気中の水分を取ります。"
+      },
+      "hint": "Ein Gerät, das die Luft im Zimmer trockener macht.",
+      "audio": "audio/tts/wohnen-luftentfeuchter.mp3",
+      "exampleAudio": "audio/tts/wohnen-luftentfeuchter-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-luftentfeuchter-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-luftentfeuchter-tipp.mp3"
+    },
+    {
+      "id": "miete",
+      "term": "die Miete",
+      "plural": "die Mieten",
+      "translation": {
+        "en": "rent",
+        "ja": "家賃"
+      },
+      "example": "Die Miete kostet 1850 Franken im Monat.",
+      "exampleTranslation": {
+        "en": "The rent is 1850 francs a month.",
+        "ja": "家賃は月1850フランです。"
+      },
+      "hint": "So viel Geld bezahlt man jeden Monat für die Wohnung.",
+      "audio": "audio/tts/wohnen-miete.mp3",
+      "exampleAudio": "audio/tts/wohnen-miete-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-miete-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-miete-tipp.mp3"
+    },
+    {
+      "id": "nebenkosten",
+      "term": "die Nebenkosten",
+      "translation": {
+        "en": "additional costs (heating, water …)",
+        "ja": "（家賃以外の）諸経費（暖房・水道など）"
+      },
+      "example": "Die Nebenkosten für Heizung und Wasser sind nicht in der Miete.",
+      "exampleTranslation": {
+        "en": "The additional costs for heating and water are not included in the rent.",
+        "ja": "暖房と水道の諸経費は家賃に含まれていません。"
+      },
+      "hint": "Geld für Heizung und Wasser, das man extra zur Wohnung bezahlt.",
+      "audio": "audio/tts/wohnen-nebenkosten.mp3",
+      "exampleAudio": "audio/tts/wohnen-nebenkosten-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-nebenkosten-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-nebenkosten-tipp.mp3"
+    },
+    {
+      "id": "mietvertrag",
+      "term": "der Mietvertrag",
+      "plural": "die Mietverträge",
+      "translation": {
+        "en": "tenancy agreement, lease",
+        "ja": "賃貸契約（書）"
+      },
+      "example": "Wir unterschreiben den Mietvertrag Ende Monat.",
+      "exampleTranslation": {
+        "en": "We'll sign the tenancy agreement at the end of the month.",
+        "ja": "月末に賃貸契約書にサインします。"
+      },
+      "hint": "Das Papier, auf dem steht, was man für die Wohnung bezahlt und was man darf.",
+      "audio": "audio/tts/wohnen-mietvertrag.mp3",
+      "exampleAudio": "audio/tts/wohnen-mietvertrag-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-mietvertrag-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-mietvertrag-tipp.mp3"
+    },
+    {
+      "id": "vermieter",
+      "term": "der Vermieter",
+      "plural": "die Vermieter",
+      "translation": {
+        "en": "landlord",
+        "ja": "家主、大家"
+      },
+      "example": "Der Vermieter wohnt im gleichen Haus.",
+      "exampleTranslation": {
+        "en": "The landlord lives in the same building.",
+        "ja": "大家さんは同じ建物に住んでいます。"
+      },
+      "hint": "Ihm gehört die Wohnung, und man bezahlt ihm jeden Monat Geld.",
+      "audio": "audio/tts/wohnen-vermieter.mp3",
+      "exampleAudio": "audio/tts/wohnen-vermieter-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-vermieter-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-vermieter-tipp.mp3"
+    },
+    {
+      "id": "einziehen",
+      "term": "einziehen",
+      "translation": {
+        "en": "to move in",
+        "ja": "入居する、引っ越してくる"
+      },
+      "example": "Wir können am ersten April einziehen.",
+      "exampleTranslation": {
+        "en": "We can move in on the first of April.",
+        "ja": "4月1日に入居できます。"
+      },
+      "hint": "In eine neue Wohnung kommen und dort zu wohnen beginnen.",
+      "audio": "audio/tts/wohnen-einziehen.mp3",
+      "exampleAudio": "audio/tts/wohnen-einziehen-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-einziehen-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-einziehen-tipp.mp3"
+    },
+    {
+      "id": "lueften",
+      "term": "lüften",
+      "translation": {
+        "en": "to air (a room), to ventilate",
+        "ja": "換気する"
+      },
+      "example": "Im Winter soll man dreimal am Tag kurz lüften.",
+      "exampleTranslation": {
+        "en": "In winter you should air the flat briefly three times a day.",
+        "ja": "冬は1日3回、短く換気するのがよいです。"
+      },
+      "hint": "Das Fenster öffnen, damit frische Luft hereinkommt.",
+      "audio": "audio/tts/wohnen-lueften.mp3",
+      "exampleAudio": "audio/tts/wohnen-lueften-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-lueften-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-lueften-tipp.mp3"
+    },
+    {
+      "id": "hauswart",
+      "term": "der Hauswart",
+      "plural": "die Hauswarte",
+      "translation": {
+        "en": "caretaker (Swiss word)",
+        "ja": "（建物の）管理人"
+      },
+      "alt": "Deutschland: der Hausmeister",
+      "example": "Der Hauswart repariert die Heizung.",
+      "exampleTranslation": {
+        "en": "The caretaker repairs the heating.",
+        "ja": "管理人が暖房を修理します。"
+      },
+      "hint": "Er kümmert sich um das Haus und repariert kleine Sachen.",
+      "audio": "audio/tts/wohnen-hauswart.mp3",
+      "exampleAudio": "audio/tts/wohnen-hauswart-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-hauswart-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-hauswart-tipp.mp3"
+    },
+    {
+      "id": "hausordnung",
+      "term": "die Hausordnung",
+      "translation": {
+        "en": "house rules",
+        "ja": "建物の規則、ハウスルール"
+      },
+      "example": "In der Hausordnung steht, dass man nach 22 Uhr leise sein muss.",
+      "exampleTranslation": {
+        "en": "The house rules say that you have to be quiet after 10 pm.",
+        "ja": "ハウスルールには、22時以降は静かにしなければならないと書いてあります。"
+      },
+      "hint": "Ein Blatt mit den Regeln für alle Leute im Haus.",
+      "audio": "audio/tts/wohnen-hausordnung.mp3",
+      "exampleAudio": "audio/tts/wohnen-hausordnung-satz.mp3",
+      "gapAudio": "audio/tts/wohnen-hausordnung-luecke.mp3",
+      "hintAudio": "audio/tts/wohnen-hausordnung-tipp.mp3"
+    }
+  ],
+  "cloze": [
+    {
+      "id": "c-weggezogen",
+      "text": "Ich bin letztes Jahr aus der Stadt ___.",
+      "answers": [
+        "weggezogen"
+      ],
+      "translation": {
+        "en": "I moved away from the city last year.",
+        "ja": "去年、私は町から引っ越しました。"
+      },
+      "hint": "Ich wohne jetzt an einem anderen Ort. (Perfekt mit „sein“)"
+    },
+    {
+      "id": "c-glueck",
+      "text": "Du ___ Glück: Die Wohnung ist noch frei.",
+      "answers": [
+        "hattest"
+      ],
+      "options": [
+        "hattest",
+        "warst",
+        "wurdest"
+      ],
+      "translation": {
+        "en": "You were lucky: the flat is still available.",
+        "ja": "運がよかったね。部屋はまだ空いているよ。"
+      },
+      "hint": "Präteritum von „haben“, du-Form."
+    },
+    {
+      "id": "c-streng",
+      "text": "Die Regeln im Haus sind sehr ___: Nach 22 Uhr muss es ruhig sein.",
+      "answers": [
+        "streng"
+      ],
+      "options": [
+        "streng",
+        "freundlich",
+        "einfach"
+      ],
+      "translation": {
+        "en": "The house rules are very strict: after 10 pm it has to be quiet.",
+        "ja": "建物のルールはとても厳しい。22時以降は静かにしなければならない。"
+      },
+      "hint": "Man muss sie ganz genau einhalten."
+    },
+    {
+      "id": "c-einziehen",
+      "text": "Nach dem Abschluss des Mietvertrags können wir am ersten April ___.",
+      "answers": [
+        "einziehen"
+      ],
+      "options": [
+        "einziehen",
+        "ausziehen",
+        "wegziehen"
+      ],
+      "translation": {
+        "en": "After signing the tenancy agreement we can move in on the first of April.",
+        "ja": "賃貸契約を結んだら、4月1日に入居できます。"
+      },
+      "hint": "In die neue Wohnung kommen."
+    },
+    {
+      "id": "c-heizung",
+      "text": "Es ist so kalt in der Wohnung. Ich glaube, die ___ ist kaputt.",
+      "answers": [
+        "Heizung"
+      ],
+      "options": [
+        "Heizung",
+        "Miete",
+        "Regel"
+      ],
+      "translation": {
+        "en": "It's so cold in the flat. I think the heating is broken.",
+        "ja": "部屋がとても寒い。暖房が壊れていると思う。"
+      },
+      "hint": "Sie macht im Winter warm."
+    },
+    {
+      "id": "c-besichtigen",
+      "text": "Wann können wir die Wohnung ___?",
+      "answers": [
+        "besichtigen"
+      ],
+      "options": [
+        "besichtigen",
+        "bezahlen",
+        "besuchen"
+      ],
+      "translation": {
+        "en": "When can we view the flat?",
+        "ja": "いつ部屋を内見できますか？"
+      },
+      "hint": "Vor dem Mieten genau anschauen."
+    }
+  ],
+  "listening": [
+    {
+      "id": "h1",
+      "title": "Die neue Wohnung",
+      "titleTranslation": {
+        "en": "The new flat",
+        "ja": "新しい住まい"
+      },
+      "text": "Sandra: Hallo Lea! Wohnst du immer noch in Zürich?\nLea: Nein, ich bin im Sommer weggezogen. Jetzt wohne ich auf dem Land, neben einem Bauernhof.\nSandra: Wie schön! War es schwierig, eine Wohnung zu finden?\nLea: Ein bisschen. Ein Immobilienmakler hat mir geholfen. Bei der Besichtigung waren nur zwei andere Leute da.\nSandra: Da hattest du Glück! Und wie ist die Wohnung?\nLea: Hell und ruhig. Aber im Bad gibt es Schimmel. Der Hauswart bringt mir morgen einen Luftentfeuchter. Bis dahin lüfte ich jeden Tag.",
+      "questions": [
+        {
+          "q": "Wo wohnt Lea jetzt?",
+          "options": [
+            "In Zürich",
+            "Auf dem Land, neben einem Bauernhof",
+            "In der Nähe vom Bahnhof"
+          ],
+          "answer": 1,
+          "translation": {
+            "en": "Where does Lea live now?",
+            "ja": "レアさんは今どこに住んでいますか？"
+          }
+        },
+        {
+          "q": "Wer hat Lea bei der Suche geholfen?",
+          "options": [
+            "Sandra",
+            "Ein Immobilienmakler",
+            "Der Hauswart"
+          ],
+          "answer": 1,
+          "translation": {
+            "en": "Who helped Lea with her search?",
+            "ja": "部屋探しでレアさんを手伝ったのは誰ですか？"
+          }
+        },
+        {
+          "q": "Was ist das Problem in der Wohnung?",
+          "options": [
+            "Die Heizung ist kaputt.",
+            "Im Bad gibt es Schimmel.",
+            "Die Miete ist zu hoch."
+          ],
+          "answer": 1,
+          "translation": {
+            "en": "What is the problem in the flat?",
+            "ja": "部屋の問題は何ですか？"
+          }
+        },
+        {
+          "q": "Was macht Lea bis morgen?",
+          "options": [
+            "Sie lüftet jeden Tag.",
+            "Sie putzt den Schimmel weg.",
+            "Sie ruft den Makler an."
+          ],
+          "answer": 0,
+          "translation": {
+            "en": "What does Lea do until tomorrow?",
+            "ja": "レアさんは明日まで何をしますか？"
+          }
+        }
+      ],
+      "audio": "audio/tts/wohnen-h1.mp3"
+    }
+  ],
+  "fide": [
+    {
+      "id": "besichtigung",
+      "level": "A2",
+      "situation": "Frau Nakamura besichtigt eine Wohnung in Winterthur. Der Immobilienmakler zeigt ihr die Wohnung.",
+      "situationTranslation": {
+        "en": "Ms Nakamura is viewing a flat in Winterthur. The estate agent shows her around.",
+        "ja": "中村さんはヴィンタートゥールで部屋を内見しています。不動産業者が部屋を案内しています。"
+      },
+      "items": [
+        {
+          "id": "besichtigung-1",
+          "question": "Wie viel bezahlt Frau Nakamura insgesamt pro Monat?",
+          "questionTranslation": {
+            "en": "How much does Ms Nakamura pay in total per month?",
+            "ja": "中村さんは毎月、全部でいくら払いますか？"
+          },
+          "text": "Makler: Die Wohnung hat dreieinhalb Zimmer und einen Balkon. Die Miete ist 1850 Franken pro Monat. Dazu kommen noch 200 Franken Nebenkosten für die Heizung und das Wasser. Zusammen bezahlen Sie also 2050 Franken im Monat.",
+          "pictures": [
+            {
+              "pic": "price:1850.00",
+              "label": "1850 Franken"
+            },
+            {
+              "pic": "price:200.00",
+              "label": "200 Franken"
+            },
+            {
+              "pic": "price:2050.00",
+              "label": "2050 Franken"
+            }
+          ],
+          "answer": 2,
+          "hint": "Die Miete allein ist nicht die Antwort. Was kommt noch dazu?",
+          "audio": "audio/tts/wohnen-fide-besichtigung-1.mp3"
+        },
+        {
+          "id": "besichtigung-2",
+          "question": "Wann kann Frau Nakamura einziehen?",
+          "questionTranslation": {
+            "en": "When can Ms Nakamura move in?",
+            "ja": "中村さんはいつ入居できますか？"
+          },
+          "text": "Makler: Die Mieterin zieht Ende Februar aus. Danach streichen wir alle Zimmer neu. Die Schlüssel bekommen Sie schon am ersten März, dann können Sie die Zimmer ausmessen. Einziehen können Sie aber erst am fünfzehnten März.",
+          "pictures": [
+            {
+              "pic": "cal:28",
+              "label": "am 28. Februar"
+            },
+            {
+              "pic": "cal:1",
+              "label": "am 1. März"
+            },
+            {
+              "pic": "cal:15",
+              "label": "am 15. März"
+            }
+          ],
+          "answer": 2,
+          "hint": "Er nennt drei Daten. Wann darf sie wirklich einziehen?",
+          "audio": "audio/tts/wohnen-fide-besichtigung-2.mp3"
+        },
+        {
+          "id": "besichtigung-3",
+          "question": "Was darf man auf dem Balkon nicht machen?",
+          "questionTranslation": {
+            "en": "What are you not allowed to do on the balcony?",
+            "ja": "バルコニーでしてはいけないことは何ですか？"
+          },
+          "text": "Makler: Die Hausordnung hier ist sehr streng. Ihr Velo stellen Sie bitte in den Keller, nicht ins Treppenhaus. Partys sind erlaubt, aber nur bis zweiundzwanzig Uhr. Und auf dem Balkon dürfen Sie nie grillieren, sonst bekommen Sie Ärger mit dem Vermieter.",
+          "pictures": [
+            {
+              "pic": "icon:bike",
+              "label": "das Velo abstellen"
+            },
+            {
+              "pic": "icon:party",
+              "label": "eine Party machen"
+            },
+            {
+              "pic": "icon:grill",
+              "label": "grillieren"
+            }
+          ],
+          "answer": 2,
+          "hint": "Hör genau: Was ist auf dem Balkon verboten?",
+          "audio": "audio/tts/wohnen-fide-besichtigung-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "umzug",
+      "level": "A2",
+      "situation": "Herr Keller ist aus der Stadt weggezogen. Er ruft seine Kollegin Frau Nakamura an und erzählt von seiner neuen Wohnung.",
+      "situationTranslation": {
+        "en": "Mr Keller has moved away from the city. He phones his colleague Ms Nakamura and tells her about his new home.",
+        "ja": "ケラーさんは町から引っ越しました。同僚の中村さんに電話して、新しい住まいについて話します。"
+      },
+      "items": [
+        {
+          "id": "umzug-1",
+          "question": "Wo wohnt Herr Keller jetzt?",
+          "questionTranslation": {
+            "en": "Where does Mr Keller live now?",
+            "ja": "ケラーさんは今どこに住んでいますか？"
+          },
+          "text": "Herr Keller: Früher habe ich in einem Hochhaus gewohnt, im zehnten Stock. Meine Schwester wohnt immer noch dort, in der Nähe vom Bahnhof. Ich wohne jetzt auf dem Land, in einem kleinen Haus neben einem Bauernhof. Am Morgen höre ich die Kühe!",
+          "pictures": [
+            {
+              "pic": "icon:building",
+              "label": "in einem Hochhaus"
+            },
+            {
+              "pic": "icon:train",
+              "label": "in der Nähe vom Bahnhof"
+            },
+            {
+              "pic": "icon:house",
+              "label": "in einem Haus neben einem Bauernhof"
+            }
+          ],
+          "answer": 2,
+          "hint": "Er spricht auch von seiner Schwester. Wo wohnt er selbst?",
+          "audio": "audio/tts/wohnen-fide-umzug-1.mp3"
+        },
+        {
+          "id": "umzug-2",
+          "question": "Wie fährt Herr Keller jetzt zur Arbeit?",
+          "questionTranslation": {
+            "en": "How does Mr Keller get to work now?",
+            "ja": "ケラーさんは今、何で仕事に行きますか？"
+          },
+          "text": "Herr Keller: In der Stadt bin ich immer mit dem Tram zur Arbeit gefahren. Hier gibt es zwar einen Bus, aber er fährt nur einmal pro Stunde. Darum nehme ich jetzt jeden Tag das Auto. Das ist praktisch, aber leider teuer.",
+          "pictures": [
+            {
+              "pic": "icon:tram",
+              "label": "mit dem Tram"
+            },
+            {
+              "pic": "icon:bus",
+              "label": "mit dem Bus"
+            },
+            {
+              "pic": "icon:car",
+              "label": "mit dem Auto"
+            }
+          ],
+          "answer": 2,
+          "audio": "audio/tts/wohnen-fide-umzug-2.mp3"
+        },
+        {
+          "id": "umzug-3",
+          "question": "Um wie viel Uhr soll Frau Nakamura zum Fest kommen?",
+          "questionTranslation": {
+            "en": "What time should Ms Nakamura come to the party?",
+            "ja": "中村さんは何時にパーティーに来ればいいですか？"
+          },
+          "text": "Herr Keller: Am Samstag, dem vierzehnten März, mache ich ein kleines Fest. Bis dahin muss ich noch viele Kisten auspacken. Komm doch schon um sechzehn Uhr, dann zeige ich dir zuerst den Garten. Das Essen gibt es um achtzehn Uhr.",
+          "pictures": [
+            {
+              "pic": "clock:14:00",
+              "label": "um vierzehn Uhr"
+            },
+            {
+              "pic": "clock:16:00",
+              "label": "um sechzehn Uhr"
+            },
+            {
+              "pic": "clock:18:00",
+              "label": "um achtzehn Uhr"
+            }
+          ],
+          "answer": 1,
+          "hint": "Die Vierzehn ist das Datum, nicht die Uhrzeit.",
+          "audio": "audio/tts/wohnen-fide-umzug-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "schimmel",
+      "level": "B1",
+      "situation": "Frau Nakamura hat Schimmel im Badezimmer. Sie hat der Hausverwaltung geschrieben. Jetzt ruft der Hauswart an.",
+      "situationTranslation": {
+        "en": "Ms Nakamura has mould in the bathroom. She has written to the property management. Now the caretaker calls.",
+        "ja": "中村さんの浴室にカビが生えています。管理会社に連絡したところ、管理人から電話がかかってきます。"
+      },
+      "items": [
+        {
+          "id": "schimmel-1",
+          "question": "Was soll Frau Nakamura bis Montag machen?",
+          "questionTranslation": {
+            "en": "What should Ms Nakamura do until Monday?",
+            "ja": "中村さんは月曜日まで何をすればいいですか？"
+          },
+          "text": "Hauswart: Guten Tag, Frau Nakamura, hier ist Herr Meier, der Hauswart. Ich habe Ihre Nachricht zum Schimmel im Bad bekommen. Leider kann ich erst am Montag vorbeikommen. Bis dahin lüften Sie bitte dreimal am Tag die ganze Wohnung. Und putzen Sie den Schimmel bitte nicht selbst weg.",
+          "keywords": [
+            "lüft|Fenster|frische Luft"
+          ],
+          "model": "dreimal am Tag die Wohnung lüften",
+          "modelTranslation": {
+            "en": "air the whole flat three times a day",
+            "ja": "1日3回、部屋を換気する"
+          },
+          "hint": "Er sagt zwei Sachen: Eine soll sie machen, eine nicht.",
+          "audio": "audio/tts/wohnen-fide-schimmel-1.mp3"
+        },
+        {
+          "id": "schimmel-2",
+          "question": "Warum bringt der Hauswart einen Luftentfeuchter?",
+          "questionTranslation": {
+            "en": "Why does the caretaker bring a dehumidifier?",
+            "ja": "管理人はなぜ除湿機を持ってくるのですか？"
+          },
+          "text": "Hauswart: Ihr Badezimmer hat kein Fenster, das ist das Problem. Nach dem Duschen bleibt die Luft lange feucht. Ich bringe Ihnen am Montag einen Luftentfeuchter mit. Das Gerät nimmt das Wasser aus der Luft. Sonst kommt der Schimmel immer wieder, auch wenn wir die Wand neu streichen.",
+          "keywords": [
+            "feucht|Wasser|nass|Fenster|Schimmel"
+          ],
+          "model": "Die Luft im Bad ist zu feucht, sonst kommt der Schimmel wieder.",
+          "modelTranslation": {
+            "en": "The air in the bathroom is too damp, otherwise the mould comes back.",
+            "ja": "浴室の空気が湿りすぎていて、そうしないとまたカビが生えるから"
+          },
+          "audio": "audio/tts/wohnen-fide-schimmel-2.mp3"
+        },
+        {
+          "id": "schimmel-3",
+          "question": "Was soll Frau Nakamura machen, wenn die Heizung nicht funktioniert?",
+          "questionTranslation": {
+            "en": "What should Ms Nakamura do if the heating doesn't work?",
+            "ja": "暖房が動かないとき、中村さんはどうすればいいですか？"
+          },
+          "text": "Hauswart: Noch etwas: Drehen Sie die Heizung im Bad nicht ganz ab, auch wenn es Ihnen warm genug ist. In einem kalten Raum gibt es schneller Schimmel. Und wenn die Heizung einmal nicht funktioniert, rufen Sie mich bitte sofort an. Meine Nummer hängt unten im Treppenhaus.",
+          "keywords": [
+            "anruf|telefon|Hauswart|melden|Bescheid"
+          ],
+          "model": "den Hauswart sofort anrufen",
+          "modelTranslation": {
+            "en": "call the caretaker right away",
+            "ja": "すぐに管理人に電話する"
+          },
+          "hint": "Es geht nicht um das Abdrehen. Was soll sie tun, wenn etwas kaputt ist?",
+          "audio": "audio/tts/wohnen-fide-schimmel-3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "makler",
+      "level": "B1",
+      "situation": "Frau Nakamura sucht eine grössere Wohnung. Der Immobilienmakler Herr Brunner ruft sie an.",
+      "situationTranslation": {
+        "en": "Ms Nakamura is looking for a bigger flat. The estate agent Mr Brunner calls her.",
+        "ja": "中村さんはもっと広い部屋を探しています。不動産業者のブルンナーさんから電話がかかってきます。"
+      },
+      "items": [
+        {
+          "id": "makler-1",
+          "question": "Was passiert, wenn Frau Nakamura sich bis heute Abend nicht meldet?",
+          "questionTranslation": {
+            "en": "What happens if Ms Nakamura doesn't get in touch by this evening?",
+            "ja": "中村さんが今晩までに連絡しないと、どうなりますか？"
+          },
+          "text": "Makler: Guten Tag, Frau Nakamura, hier ist Brunner von der Immobilienfirma. Sie hatten Glück: Die Wohnung an der Seestrasse ist noch frei. Viele Leute möchten sie besichtigen. Bitte sagen Sie mir bis heute Abend, ob Sie am Donnerstag kommen. Sonst gebe ich den Termin jemand anderem.",
+          "keywords": [
+            "ander"
+          ],
+          "model": "Er gibt den Termin jemand anderem.",
+          "modelTranslation": {
+            "en": "He gives the appointment to someone else.",
+            "ja": "業者はその予約を別の人に回す"
+          },
+          "hint": "Hör auf das Wort „sonst“.",
+          "audio": "audio/tts/wohnen-fide-makler-1.mp3"
+        },
+        {
+          "id": "makler-2",
+          "question": "Was soll Frau Nakamura zur Besichtigung mitbringen?",
+          "questionTranslation": {
+            "en": "What should Ms Nakamura bring to the viewing?",
+            "ja": "中村さんは内見に何を持っていけばいいですか？"
+          },
+          "text": "Makler: Zur Besichtigung bringen Sie bitte eine Kopie von Ihrem Ausweis und einen Betreibungsauszug mit. Den Arbeitsvertrag brauche ich nicht, den Lohn schreiben Sie einfach ins Formular. Das Formular können Sie direkt nach der Besichtigung bei mir ausfüllen.",
+          "keywords": [
+            "Ausweis|Pass|Identitätskarte|ID",
+            "Betreibung"
+          ],
+          "model": "eine Kopie vom Ausweis und einen Betreibungsauszug",
+          "modelTranslation": {
+            "en": "a copy of her ID and a debt enforcement extract (Betreibungsauszug)",
+            "ja": "身分証明書のコピーと債務記録の証明書（Betreibungsauszug）"
+          },
+          "hint": "Zwei Dokumente soll sie mitbringen, ein drittes nicht.",
+          "audio": "audio/tts/wohnen-fide-makler-2.mp3"
+        },
+        {
+          "id": "makler-3",
+          "question": "Wann bekommt Frau Nakamura die Schlüssel?",
+          "questionTranslation": {
+            "en": "When does Ms Nakamura get the keys?",
+            "ja": "中村さんはいつ鍵をもらえますか？"
+          },
+          "text": "Makler: Wenn alles klappt, unterschreiben wir den Mietvertrag Ende Monat. Nach dem Abschluss des Vertrags bekommen Sie sofort die Schlüssel. Einziehen können Sie dann am ersten April, vorher wird die Küche noch renoviert. Das dauert etwa zwei Wochen.",
+          "keywords": [
+            "Vertrag|unterschreib|Abschluss|Ende Monat"
+          ],
+          "model": "sofort nach dem Abschluss des Mietvertrags, Ende Monat",
+          "modelTranslation": {
+            "en": "right after signing the tenancy agreement, at the end of the month",
+            "ja": "賃貸契約を結んだらすぐ（月末）"
+          },
+          "hint": "Der erste April ist der Tag zum Einziehen.",
+          "audio": "audio/tts/wohnen-fide-makler-3.mp3"
+        }
+      ]
+    }
+  ]
+}
