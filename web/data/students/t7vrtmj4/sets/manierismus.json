@@ -1,0 +1,573 @@
+{
+  "id": "manierismus",
+  "title": "Manierismus",
+  "titleTranslation": "Mannerism",
+  "variety": "de",
+  "status": "published",
+  "cards": [
+    {
+      "id": "manierismus",
+      "term": "der Manierismus",
+      "translation": "Mannerism",
+      "example": "Der Manierismus kommt zwischen der Renaissance und dem Barock.",
+      "exampleTranslation": "Mannerism comes between the Renaissance and the Baroque.",
+      "hint": "Eine Kunstrichtung aus Italien, etwa von 1520 bis 1600. Die Körper sind lang und die Farben künstlich.",
+      "audio": "audio/tts/manierismus-manierismus.mp3",
+      "exampleAudio": "audio/tts/manierismus-manierismus-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-manierismus-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-manierismus-tipp.mp3"
+    },
+    {
+      "id": "epoche",
+      "term": "die Epoche",
+      "plural": "die Epochen",
+      "translation": "era, period",
+      "example": "Der Manierismus ist eine kurze Epoche, nur etwa achtzig Jahre lang.",
+      "exampleTranslation": "Mannerism is a short period, only about eighty years long.",
+      "hint": "Eine lange Zeit in der Geschichte, zum Beispiel die Renaissance oder das Barock.",
+      "audio": "audio/tts/manierismus-epoche.mp3",
+      "exampleAudio": "audio/tts/manierismus-epoche-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-epoche-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-epoche-tipp.mp3"
+    },
+    {
+      "id": "gleichgewicht",
+      "term": "das Gleichgewicht",
+      "translation": "balance",
+      "example": "In der Renaissance ist im Bild alles im Gleichgewicht.",
+      "exampleTranslation": "In the Renaissance, everything in the painting is in balance.",
+      "hint": "Links und rechts ist gleich viel, nichts fällt um.",
+      "audio": "audio/tts/manierismus-gleichgewicht.mp3",
+      "exampleAudio": "audio/tts/manierismus-gleichgewicht-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-gleichgewicht-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-gleichgewicht-tipp.mp3"
+    },
+    {
+      "id": "uebertreiben",
+      "term": "übertreiben",
+      "translation": "to exaggerate",
+      "example": "Die Maler übertreiben die Formen ganz bewusst.",
+      "exampleTranslation": "The painters exaggerate the shapes quite deliberately.",
+      "hint": "Etwas größer oder stärker machen, als es wirklich ist.",
+      "audio": "audio/tts/manierismus-uebertreiben.mp3",
+      "exampleAudio": "audio/tts/manierismus-uebertreiben-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-uebertreiben-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-uebertreiben-tipp.mp3"
+    },
+    {
+      "id": "verlaengert",
+      "term": "verlängert",
+      "translation": "elongated, lengthened",
+      "example": "Der Hals der Madonna ist stark verlängert.",
+      "exampleTranslation": "The Madonna's neck is strongly elongated.",
+      "hint": "Länger gemacht, als es normal ist.",
+      "audio": "audio/tts/manierismus-verlaengert.mp3",
+      "exampleAudio": "audio/tts/manierismus-verlaengert-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-verlaengert-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-verlaengert-tipp.mp3"
+    },
+    {
+      "id": "hals",
+      "term": "der Hals",
+      "plural": "die Hälse",
+      "translation": "neck",
+      "example": "Das Bild heißt „Madonna mit dem langen Hals“.",
+      "exampleTranslation": "The painting is called 'Madonna with the Long Neck'.",
+      "hint": "Er ist zwischen dem Kopf und den Schultern.",
+      "audio": "audio/tts/manierismus-hals.mp3",
+      "exampleAudio": "audio/tts/manierismus-hals-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-hals-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-hals-tipp.mp3"
+    },
+    {
+      "id": "verdreht",
+      "term": "verdreht",
+      "translation": "twisted",
+      "example": "Der Körper ist verdreht wie eine Schlange.",
+      "exampleTranslation": "The body is twisted like a snake.",
+      "hint": "Nicht gerade. Oben dreht sich der Körper nach links, unten nach rechts.",
+      "audio": "audio/tts/manierismus-verdreht.mp3",
+      "exampleAudio": "audio/tts/manierismus-verdreht-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-verdreht-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-verdreht-tipp.mp3"
+    },
+    {
+      "id": "kuenstlich",
+      "term": "künstlich",
+      "translation": "artificial",
+      "example": "Die Farben sind nicht natürlich, sondern künstlich.",
+      "exampleTranslation": "The colors are not natural but artificial.",
+      "hint": "Von Menschen gemacht, nicht von der Natur.",
+      "audio": "audio/tts/manierismus-kuenstlich.mp3",
+      "exampleAudio": "audio/tts/manierismus-kuenstlich-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-kuenstlich-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-kuenstlich-tipp.mp3"
+    },
+    {
+      "id": "wirken",
+      "term": "wirken",
+      "translation": "to seem, to come across",
+      "example": "Die Farben wirken kühl und ein bisschen seltsam.",
+      "exampleTranslation": "The colors seem cool and a bit strange.",
+      "hint": "So aussehen, so einen Eindruck machen. Zum Beispiel: Das Bild sieht ruhig aus.",
+      "audio": "audio/tts/manierismus-wirken.mp3",
+      "exampleAudio": "audio/tts/manierismus-wirken-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-wirken-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-wirken-tipp.mp3"
+    },
+    {
+      "id": "unruhig",
+      "term": "unruhig",
+      "translation": "restless, agitated",
+      "example": "Viele Figuren stehen eng zusammen, deshalb ist das Bild unruhig.",
+      "exampleTranslation": "Many figures stand close together, so the painting is restless.",
+      "hint": "Nicht ruhig. Alles bewegt sich, das Auge findet keinen Platz.",
+      "audio": "audio/tts/manierismus-unruhig.mp3",
+      "exampleAudio": "audio/tts/manierismus-unruhig-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-unruhig-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-unruhig-tipp.mp3"
+    },
+    {
+      "id": "seltsam",
+      "term": "seltsam",
+      "translation": "strange, odd",
+      "example": "Arcimboldo malt seltsame Köpfe aus Obst und Gemüse.",
+      "exampleTranslation": "Arcimboldo paints strange heads made of fruit and vegetables.",
+      "hint": "Ganz anders als normal, ein bisschen komisch.",
+      "audio": "audio/tts/manierismus-seltsam.mp3",
+      "exampleAudio": "audio/tts/manierismus-seltsam-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-seltsam-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-seltsam-tipp.mp3"
+    },
+    {
+      "id": "hofmaler",
+      "term": "der Hofmaler",
+      "plural": "die Hofmaler",
+      "translation": "court painter",
+      "example": "Arcimboldo ist Hofmaler beim Kaiser in Wien und Prag.",
+      "exampleTranslation": "Arcimboldo is court painter to the emperor in Vienna and Prague.",
+      "hint": "Ein Maler, der für einen König oder einen Kaiser arbeitet.",
+      "audio": "audio/tts/manierismus-hofmaler.mp3",
+      "exampleAudio": "audio/tts/manierismus-hofmaler-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-hofmaler-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-hofmaler-tipp.mp3"
+    },
+    {
+      "id": "zusammensetzen",
+      "term": "zusammensetzen",
+      "translation": "to put together, to assemble",
+      "example": "Er kann aus Blumen, Früchten und Blättern ein Gesicht zusammensetzen.",
+      "exampleTranslation": "He can put together a face from flowers, fruit and leaves.",
+      "hint": "Aus vielen kleinen Teilen ein Ganzes machen, wie bei einem Puzzle.",
+      "audio": "audio/tts/manierismus-zusammensetzen.mp3",
+      "exampleAudio": "audio/tts/manierismus-zusammensetzen-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-zusammensetzen-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-zusammensetzen-tipp.mp3"
+    },
+    {
+      "id": "jahreszeit",
+      "term": "die Jahreszeit",
+      "plural": "die Jahreszeiten",
+      "translation": "season",
+      "example": "Arcimboldo malt die vier Jahreszeiten als Köpfe.",
+      "exampleTranslation": "Arcimboldo paints the four seasons as heads.",
+      "hint": "Frühling, Sommer, Herbst und Winter.",
+      "audio": "audio/tts/manierismus-jahreszeit.mp3",
+      "exampleAudio": "audio/tts/manierismus-jahreszeit-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-jahreszeit-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-jahreszeit-tipp.mp3"
+    },
+    {
+      "id": "wunderkammer",
+      "term": "die Wunderkammer",
+      "plural": "die Wunderkammern",
+      "translation": "cabinet of curiosities",
+      "example": "In seiner Wunderkammer sammelt der Kaiser seltsame Dinge aus aller Welt.",
+      "exampleTranslation": "In his cabinet of curiosities, the emperor collects strange things from all over the world.",
+      "hint": "Ein Raum voller Schätze, Muscheln, Uhren und seltsamer Dinge. So beginnen die ersten Museen.",
+      "audio": "audio/tts/manierismus-wunderkammer.mp3",
+      "exampleAudio": "audio/tts/manierismus-wunderkammer-satz.mp3",
+      "gapAudio": "audio/tts/manierismus-wunderkammer-luecke.mp3",
+      "hintAudio": "audio/tts/manierismus-wunderkammer-tipp.mp3"
+    }
+  ],
+  "cloze": [
+    {
+      "id": "k1",
+      "text": "Der Manierismus dauert etwa von 1520 bis ___.",
+      "answers": [
+        "1600"
+      ],
+      "options": [
+        "1600",
+        "1650",
+        "1800"
+      ],
+      "translation": "Mannerism lasts from about 1520 to 1600.",
+      "hint": "Das Ende vom 16. Jahrhundert. Danach kommt das Barock."
+    },
+    {
+      "id": "k2",
+      "text": "Das italienische Wort „maniera“ bedeutet Art und Weise oder ___.",
+      "answers": [
+        "Stil"
+      ],
+      "options": [
+        "Stil",
+        "Farbe",
+        "Schönheit"
+      ],
+      "translation": "The Italian word 'maniera' means manner or style.",
+      "hint": "Die typische Art, wie jemand malt oder schreibt."
+    },
+    {
+      "id": "k3",
+      "text": "Parmigianino kommt aus der Stadt ___ in Italien.",
+      "answers": [
+        "Parma"
+      ],
+      "options": [
+        "Parma",
+        "Florenz",
+        "Mailand"
+      ],
+      "translation": "Parmigianino comes from the city of Parma in Italy.",
+      "hint": "Sein Name sagt es schon."
+    },
+    {
+      "id": "k4",
+      "text": "Parmigianino stirbt 1540, mit nur ___ Jahren.",
+      "answers": [
+        "37",
+        "siebenunddreißig"
+      ],
+      "translation": "Parmigianino dies in 1540, at only 37.",
+      "hint": "Dreißig plus sieben."
+    },
+    {
+      "id": "k5",
+      "text": "Arcimboldo malt den Kaiser als ___, den römischen Gott der Jahreszeiten.",
+      "answers": [
+        "Vertumnus"
+      ],
+      "options": [
+        "Vertumnus",
+        "Vulkan",
+        "Venus"
+      ],
+      "translation": "Arcimboldo paints the emperor as Vertumnus, the Roman god of the seasons.",
+      "hint": "Ein Gott, kein Planet. Er hat mit Obst, Blumen und dem Wechsel der Jahreszeiten zu tun."
+    },
+    {
+      "id": "k6",
+      "text": "Die Menschen glauben, es ist das Horn von einem ___. In Wirklichkeit ist es der Zahn von einem Narwal.",
+      "answers": [
+        "Einhorn"
+      ],
+      "options": [
+        "Einhorn",
+        "Elefanten",
+        "Pferd"
+      ],
+      "translation": "People believe it is the horn of a unicorn. In reality it is the tooth of a narwhal.",
+      "hint": "Ein weißes Pferd aus dem Märchen mit einem Horn auf der Stirn."
+    }
+  ],
+  "listening": [
+    {
+      "id": "h1",
+      "title": "Was ist Manierismus?",
+      "titleTranslation": "What is Mannerism?",
+      "text": "Um das Jahr 1500 malen in Italien große Künstler wie Leonardo da Vinci, Raffael und Michelangelo. Diese Zeit heißt Hochrenaissance.\nIhre Bilder sind ruhig und klar. Die Menschen sehen natürlich aus, und im Bild ist alles im Gleichgewicht.\nEtwa ab 1520 wollen junge Maler etwas Neues. Sie übertreiben die Formen ganz bewusst.\nDie Körper sind sehr lang, die Hälse und die Finger auch. Die Figuren sind verdreht wie eine Schlange, und die Farben wirken kühl und künstlich.\nDiese Epoche nennt man heute Manierismus. Das Wort kommt vom italienischen Wort „maniera“, das bedeutet Art und Weise oder Stil.\nDer Manierismus dauert etwa bis 1600. Danach kommt das Barock.",
+      "questions": [
+        {
+          "q": "Wer malte um 1500 in Italien?",
+          "options": [
+            "Leonardo, Raffael und Michelangelo",
+            "Monet, Liebermann und Corinth",
+            "Kandinsky, Marc und Kirchner"
+          ],
+          "answer": 0,
+          "translation": "Who painted in Italy around 1500?"
+        },
+        {
+          "q": "Wie sind die Bilder der Hochrenaissance?",
+          "options": [
+            "Unruhig und verdreht",
+            "Ruhig, klar und im Gleichgewicht",
+            "Dunkel und traurig"
+          ],
+          "answer": 1,
+          "translation": "What are the paintings of the High Renaissance like?"
+        },
+        {
+          "q": "Was machen die jungen Maler ab 1520?",
+          "options": [
+            "Sie malen nur noch Landschaften",
+            "Sie malen alles ganz genau",
+            "Sie übertreiben die Formen"
+          ],
+          "answer": 2,
+          "translation": "What do the young painters do from 1520 on?"
+        },
+        {
+          "q": "Wie wirken die Farben im Manierismus?",
+          "options": [
+            "Kühl und künstlich",
+            "Warm und natürlich",
+            "Kräftig und leuchtend"
+          ],
+          "answer": 0,
+          "translation": "How do the colors in Mannerism come across?"
+        },
+        {
+          "q": "Was bedeutet das Wort „maniera“?",
+          "options": [
+            "Schönheit",
+            "Art und Weise, Stil",
+            "Gleichgewicht"
+          ],
+          "answer": 1,
+          "translation": "What does the word 'maniera' mean?"
+        }
+      ],
+      "audio": "audio/tts/manierismus-h1.mp3"
+    },
+    {
+      "id": "h2",
+      "title": "Die Madonna mit dem langen Hals",
+      "titleTranslation": "The Madonna with the Long Neck",
+      "text": "Der Maler Parmigianino kommt aus Parma in Italien. Sein Name bedeutet ungefähr „der Kleine aus Parma“.\nUm 1535 beginnt er ein Bild für eine Kirche in Parma. Heute nennt man es „Madonna mit dem langen Hals“.\nMaria ist sehr groß, ihr Hals ist stark verlängert, und ihre Finger sind lang und dünn.\nDas Jesuskind liegt auf ihrem Schoß. Es ist sehr groß und sieht aus, als ob es gleich herunterrutscht.\nLinks stehen viele Engel eng zusammen. Rechts sieht man eine hohe Säule und davor einen ganz kleinen Mann. Das Bild wirkt seltsam und unruhig.\nParmigianino wird nicht fertig. Er stirbt 1540, mit nur siebenunddreißig Jahren. Heute hängt das Bild in den Uffizien in Florenz.",
+      "questions": [
+        {
+          "q": "Woher kommt Parmigianino?",
+          "options": [
+            "Aus Florenz",
+            "Aus Parma",
+            "Aus Rom"
+          ],
+          "answer": 1,
+          "translation": "Where does Parmigianino come from?"
+        },
+        {
+          "q": "Was ist an Maria besonders?",
+          "options": [
+            "Ihr Hals ist sehr lang",
+            "Sie trägt eine goldene Krone",
+            "Sie ist ganz klein"
+          ],
+          "answer": 0,
+          "translation": "What is special about Mary?"
+        },
+        {
+          "q": "Wie sieht das Jesuskind aus?",
+          "options": [
+            "Klein, es schläft",
+            "Sehr groß, als ob es herunterrutscht",
+            "Es steht neben der Säule"
+          ],
+          "answer": 1,
+          "translation": "What does the baby Jesus look like?"
+        },
+        {
+          "q": "Was sieht man rechts im Bild?",
+          "options": [
+            "Viele Engel",
+            "Einen Garten mit Teich",
+            "Eine Säule und einen kleinen Mann"
+          ],
+          "answer": 2,
+          "translation": "What can you see on the right of the painting?"
+        },
+        {
+          "q": "Wo hängt das Bild heute?",
+          "options": [
+            "In den Uffizien in Florenz",
+            "Im Louvre in Paris",
+            "In einer Kirche in Parma"
+          ],
+          "answer": 0,
+          "translation": "Where does the painting hang today?"
+        }
+      ],
+      "audio": "audio/tts/manierismus-h2.mp3"
+    },
+    {
+      "id": "h3",
+      "title": "Arcimboldo und seine seltsamen Köpfe",
+      "titleTranslation": "Arcimboldo and his strange heads",
+      "text": "Giuseppe Arcimboldo wird 1526 in Mailand geboren. Im Jahr 1562 geht er nach Wien und wird Hofmaler beim Kaiser.\nSpäter lebt der Kaiserhof in Prag. Dort arbeitet Arcimboldo für Kaiser Rudolf den Zweiten.\nArcimboldo malt sehr seltsame Köpfe. Er setzt Gesichter aus Obst, Gemüse, Blumen oder Tieren zusammen.\nEine bekannte Serie zeigt die vier Jahreszeiten. Der Sommer ist ein Kopf aus Früchten und Gemüse. Der Winter ist ein alter Baumstamm mit einer Zitrone und einer Orange.\nUm 1590 malt er den Kaiser selbst als Vertumnus, den römischen Gott der Jahreszeiten. Der Kaiser ist nicht böse, er freut sich über das Bild.\nEinige Bilder der Jahreszeiten kann man heute im Kunsthistorischen Museum in Wien sehen.",
+      "questions": [
+        {
+          "q": "Wo wurde Arcimboldo geboren?",
+          "options": [
+            "In Wien",
+            "In Mailand",
+            "In Prag"
+          ],
+          "answer": 1,
+          "translation": "Where was Arcimboldo born?"
+        },
+        {
+          "q": "Was war Arcimboldo beim Kaiser?",
+          "options": [
+            "Hofmaler",
+            "Koch",
+            "Gärtner"
+          ],
+          "answer": 0,
+          "translation": "What was Arcimboldo at the emperor's court?"
+        },
+        {
+          "q": "Woraus setzt er seine Gesichter zusammen?",
+          "options": [
+            "Aus Steinen und Holz",
+            "Aus Papier und Stoff",
+            "Aus Obst, Gemüse, Blumen oder Tieren"
+          ],
+          "answer": 2,
+          "translation": "What does he put his faces together from?"
+        },
+        {
+          "q": "Wie sieht der Winter aus?",
+          "options": [
+            "Wie ein Kopf aus Blumen",
+            "Wie ein alter Baumstamm",
+            "Wie ein Kopf aus Fischen"
+          ],
+          "answer": 1,
+          "translation": "What does Winter look like?"
+        },
+        {
+          "q": "Wie reagierte der Kaiser auf sein Bild?",
+          "options": [
+            "Er war böse",
+            "Er freute sich",
+            "Er verkaufte das Bild"
+          ],
+          "answer": 1,
+          "translation": "How did the emperor react to his portrait?"
+        }
+      ],
+      "audio": "audio/tts/manierismus-h3.mp3"
+    },
+    {
+      "id": "h4",
+      "title": "In der Wunderkammer",
+      "titleTranslation": "In the cabinet of curiosities",
+      "text": "Führerin: Willkommen in der Wunderkammer! So einen Raum hatten im sechzehnten Jahrhundert viele Kaiser und Fürsten.\nTom: Was ist denn eine Wunderkammer?\nFührerin: Ein Raum voller Schätze und seltsamer Dinge aus aller Welt. Hier liegen Muscheln, Korallen, Uhren und kleine Figuren aus Elfenbein.\nTom: Und was ist das lange weiße Ding da?\nFührerin: Die Menschen damals glaubten, es ist das Horn von einem Einhorn. In Wirklichkeit ist es der Zahn von einem Narwal.\nTom: Ein Zahn? Der ist ja über zwei Meter lang!\nFührerin: Genau. Kaiser Rudolf der Zweite hatte in Prag eine sehr große Wunderkammer. Aus solchen Sammlungen entstehen später die ersten Museen.",
+      "questions": [
+        {
+          "q": "Wer hatte im 16. Jahrhundert eine Wunderkammer?",
+          "options": [
+            "Viele Kaiser und Fürsten",
+            "Nur die Maler",
+            "Alle Bauern"
+          ],
+          "answer": 0,
+          "translation": "Who had a cabinet of curiosities in the 16th century?"
+        },
+        {
+          "q": "Was liegt in der Wunderkammer?",
+          "options": [
+            "Bücher und Zeitungen",
+            "Muscheln, Korallen, Uhren und Figuren",
+            "Obst und Gemüse"
+          ],
+          "answer": 1,
+          "translation": "What is in the cabinet of curiosities?"
+        },
+        {
+          "q": "Was glaubten die Menschen über das lange weiße Ding?",
+          "options": [
+            "Es ist ein Zahn vom Elefanten",
+            "Es ist ein Knochen von einem Drachen",
+            "Es ist das Horn von einem Einhorn"
+          ],
+          "answer": 2,
+          "translation": "What did people believe about the long white thing?"
+        },
+        {
+          "q": "Was ist es in Wirklichkeit?",
+          "options": [
+            "Der Zahn von einem Narwal",
+            "Ein Stück Elfenbein",
+            "Das Horn von einer Kuh"
+          ],
+          "answer": 0,
+          "translation": "What is it really?"
+        },
+        {
+          "q": "Was entsteht später aus solchen Sammlungen?",
+          "options": [
+            "Die ersten Schulen",
+            "Die ersten Museen",
+            "Die ersten Kirchen"
+          ],
+          "answer": 1,
+          "translation": "What later develops from such collections?"
+        }
+      ],
+      "audio": "audio/tts/manierismus-h4.mp3"
+    },
+    {
+      "id": "h5",
+      "title": "Male eine Figur wie im Manierismus",
+      "titleTranslation": "Paint a figure like in Mannerism",
+      "text": "Male eine junge Frau. Sie sitzt auf einem Stuhl, aber ihr Körper ist verdreht.\nIhr Kopf schaut nach links, ihre Schultern nach rechts. Ihr Hals ist sehr lang, und ihre Finger sind lang und dünn.\nSie trägt ein Kleid in Hellblau und Rosa. Die Farben sind kühl und glänzen wie Seide.\nHinter ihr ist kein Garten und kein Zimmer, nur eine dunkelgrüne Wand.\nDu darfst übertreiben! Dein Bild soll elegant, aber ein bisschen seltsam wirken.",
+      "questions": [
+        {
+          "q": "Wie ist der Körper der Frau?",
+          "options": [
+            "Gerade",
+            "Verdreht",
+            "Sehr klein"
+          ],
+          "answer": 1,
+          "translation": "What is the woman's body like?"
+        },
+        {
+          "q": "Wohin schaut ihr Kopf?",
+          "options": [
+            "Nach links",
+            "Nach rechts",
+            "Nach oben"
+          ],
+          "answer": 0,
+          "translation": "Which way is her head looking?"
+        },
+        {
+          "q": "Welche Farben hat das Kleid?",
+          "options": [
+            "Rot und Gold",
+            "Hellblau und Rosa",
+            "Schwarz und Weiß"
+          ],
+          "answer": 1,
+          "translation": "What colors is the dress?"
+        },
+        {
+          "q": "Was ist hinter ihr?",
+          "options": [
+            "Ein Garten",
+            "Ein Zimmer mit Fenster",
+            "Eine dunkelgrüne Wand"
+          ],
+          "answer": 2,
+          "translation": "What is behind her?"
+        },
+        {
+          "q": "Wie soll das Bild wirken?",
+          "options": [
+            "Elegant, aber ein bisschen seltsam",
+            "Ruhig und natürlich",
+            "Lustig und bunt"
+          ],
+          "answer": 0,
+          "translation": "How should the painting come across?"
+        }
+      ],
+      "audio": "audio/tts/manierismus-h5.mp3"
+    }
+  ]
+}
